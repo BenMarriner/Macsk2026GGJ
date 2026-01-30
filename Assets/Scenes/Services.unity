@@ -362,9 +362,17 @@ MonoBehaviour:
   - {fileID: 1629886003}
   - {fileID: 1408839691}
   - {fileID: 2138460445}
-  SoundAudioClipArray: []
-  MusicAudioClipArray: []
-  _mixer: {fileID: 0}
+  SoundAudioClipArray:
+  - sound: 0
+    audioClip: {fileID: 8300000, guid: 3cab5f4c91431e540a787ef2c16d805a, type: 3}
+    randomisePitch: 1
+    volume: 1
+  MusicAudioClipArray:
+  - sound: 1
+    audioClip: {fileID: 8300000, guid: 963361a16021d72419d9ad9d9a1f6ea5, type: 3}
+    randomisePitch: 0
+    volume: 1
+  _mixer: {fileID: 24100000, guid: 59b36550b0be81248bdf896c8c4c08e0, type: 2}
 --- !u!1 &525729795
 GameObject:
   m_ObjectHideFlags: 0

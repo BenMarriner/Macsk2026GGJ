@@ -11,4 +11,9 @@ public enum EventKey
     MUTEMUSIC_TOGGLE,
     SFX_VOLUME_CHANGED,
     MUSIC_VOLUME_CHANGED,
+
+    // scene system manager
+    OPEN_SCENE,
+    QUIT_GAME,
+    LOADING_COMPLETE,
 }

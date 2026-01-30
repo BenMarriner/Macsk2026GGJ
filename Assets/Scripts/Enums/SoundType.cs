@@ -5,7 +5,7 @@ public enum SoundType
     ExampleMusic = 1,
     
     // SFX
-
+    ButtonClick = 2,
 
     // Music
 

@@ -367,6 +367,10 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 3cab5f4c91431e540a787ef2c16d805a, type: 3}
     randomisePitch: 1
     volume: 1
+  - sound: 2
+    audioClip: {fileID: 8300000, guid: 3cab5f4c91431e540a787ef2c16d805a, type: 3}
+    randomisePitch: 1
+    volume: 1
   MusicAudioClipArray:
   - sound: 1
     audioClip: {fileID: 8300000, guid: 963361a16021d72419d9ad9d9a1f6ea5, type: 3}

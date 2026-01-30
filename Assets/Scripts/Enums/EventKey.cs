@@ -3,5 +3,12 @@ public enum EventKey
 {
     TEST_EVENT,
 
-    REQUEST_DATA,
+    // sound events
+    SFX,
+    MUSIC,
+    STOP_MUSIC,
+    PAUSE_MUSIC,
+    MUTEMUSIC_TOGGLE,
+    SFX_VOLUME_CHANGED,
+    MUSIC_VOLUME_CHANGED,
 }

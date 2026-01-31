@@ -22,4 +22,9 @@ public enum EventKey
 
     // mask switching
     MASK_MODE_CHANGED,
+    
+    // Interaction
+    INTERACTABLE_HIGHLIGHTED,
+    INTERACTABLE_UNHIGHLIGHTED,
+    INTERACTABLE_INTERACTED
 }

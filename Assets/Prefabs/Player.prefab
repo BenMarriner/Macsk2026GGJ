@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 4656890721979414612}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -293,7 +293,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7776251590875880125}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 4c6704fecef9d9e4a95092134ec675ed, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

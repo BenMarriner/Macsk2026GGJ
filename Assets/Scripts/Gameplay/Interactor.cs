@@ -3,6 +3,12 @@ using System.Xml.Serialization;
 using UnityEditor;
 using UnityEngine;
 
+interface IInteractable
+{
+    public void Interact();
+}
+
+
 public class Interactor : MonoBehaviour
 {
     public float Distance = 1500.0f;
@@ -50,9 +56,9 @@ public class Interactor : MonoBehaviour
     private bool IsValidInteractable(GameObject hitObject)
     {
         if (!hitObject) return false;
-
-        Interactable interactableComponent = hitObject.GetComponent<Interactable>();
-        if (!interactableComponent) return false;
+        
+        if (!hitObject.TryGetComponent(out IInteractable interactable)) return false;
+        
         return true;
     }
 
@@ -114,5 +120,14 @@ public class Interactor : MonoBehaviour
     
     void ObjectInteractedHandler(object eventData)
     {
+        
+    }
+
+    public void InteractWithObject()
+    {
+        if (CurrentHit.transform.gameObject.TryGetComponent(out IInteractable interactable))
+        {
+            interactable.Interact();
+        }
     }
 }

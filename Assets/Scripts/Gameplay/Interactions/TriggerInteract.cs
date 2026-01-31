@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TriggerInteract : MonoBehaviour, IInteractable
+public class TriggerInteract : GreenObject, IInteractable
 {
     private bool isTriggered = false;
     
@@ -15,6 +15,7 @@ public class TriggerInteract : MonoBehaviour, IInteractable
     
     public void Interact()
     {
+        DebugLogger.Log();
         if (isTriggered)  return;
         isTriggered = !isTriggered;
         

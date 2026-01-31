@@ -4,14 +4,14 @@ public class GreenObject : MaskChangeDetector
 {
     [SerializeField] private Material _greenMaterial;
     private Material _defaultObjectMaterial;
-    private Mesh _objectMesh;
+    // private Mesh _objectMesh;
 
     private Renderer _objectRenderer;
 
     protected virtual void Start()
     {
-        _objectMesh = GetComponent<Mesh>();
-        _objectRenderer = GetComponent<Renderer>();
+        // _objectMesh = GetComponentInChildren<Mesh>();
+        _objectRenderer = GetComponentInChildren<Renderer>();
         if (_objectRenderer != null)
         {
             _defaultObjectMaterial = _objectRenderer.material;

@@ -142,7 +142,7 @@ public class Interactor : MaskChangeDetector
             return;
         }
 
-        if (! CurrentHit.transform)
+        if (!CurrentHit.transform || ! CurrentHit.transform.parent)
         {
             return;
         }

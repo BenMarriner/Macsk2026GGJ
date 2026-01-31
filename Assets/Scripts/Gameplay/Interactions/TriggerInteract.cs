@@ -15,7 +15,7 @@ public class TriggerInteract : GreenObject, IInteractable
     
     public void Interact()
     {
-        DebugLogger.Log();
+        DebugLogger.Log("interact");
         if (isTriggered)  return;
         isTriggered = !isTriggered;
         

@@ -57,11 +57,17 @@ public class Interactor : MaskChangeDetector
 
         // Send out unhighlighted event for previous object
         if (IsValidInteractable(PreviousHitObject))
+        {
             EventManager.TriggerEvent(EventKey.INTERACTABLE_UNHIGHLIGHTED, PreviousHitObject);
+            DebugLogger.Log("PrevHitObj");
+        }
         
         // Send out highlighted event for current object
         if (IsValidInteractable(HitObject))
+        {
             EventManager.TriggerEvent(EventKey.INTERACTABLE_HIGHLIGHTED, HitObject);
+            DebugLogger.Log("HitObject");
+        }
     }
 
     private bool IsValidInteractable(GameObject hitObject)
@@ -142,14 +148,22 @@ public class Interactor : MaskChangeDetector
             return;
         }
 
-        if (!CurrentHit.transform || ! CurrentHit.transform.parent)
+        if (CurrentHit.transform)
         {
+            if (CurrentHit.transform.gameObject.TryGetComponent(out IInteractable interactable))
+            {
+                interactable.Interact();
+            }
             return;
         }
 
-        if (CurrentHit.transform.parent.gameObject.TryGetComponent(out IInteractable interactable))
+        if (CurrentHit.transform.parent)
         {
-            interactable.Interact();
+            if (CurrentHit.transform.parent.gameObject.TryGetComponent(out IInteractable interactable))
+            {
+                interactable.Interact();
+            }
+            return;
         }
     }
 

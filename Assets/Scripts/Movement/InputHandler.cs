@@ -184,7 +184,7 @@ public class InputHandler : MonoBehaviour
     }
     private void AssignInputs()
     {
-        Debug.Log("Assigning inputs");
+        //Debug.Log("Assigning inputs");
         _inputEnabled = true;
         inputReader.MoveEvent += HandleMove;
         inputReader.LookEvent += HandleLook;
@@ -198,7 +198,7 @@ public class InputHandler : MonoBehaviour
     }
     private void UnassignInputs()
     {
-        Debug.Log("Unassigning inputs");
+        //Debug.Log("Unassigning inputs");
         _inputEnabled = false;
         inputReader.MoveEvent -= HandleMove;
         inputReader.LookEvent -= HandleLook;

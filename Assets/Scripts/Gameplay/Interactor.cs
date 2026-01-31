@@ -8,6 +8,10 @@ interface IInteractable
     public void Interact();
 }
 
+interface IActivate
+{
+    public void Activate();
+}
 
 public class Interactor : MaskChangeDetector
 {
@@ -143,7 +147,7 @@ public class Interactor : MaskChangeDetector
             return;
         }
 
-        if (CurrentHit.transform.gameObject.TryGetComponent(out IInteractable interactable))
+        if (CurrentHit.transform.parent.gameObject.TryGetComponent(out IInteractable interactable))
         {
             interactable.Interact();
         }

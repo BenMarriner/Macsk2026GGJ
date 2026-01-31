@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static PlayerInputScheme;
@@ -14,6 +12,8 @@ public class InputReader : ScriptableObject, IFirstPersonInputsActions
     public event Action<bool> JumpEvent;
     public event Action<bool> CrouchEvent;
     public event Action<bool> SprintEvent;
+    public event Action<float> ToggleMaskEvent;
+    public event Action<bool> InteractEvent;
 
     [Range(1f, 500f)] public float mouseSensitivityX = 200f;
     [Range(1f, 500f)] public float mouseSensitivityY = 200f;
@@ -32,11 +32,10 @@ public class InputReader : ScriptableObject, IFirstPersonInputsActions
 
     private void OnDisable()
     {
-        if (_controls != null)
-        {
-            _controls.FirstPersonInputs.RemoveCallbacks(this);
-            _controls.FirstPersonInputs.Disable();
-        }
+        if (_controls == null) return;
+        
+        _controls.FirstPersonInputs.RemoveCallbacks(this);
+        _controls.FirstPersonInputs.Disable();
     }
 
     public void OnMovement(InputAction.CallbackContext context)
@@ -49,4 +48,8 @@ public class InputReader : ScriptableObject, IFirstPersonInputsActions
     { CrouchEvent?.Invoke(context.action.IsPressed()); }
     public void OnSprint(InputAction.CallbackContext context)
     { SprintEvent?.Invoke(context.action.IsPressed()); }
+    public void OnToggleMask(InputAction.CallbackContext context)
+    { ToggleMaskEvent?.Invoke(context.ReadValue<float>()); }
+    public void OnInteract(InputAction.CallbackContext context)
+    { InteractEvent?.Invoke(context.action.IsPressed()); }
 }

@@ -1,5 +1,25 @@
 using UnityEngine;
 
+// false -> true is down button press change (0)
+// true -> false is up button release change (1)
+public struct InputDetector
+{
+    public bool InputState;
+    private bool _previousInputState;
+
+    public int HasStateChanged()
+    {
+        int result = -1;
+        if (!_previousInputState && InputState)
+        { result = 0; }
+        else if (_previousInputState && !InputState)
+        { result = 1; }
+        _previousInputState = InputState;
+        return result;
+    }
+}
+
+
 public class InputHandler : MonoBehaviour
 {
     [SerializeField] private InputReader inputReader;
@@ -64,6 +84,16 @@ public class InputHandler : MonoBehaviour
         }
     }
     
+    // 1 or -1
+    private float _toggleMaskInput = 0;
+    private void HandleToggleMask(float val)
+    {
+        _toggleMaskInput = val;
+    }
+    private bool _interactInput = false;
+    private void HandleInteract(bool val)
+    { _interactInput = val; }
+    
     #endregion
     private void OnDisable()
     { UnassignInputs(); }
@@ -76,8 +106,11 @@ public class InputHandler : MonoBehaviour
         {
             if (!_playerComponentHolder.TryGetComponent(out CharacterMovementController cmc)) return;
             _characterMovementController = cmc;
-                
-            // TODO: Need to figure out alternate means for input reading these
+            
+            //TODO: Get reference to MASK TOGGLE script here
+            
+            //TODO: Get reference to INTERACTION script here
+            
             //GetExtraInputFeatureComponents();
         }
         else
@@ -118,7 +151,10 @@ public class InputHandler : MonoBehaviour
         _characterMovementController.SetCapabilities(
             enableSprint, enableCrouch);
         
-        // TODO: Need to figure out alternate means for input reading these
+        //TODO: Setup capabilities for MASK TOGGLE script here
+        
+        //TODO: Setup capabilities for INTERACTION script here
+        
         // For disabling unused scripts
         //SetupExtraInputFeatureCapabilities();
     }
@@ -142,6 +178,8 @@ public class InputHandler : MonoBehaviour
         inputReader.JumpEvent += HandleJump;
         inputReader.CrouchEvent += HandleCrouch;
         inputReader.SprintEvent += HandleSprint;
+        inputReader.ToggleMaskEvent += HandleToggleMask;
+        inputReader.InteractEvent += HandleInteract;
 
         AssignExtraInputFeatures();
     }
@@ -153,6 +191,8 @@ public class InputHandler : MonoBehaviour
         inputReader.JumpEvent -= HandleJump;
         inputReader.CrouchEvent -= HandleCrouch;
         inputReader.SprintEvent -= HandleSprint;
+        inputReader.ToggleMaskEvent -= HandleToggleMask;
+        inputReader.InteractEvent -= HandleInteract;
         
         UnassignExtraInputFeatures();
 
@@ -173,7 +213,13 @@ public class InputHandler : MonoBehaviour
         if (!_characterMovementController) return;
         _characterMovementController.UpdateOrientationRotation(_yRotation);
         
-        // TODO: Need to figure out alternate means for input reading these
+        //TODO: Feed Input data for MASK TOGGLE script through here
+        
+        //TODO: Feed Input data for INTERACTION script through here
+
+        
+       
+        
         //_characterMovementController.UpdateGrappleOrientationRotation(_xRotation, _yRotation);
     }
 
@@ -188,7 +234,9 @@ public class InputHandler : MonoBehaviour
         _characterMovementController.HandlePlayerInputs(
             _movementInput, _jumpInput, _sprintInput, _crouchInput);
             
-        // TODO: Need to figure out alternate means for input reading these
+        
+        
+
         //HandleExtraInputFeatures();
     }
 

@@ -136,6 +136,24 @@ public partial class @PlayerInputScheme: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ToggleMask"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""031698f1-16ba-4456-9d81-f4aaa5d935c6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""2c6d64eb-b863-4b44-98e1-12b752972f86"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -237,6 +255,50 @@ public partial class @PlayerInputScheme: IInputActionCollection2, IDisposable
                     ""action"": ""Sprint"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""3bfe4b31-5dee-4a74-a354-e42a2c9e05a5"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToggleMask"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Positive"",
+                    ""id"": ""3733ace7-529b-4f31-badd-75d29f3c3a4d"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";KeyboardAndMouse"",
+                    ""action"": ""ToggleMask"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Negative"",
+                    ""id"": ""7a76afb8-fd81-4437-9d2b-0b6fcdb234cf"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";KeyboardAndMouse"",
+                    ""action"": ""ToggleMask"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""75c6e872-c9d3-4eb1-9311-e8bff0ee95c5"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";KeyboardAndMouse"",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -267,6 +329,8 @@ public partial class @PlayerInputScheme: IInputActionCollection2, IDisposable
         m_FirstPersonInputs_Jump = m_FirstPersonInputs.FindAction("Jump", throwIfNotFound: true);
         m_FirstPersonInputs_Crouch = m_FirstPersonInputs.FindAction("Crouch", throwIfNotFound: true);
         m_FirstPersonInputs_Sprint = m_FirstPersonInputs.FindAction("Sprint", throwIfNotFound: true);
+        m_FirstPersonInputs_ToggleMask = m_FirstPersonInputs.FindAction("ToggleMask", throwIfNotFound: true);
+        m_FirstPersonInputs_Interact = m_FirstPersonInputs.FindAction("Interact", throwIfNotFound: true);
     }
 
     ~@PlayerInputScheme()
@@ -352,6 +416,8 @@ public partial class @PlayerInputScheme: IInputActionCollection2, IDisposable
     private readonly InputAction m_FirstPersonInputs_Jump;
     private readonly InputAction m_FirstPersonInputs_Crouch;
     private readonly InputAction m_FirstPersonInputs_Sprint;
+    private readonly InputAction m_FirstPersonInputs_ToggleMask;
+    private readonly InputAction m_FirstPersonInputs_Interact;
     /// <summary>
     /// Provides access to input actions defined in input action map "FirstPersonInputs".
     /// </summary>
@@ -383,6 +449,14 @@ public partial class @PlayerInputScheme: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "FirstPersonInputs/Sprint".
         /// </summary>
         public InputAction @Sprint => m_Wrapper.m_FirstPersonInputs_Sprint;
+        /// <summary>
+        /// Provides access to the underlying input action "FirstPersonInputs/ToggleMask".
+        /// </summary>
+        public InputAction @ToggleMask => m_Wrapper.m_FirstPersonInputs_ToggleMask;
+        /// <summary>
+        /// Provides access to the underlying input action "FirstPersonInputs/Interact".
+        /// </summary>
+        public InputAction @Interact => m_Wrapper.m_FirstPersonInputs_Interact;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -424,6 +498,12 @@ public partial class @PlayerInputScheme: IInputActionCollection2, IDisposable
             @Sprint.started += instance.OnSprint;
             @Sprint.performed += instance.OnSprint;
             @Sprint.canceled += instance.OnSprint;
+            @ToggleMask.started += instance.OnToggleMask;
+            @ToggleMask.performed += instance.OnToggleMask;
+            @ToggleMask.canceled += instance.OnToggleMask;
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
         }
 
         /// <summary>
@@ -450,6 +530,12 @@ public partial class @PlayerInputScheme: IInputActionCollection2, IDisposable
             @Sprint.started -= instance.OnSprint;
             @Sprint.performed -= instance.OnSprint;
             @Sprint.canceled -= instance.OnSprint;
+            @ToggleMask.started -= instance.OnToggleMask;
+            @ToggleMask.performed -= instance.OnToggleMask;
+            @ToggleMask.canceled -= instance.OnToggleMask;
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
         }
 
         /// <summary>
@@ -538,5 +624,19 @@ public partial class @PlayerInputScheme: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSprint(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ToggleMask" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnToggleMask(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Interact" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnInteract(InputAction.CallbackContext context);
     }
 }

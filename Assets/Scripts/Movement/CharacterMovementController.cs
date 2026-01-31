@@ -5,25 +5,6 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 
-// false -> true is down button press change (0)
-// true -> false is up button release change (1)
-public struct InputDetector
-{
-    public bool InputState;
-    private bool _previousInputState;
-
-    public int HasStateChanged()
-    {
-        int result = -1;
-        if (!_previousInputState && InputState)
-        { result = 0; }
-        else if (_previousInputState && !InputState)
-        { result = 1; }
-        _previousInputState = InputState;
-        return result;
-    }
-}
-
 public class CharacterMovementController : MonoBehaviour
 {
     [Header("General")]
@@ -611,6 +592,10 @@ public class CharacterMovementController : MonoBehaviour
 
         MoveCharacter();
     }
+    
+    /// <summary>
+    /// Extra movement features section
+    /// </summary>
     
     [Header("Extra Movement Feature Variables")]
     [SerializeField] private float dashSpeed;

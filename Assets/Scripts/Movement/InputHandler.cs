@@ -28,7 +28,7 @@ public class InputHandler : MonoBehaviour
     private GameObject _playerComponentHolder; // object with all the movement components
 
     private CharacterMovementController _characterMovementController;
-    //private PlayerInteract _playerInteract;
+    private Interactor _playerInteract;
 
     [Header("Modify Movement Inputs")]
     [SerializeField] private bool toggleCrouch = false;
@@ -90,8 +90,10 @@ public class InputHandler : MonoBehaviour
     private void HandleToggleMask(float val)
     {
         _toggleMaskInput = val;
+
+        EventManager.TriggerEvent(EventKey.MASK_INPUT, (int)val);
         
-        if (val != 0) Debug.Log(_toggleMaskInput);
+        // if (val != 0) Debug.Log(_toggleMaskInput);
     }
     private bool _interactInput = false;
 
@@ -99,7 +101,7 @@ public class InputHandler : MonoBehaviour
     {
         _interactInput = val;
         
-        if (val) Debug.Log(_interactInput);
+        if (val) _playerInteract?.InteractWithObject();
     }
     
     #endregion
@@ -119,8 +121,8 @@ public class InputHandler : MonoBehaviour
             
             //TODO: Get reference to INTERACTION script here
 
-            //if (!_playerComponentHolder.TryGetComponent(out PlayerInteract pi)) return;
-            //_playerInteract = pi;
+            if (!_playerComponentHolder.TryGetComponent(out Interactor pi)) return;
+            _playerInteract = pi;
             //GetExtraInputFeatureComponents();
         }
         else

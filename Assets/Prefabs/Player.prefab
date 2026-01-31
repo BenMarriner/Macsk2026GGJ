@@ -44,9 +44,10 @@ GameObject:
   - component: {fileID: 4951752113541212642}
   - component: {fileID: 5058632963573295704}
   - component: {fileID: 4656890721979414612}
+  - component: {fileID: -1503267713433760565}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,7 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterMovementController
   orientation: {fileID: 8032594067463308454}
   state: 2
-  walkSpeed: 20
+  walkSpeed: 6
   sprintSpeed: 30
   airMinSpeed: 3
   speedIncreaseMultiplier: 1.5
@@ -124,7 +125,7 @@ MonoBehaviour:
   crouchYScale: 0.5
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   playerModel: {fileID: 7776251590875880125}
   playerCollider: {fileID: 7856362364946694534}
   lengthOfCheck: -1.1
@@ -164,6 +165,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MaskManager
   _currentMaskMode: 0
+--- !u!114 &-1503267713433760565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5178343472699494949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42218ac28df51e34aa49681b8142299f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Interactor
+  Distance: 1500
 --- !u!1 &5738846007680838133
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,7 +307,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7776251590875880125}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: edff560d3d66820438737a3709b79b1c, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

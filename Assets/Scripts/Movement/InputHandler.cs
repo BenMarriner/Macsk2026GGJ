@@ -28,6 +28,7 @@ public class InputHandler : MonoBehaviour
     private GameObject _playerComponentHolder; // object with all the movement components
 
     private CharacterMovementController _characterMovementController;
+    //private PlayerInteract _playerInteract;
 
     [Header("Modify Movement Inputs")]
     [SerializeField] private bool toggleCrouch = false;
@@ -52,7 +53,7 @@ public class InputHandler : MonoBehaviour
     { _lookInput = val; }
     private bool _jumpInput = false;
     private void HandleJump(bool val)
-    { _jumpInput = val; }
+    { _jumpInput = val;}
     private bool _sprintInput = false;
     private void HandleSprint(bool val)
     {
@@ -89,10 +90,17 @@ public class InputHandler : MonoBehaviour
     private void HandleToggleMask(float val)
     {
         _toggleMaskInput = val;
+        
+        if (val != 0) Debug.Log(_toggleMaskInput);
     }
     private bool _interactInput = false;
+
     private void HandleInteract(bool val)
-    { _interactInput = val; }
+    {
+        _interactInput = val;
+        
+        if (val) Debug.Log(_interactInput);
+    }
     
     #endregion
     private void OnDisable()
@@ -110,7 +118,9 @@ public class InputHandler : MonoBehaviour
             //TODO: Get reference to MASK TOGGLE script here
             
             //TODO: Get reference to INTERACTION script here
-            
+
+            //if (!_playerComponentHolder.TryGetComponent(out PlayerInteract pi)) return;
+            //_playerInteract = pi;
             //GetExtraInputFeatureComponents();
         }
         else
@@ -172,6 +182,7 @@ public class InputHandler : MonoBehaviour
     }
     private void AssignInputs()
     {
+        Debug.Log("Assigning inputs");
         _inputEnabled = true;
         inputReader.MoveEvent += HandleMove;
         inputReader.LookEvent += HandleLook;
@@ -185,6 +196,7 @@ public class InputHandler : MonoBehaviour
     }
     private void UnassignInputs()
     {
+        Debug.Log("Unassigning inputs");
         _inputEnabled = false;
         inputReader.MoveEvent -= HandleMove;
         inputReader.LookEvent -= HandleLook;

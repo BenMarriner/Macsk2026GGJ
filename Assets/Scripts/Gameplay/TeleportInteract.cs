@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static GamePlayStatics;
 
-class Teleport: MonoBehaviour, IInteractable
+class TeleportInteract: MonoBehaviour, IInteractable
 {
     [SerializeField]
     private Transform teleportPoint;

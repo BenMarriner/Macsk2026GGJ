@@ -12,6 +12,9 @@ public enum EventKey
     SFX_VOLUME_CHANGED,
     MUSIC_VOLUME_CHANGED,
 
+    // Inputs
+    MASK_INPUT,
+
     // scene system manager
     OPEN_SCENE,
     QUIT_GAME,

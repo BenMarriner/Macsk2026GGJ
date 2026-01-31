@@ -13,32 +13,39 @@ public class RedObject : MaskChangeDetector
         _meshRenderer = GetComponentInChildren<MeshRenderer>();
     }
 
-    void Update()
-    {
-        
-    }
-
     protected override void EnableRedEffect()
     {
-        if (!_rb || !_objectCollider || !_meshRenderer)
+        if (_rb)
         {
-            return;
+            _rb.detectCollisions = !_effectReversed;
         }
 
-        _rb.detectCollisions = !_effectReversed;
-        _objectCollider.enabled = !_effectReversed;
-        _meshRenderer.enabled = !_effectReversed;
+        if (_objectCollider)
+        {
+            _objectCollider.enabled = !_effectReversed;
+        }
+
+        if (_meshRenderer)
+        {
+            _meshRenderer.enabled = !_effectReversed;
+        }
     }
 
     protected override void DisableRedEffect()
     {
-        if (!_rb || !_objectCollider || !_meshRenderer)
+        if (_rb)
         {
-            return;
+            _rb.detectCollisions = _effectReversed;
         }
 
-        _rb.detectCollisions = _effectReversed;
-        _objectCollider.enabled = _effectReversed;
-        _meshRenderer.enabled = _effectReversed;
+        if (_objectCollider)
+        {
+            _objectCollider.enabled = _effectReversed;
+        }
+
+        if (_meshRenderer)
+        {
+            _meshRenderer.enabled = _effectReversed;
+        }
     }
 }

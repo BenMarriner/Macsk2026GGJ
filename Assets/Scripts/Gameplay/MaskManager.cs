@@ -3,8 +3,18 @@ using UnityEngine;
 
 public class MaskManager : MonoBehaviour
 {
-    [SerializeField] private MaskMode CurrentMaskMode = MaskMode.NoMask;
+    [SerializeField] private MaskMode _currentMaskMode = MaskMode.NoMask;
     private int MaskIntMax = Enum.GetNames(typeof(MaskMode)).Length - 1;
+
+    protected virtual void OnEnable()
+    {
+        EventManager.RegisterEvent(EventKey.MASK_INPUT, SwitchMaskScroll);
+    }
+
+    protected virtual void OnDisable()
+    {
+        EventManager.DeregisterEvent(EventKey.MASK_INPUT, SwitchMaskScroll);
+    }
 
     void Start()
     {
@@ -16,25 +26,28 @@ public class MaskManager : MonoBehaviour
         
     }
 
-    void SwitchMaskScroll(int maskChange)
+    void SwitchMaskScroll(object eventData)
     {
-        CurrentMaskMode = CurrentMaskMode + maskChange;
+        if (eventData is not int) this.LogError("Event listener recieved incorrect data type!");
+        int maskChange = (int)eventData;
 
-        if ((int)CurrentMaskMode > MaskIntMax)
+        _currentMaskMode = _currentMaskMode + maskChange;
+
+        if ((int)_currentMaskMode > MaskIntMax)
         {
-            CurrentMaskMode = 0;
+            _currentMaskMode = 0;
         }
-        else if ((int)CurrentMaskMode < 0)
+        else if ((int)_currentMaskMode < 0)
         {
-            CurrentMaskMode = (MaskMode)MaskIntMax;
+            _currentMaskMode = (MaskMode)MaskIntMax;
         }
 
-        if (CurrentMaskMode == MaskMode.NoMask)
+        if (_currentMaskMode == MaskMode.NoMask)
         {
             SwitchMaskScroll(maskChange);
             return;
         }
 
-        EventManager.TriggerEvent(EventKey.MASK_MODE_CHANGED, CurrentMaskMode);
+        EventManager.TriggerEvent(EventKey.MASK_MODE_CHANGED, _currentMaskMode);
     }
 }

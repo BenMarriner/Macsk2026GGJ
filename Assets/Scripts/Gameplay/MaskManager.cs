@@ -8,7 +8,7 @@ public class MaskManager : MonoBehaviour
 
     void Start()
     {
-
+        
     }
 
     void Update()
@@ -20,8 +20,6 @@ public class MaskManager : MonoBehaviour
     {
         CurrentMaskMode = CurrentMaskMode + maskChange;
 
-        DebugLogger.Log(CurrentMaskMode, MaskIntMax);
-        
         if ((int)CurrentMaskMode > MaskIntMax)
         {
             CurrentMaskMode = 0;
@@ -34,6 +32,9 @@ public class MaskManager : MonoBehaviour
         if (CurrentMaskMode == MaskMode.NoMask)
         {
             SwitchMaskScroll(maskChange);
+            return;
         }
+
+        EventManager.TriggerEvent(EventKey.MASK_MODE_CHANGED, CurrentMaskMode);
     }
 }

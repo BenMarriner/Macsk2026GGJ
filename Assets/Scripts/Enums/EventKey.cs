@@ -16,4 +16,7 @@ public enum EventKey
     OPEN_SCENE,
     QUIT_GAME,
     LOADING_COMPLETE,
+
+    // mask switching
+    MASK_MODE_CHANGED,
 }

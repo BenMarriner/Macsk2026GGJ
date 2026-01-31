@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class MaskChangeDetector : MonoBehaviour
 {
-    [SerializeField] private MaskMode CurrentMaskMode = MaskMode.NoMask;
+    [SerializeField] protected MaskMode _currentMaskMode = MaskMode.NoMask;
+    [SerializeField] protected bool _effectReversed = false;
 
     protected virtual void OnEnable()
     {
@@ -23,16 +24,15 @@ public class MaskChangeDetector : MonoBehaviour
     protected virtual void MaskChangeHandler(object eventData)
     {
         if (eventData is not MaskMode) this.LogError("Event listener recieved incorrect data type!");
-        CurrentMaskMode = (MaskMode)eventData;
+        _currentMaskMode = (MaskMode)eventData;
         
-        switch (CurrentMaskMode)
+        switch (_currentMaskMode)
         {
             case MaskMode.RedMask:
                 ToggleRedEffect();
             break;
             case MaskMode.BlueMask:
                 ToggleBlueEffect();
-                
             break;
             case MaskMode.GreenMask:
                 ToggleGreenEffect();

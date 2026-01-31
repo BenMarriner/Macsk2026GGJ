@@ -111,7 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterMovementController
   orientation: {fileID: 8032594067463308454}
   state: 2
-  walkSpeed: 10
+  walkSpeed: 6
   sprintSpeed: 30
   airMinSpeed: 3
   speedIncreaseMultiplier: 1.5

@@ -8,6 +8,10 @@ interface IInteractable
     public void Interact();
 }
 
+interface IActivate
+{
+    public void Activate();
+}
 
 public class Interactor : MonoBehaviour
 {
@@ -125,7 +129,7 @@ public class Interactor : MonoBehaviour
 
     public void InteractWithObject()
     {
-        if (CurrentHit.transform.gameObject.TryGetComponent(out IInteractable interactable))
+        if (CurrentHit.transform.parent.gameObject.TryGetComponent(out IInteractable interactable))
         {
             interactable.Interact();
         }

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae80e5283775ec6419b4790a019bdc19, type: 3}
   m_Name: PlayerInputReader
   m_EditorClassIdentifier: Assembly-CSharp::InputReader
-  mouseSensitivityX: 200
-  mouseSensitivityY: 200
+  mouseSensitivityX: 140
+  mouseSensitivityY: 140

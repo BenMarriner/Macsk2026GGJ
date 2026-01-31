@@ -17,11 +17,12 @@ public class PlayerTeleport : MonoBehaviour
 
     public void TeleportToCurrentStoredPosition()
     {
-        transform.position = _currentStoredPosition;
+        transform.SetPositionAndRotation(_currentStoredPosition, transform.rotation);
     }
     
     public void TeleportToPosition(Vector3 position)
     {
-        transform.position = position;
+        //transform.position = position;
+        transform.SetPositionAndRotation(position, transform.rotation);
     }
 }

@@ -108,8 +108,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterMovementController
   orientation: {fileID: 8032594067463308454}
   state: 2
-  walkSpeed: 6
-  sprintSpeed: 10
+  walkSpeed: 20
+  sprintSpeed: 30
   airMinSpeed: 3
   speedIncreaseMultiplier: 1.5
   slopeIncreaseMultiplier: 2.5
@@ -122,7 +122,7 @@ MonoBehaviour:
   crouchYScale: 0.5
   groundLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   playerModel: {fileID: 7776251590875880125}
   playerCollider: {fileID: 7856362364946694534}
   lengthOfCheck: -1.1

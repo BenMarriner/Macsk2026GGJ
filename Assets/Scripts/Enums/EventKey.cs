@@ -12,11 +12,17 @@ public enum EventKey
     SFX_VOLUME_CHANGED,
     MUSIC_VOLUME_CHANGED,
 
+    // Inputs
+    MASK_INPUT,
+
     // scene system manager
     OPEN_SCENE,
     QUIT_GAME,
     LOADING_COMPLETE,
 
+    // mask switching
+    MASK_MODE_CHANGED,
+    
     // Interaction
     INTERACTABLE_HIGHLIGHTED,
     INTERACTABLE_UNHIGHLIGHTED,

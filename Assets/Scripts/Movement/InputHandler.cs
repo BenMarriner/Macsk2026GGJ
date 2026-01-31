@@ -90,8 +90,10 @@ public class InputHandler : MonoBehaviour
     private void HandleToggleMask(float val)
     {
         _toggleMaskInput = val;
+
+        EventManager.TriggerEvent(EventKey.MASK_INPUT, (int)val);
         
-        if (val != 0) Debug.Log(_toggleMaskInput);
+        // if (val != 0) Debug.Log(_toggleMaskInput);
     }
     private bool _interactInput = false;
 

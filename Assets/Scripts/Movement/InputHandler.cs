@@ -1,5 +1,25 @@
 using UnityEngine;
 
+// false -> true is down button press change (0)
+// true -> false is up button release change (1)
+public struct InputDetector
+{
+    public bool InputState;
+    private bool _previousInputState;
+
+    public int HasStateChanged()
+    {
+        int result = -1;
+        if (!_previousInputState && InputState)
+        { result = 0; }
+        else if (_previousInputState && !InputState)
+        { result = 1; }
+        _previousInputState = InputState;
+        return result;
+    }
+}
+
+
 public class InputHandler : MonoBehaviour
 {
     [SerializeField] private InputReader inputReader;
@@ -8,6 +28,7 @@ public class InputHandler : MonoBehaviour
     private GameObject _playerComponentHolder; // object with all the movement components
 
     private CharacterMovementController _characterMovementController;
+    private Interactor _playerInteract;
 
     [Header("Modify Movement Inputs")]
     [SerializeField] private bool toggleCrouch = false;
@@ -32,7 +53,7 @@ public class InputHandler : MonoBehaviour
     { _lookInput = val; }
     private bool _jumpInput = false;
     private void HandleJump(bool val)
-    { _jumpInput = val; }
+    { _jumpInput = val;}
     private bool _sprintInput = false;
     private void HandleSprint(bool val)
     {
@@ -64,6 +85,25 @@ public class InputHandler : MonoBehaviour
         }
     }
     
+    // 1 or -1
+    private float _toggleMaskInput = 0;
+    private void HandleToggleMask(float val)
+    {
+        _toggleMaskInput = val;
+
+        EventManager.TriggerEvent(EventKey.MASK_INPUT, (int)val);
+        
+        // if (val != 0) Debug.Log(_toggleMaskInput);
+    }
+    private bool _interactInput = false;
+
+    private void HandleInteract(bool val)
+    {
+        _interactInput = val;
+        
+        if (val) _playerInteract?.InteractWithObject();
+    }
+    
     #endregion
     private void OnDisable()
     { UnassignInputs(); }
@@ -76,8 +116,13 @@ public class InputHandler : MonoBehaviour
         {
             if (!_playerComponentHolder.TryGetComponent(out CharacterMovementController cmc)) return;
             _characterMovementController = cmc;
-                
-            // TODO: Need to figure out alternate means for input reading these
+            
+            //TODO: Get reference to MASK TOGGLE script here
+            
+            //TODO: Get reference to INTERACTION script here
+
+            if (!_playerComponentHolder.TryGetComponent(out Interactor pi)) return;
+            _playerInteract = pi;
             //GetExtraInputFeatureComponents();
         }
         else
@@ -118,7 +163,10 @@ public class InputHandler : MonoBehaviour
         _characterMovementController.SetCapabilities(
             enableSprint, enableCrouch);
         
-        // TODO: Need to figure out alternate means for input reading these
+        //TODO: Setup capabilities for MASK TOGGLE script here
+        
+        //TODO: Setup capabilities for INTERACTION script here
+        
         // For disabling unused scripts
         //SetupExtraInputFeatureCapabilities();
     }
@@ -136,23 +184,29 @@ public class InputHandler : MonoBehaviour
     }
     private void AssignInputs()
     {
+        Debug.Log("Assigning inputs");
         _inputEnabled = true;
         inputReader.MoveEvent += HandleMove;
         inputReader.LookEvent += HandleLook;
         inputReader.JumpEvent += HandleJump;
         inputReader.CrouchEvent += HandleCrouch;
         inputReader.SprintEvent += HandleSprint;
+        inputReader.ToggleMaskEvent += HandleToggleMask;
+        inputReader.InteractEvent += HandleInteract;
 
         AssignExtraInputFeatures();
     }
     private void UnassignInputs()
     {
+        Debug.Log("Unassigning inputs");
         _inputEnabled = false;
         inputReader.MoveEvent -= HandleMove;
         inputReader.LookEvent -= HandleLook;
         inputReader.JumpEvent -= HandleJump;
         inputReader.CrouchEvent -= HandleCrouch;
         inputReader.SprintEvent -= HandleSprint;
+        inputReader.ToggleMaskEvent -= HandleToggleMask;
+        inputReader.InteractEvent -= HandleInteract;
         
         UnassignExtraInputFeatures();
 
@@ -173,7 +227,13 @@ public class InputHandler : MonoBehaviour
         if (!_characterMovementController) return;
         _characterMovementController.UpdateOrientationRotation(_yRotation);
         
-        // TODO: Need to figure out alternate means for input reading these
+        //TODO: Feed Input data for MASK TOGGLE script through here
+        
+        //TODO: Feed Input data for INTERACTION script through here
+
+        
+       
+        
         //_characterMovementController.UpdateGrappleOrientationRotation(_xRotation, _yRotation);
     }
 
@@ -188,7 +248,9 @@ public class InputHandler : MonoBehaviour
         _characterMovementController.HandlePlayerInputs(
             _movementInput, _jumpInput, _sprintInput, _crouchInput);
             
-        // TODO: Need to figure out alternate means for input reading these
+        
+        
+
         //HandleExtraInputFeatures();
     }
 

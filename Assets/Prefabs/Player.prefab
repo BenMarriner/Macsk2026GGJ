@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 4861559204617839207}
   - component: {fileID: 8190488643384776788}
   - component: {fileID: 4951752113541212642}
+  - component: {fileID: 5058632963573295704}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -137,6 +138,18 @@ MonoBehaviour:
   swingSpeed: 15
   grappleOrientation: {fileID: 0}
   grappleSpeed: 0
+--- !u!114 &5058632963573295704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5178343472699494949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1c2b36c7aecd2a43b59043b84ecd75f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerTeleport
 --- !u!1 &5738846007680838133
 GameObject:
   m_ObjectHideFlags: 0

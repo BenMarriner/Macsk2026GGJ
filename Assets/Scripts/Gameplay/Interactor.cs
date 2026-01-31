@@ -13,7 +13,7 @@ interface IActivate
     public void Activate();
 }
 
-public class Interactor : MonoBehaviour
+public class Interactor : MaskChangeDetector
 {
     public float Distance = 1500.0f;
 
@@ -22,6 +22,8 @@ public class Interactor : MonoBehaviour
     RaycastHit CurrentHit;
 
     GameObject HighlightedObject;
+
+    private bool _interactionEnabled = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -34,6 +36,11 @@ public class Interactor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!_interactionEnabled)
+        {
+            return;
+        }
+
         PreviousHit = CurrentHit;
         CastRay(out CurrentHit);
 
@@ -50,11 +57,17 @@ public class Interactor : MonoBehaviour
 
         // Send out unhighlighted event for previous object
         if (IsValidInteractable(PreviousHitObject))
+        {
             EventManager.TriggerEvent(EventKey.INTERACTABLE_UNHIGHLIGHTED, PreviousHitObject);
+            DebugLogger.Log("PrevHitObj");
+        }
         
         // Send out highlighted event for current object
         if (IsValidInteractable(HitObject))
+        {
             EventManager.TriggerEvent(EventKey.INTERACTABLE_HIGHLIGHTED, HitObject);
+            DebugLogger.Log("HitObject");
+        }
     }
 
     private bool IsValidInteractable(GameObject hitObject)
@@ -66,20 +79,21 @@ public class Interactor : MonoBehaviour
         return true;
     }
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
+        base.OnEnable();
         EventManager.RegisterEvent(EventKey.INTERACTABLE_HIGHLIGHTED, ObjectHighlightedHandler);
         EventManager.RegisterEvent(EventKey.INTERACTABLE_UNHIGHLIGHTED, ObjectUnhighlightedHandler);
         EventManager.RegisterEvent(EventKey.INTERACTABLE_INTERACTED, ObjectInteractedHandler);
     }
 
-    private void OnDisable()
+    protected override void OnDisable()
     {
+        base.OnDisable();
         EventManager.DeregisterEvent(EventKey.INTERACTABLE_HIGHLIGHTED, ObjectHighlightedHandler);
         EventManager.DeregisterEvent(EventKey.INTERACTABLE_UNHIGHLIGHTED, ObjectUnhighlightedHandler);
         EventManager.DeregisterEvent(EventKey.INTERACTABLE_INTERACTED, ObjectInteractedHandler);
     }
-
 
     private bool CastRay(out RaycastHit hit)
     {
@@ -129,9 +143,47 @@ public class Interactor : MonoBehaviour
 
     public void InteractWithObject()
     {
-        if (CurrentHit.transform.parent.gameObject.TryGetComponent(out IInteractable interactable))
+        if (!_interactionEnabled)
         {
-            interactable.Interact();
+            return;
         }
+
+        if (CurrentHit.transform)
+        {
+            if (CurrentHit.transform.gameObject.TryGetComponent(out IInteractable interactable))
+            {
+                interactable.Interact();
+            }
+            return;
+        }
+
+        if (CurrentHit.transform.parent)
+        {
+            if (CurrentHit.transform.parent.gameObject.TryGetComponent(out IInteractable interactable))
+            {
+                interactable.Interact();
+            }
+            return;
+        }
+    }
+
+    protected override void EnableGreenEffect()
+    {
+        _interactionEnabled = true;
+    }
+
+    protected override void DisableGreenEffect()
+    {
+        _interactionEnabled = false;
+
+        // GameObject PreviousHitObject = null;
+        // if (PreviousHit.transform)
+        // {
+        //     PreviousHitObject = PreviousHit.transform.gameObject;
+        // }
+        // if (IsValidInteractable(PreviousHitObject))
+        // {
+        //     EventManager.TriggerEvent(EventKey.INTERACTABLE_UNHIGHLIGHTED, PreviousHitObject);
+        // }
     }
 }

@@ -128,6 +128,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3619166842610334969, guid: 6fe11e8b13f0f0b4e92b8c06804f5517, type: 3}
+      propertyPath: _greenMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: a3ce89f0ec7981a49a4db075b9611c65, type: 2}
+    - target: {fileID: 3619166842610334969, guid: 6fe11e8b13f0f0b4e92b8c06804f5517, type: 3}
       propertyPath: pairedInteractable
       value: 
       objectReference: {fileID: 690163852}

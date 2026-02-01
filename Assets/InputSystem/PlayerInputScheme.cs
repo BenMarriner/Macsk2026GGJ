@@ -154,6 +154,15 @@ public partial class @PlayerInputScheme: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Escape"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""6aace4d9-f320-4426-ab6f-e0b7828339a2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -299,6 +308,17 @@ public partial class @PlayerInputScheme: IInputActionCollection2, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""62fd7bc7-6809-4d30-b788-513239918815"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";KeyboardAndMouse"",
+                    ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -331,6 +351,7 @@ public partial class @PlayerInputScheme: IInputActionCollection2, IDisposable
         m_FirstPersonInputs_Sprint = m_FirstPersonInputs.FindAction("Sprint", throwIfNotFound: true);
         m_FirstPersonInputs_ToggleMask = m_FirstPersonInputs.FindAction("ToggleMask", throwIfNotFound: true);
         m_FirstPersonInputs_Interact = m_FirstPersonInputs.FindAction("Interact", throwIfNotFound: true);
+        m_FirstPersonInputs_Escape = m_FirstPersonInputs.FindAction("Escape", throwIfNotFound: true);
     }
 
     ~@PlayerInputScheme()
@@ -418,6 +439,7 @@ public partial class @PlayerInputScheme: IInputActionCollection2, IDisposable
     private readonly InputAction m_FirstPersonInputs_Sprint;
     private readonly InputAction m_FirstPersonInputs_ToggleMask;
     private readonly InputAction m_FirstPersonInputs_Interact;
+    private readonly InputAction m_FirstPersonInputs_Escape;
     /// <summary>
     /// Provides access to input actions defined in input action map "FirstPersonInputs".
     /// </summary>
@@ -457,6 +479,10 @@ public partial class @PlayerInputScheme: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "FirstPersonInputs/Interact".
         /// </summary>
         public InputAction @Interact => m_Wrapper.m_FirstPersonInputs_Interact;
+        /// <summary>
+        /// Provides access to the underlying input action "FirstPersonInputs/Escape".
+        /// </summary>
+        public InputAction @Escape => m_Wrapper.m_FirstPersonInputs_Escape;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -504,6 +530,9 @@ public partial class @PlayerInputScheme: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
+            @Escape.started += instance.OnEscape;
+            @Escape.performed += instance.OnEscape;
+            @Escape.canceled += instance.OnEscape;
         }
 
         /// <summary>
@@ -536,6 +565,9 @@ public partial class @PlayerInputScheme: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
+            @Escape.started -= instance.OnEscape;
+            @Escape.performed -= instance.OnEscape;
+            @Escape.canceled -= instance.OnEscape;
         }
 
         /// <summary>
@@ -638,5 +670,12 @@ public partial class @PlayerInputScheme: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnInteract(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Escape" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnEscape(InputAction.CallbackContext context);
     }
 }

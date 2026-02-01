@@ -1,22 +1,23 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GreenObject : MaskChangeDetector
 {
     [SerializeField] private Material _greenMaterial;
     private Material _defaultObjectMaterial;
-    // private Mesh _objectMesh;
+    [SerializeField] private List<Renderer> _highlightMeshes;
 
     private Renderer _objectRenderer;
 
     protected virtual void Start()
     {
-        // _objectMesh = GetComponentInChildren<Mesh>();
         _objectRenderer = GetComponentInChildren<Renderer>();
         if (_objectRenderer != null)
         {
             _defaultObjectMaterial = _objectRenderer.material;
         }
 
+        Unhighlight();
         DisableGreenEffect();
     }
 
@@ -28,5 +29,21 @@ public class GreenObject : MaskChangeDetector
     protected override void DisableGreenEffect()
     {
         _objectRenderer.material = _defaultObjectMaterial;
+    }
+
+    public virtual void Highlight()
+    {
+        foreach (Renderer item in _highlightMeshes)
+        {
+            item.enabled = true;
+        }
+    }
+
+    public virtual void Unhighlight()
+    {
+        foreach (Renderer item in _highlightMeshes)
+        {
+            item.enabled = false;
+        }
     }
 }

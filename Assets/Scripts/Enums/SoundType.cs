@@ -8,5 +8,8 @@ public enum SoundType
     ButtonClick = 2,
 
     // Music
-
+    NoMask = 3,
+    RedMask = 4,
+    GreenMask = 5,
+    BlueMask = 6,
 }

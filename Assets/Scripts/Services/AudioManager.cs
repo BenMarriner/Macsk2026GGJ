@@ -23,7 +23,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        EventManager.TriggerEvent(EventKey.MUSIC, SoundType.ExampleMusic);
+        EventManager.TriggerEvent(EventKey.MUSIC, SoundType.NoMask);
     }
 
     private void OnEnable()
@@ -119,6 +119,7 @@ public class AudioManager : MonoBehaviour
 
         if (_musicMuted) return;
 
+        float MusicTime = MusicSource.time; 
         StopMusic(false);
 
         SoundAudioClip musicClip = Array.Find(MusicAudioClipArray, x => x.sound == music);
@@ -132,6 +133,7 @@ public class AudioManager : MonoBehaviour
         MusicSource.clip = musicClip.audioClip;
         MusicSource.volume = musicClip.volume * _musicVolume;
         MusicSource.Play();
+        MusicSource.time = MusicTime;
     }
 
     public void PauseMusic(object eventData)

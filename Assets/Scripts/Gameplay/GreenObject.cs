@@ -36,6 +36,7 @@ public class GreenObject : MaskChangeDetector
     protected override void DisableGreenEffect()
     {
         _objectRenderer.material = _defaultObjectMaterial;
+        Unhighlight();
     }
 
     public virtual void Highlight()

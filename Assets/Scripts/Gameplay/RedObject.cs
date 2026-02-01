@@ -11,6 +11,7 @@ public class RedObject : MaskChangeDetector
         _rb = GetComponentInChildren<Rigidbody>();
         _objectCollider = GetComponentInChildren<Collider>();
         _meshRenderer = GetComponentInChildren<MeshRenderer>();
+        DisableRedEffect();
     }
 
     protected override void EnableRedEffect()

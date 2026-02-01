@@ -7,6 +7,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private GameObject _mainMenuContainer;
     [SerializeField] private Button _playButton;
     [SerializeField] private Button _quitButton;
+    [SerializeField] protected int travelSceneIndex = 3;
     
     private void Start()
     {
@@ -30,15 +31,15 @@ public class MainMenuManager : MonoBehaviour
     }
 
     #region Button Handlers
-    private void OnPlayClicked()
+    protected virtual void OnPlayClicked()
     {
         EventManager.TriggerEvent(EventKey.SFX, SoundType.ButtonClick);
         DebugLogger.Log("Starting game...");
         // Scene index 2 should be your Gameplay scene
-        EventManager.TriggerEvent(EventKey.OPEN_SCENE, 3);
+        EventManager.TriggerEvent(EventKey.OPEN_SCENE, travelSceneIndex);
     }
 
-    private void OnQuitClicked()
+    protected virtual void OnQuitClicked()
     {
         EventManager.TriggerEvent(EventKey.SFX, SoundType.ButtonClick);
         DebugLogger.Log("Quitting game...");

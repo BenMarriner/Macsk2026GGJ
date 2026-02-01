@@ -6,6 +6,8 @@ using UnityEngine;
 interface IInteractable
 {
     public void Interact();
+    public void Highlight();
+    public void Unhighlight();
 }
 
 interface IActivate
@@ -59,14 +61,20 @@ public class Interactor : MaskChangeDetector
         if (IsValidInteractable(PreviousHitObject))
         {
             EventManager.TriggerEvent(EventKey.INTERACTABLE_UNHIGHLIGHTED, PreviousHitObject);
-            DebugLogger.Log("PrevHitObj");
+            if (PreviousHitObject.transform && PreviousHitObject.transform.gameObject.TryGetComponent(out IInteractable interactable))
+            {
+                interactable.Unhighlight();
+            }
         }
         
         // Send out highlighted event for current object
         if (IsValidInteractable(HitObject))
         {
             EventManager.TriggerEvent(EventKey.INTERACTABLE_HIGHLIGHTED, HitObject);
-            DebugLogger.Log("HitObject");
+            if (HitObject.transform && HitObject.transform.gameObject.TryGetComponent(out IInteractable interactable))
+            {
+                interactable.Highlight();
+            }
         }
     }
 

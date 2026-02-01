@@ -961,6 +961,7 @@ MonoBehaviour:
   _currentMaskMode: 0
   _effectReversed: 0
   _greenMaterial: {fileID: 2100000, guid: a3ce89f0ec7981a49a4db075b9611c65, type: 2}
+  _highlightMeshes: []
   teleportPoint: {fileID: 1044866220}
 --- !u!65 &1375662294
 BoxCollider:

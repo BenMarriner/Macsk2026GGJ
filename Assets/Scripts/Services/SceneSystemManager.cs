@@ -101,6 +101,7 @@ public class SceneSystemManager : MonoBehaviour
 		yield return new WaitForEndOfFrame();
 		_state = TransitionState.IDLE;
 		EventManager.TriggerEvent(EventKey.LOADING_COMPLETE, true);
+		EventManager.TriggerEvent(EventKey.MUSIC, SoundType.NoMask);
 	}
 
 	private IEnumerator CheckScenes()

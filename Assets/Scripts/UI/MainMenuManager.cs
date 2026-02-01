@@ -14,7 +14,7 @@ public class MainMenuManager : MonoBehaviour
         Cursor.visible = true;
         InitialiseMenu();
         SetupButtonListeners();
-        EventManager.TriggerEvent(EventKey.SFX, SoundType.ExampleSound);
+        // EventManager.TriggerEvent(EventKey.SFX, SoundType.ExampleSound);
     }
 
     private void InitialiseMenu()

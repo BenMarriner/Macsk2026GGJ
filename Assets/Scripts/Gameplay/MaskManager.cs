@@ -50,6 +50,7 @@ public class MaskManager : MonoBehaviour
         }
 
         EventManager.TriggerEvent(EventKey.MASK_MODE_CHANGED, _currentMaskMode);
+        EventManager.TriggerEvent(EventKey.SFX, SoundType.MaskChanage02);
 
         switch (_currentMaskMode)
         {

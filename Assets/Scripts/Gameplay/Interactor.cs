@@ -29,11 +29,14 @@ public class Interactor : MaskChangeDetector
     private bool _interactionEnabled = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void SetCapabilities(GameObject playerCameraObject)
     {
         //GameObject player = transform.gameObject;
         //Camera = player.GetComponentInChildren<Camera>();
-        Camera = GameObject.Find("CameraHolder(Clone)").GetComponentInChildren<Camera>();
+        //Camera = GameObject.Find("CameraHolder(Clone)").GetComponentInChildren<Camera>();
+        if (!playerCameraObject.TryGetComponent(out Camera cam)) return;
+
+        Camera = cam;
     }
 
     // Update is called once per frame

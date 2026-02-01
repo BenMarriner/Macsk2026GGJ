@@ -10,16 +10,13 @@ public class SceneChangeInteract : GreenObject, IInteractable
 
     public void SetCanBeInteracted(bool val)
     {
-        throw new System.NotImplementedException();
     }
 
     public void Highlight()
     {
-        throw new System.NotImplementedException();
     }
 
     public void Unhighlight()
     {
-        throw new System.NotImplementedException();
     }
 }

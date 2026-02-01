@@ -6,6 +6,7 @@ using UnityEngine;
 interface IInteractable
 {
     public void Interact();
+    public void SetCanBeInteracted(bool val);
     public void Highlight();
     public void Unhighlight();
 }

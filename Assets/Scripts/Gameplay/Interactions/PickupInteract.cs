@@ -11,16 +11,25 @@ public class PickupInteract : MonoBehaviour, IInteractable
 
     public void SetCanBeInteracted(bool val)
     {
-        throw new System.NotImplementedException();
     }
 
     public void Highlight()
     {
-        throw new System.NotImplementedException();
     }
 
     public void Unhighlight()
     {
-        throw new System.NotImplementedException();
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (!collision.gameObject.CompareTag("Player"))
+        {
+            return;
+        }
+
+        EventManager.TriggerEvent(EventKey.MASK_PICKUP, null);
+
+        Destroy(gameObject);
     }
 }

@@ -30,6 +30,7 @@ public class TriggerInteract : GreenObject, IInteractable
 
         if (!pairedInteractable || !pairedInteractable.TryGetComponent(out IActivate activateable)) return;
         
+        EventManager.TriggerEvent(EventKey.SFX, SoundType.LeverSwitch);
         activateable.Activate();
     }
 }

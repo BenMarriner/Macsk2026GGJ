@@ -14,6 +14,7 @@ public class InputReader : ScriptableObject, IFirstPersonInputsActions
     public event Action<bool> SprintEvent;
     public event Action<float> ToggleMaskEvent;
     public event Action<bool> InteractEvent;
+    public event Action<bool> EscapeEvent;
 
     [Range(1f, 500f)] public float mouseSensitivityX = 200f;
     [Range(1f, 500f)] public float mouseSensitivityY = 200f;
@@ -52,4 +53,6 @@ public class InputReader : ScriptableObject, IFirstPersonInputsActions
     { ToggleMaskEvent?.Invoke(context.ReadValue<float>()); }
     public void OnInteract(InputAction.CallbackContext context)
     { InteractEvent?.Invoke(context.action.IsPressed()); }
+    public void OnEscape(InputAction.CallbackContext context)
+    { EscapeEvent?.Invoke(context.action.IsPressed()); }
 }

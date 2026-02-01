@@ -7,9 +7,11 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private GameObject _mainMenuContainer;
     [SerializeField] private Button _playButton;
     [SerializeField] private Button _quitButton;
-
+    
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         InitialiseMenu();
         SetupButtonListeners();
         EventManager.TriggerEvent(EventKey.SFX, SoundType.ExampleSound);

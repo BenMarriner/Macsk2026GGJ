@@ -7,11 +7,17 @@ public class MaskManager : MonoBehaviour
     [SerializeField] private MaskMode _currentMaskMode = MaskMode.NoMask;
     private int MaskIntMax = Enum.GetNames(typeof(MaskMode)).Length - 1;
     private bool _maskEnabled = false;
+    
+    [SerializeField] private Material screenTint;
+    [SerializeField] private float redTintValue = .6f;
+    [SerializeField] private float blueTintValue = .5f;
+    [SerializeField] private float greenTintValue = .4f;
 
     protected virtual void OnEnable()
     {
         EventManager.RegisterEvent(EventKey.MASK_INPUT, SwitchMaskScroll);
         EventManager.RegisterEvent(EventKey.MASK_PICKUP, MaskPickupHandler);
+        ResetScreenTint();
     }
 
     protected virtual void OnDisable()
@@ -20,16 +26,13 @@ public class MaskManager : MonoBehaviour
         EventManager.DeregisterEvent(EventKey.MASK_PICKUP, MaskPickupHandler);
     }
 
-    void Start()
+    protected void ResetScreenTint()
     {
-        
+        screenTint.SetFloat("_Red", 0f);
+        screenTint.SetFloat("_Blue", 0f);
+        screenTint.SetFloat("_Green", 0f);
     }
-
-    void Update()
-    {
-        
-    }
-
+    
     void SwitchMaskScroll(object eventData)
     {
         if (eventData is not int) this.LogError("Event listener recieved incorrect data type!");
@@ -64,15 +67,19 @@ public class MaskManager : MonoBehaviour
         {
             case MaskMode.NoMask:
                 EventManager.TriggerEvent(EventKey.MUSIC, SoundType.NoMask);
+                ResetScreenTint();
                 break;
             case MaskMode.RedMask:
                 EventManager.TriggerEvent(EventKey.MUSIC, SoundType.RedMask);
+                SetRedScreenTint();
                 break;
             case MaskMode.GreenMask:
                 EventManager.TriggerEvent(EventKey.MUSIC, SoundType.GreenMask);
+                SetGreenScreenTint();
                 break;
             case MaskMode.BlueMask:
                 EventManager.TriggerEvent(EventKey.MUSIC, SoundType.BlueMask);
+                SetBlueScreenTint();
             break;
         }
     }
@@ -81,4 +88,26 @@ public class MaskManager : MonoBehaviour
     {
         _maskEnabled = true;
     }
+    
+    private void SetRedScreenTint()
+    {
+        screenTint.SetFloat("_Red", redTintValue);
+        screenTint.SetFloat("_Blue", 0f);
+        screenTint.SetFloat("_Green", 0f);
+    }
+    
+    private void SetBlueScreenTint()
+    {
+        screenTint.SetFloat("_Red", 0f);
+        screenTint.SetFloat("_Blue", blueTintValue);
+        screenTint.SetFloat("_Green", 0f);
+    }
+    
+    private void SetGreenScreenTint()
+    {
+        screenTint.SetFloat("_Red", 0f);
+        screenTint.SetFloat("_Blue", 0f);
+        screenTint.SetFloat("_Green", greenTintValue);
+    }
+    
 }

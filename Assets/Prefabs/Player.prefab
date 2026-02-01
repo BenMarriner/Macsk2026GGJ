@@ -117,10 +117,10 @@ MonoBehaviour:
   speedIncreaseMultiplier: 1.5
   slopeIncreaseMultiplier: 2.5
   groundDrag: 4
-  jumpForce: 5
+  jumpForce: 0
   jumpCooldown: 0.45
   airMultiplier: 0.4
-  jumpLimit: 1
+  jumpLimit: 0
   crouchSpeed: 3
   crouchYScale: 0.5
   groundLayer:
@@ -177,6 +177,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42218ac28df51e34aa49681b8142299f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interactor
+  _currentMaskMode: 0
+  _effectReversed: 0
   Distance: 1500
 --- !u!1 &5738846007680838133
 GameObject:

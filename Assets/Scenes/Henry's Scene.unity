@@ -119,11 +119,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
-<<<<<<< HEAD:Assets/Scenes/SampleScene.unity
 --- !u!1001 &106897785
-=======
---- !u!1001 &37364030
->>>>>>> origin/Ben-Branch:Assets/Scenes/Ben's Props.unity
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -131,7 +127,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-<<<<<<< HEAD:Assets/Scenes/SampleScene.unity
     - target: {fileID: 3619166842610334969, guid: 6fe11e8b13f0f0b4e92b8c06804f5517, type: 3}
       propertyPath: _greenMaterial
       value: 
@@ -187,57 +182,11 @@ PrefabInstance:
     - target: {fileID: 7155310730435586964, guid: 6fe11e8b13f0f0b4e92b8c06804f5517, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -45
-=======
-    - target: {fileID: -8679921383154817045, guid: b7c07809fbdecee4fac3f50fc1af1627, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.2983346
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: b7c07809fbdecee4fac3f50fc1af1627, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.000000109961206
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: b7c07809fbdecee4fac3f50fc1af1627, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.2391965
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: b7c07809fbdecee4fac3f50fc1af1627, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071067
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: b7c07809fbdecee4fac3f50fc1af1627, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: b7c07809fbdecee4fac3f50fc1af1627, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: b7c07809fbdecee4fac3f50fc1af1627, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: b7c07809fbdecee4fac3f50fc1af1627, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: b7c07809fbdecee4fac3f50fc1af1627, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: b7c07809fbdecee4fac3f50fc1af1627, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: b7c07809fbdecee4fac3f50fc1af1627, type: 3}
-      propertyPath: m_Name
-      value: Chair
->>>>>>> origin/Ben-Branch:Assets/Scenes/Ben's Props.unity
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-<<<<<<< HEAD:Assets/Scenes/SampleScene.unity
   m_SourcePrefab: {fileID: 100100000, guid: 6fe11e8b13f0f0b4e92b8c06804f5517, type: 3}
 --- !u!1001 &142398133
 PrefabInstance:
@@ -532,9 +481,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 303070133}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-=======
-  m_SourcePrefab: {fileID: 100100000, guid: b7c07809fbdecee4fac3f50fc1af1627, type: 3}
->>>>>>> origin/Ben-Branch:Assets/Scenes/Ben's Props.unity
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -662,7 +608,6 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
-<<<<<<< HEAD:Assets/Scenes/SampleScene.unity
 --- !u!1 &690163852
 GameObject:
   m_ObjectHideFlags: 0
@@ -925,65 +870,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 830897445}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-=======
---- !u!1001 &796689884
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: fdf8dd7ee7c8585439ec6a043ad0fb7d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: fdf8dd7ee7c8585439ec6a043ad0fb7d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.00000017881393
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: fdf8dd7ee7c8585439ec6a043ad0fb7d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.4999999
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: fdf8dd7ee7c8585439ec6a043ad0fb7d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071067
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: fdf8dd7ee7c8585439ec6a043ad0fb7d, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: fdf8dd7ee7c8585439ec6a043ad0fb7d, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: fdf8dd7ee7c8585439ec6a043ad0fb7d, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: fdf8dd7ee7c8585439ec6a043ad0fb7d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: fdf8dd7ee7c8585439ec6a043ad0fb7d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: fdf8dd7ee7c8585439ec6a043ad0fb7d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: fdf8dd7ee7c8585439ec6a043ad0fb7d, type: 3}
-      propertyPath: m_Name
-      value: Table_Long
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: fdf8dd7ee7c8585439ec6a043ad0fb7d, type: 3}
->>>>>>> origin/Ben-Branch:Assets/Scenes/Ben's Props.unity
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1613,11 +1499,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1691739582}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-<<<<<<< HEAD:Assets/Scenes/SampleScene.unity
 --- !u!1001 &5777709414606779143
-=======
---- !u!1001 &2131295242
->>>>>>> origin/Ben-Branch:Assets/Scenes/Ben's Props.unity
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1625,7 +1507,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-<<<<<<< HEAD:Assets/Scenes/SampleScene.unity
     - target: {fileID: 3157300754991305055, guid: bf1aa03d59bde7743af9dbf25a3a7767, type: 3}
       propertyPath: m_Name
       value: NotLadder
@@ -1670,61 +1551,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-=======
-    - target: {fileID: -8679921383154817045, guid: a6bd096a2ea192e4099ca12a14246fa2, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a6bd096a2ea192e4099ca12a14246fa2, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.00000017881393
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a6bd096a2ea192e4099ca12a14246fa2, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.4999999
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a6bd096a2ea192e4099ca12a14246fa2, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071067
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a6bd096a2ea192e4099ca12a14246fa2, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a6bd096a2ea192e4099ca12a14246fa2, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a6bd096a2ea192e4099ca12a14246fa2, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a6bd096a2ea192e4099ca12a14246fa2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a6bd096a2ea192e4099ca12a14246fa2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a6bd096a2ea192e4099ca12a14246fa2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: a6bd096a2ea192e4099ca12a14246fa2, type: 3}
-      propertyPath: m_Name
-      value: Table_Round
-      objectReference: {fileID: 0}
->>>>>>> origin/Ben-Branch:Assets/Scenes/Ben's Props.unity
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-<<<<<<< HEAD:Assets/Scenes/SampleScene.unity
   m_SourcePrefab: {fileID: 100100000, guid: bf1aa03d59bde7743af9dbf25a3a7767, type: 3}
-=======
-  m_SourcePrefab: {fileID: 100100000, guid: a6bd096a2ea192e4099ca12a14246fa2, type: 3}
->>>>>>> origin/Ben-Branch:Assets/Scenes/Ben's Props.unity
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1734,13 +1565,7 @@ SceneRoots:
   - {fileID: 1465366784}
   - {fileID: 1242879041}
   - {fileID: 1044866220}
-<<<<<<< HEAD:Assets/Scenes/SampleScene.unity
   - {fileID: 5777709414606779143}
   - {fileID: 142398133}
   - {fileID: 106897785}
   - {fileID: 690163858}
-=======
-  - {fileID: 37364030}
-  - {fileID: 796689884}
-  - {fileID: 2131295242}
->>>>>>> origin/Ben-Branch:Assets/Scenes/Ben's Props.unity

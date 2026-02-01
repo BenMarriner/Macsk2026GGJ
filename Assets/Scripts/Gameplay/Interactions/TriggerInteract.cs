@@ -23,7 +23,7 @@ public class TriggerInteract : GreenObject, IInteractable
     public void Interact()
     {
         DebugLogger.Log("interact");
-        if (canBeInteracted || isTriggered)  return;
+        if (!canBeInteracted || isTriggered)  return;
         isTriggered = !isTriggered;
         
         animator.Play(animationClip.name, 0, 0.0f);

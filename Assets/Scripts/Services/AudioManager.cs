@@ -119,6 +119,7 @@ public class AudioManager : MonoBehaviour
 
         if (_musicMuted) return;
 
+        float MusicTime = MusicSource.time; 
         StopMusic(false);
 
         SoundAudioClip musicClip = Array.Find(MusicAudioClipArray, x => x.sound == music);
@@ -132,6 +133,7 @@ public class AudioManager : MonoBehaviour
         MusicSource.clip = musicClip.audioClip;
         MusicSource.volume = musicClip.volume * _musicVolume;
         MusicSource.Play();
+        MusicSource.time = MusicTime;
     }
 
     public void PauseMusic(object eventData)

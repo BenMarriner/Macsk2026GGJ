@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MaskManager : MonoBehaviour
 {
@@ -49,5 +50,21 @@ public class MaskManager : MonoBehaviour
         }
 
         EventManager.TriggerEvent(EventKey.MASK_MODE_CHANGED, _currentMaskMode);
+
+        switch (_currentMaskMode)
+        {
+            case MaskMode.NoMask:
+                EventManager.TriggerEvent(EventKey.MUSIC, SoundType.NoMask);
+                break;
+            case MaskMode.RedMask:
+                EventManager.TriggerEvent(EventKey.MUSIC, SoundType.RedMask);
+                break;
+            case MaskMode.GreenMask:
+                EventManager.TriggerEvent(EventKey.MUSIC, SoundType.GreenMask);
+                break;
+            case MaskMode.BlueMask:
+                EventManager.TriggerEvent(EventKey.MUSIC, SoundType.BlueMask);
+            break;
+        }
     }
 }

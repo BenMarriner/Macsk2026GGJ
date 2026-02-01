@@ -15,6 +15,8 @@ public enum EventKey
     // Inputs
     MASK_INPUT,
 
+    MASK_PICKUP,
+
     // scene system manager
     OPEN_SCENE,
     QUIT_GAME,

@@ -6,6 +6,10 @@ public enum SoundType
     
     // SFX
     ButtonClick = 2,
+    DoorOpen = 7,
+    LeverSwitch = 8,
+    MaskChanage01 = 09,
+    MaskChanage02 = 10,
 
     // Music
     NoMask = 3,

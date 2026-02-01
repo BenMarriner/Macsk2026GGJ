@@ -376,6 +376,22 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 963361a16021d72419d9ad9d9a1f6ea5, type: 3}
     randomisePitch: 0
     volume: 1
+  - sound: 3
+    audioClip: {fileID: 8300000, guid: 8515c13b668328846a10d07206cbe311, type: 3}
+    randomisePitch: 0
+    volume: 1
+  - sound: 4
+    audioClip: {fileID: 8300000, guid: 95aa201693e08924c9bcfbf219ff0c5c, type: 3}
+    randomisePitch: 0
+    volume: 1
+  - sound: 5
+    audioClip: {fileID: 8300000, guid: d13dc446e173ed74087ee42907086324, type: 3}
+    randomisePitch: 0
+    volume: 1
+  - sound: 6
+    audioClip: {fileID: 8300000, guid: b513cb804b5aa104293d78eb973c079d, type: 3}
+    randomisePitch: 0
+    volume: 1
   _mixer: {fileID: 24100000, guid: 59b36550b0be81248bdf896c8c4c08e0, type: 2}
 --- !u!1 &525729795
 GameObject:

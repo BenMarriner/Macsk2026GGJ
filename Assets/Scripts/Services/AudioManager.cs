@@ -23,7 +23,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        EventManager.TriggerEvent(EventKey.MUSIC, SoundType.ExampleMusic);
+        EventManager.TriggerEvent(EventKey.MUSIC, SoundType.NoMask);
     }
 
     private void OnEnable()

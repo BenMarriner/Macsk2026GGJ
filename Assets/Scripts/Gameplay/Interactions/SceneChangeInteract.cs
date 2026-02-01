@@ -11,12 +11,4 @@ public class SceneChangeInteract : GreenObject, IInteractable
     public void SetCanBeInteracted(bool val)
     {
     }
-
-    public void Highlight()
-    {
-    }
-
-    public void Unhighlight()
-    {
-    }
 }

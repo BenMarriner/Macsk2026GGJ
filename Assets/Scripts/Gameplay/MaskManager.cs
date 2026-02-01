@@ -6,15 +6,18 @@ public class MaskManager : MonoBehaviour
 {
     [SerializeField] private MaskMode _currentMaskMode = MaskMode.NoMask;
     private int MaskIntMax = Enum.GetNames(typeof(MaskMode)).Length - 1;
+    private bool _maskEnabled = false;
 
     protected virtual void OnEnable()
     {
         EventManager.RegisterEvent(EventKey.MASK_INPUT, SwitchMaskScroll);
+        EventManager.RegisterEvent(EventKey.MASK_PICKUP, MaskPickupHandler);
     }
 
     protected virtual void OnDisable()
     {
         EventManager.DeregisterEvent(EventKey.MASK_INPUT, SwitchMaskScroll);
+        EventManager.DeregisterEvent(EventKey.MASK_PICKUP, MaskPickupHandler);
     }
 
     void Start()
@@ -31,6 +34,11 @@ public class MaskManager : MonoBehaviour
     {
         if (eventData is not int) this.LogError("Event listener recieved incorrect data type!");
         int maskChange = (int)eventData;
+
+        if (!_maskEnabled)
+        {
+            return;
+        }
 
         _currentMaskMode = _currentMaskMode + maskChange;
 
@@ -67,5 +75,10 @@ public class MaskManager : MonoBehaviour
                 EventManager.TriggerEvent(EventKey.MUSIC, SoundType.BlueMask);
             break;
         }
+    }
+
+    void MaskPickupHandler(object eventData)
+    {
+        _maskEnabled = true;
     }
 }

@@ -92,8 +92,6 @@ public class InputHandler : MonoBehaviour
         _toggleMaskInput = val;
 
         EventManager.TriggerEvent(EventKey.MASK_INPUT, (int)val);
-        
-        // if (val != 0) Debug.Log(_toggleMaskInput);
     }
     private bool _interactInput = false;
 
@@ -102,6 +100,15 @@ public class InputHandler : MonoBehaviour
         _interactInput = val;
         
         if (val) _playerInteract?.InteractWithObject();
+    }
+
+    private void HandleEscape(bool val)
+    {
+        Debug.Log("Escape");
+        if (val)
+        {
+            EventManager.TriggerEvent(EventKey.OPEN_SCENE, 1);
+        }
     }
     
     #endregion
@@ -163,6 +170,7 @@ public class InputHandler : MonoBehaviour
         _characterMovementController.SetCapabilities(
             enableSprint, enableCrouch);
         
+        _playerInteract.SetCapabilities(playerCamera);
         //TODO: Setup capabilities for MASK TOGGLE script here
         
         //TODO: Setup capabilities for INTERACTION script here
@@ -193,7 +201,8 @@ public class InputHandler : MonoBehaviour
         inputReader.SprintEvent += HandleSprint;
         inputReader.ToggleMaskEvent += HandleToggleMask;
         inputReader.InteractEvent += HandleInteract;
-
+        inputReader.EscapeEvent += HandleEscape;
+        
         AssignExtraInputFeatures();
     }
     private void UnassignInputs()
@@ -207,6 +216,7 @@ public class InputHandler : MonoBehaviour
         inputReader.SprintEvent -= HandleSprint;
         inputReader.ToggleMaskEvent -= HandleToggleMask;
         inputReader.InteractEvent -= HandleInteract;
+        inputReader.EscapeEvent -= HandleEscape;
         
         UnassignExtraInputFeatures();
 

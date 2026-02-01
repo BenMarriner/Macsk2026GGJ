@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SceneChangeInteract : MonoBehaviour, IInteractable
+public class SceneChangeInteract : GreenObject, IInteractable
 {
     [SerializeField] private int nextSceneIndex = 4;
     public void Interact()

@@ -2,9 +2,7 @@ using UnityEngine;
 
 public class TriggerInteract : GreenObject, IInteractable
 {
-    private bool canBeInteracted = false;
     
-    private bool isTriggered = false;
     
     [SerializeField]
     private GameObject pairedInteractable;
@@ -15,6 +13,13 @@ public class TriggerInteract : GreenObject, IInteractable
     [SerializeField]
     private Animator animator;
 
+    [SerializeField] 
+    private bool _onlyInteractableOnce = false;
+
+    private bool canBeInteracted = false;
+    
+    private bool isTriggered = false;
+
     public void SetCanBeInteracted(bool val)
     {
         canBeInteracted = val;
@@ -24,6 +29,7 @@ public class TriggerInteract : GreenObject, IInteractable
     {
         DebugLogger.Log("interact");
         if (!canBeInteracted || isTriggered)  return;
+        if (_onlyInteractableOnce && isTriggered) return;
         isTriggered = !isTriggered;
         
         animator.Play(animationClip.name, 0, 0.0f);
@@ -32,5 +38,23 @@ public class TriggerInteract : GreenObject, IInteractable
         
         EventManager.TriggerEvent(EventKey.SFX, SoundType.LeverSwitch);
         activateable.Activate();
+
+        if (_onlyInteractableOnce)
+        {
+            DisableGreenEffect();
+            Unhighlight();
+        }
+    }
+
+    protected override void EnableGreenEffect()
+    {
+        if (_onlyInteractableOnce && isTriggered) return;
+        base.EnableGreenEffect();
+    }
+
+    public override void Highlight()
+    {
+        if (_onlyInteractableOnce && isTriggered) return;
+        base.Highlight();
     }
 }

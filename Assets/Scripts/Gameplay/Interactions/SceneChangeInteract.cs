@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SceneChangeInteract : MonoBehaviour, IInteractable
+public class SceneChangeInteract : GreenObject, IInteractable
 {
     [SerializeField] private int nextSceneIndex = 4;
     public void Interact()
@@ -10,16 +10,5 @@ public class SceneChangeInteract : MonoBehaviour, IInteractable
 
     public void SetCanBeInteracted(bool val)
     {
-        throw new System.NotImplementedException();
-    }
-
-    public void Highlight()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void Unhighlight()
-    {
-        throw new System.NotImplementedException();
     }
 }

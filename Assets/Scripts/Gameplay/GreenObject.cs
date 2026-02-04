@@ -9,9 +9,11 @@ public class GreenObject : MaskChangeDetector
 
     [SerializeField] private string _solhouetteLayer;
 
+    private bool _greenMaskMode = false;
     private IInteractable _interactable;
     private Renderer _objectRenderer;
     private int _defaultObjectLayer;
+    private bool _silhouetteEnabled = false;
 
     protected virtual void Start()
     {
@@ -34,12 +36,17 @@ public class GreenObject : MaskChangeDetector
 
     protected override void EnableGreenEffect()
     {
+        _greenMaskMode = true;
         _objectRenderer.material = _greenMaterial;
-        gameObject.layer = LayerMask.NameToLayer(_solhouetteLayer);
+        if (_silhouetteEnabled)
+        {
+            gameObject.layer = LayerMask.NameToLayer(_solhouetteLayer);
+        }
     }
 
     protected override void DisableGreenEffect()
     {
+        _greenMaskMode = true;
         _objectRenderer.material = _defaultObjectMaterial;
         gameObject.layer = _defaultObjectLayer;
         Unhighlight();
@@ -60,6 +67,23 @@ public class GreenObject : MaskChangeDetector
         foreach (Renderer item in _highlightMeshes)
         {
             item.enabled = false;
+        }
+    }
+
+    public virtual void SetSilhouetteEnabled(bool enabled)
+    {
+        _silhouetteEnabled = enabled;
+
+        DebugLogger.Log(_silhouetteEnabled, _greenMaskMode);
+
+        if (_silhouetteEnabled && _greenMaskMode)
+        {
+            gameObject.layer = LayerMask.NameToLayer(_solhouetteLayer);
+        }
+
+        if (!_silhouetteEnabled)
+        {
+            gameObject.layer = _defaultObjectLayer;
         }
     }
 }

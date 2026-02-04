@@ -51,7 +51,7 @@ public class GreenObject : MaskChangeDetector
 
     protected override void DisableGreenEffect()
     {
-        _greenMaskMode = true;
+        _greenMaskMode = false;
         _objectRenderer.material = _defaultObjectMaterial;
         SetSelfAndChildrenLayers(_defaultObjectLayer);
         Unhighlight();

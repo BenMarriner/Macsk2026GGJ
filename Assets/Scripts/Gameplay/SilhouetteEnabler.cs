@@ -8,12 +8,10 @@ public class SilhouetteEnabler : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        DebugLogger.Log(collider.gameObject.tag);
         if (!collider.gameObject.CompareTag(_playerTag))
         {
             return;
         }
-        DebugLogger.Log("enter");
 
         foreach (GreenObject item in _silhouetteObjects)
         {
@@ -27,7 +25,6 @@ public class SilhouetteEnabler : MonoBehaviour
         {
             return;
         }
-        DebugLogger.Log("exit");
 
         foreach (GreenObject item in _silhouetteObjects)
         {

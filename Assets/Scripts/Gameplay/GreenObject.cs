@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Linq;
+using UnityEditor.UI;
 using UnityEngine;
 
 public class GreenObject : MaskChangeDetector
@@ -14,6 +16,7 @@ public class GreenObject : MaskChangeDetector
     private Renderer _objectRenderer;
     private int _defaultObjectLayer;
     private bool _silhouetteEnabled = false;
+    private Transform[] _allObjectTransforms;
 
     protected virtual void Start()
     {
@@ -29,6 +32,8 @@ public class GreenObject : MaskChangeDetector
         }
 
         _defaultObjectLayer = gameObject.layer;
+        _allObjectTransforms = GetComponentsInChildren<Transform>();
+        _allObjectTransforms.Append(transform);
 
         Unhighlight();
         DisableGreenEffect();
@@ -40,7 +45,7 @@ public class GreenObject : MaskChangeDetector
         _objectRenderer.material = _greenMaterial;
         if (_silhouetteEnabled)
         {
-            gameObject.layer = LayerMask.NameToLayer(_solhouetteLayer);
+            SetSelfAndChildrenLayers(LayerMask.NameToLayer(_solhouetteLayer));
         }
     }
 
@@ -48,7 +53,7 @@ public class GreenObject : MaskChangeDetector
     {
         _greenMaskMode = true;
         _objectRenderer.material = _defaultObjectMaterial;
-        gameObject.layer = _defaultObjectLayer;
+        SetSelfAndChildrenLayers(_defaultObjectLayer);
         Unhighlight();
     }
 
@@ -74,16 +79,22 @@ public class GreenObject : MaskChangeDetector
     {
         _silhouetteEnabled = enabled;
 
-        DebugLogger.Log(_silhouetteEnabled, _greenMaskMode);
-
         if (_silhouetteEnabled && _greenMaskMode)
         {
-            gameObject.layer = LayerMask.NameToLayer(_solhouetteLayer);
+            SetSelfAndChildrenLayers(LayerMask.NameToLayer(_solhouetteLayer));
         }
 
         if (!_silhouetteEnabled)
         {
-            gameObject.layer = _defaultObjectLayer;
+            SetSelfAndChildrenLayers(_defaultObjectLayer);
+        }
+    }
+
+    protected virtual void SetSelfAndChildrenLayers(int layerId)
+    {
+        foreach (Transform item in _allObjectTransforms)
+        {
+            item.gameObject.layer = layerId;
         }
     }
 }

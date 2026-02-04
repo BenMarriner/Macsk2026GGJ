@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class TriggerInteract : GreenObject, IInteractable
 {
-    
-    
     [SerializeField]
     private GameObject pairedInteractable;
     
@@ -19,7 +17,7 @@ public class TriggerInteract : GreenObject, IInteractable
     private bool canBeInteracted = false;
     
     private bool isTriggered = false;
-
+    
     public void SetCanBeInteracted(bool val)
     {
         canBeInteracted = val;
@@ -42,7 +40,6 @@ public class TriggerInteract : GreenObject, IInteractable
         if (_onlyInteractableOnce)
         {
             DisableGreenEffect();
-            Unhighlight();
         }
     }
 

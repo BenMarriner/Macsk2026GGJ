@@ -7,9 +7,11 @@ public class GreenObject : MaskChangeDetector
     private Material _defaultObjectMaterial;
     [SerializeField] private List<Renderer> _highlightMeshes;
 
+    [SerializeField] private string _solhouetteLayer;
+
     private IInteractable _interactable;
-    
     private Renderer _objectRenderer;
+    private int _defaultObjectLayer;
 
     protected virtual void Start()
     {
@@ -24,6 +26,8 @@ public class GreenObject : MaskChangeDetector
             _interactable = pairedInteractable;
         }
 
+        _defaultObjectLayer = gameObject.layer;
+
         Unhighlight();
         DisableGreenEffect();
     }
@@ -31,11 +35,13 @@ public class GreenObject : MaskChangeDetector
     protected override void EnableGreenEffect()
     {
         _objectRenderer.material = _greenMaterial;
+        gameObject.layer = LayerMask.NameToLayer(_solhouetteLayer);
     }
 
     protected override void DisableGreenEffect()
     {
         _objectRenderer.material = _defaultObjectMaterial;
+        gameObject.layer = _defaultObjectLayer;
         Unhighlight();
     }
 

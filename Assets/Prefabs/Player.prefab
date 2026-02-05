@@ -166,7 +166,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MaskManager
   _currentMaskMode: 0
   screenTint: {fileID: 2100000, guid: fcaa213e697feb540915511c5592ff4b, type: 2}
-  tintValue: 0.5
+  redTintValue: 0.6
+  blueTintValue: 0.5
+  greenTintValue: 0.4
 --- !u!114 &-1503267713433760565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,7 +229,7 @@ GameObject:
   - component: {fileID: 7856362364946694534}
   m_Layer: 0
   m_Name: Model
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

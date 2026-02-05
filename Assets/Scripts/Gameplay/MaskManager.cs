@@ -38,7 +38,7 @@ public class MaskManager : MonoBehaviour
         if (eventData is not int) this.LogError("Event listener recieved incorrect data type!");
         int maskChange = (int)eventData;
 
-        if (!_maskEnabled)
+        if (!_maskEnabled || maskChange == 0)
         {
             return;
         }
@@ -62,7 +62,6 @@ public class MaskManager : MonoBehaviour
 
         EventManager.TriggerEvent(EventKey.MASK_MODE_CHANGED, _currentMaskMode);
         EventManager.TriggerEvent(EventKey.SFX, SoundType.MaskChanage02);
-
         switch (_currentMaskMode)
         {
             case MaskMode.NoMask:

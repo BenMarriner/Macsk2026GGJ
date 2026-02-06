@@ -1,7 +1,8 @@
 using UnityEngine;
 
-public class RedObject : MaskChangeDetector
+public class RedObject : ColouredObject
 {
+    [SerializeField] protected Material _transparentColouredMaterial;
     private Rigidbody _rb;
     private Collider _objectCollider;
     private MeshRenderer _meshRenderer;
@@ -11,6 +12,11 @@ public class RedObject : MaskChangeDetector
         _rb = GetComponentInChildren<Rigidbody>();
         _objectCollider = GetComponentInChildren<Collider>();
         _meshRenderer = GetComponentInChildren<MeshRenderer>();
+
+        Transform[] allObjectTransforms = GetComponentsInChildren<Transform>();
+
+        _defaultMaterialList = GetDefaultMaterialList(allObjectTransforms);
+
         SetRedEffect(false);
     }
 
@@ -23,17 +29,44 @@ public class RedObject : MaskChangeDetector
 
         if (_rb)
         {
-            _rb.detectCollisions = !enabled;
+            _rb.detectCollisions = enabled;
         }
 
         if (_objectCollider)
         {
-            _objectCollider.enabled = !enabled;
+            _objectCollider.enabled = enabled;
         }
 
-        if (_meshRenderer)
+        if (_meshRenderer && !_effectReversed)
         {
-            _meshRenderer.enabled = !enabled;
+            _meshRenderer.enabled = enabled;
+        }
+
+        DebugLogger.Log(_defaultMaterialList.Count);
+
+        foreach (GenericCouple<Renderer, Material> item in _defaultMaterialList)
+        {
+            Material newMaterial;
+            
+            // Note: 'enabled' may have been reversed if _effectReversed is active
+            if (enabled)
+            {
+                newMaterial = _colouredMaterial;
+            }
+            else
+            {
+                if (_effectReversed)
+                {
+                    newMaterial = _transparentColouredMaterial;
+                }
+                else
+                {
+                    newMaterial = item.Second;
+                }
+            }
+            DebugLogger.Log(newMaterial);
+
+            item.First.material = newMaterial;
         }
     }
 }

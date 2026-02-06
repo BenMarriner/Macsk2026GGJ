@@ -20,11 +20,11 @@ public class GreenObject : ColouredObject
         }
 
         _defaultObjectLayer = gameObject.layer;
-        _allObjectTransforms = GetComponentsInChildren<Transform>();
-
-        _defaultMaterialList = GetDefaultMaterialList(_allObjectTransforms);
 
         Unhighlight();
+        _allObjectTransforms = GetComponentsInChildren<Transform>();
+        _defaultMaterialList = GetDefaultMaterialList(_allObjectTransforms);
+        
         DisableGreenEffect();
     }
 

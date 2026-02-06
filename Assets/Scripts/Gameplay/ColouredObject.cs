@@ -16,7 +16,7 @@ public class ColouredObject : MaskChangeDetector
         
         foreach (Transform item in transformArray)
         {
-            if (item.TryGetComponent(out Renderer renderer))
+            if (item.TryGetComponent(out Renderer renderer) && renderer.enabled)
             {
                 Material objectMaterial = renderer.material;
                 defaultMaterialList.Add(new GenericCouple<Renderer, Material>(renderer, objectMaterial));

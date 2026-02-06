@@ -1,14 +1,10 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
-public class GreenObject : MaskChangeDetector
+public class GreenObject : ColouredObject
 {
-    [SerializeField] private Material _greenMaterial;
     [SerializeField] private List<Renderer> _highlightMeshes;
     [SerializeField] private string _solhouetteLayer;
-
-    private List<GenericCouple<Renderer, Material>> _defaultMaterialList = new();
 
     private bool _greenMaskMode = false;
     private IInteractable _interactable;
@@ -25,20 +21,8 @@ public class GreenObject : MaskChangeDetector
 
         _defaultObjectLayer = gameObject.layer;
         _allObjectTransforms = GetComponentsInChildren<Transform>();
-        _allObjectTransforms.Append(transform);
 
-        // Loop through all children of the gameobject, getting the renderers and 
-        // their default material, then adding them to a list
-        //
-        // not the most performant, but easier for designers to add it to an object
-        foreach (Transform item in _allObjectTransforms)
-        {
-            if (item.TryGetComponent(out Renderer renderer))
-            {
-                Material objectMaterial = renderer.material;
-                _defaultMaterialList.Add(new GenericCouple<Renderer, Material>(renderer, objectMaterial));
-            }
-        }
+        _defaultMaterialList = GetDefaultMaterialList(_allObjectTransforms);
 
         Unhighlight();
         DisableGreenEffect();
@@ -66,7 +50,7 @@ public class GreenObject : MaskChangeDetector
         _greenMaskMode = true;
         foreach (GenericCouple<Renderer, Material> item in _defaultMaterialList)
         {
-            item.First.material = _greenMaterial;
+            item.First.material = _colouredMaterial;
         }
 
         if (_silhouetteEnabled)

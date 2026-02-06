@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BlueObject : MaskChangeDetector
+public class BlueObject : ColouredObject
 {
     [SerializeField] private GameObject _movingPlatform;
     [SerializeField] private WaypointPath _waypointPath;
@@ -18,6 +18,7 @@ public class BlueObject : MaskChangeDetector
 
     private void Start()
     {
+        _defaultMaterialList = GetDefaultMaterialList(GetComponentsInChildren<Transform>());
         _movingPlatform.transform.position = _waypointPath.GetWaypoint(_targetWaypointIndex).transform.position;
         TargetNextWaypoint();
 
@@ -42,14 +43,32 @@ public class BlueObject : MaskChangeDetector
         }
     }
 
-    protected override void SetBlueEffect(bool enabled)
+    protected override void SetBlueEffect(bool blueEnabled)
     {
         if (_effectReversed)
         {
-            enabled = !enabled;
+            _isMoving = !blueEnabled;
+        }
+        else
+        {
+            _isMoving = blueEnabled;
         }
 
-        _isMoving = enabled;
+        foreach (GenericCouple<Renderer, Material> item in _defaultMaterialList)
+        {
+            Material newMaterial;
+            
+            if (blueEnabled)
+            {
+                newMaterial = _colouredMaterial;
+            }
+            else
+            {
+                newMaterial = item.Second;
+            }
+
+            item.First.material = newMaterial;
+        }
     }
 
     private void TargetNextWaypoint()

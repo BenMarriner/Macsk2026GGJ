@@ -59,15 +59,15 @@ public class MaskChangeDetector : MonoBehaviour
         SetBlueEffect(true);
     }
 
-    protected virtual void SetRedEffect(bool enabled)
+    protected virtual void SetRedEffect(bool redEnabled)
     {
     }
 
-    protected virtual void SetGreenEffect(bool enabled)
+    protected virtual void SetGreenEffect(bool greenEnabled)
     {
     }
 
-    protected virtual void SetBlueEffect(bool enabled)
+    protected virtual void SetBlueEffect(bool blueEnabled)
     {
     }
 }

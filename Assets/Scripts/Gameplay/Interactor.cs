@@ -176,13 +176,13 @@ public class Interactor : MaskChangeDetector
         }
     }
 
-    protected override void SetGreenEffect(bool enabled)
+    protected override void SetGreenEffect(bool greenEnabled)
     {
         if (_effectReversed)
         {
-            enabled = !enabled;
+            greenEnabled = !greenEnabled;
         }
-        
-        _interactionEnabled = enabled;
+
+        _interactionEnabled = greenEnabled;
     }
 }

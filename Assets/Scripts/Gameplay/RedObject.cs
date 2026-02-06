@@ -13,43 +13,39 @@ public class RedObject : ColouredObject
         _objectCollider = GetComponentInChildren<Collider>();
         _meshRenderer = GetComponentInChildren<MeshRenderer>();
 
-        Transform[] allObjectTransforms = GetComponentsInChildren<Transform>();
-
-        _defaultMaterialList = GetDefaultMaterialList(allObjectTransforms);
+        _defaultMaterialList = GetDefaultMaterialList(GetComponentsInChildren<Transform>());
 
         SetRedEffect(false);
     }
 
-    protected override void SetRedEffect(bool enabled)
+    protected override void SetRedEffect(bool redEnabled)
     {
+        bool isTangible = redEnabled;
         if (_effectReversed)
         {
-            enabled = !enabled;
+            isTangible = !enabled;
         }
 
         if (_rb)
         {
-            _rb.detectCollisions = enabled;
+            _rb.detectCollisions = isTangible;
         }
 
         if (_objectCollider)
         {
-            _objectCollider.enabled = enabled;
+            _objectCollider.enabled = isTangible;
         }
 
         if (_meshRenderer && !_effectReversed)
         {
-            _meshRenderer.enabled = enabled;
+            _meshRenderer.enabled = isTangible;
         }
-
-        DebugLogger.Log(_defaultMaterialList.Count);
 
         foreach (GenericCouple<Renderer, Material> item in _defaultMaterialList)
         {
             Material newMaterial;
             
-            // Note: 'enabled' may have been reversed if _effectReversed is active
-            if (enabled)
+            if (isTangible)
             {
                 newMaterial = _colouredMaterial;
             }
@@ -64,7 +60,6 @@ public class RedObject : ColouredObject
                     newMaterial = item.Second;
                 }
             }
-            DebugLogger.Log(newMaterial);
 
             item.First.material = newMaterial;
         }

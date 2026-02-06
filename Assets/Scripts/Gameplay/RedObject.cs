@@ -23,7 +23,7 @@ public class RedObject : ColouredObject
         bool isTangible = redEnabled;
         if (_effectReversed)
         {
-            isTangible = !enabled;
+            isTangible = !redEnabled;
         }
 
         if (_rb)
@@ -44,21 +44,21 @@ public class RedObject : ColouredObject
         foreach (GenericCouple<Renderer, Material> item in _defaultMaterialList)
         {
             Material newMaterial;
-            
-            if (isTangible)
+
+            if (redEnabled)
             {
-                newMaterial = _colouredMaterial;
-            }
-            else
-            {
-                if (_effectReversed)
+                if (isTangible)
                 {
-                    newMaterial = _transparentColouredMaterial;
+                    newMaterial = _colouredMaterial;
                 }
                 else
                 {
-                    newMaterial = item.Second;
+                    newMaterial = _transparentColouredMaterial;
                 }
+            }
+            else
+            {
+                newMaterial = item.Second;
             }
 
             item.First.material = newMaterial;

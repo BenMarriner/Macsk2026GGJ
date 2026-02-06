@@ -21,7 +21,7 @@ public class BlueObject : MaskChangeDetector
         _movingPlatform.transform.position = _waypointPath.GetWaypoint(_targetWaypointIndex).transform.position;
         TargetNextWaypoint();
 
-        DisableBlueEffect();
+        SetBlueEffect(false);
     }
 
     private void FixedUpdate()
@@ -42,14 +42,14 @@ public class BlueObject : MaskChangeDetector
         }
     }
 
-    protected override void EnableBlueEffect()
+    protected override void SetBlueEffect(bool enabled)
     {
-        _isMoving = !_effectReversed;
-    }
+        if (_effectReversed)
+        {
+            enabled = !enabled;
+        }
 
-    protected override void DisableBlueEffect()
-    {
-        _isMoving = _effectReversed;
+        _isMoving = enabled;
     }
 
     private void TargetNextWaypoint()

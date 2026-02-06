@@ -39,7 +39,24 @@ public class GreenObject : MaskChangeDetector
         DisableGreenEffect();
     }
 
-    protected override void EnableGreenEffect()
+    protected override void SetGreenEffect(bool enabled)
+    {
+        if (_effectReversed)
+        {
+            enabled = !enabled;
+        }
+
+        if (enabled)
+        {
+            EnableGreenEffect();
+        }
+        else
+        {
+            DisableGreenEffect();
+        }
+    }
+
+    protected virtual void EnableGreenEffect()
     {
         _greenMaskMode = true;
         _objectRenderer.material = _greenMaterial;
@@ -49,7 +66,7 @@ public class GreenObject : MaskChangeDetector
         }
     }
 
-    protected override void DisableGreenEffect()
+    protected virtual void DisableGreenEffect()
     {
         _greenMaskMode = false;
         _objectRenderer.material = _defaultObjectMaterial;

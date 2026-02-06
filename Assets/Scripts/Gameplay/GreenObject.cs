@@ -1,58 +1,73 @@
 using System.Collections.Generic;
-using System.Linq;
-using UnityEditor.UI;
 using UnityEngine;
 
-public class GreenObject : MaskChangeDetector
+public class GreenObject : ColouredObject
 {
-    [SerializeField] private Material _greenMaterial;
-    private Material _defaultObjectMaterial;
     [SerializeField] private List<Renderer> _highlightMeshes;
-
     [SerializeField] private string _solhouetteLayer;
 
     private bool _greenMaskMode = false;
     private IInteractable _interactable;
-    private Renderer _objectRenderer;
     private int _defaultObjectLayer;
     private bool _silhouetteEnabled = false;
     private Transform[] _allObjectTransforms;
 
     protected virtual void Start()
     {
-        _objectRenderer = GetComponentInChildren<Renderer>();
-        if (_objectRenderer != null)
-        {
-            _defaultObjectMaterial = _objectRenderer.material;
-        }
-
         if (_interactable == null && TryGetComponent(out IInteractable pairedInteractable))
         {
             _interactable = pairedInteractable;
         }
 
         _defaultObjectLayer = gameObject.layer;
-        _allObjectTransforms = GetComponentsInChildren<Transform>();
-        _allObjectTransforms.Append(transform);
 
         Unhighlight();
+        _allObjectTransforms = GetComponentsInChildren<Transform>();
+        _defaultMaterialList = GetDefaultMaterialList(_allObjectTransforms);
+        
         DisableGreenEffect();
     }
 
-    protected override void EnableGreenEffect()
+    protected override void SetGreenEffect(bool greenEnabled)
+    {
+        bool interactionEnabled = greenEnabled;
+        if (_effectReversed)
+        {
+            interactionEnabled = !enabled;
+        }
+
+        if (interactionEnabled)
+        {
+            EnableGreenEffect();
+        }
+        else
+        {
+            DisableGreenEffect();
+        }
+    }
+
+    protected virtual void EnableGreenEffect()
     {
         _greenMaskMode = true;
-        _objectRenderer.material = _greenMaterial;
+        foreach (GenericCouple<Renderer, Material> item in _defaultMaterialList)
+        {
+            item.First.material = _colouredMaterial;
+        }
+
         if (_silhouetteEnabled)
         {
             SetSelfAndChildrenLayers(LayerMask.NameToLayer(_solhouetteLayer));
         }
     }
 
-    protected override void DisableGreenEffect()
+    protected virtual void DisableGreenEffect()
     {
         _greenMaskMode = false;
-        _objectRenderer.material = _defaultObjectMaterial;
+        foreach (GenericCouple<Renderer, Material> item in _defaultMaterialList)
+        {
+            item.First.material = item.Second;
+        }
+
         SetSelfAndChildrenLayers(_defaultObjectLayer);
         Unhighlight();
     }

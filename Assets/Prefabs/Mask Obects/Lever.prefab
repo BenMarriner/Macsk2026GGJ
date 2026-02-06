@@ -319,7 +319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LeverInteract
   _currentMaskMode: 0
   _effectReversed: 0
-  _greenMaterial: {fileID: 2100000, guid: a3ce89f0ec7981a49a4db075b9611c65, type: 2}
+  _colouredMaterial: {fileID: 2100000, guid: a3ce89f0ec7981a49a4db075b9611c65, type: 2}
   _highlightMeshes:
   - {fileID: 4102649207898009213}
   - {fileID: 421976614457335533}

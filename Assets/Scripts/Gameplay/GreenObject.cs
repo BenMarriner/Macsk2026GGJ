@@ -1,31 +1,23 @@
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.UI;
 using UnityEngine;
 
 public class GreenObject : MaskChangeDetector
 {
     [SerializeField] private Material _greenMaterial;
-    private Material _defaultObjectMaterial;
     [SerializeField] private List<Renderer> _highlightMeshes;
-
     [SerializeField] private string _solhouetteLayer;
+
+    private List<GenericCouple<Renderer, Material>> _defaultMaterialList = new();
 
     private bool _greenMaskMode = false;
     private IInteractable _interactable;
-    private Renderer _objectRenderer;
     private int _defaultObjectLayer;
     private bool _silhouetteEnabled = false;
     private Transform[] _allObjectTransforms;
 
     protected virtual void Start()
     {
-        _objectRenderer = GetComponentInChildren<Renderer>();
-        if (_objectRenderer != null)
-        {
-            _defaultObjectMaterial = _objectRenderer.material;
-        }
-
         if (_interactable == null && TryGetComponent(out IInteractable pairedInteractable))
         {
             _interactable = pairedInteractable;
@@ -34,6 +26,19 @@ public class GreenObject : MaskChangeDetector
         _defaultObjectLayer = gameObject.layer;
         _allObjectTransforms = GetComponentsInChildren<Transform>();
         _allObjectTransforms.Append(transform);
+
+        // Loop through all children of the gameobject, getting the renderers and 
+        // their default material, then adding them to a list
+        //
+        // not the most performant, but easier for designers to add it to an object
+        foreach (Transform item in _allObjectTransforms)
+        {
+            if (item.TryGetComponent(out Renderer renderer))
+            {
+                Material objectMaterial = renderer.material;
+                _defaultMaterialList.Add(new GenericCouple<Renderer, Material>(renderer, objectMaterial));
+            }
+        }
 
         Unhighlight();
         DisableGreenEffect();
@@ -59,7 +64,11 @@ public class GreenObject : MaskChangeDetector
     protected virtual void EnableGreenEffect()
     {
         _greenMaskMode = true;
-        _objectRenderer.material = _greenMaterial;
+        foreach (GenericCouple<Renderer, Material> item in _defaultMaterialList)
+        {
+            item.First.material = _greenMaterial;
+        }
+
         if (_silhouetteEnabled)
         {
             SetSelfAndChildrenLayers(LayerMask.NameToLayer(_solhouetteLayer));
@@ -69,7 +78,11 @@ public class GreenObject : MaskChangeDetector
     protected virtual void DisableGreenEffect()
     {
         _greenMaskMode = false;
-        _objectRenderer.material = _defaultObjectMaterial;
+        foreach (GenericCouple<Renderer, Material> item in _defaultMaterialList)
+        {
+            item.First.material = item.Second;
+        }
+
         SetSelfAndChildrenLayers(_defaultObjectLayer);
         Unhighlight();
     }

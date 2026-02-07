@@ -165,8 +165,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MaskManager
   _currentMaskMode: 0
-  screenTint: {fileID: 2100000, guid: fcaa213e697feb540915511c5592ff4b, type: 2}
-  tintValue: 0.5
+  screenTint: {fileID: 2100000, guid: 8125e6aaf93d7f544bc94f01b84bef75, type: 2}
+  redTintValue: 0.6
+  blueTintValue: 0.5
+  greenTintValue: 0.4
 --- !u!114 &-1503267713433760565
 MonoBehaviour:
   m_ObjectHideFlags: 0

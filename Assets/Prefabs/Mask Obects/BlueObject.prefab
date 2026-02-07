@@ -79,6 +79,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BlueObject
   _currentMaskMode: 0
   _effectReversed: 0
+  _colouredMaterial: {fileID: 2100000, guid: 88b5a51b7b4b21543b672edacc142e67, type: 2}
   _movingPlatform: {fileID: 2884312137801227305}
   _waypointPath: {fileID: 8460008634902862602}
   _speed: 5
@@ -151,7 +152,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 88b5a51b7b4b21543b672edacc142e67, type: 2}
+  - {fileID: 2100000, guid: 1a17ac5d7fe2a5d48a5a755f98d6dd1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -1,7 +1,8 @@
 using UnityEngine;
 
-public class RedObject : MaskChangeDetector
+public class RedObject : ColouredObject
 {
+    [SerializeField] protected Material _transparentColouredMaterial;
     private Rigidbody _rb;
     private Collider _objectCollider;
     private MeshRenderer _meshRenderer;
@@ -11,42 +12,56 @@ public class RedObject : MaskChangeDetector
         _rb = GetComponentInChildren<Rigidbody>();
         _objectCollider = GetComponentInChildren<Collider>();
         _meshRenderer = GetComponentInChildren<MeshRenderer>();
-        DisableRedEffect();
+
+        _defaultMaterialList = GetDefaultMaterialList(GetComponentsInChildren<Transform>());
+
+        SetRedEffect(false);
     }
 
-    protected override void EnableRedEffect()
+    protected override void SetRedEffect(bool redEnabled)
     {
+        bool isTangible = redEnabled;
+        if (_effectReversed)
+        {
+            isTangible = !redEnabled;
+        }
+
         if (_rb)
         {
-            _rb.detectCollisions = !_effectReversed;
+            _rb.detectCollisions = isTangible;
         }
 
         if (_objectCollider)
         {
-            _objectCollider.enabled = !_effectReversed;
+            _objectCollider.enabled = isTangible;
         }
 
-        if (_meshRenderer)
+        if (_meshRenderer && !_effectReversed)
         {
-            _meshRenderer.enabled = !_effectReversed;
-        }
-    }
-
-    protected override void DisableRedEffect()
-    {
-        if (_rb)
-        {
-            _rb.detectCollisions = _effectReversed;
+            _meshRenderer.enabled = isTangible;
         }
 
-        if (_objectCollider)
+        foreach (GenericCouple<Renderer, Material> item in _defaultMaterialList)
         {
-            _objectCollider.enabled = _effectReversed;
-        }
+            Material newMaterial;
 
-        if (_meshRenderer)
-        {
-            _meshRenderer.enabled = _effectReversed;
+            if (redEnabled)
+            {
+                if (isTangible)
+                {
+                    newMaterial = _colouredMaterial;
+                }
+                else
+                {
+                    newMaterial = _transparentColouredMaterial;
+                }
+            }
+            else
+            {
+                newMaterial = item.Second;
+            }
+
+            item.First.material = newMaterial;
         }
     }
 }

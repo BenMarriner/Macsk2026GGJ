@@ -1,6 +1,3 @@
-using NUnit.Framework.Api;
-using System.Xml.Serialization;
-using UnityEditor;
 using UnityEngine;
 
 interface IInteractable
@@ -179,23 +176,13 @@ public class Interactor : MaskChangeDetector
         }
     }
 
-    protected override void EnableGreenEffect()
+    protected override void SetGreenEffect(bool greenEnabled)
     {
-        _interactionEnabled = true;
-    }
+        if (_effectReversed)
+        {
+            greenEnabled = !greenEnabled;
+        }
 
-    protected override void DisableGreenEffect()
-    {
-        _interactionEnabled = false;
-
-        // GameObject PreviousHitObject = null;
-        // if (PreviousHit.transform)
-        // {
-        //     PreviousHitObject = PreviousHit.transform.gameObject;
-        // }
-        // if (IsValidInteractable(PreviousHitObject))
-        // {
-        //     EventManager.TriggerEvent(EventKey.INTERACTABLE_UNHIGHLIGHTED, PreviousHitObject);
-        // }
+        _interactionEnabled = greenEnabled;
     }
 }

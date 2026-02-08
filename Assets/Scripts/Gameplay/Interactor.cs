@@ -18,7 +18,7 @@ public class Interactor : MaskChangeDetector
     public float Distance = 1500.0f;
 
     Camera Camera;
-    RaycastHit PreviousHit;
+    GameObject _previousHitObject;
     RaycastHit CurrentHit;
 
     GameObject HighlightedObject;
@@ -43,25 +43,24 @@ public class Interactor : MaskChangeDetector
             return;
         }
 
-        PreviousHit = CurrentHit;
+        _previousHitObject = null;
+        if (CurrentHit.transform)
+            _previousHitObject = CurrentHit.transform.gameObject;
+        
         CastRay(out CurrentHit);
-
-        GameObject PreviousHitObject = null;
-        if (PreviousHit.transform)
-            PreviousHitObject = PreviousHit.transform.gameObject;
 
         GameObject HitObject = null;
         if (CurrentHit.transform)
             HitObject = CurrentHit.transform.gameObject;
 
-        if (PreviousHitObject == HitObject)
+        if (_previousHitObject == HitObject.transform.gameObject)
             return;
 
         // Send out unhighlighted event for previous object
-        if (IsValidInteractable(PreviousHitObject))
+        if (IsValidInteractable(_previousHitObject))
         {
-            EventManager.TriggerEvent(EventKey.INTERACTABLE_UNHIGHLIGHTED, PreviousHitObject);
-            if (PreviousHitObject.transform && PreviousHitObject.transform.gameObject.TryGetComponent(out IInteractable interactable))
+            EventManager.TriggerEvent(EventKey.INTERACTABLE_UNHIGHLIGHTED, _previousHitObject);
+            if (_previousHitObject && _previousHitObject.TryGetComponent(out IInteractable interactable))
             {
                 interactable.Unhighlight();
             }
@@ -181,7 +180,7 @@ public class Interactor : MaskChangeDetector
 
         if (!_interactionEnabled)
         {
-            PreviousHit = new();
+            _previousHitObject = null;
             CurrentHit = new();
         }
     }

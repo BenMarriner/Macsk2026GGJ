@@ -36,7 +36,6 @@ public class Interactor : MaskChangeDetector
         Camera = cam;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!_interactionEnabled)
@@ -178,11 +177,12 @@ public class Interactor : MaskChangeDetector
 
     protected override void SetGreenEffect(bool greenEnabled)
     {
-        if (_effectReversed)
-        {
-            greenEnabled = !greenEnabled;
-        }
-
         _interactionEnabled = greenEnabled;
+
+        if (!_interactionEnabled)
+        {
+            PreviousHit = new();
+            CurrentHit = new();
+        }
     }
 }

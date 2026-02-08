@@ -15,12 +15,10 @@ interface IActivate
 
 public class Interactor : MaskChangeDetector
 {
-    public float Distance = 1500.0f;
-
-    Camera Camera;
-    GameObject _previousHitObject;
-    GameObject _currentHitObject;
-
+    [SerializeField] private float _distance = 1500.0f;
+    private Camera _camera;
+    private GameObject _previousHitObject;
+    private GameObject _currentHitObject;
     private bool _interactionEnabled = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -28,10 +26,10 @@ public class Interactor : MaskChangeDetector
     {
         if (!playerCameraObject.TryGetComponent(out Camera cam)) return;
 
-        Camera = cam;
+        _camera = cam;
     }
 
-    void Update()
+    private void Update()
     {
         if (!_interactionEnabled) return;
 
@@ -74,18 +72,18 @@ public class Interactor : MaskChangeDetector
 
     private bool CastRay(out RaycastHit hit)
     {
-        if (!Camera)
+        if (!_camera)
         {
-            Debug.Assert(Camera, "Failed to assign camera to Interactor script");
+            Debug.Assert(_camera, "Failed to assign camera to Interactor script");
             hit = new();
             return false;
         }
 
-        Vector3 startPos = Camera.transform.position;
-        Vector3 forwardVec = Camera.transform.forward;
+        Vector3 startPos = _camera.transform.position;
+        Vector3 forwardVec = _camera.transform.forward;
         Ray ray = new(startPos, forwardVec);
 
-        bool success = Physics.Raycast(ray, out hit, Distance);
+        bool success = Physics.Raycast(ray, out hit, _distance);
         Debug.DrawLine(ray.origin, hit.point, success ? Color.green : Color.red, 1.0f);
 
         return success;

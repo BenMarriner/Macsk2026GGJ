@@ -6,6 +6,7 @@ public class MaskManager : MonoBehaviour
 {
     [SerializeField] private MaskMode _currentMaskMode = MaskMode.NoMask;
     private int MaskIntMax = Enum.GetNames(typeof(MaskMode)).Length - 1;
+    private bool _maskEnabled = false;
     
     [SerializeField] private Material screenTint;
     [SerializeField] private float redTintValue = .6f;
@@ -15,12 +16,14 @@ public class MaskManager : MonoBehaviour
     protected virtual void OnEnable()
     {
         EventManager.RegisterEvent(EventKey.MASK_INPUT, SwitchMaskScroll);
+        EventManager.RegisterEvent(EventKey.MASK_PICKUP, MaskPickupHandler);
         ResetScreenTint();
     }
 
     protected virtual void OnDisable()
     {
         EventManager.DeregisterEvent(EventKey.MASK_INPUT, SwitchMaskScroll);
+        EventManager.DeregisterEvent(EventKey.MASK_PICKUP, MaskPickupHandler);
     }
 
     protected void ResetScreenTint()
@@ -34,6 +37,11 @@ public class MaskManager : MonoBehaviour
     {
         if (eventData is not int) this.LogError("Event listener recieved incorrect data type!");
         int maskChange = (int)eventData;
+
+        if (!_maskEnabled || maskChange == 0)
+        {
+            return;
+        }
 
         _currentMaskMode = _currentMaskMode + maskChange;
 
@@ -53,7 +61,7 @@ public class MaskManager : MonoBehaviour
         }
 
         EventManager.TriggerEvent(EventKey.MASK_MODE_CHANGED, _currentMaskMode);
-
+        EventManager.TriggerEvent(EventKey.SFX, SoundType.MaskChanage02);
         switch (_currentMaskMode)
         {
             case MaskMode.NoMask:
@@ -73,6 +81,11 @@ public class MaskManager : MonoBehaviour
                 SetBlueScreenTint();
             break;
         }
+    }
+
+    void MaskPickupHandler(object eventData)
+    {
+        _maskEnabled = true;
     }
     
     private void SetRedScreenTint()

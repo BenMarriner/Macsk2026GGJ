@@ -367,8 +367,24 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 3cab5f4c91431e540a787ef2c16d805a, type: 3}
     randomisePitch: 1
     volume: 1
-  - sound: 2
+  - sound: 7
     audioClip: {fileID: 8300000, guid: 3cab5f4c91431e540a787ef2c16d805a, type: 3}
+    randomisePitch: 1
+    volume: 1
+  - sound: 8
+    audioClip: {fileID: 8300000, guid: 8d3dea88cd760d849972e921d45f4259, type: 3}
+    randomisePitch: 1
+    volume: 1
+  - sound: 9
+    audioClip: {fileID: 8300000, guid: 24ac569e360d0fd4d8f42ea9fddbd8d3, type: 3}
+    randomisePitch: 1
+    volume: 1
+  - sound: 10
+    audioClip: {fileID: 8300000, guid: 97dde1bbe7da8d041a4efe0ce9e90b03, type: 3}
+    randomisePitch: 1
+    volume: 1
+  - sound: 2
+    audioClip: {fileID: 8300000, guid: 97dde1bbe7da8d041a4efe0ce9e90b03, type: 3}
     randomisePitch: 1
     volume: 1
   MusicAudioClipArray:

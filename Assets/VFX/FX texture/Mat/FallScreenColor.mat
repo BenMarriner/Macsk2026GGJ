@@ -38,13 +38,10 @@ Material:
     m_Ints: []
     m_Floats:
     - _Blue: 0
-<<<<<<< Updated upstream
     - _Green: 0.5
     - _Red: 0
-=======
     - _Green: 0
     - _Red: 0.6
->>>>>>> Stashed changes
     m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1

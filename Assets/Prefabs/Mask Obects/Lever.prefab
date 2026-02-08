@@ -256,9 +256,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: 33.702
       objectReference: {fileID: 0}
+    - target: {fileID: -4136489359485349601, guid: 55614858320ae9d449e07b8e4891b9dd, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 55614858320ae9d449e07b8e4891b9dd, type: 3}
       propertyPath: m_Name
       value: Lever
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 55614858320ae9d449e07b8e4891b9dd, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 55614858320ae9d449e07b8e4891b9dd, type: 3}
       propertyPath: m_TagString
@@ -311,13 +319,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LeverInteract
   _currentMaskMode: 0
   _effectReversed: 0
-  _greenMaterial: {fileID: 2100000, guid: a3ce89f0ec7981a49a4db075b9611c65, type: 2}
+  _colouredMaterial: {fileID: 2100000, guid: a3ce89f0ec7981a49a4db075b9611c65, type: 2}
   _highlightMeshes:
   - {fileID: 4102649207898009213}
   - {fileID: 421976614457335533}
+  _solhouetteLayer: Silhouette
   pairedInteractable: {fileID: 0}
   animationClip: {fileID: 7400000, guid: 14e49ea1366cc6d4eb31ac214400e85c, type: 2}
   animator: {fileID: 2624578758759643078}
+  _onlyInteractableOnce: 1
 --- !u!65 &4833151124111051354
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class MaskChangeDetector : MonoBehaviour
@@ -18,7 +17,6 @@ public class MaskChangeDetector : MonoBehaviour
 
     void Start()
     {
-        
     }
 
     protected virtual void MaskChangeHandler(object eventData)
@@ -29,65 +27,47 @@ public class MaskChangeDetector : MonoBehaviour
         switch (_currentMaskMode)
         {
             case MaskMode.RedMask:
-                ToggleRedEffect();
-            break;
-            case MaskMode.BlueMask:
-                ToggleBlueEffect();
+                TriggerRedEffect();
             break;
             case MaskMode.GreenMask:
-                ToggleGreenEffect();
+                TriggerGreenEffect();
+            break;
+            case MaskMode.BlueMask:
+                TriggerBlueEffect();
             break;
         }
     }
 
-    protected virtual void ToggleRedEffect()
+    protected virtual void TriggerRedEffect()
     {
-        EnableRedEffect();
-        DisableGreenEffect();
-        DisableBlueEffect();
+        SetRedEffect(true);
+        SetGreenEffect(false);
+        SetBlueEffect(false);
     }
 
-    protected virtual void ToggleGreenEffect()
+    protected virtual void TriggerGreenEffect()
     {
-        DisableRedEffect();
-        EnableGreenEffect();
-        DisableBlueEffect();
+        SetRedEffect(false);
+        SetGreenEffect(true);
+        SetBlueEffect(false);
     }
 
-    protected virtual void ToggleBlueEffect()
+    protected virtual void TriggerBlueEffect()
     {
-        DisableRedEffect();
-        DisableGreenEffect();
-        EnableBlueEffect();
+        SetRedEffect(false);
+        SetGreenEffect(false);
+        SetBlueEffect(true);
     }
 
-    protected virtual void EnableRedEffect()
+    protected virtual void SetRedEffect(bool redEnabled)
     {
-        
     }
 
-    protected virtual void DisableRedEffect()
+    protected virtual void SetGreenEffect(bool greenEnabled)
     {
-        
     }
 
-    protected virtual void EnableGreenEffect()
+    protected virtual void SetBlueEffect(bool blueEnabled)
     {
-        
-    }
-
-    protected virtual void DisableGreenEffect()
-    {
-        
-    }
-
-    protected virtual void EnableBlueEffect()
-    {
-        
-    }
-
-    protected virtual void DisableBlueEffect()
-    {
-        
     }
 }

@@ -19,7 +19,7 @@ public class Interactor : MaskChangeDetector
 
     Camera Camera;
     GameObject _previousHitObject;
-    RaycastHit CurrentHit;
+    GameObject _currentHitObject;
 
     GameObject HighlightedObject;
 
@@ -38,22 +38,15 @@ public class Interactor : MaskChangeDetector
 
     void Update()
     {
-        if (!_interactionEnabled)
-        {
-            return;
-        }
+        if (!_interactionEnabled) return;
 
-        _previousHitObject = null;
-        if (CurrentHit.transform)
-            _previousHitObject = CurrentHit.transform.gameObject;
+        _previousHitObject = _currentHitObject;
         
-        CastRay(out CurrentHit);
+        CastRay(out RaycastHit currentHit);
+        if (currentHit.transform)
+            _currentHitObject = currentHit.transform.gameObject;
 
-        GameObject HitObject = null;
-        if (CurrentHit.transform)
-            HitObject = CurrentHit.transform.gameObject;
-
-        if (_previousHitObject == HitObject.transform.gameObject)
+        if (_previousHitObject == _currentHitObject)
             return;
 
         // Send out unhighlighted event for previous object
@@ -67,10 +60,10 @@ public class Interactor : MaskChangeDetector
         }
         
         // Send out highlighted event for current object
-        if (IsValidInteractable(HitObject))
+        if (IsValidInteractable(_currentHitObject))
         {
-            EventManager.TriggerEvent(EventKey.INTERACTABLE_HIGHLIGHTED, HitObject);
-            if (HitObject.transform && HitObject.transform.gameObject.TryGetComponent(out IInteractable interactable))
+            EventManager.TriggerEvent(EventKey.INTERACTABLE_HIGHLIGHTED, _currentHitObject);
+            if (_currentHitObject && _currentHitObject.TryGetComponent(out IInteractable interactable))
             {
                 interactable.Highlight();
             }
@@ -116,7 +109,7 @@ public class Interactor : MaskChangeDetector
         Ray ray = new(startPos, forwardVec);
 
         bool success = Physics.Raycast(ray, out hit, Distance);
-        Debug.DrawLine(ray.origin, CurrentHit.point, success ? Color.green : Color.red, 1.0f);
+        Debug.DrawLine(ray.origin, hit.point, success ? Color.green : Color.red, 1.0f);
 
         return success;
     }
@@ -150,23 +143,20 @@ public class Interactor : MaskChangeDetector
 
     public void InteractWithObject()
     {
-        if (!_interactionEnabled)
-        {
-            return;
-        }
+        if (!_interactionEnabled) return;
 
-        if (CurrentHit.transform)
+        if (_currentHitObject)
         {
-            if (CurrentHit.transform.gameObject.TryGetComponent(out IInteractable interactable))
+            if (_currentHitObject.TryGetComponent(out IInteractable interactable))
             {
                 interactable.Interact();
             }
             return;
         }
 
-        if (CurrentHit.transform.parent)
+        if (_currentHitObject.transform.parent)
         {
-            if (CurrentHit.transform.parent.gameObject.TryGetComponent(out IInteractable interactable))
+            if (_currentHitObject.transform.parent.gameObject.TryGetComponent(out IInteractable interactable))
             {
                 interactable.Interact();
             }
@@ -181,7 +171,7 @@ public class Interactor : MaskChangeDetector
         if (!_interactionEnabled)
         {
             _previousHitObject = null;
-            CurrentHit = new();
+            _currentHitObject = null;
         }
     }
 }

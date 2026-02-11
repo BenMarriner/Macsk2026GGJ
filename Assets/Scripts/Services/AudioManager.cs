@@ -7,12 +7,12 @@ using UnityEngine.Audio;
 public class AudioManager : MonoBehaviour
 {
     #region Variables
-    [SerializeField] private GenericCouple<MusicKey, AudioSource>[] MusicSourceMap;
+    [SerializeField] private KeySourcePair[] _musicSourcePair;
     [SerializeField] private AudioSource[] AudioSourceArray;
     [SerializeField] private SoundAudioClip[] SoundAudioClipArray;
     [SerializeField] private MusicAudioClip[] MusicAudioClipArray;
     [SerializeField] private AudioMixer _mixer;
-    private GenericCouple<MusicKey, AudioSource> _curretPrimaryMusicSource;
+    private KeySourcePair _currentPrimaryMusicSource;
 
     private List<SoundType> CurrentSoundsList = new();
     private bool _musicMuted = false;
@@ -24,7 +24,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        _curretPrimaryMusicSource.Second = MusicSourceMap[0].Second;
+        _currentPrimaryMusicSource.MusicSource = _musicSourcePair[0].MusicSource;
         FadeMusicEventHandler(new MusicFadeData(MusicKey.NoMask, 5, 1));
     }
 
@@ -124,15 +124,15 @@ public class AudioManager : MonoBehaviour
 
         if (_musicMuted) return;
 
-        GenericCouple<MusicKey, AudioSource> mappedSource = Array.Find(MusicSourceMap, x => x.First == musicKey);
-        AudioSource musicSource = mappedSource.Second;
+        KeySourcePair mappedSource = Array.Find(_musicSourcePair, x => x.MusicKey == musicKey);
+        AudioSource musicSource = mappedSource.MusicSource;
 
         if (musicSource == null) return;
 
         float musicTime = 0;
-        if (_curretPrimaryMusicSource.Second)
+        if (_currentPrimaryMusicSource.MusicSource)
         {
-            musicTime = _curretPrimaryMusicSource.Second.time;
+            musicTime = _currentPrimaryMusicSource.MusicSource.time;
         }
 
         StopMusic(false);
@@ -144,8 +144,8 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-        _curretPrimaryMusicSource.First = musicKey;
-        _curretPrimaryMusicSource.Second = musicSource;
+        _currentPrimaryMusicSource.MusicKey = musicKey;
+        _currentPrimaryMusicSource.MusicSource = musicSource;
         musicSource.clip = musicClip.AudioClip;
         musicSource.volume = musicClip.Volume * _musicVolume;
         musicSource.Play();
@@ -161,25 +161,25 @@ public class AudioManager : MonoBehaviour
 
         if (paused)
         {
-            foreach (GenericCouple<MusicKey, AudioSource> item in MusicSourceMap)
+            foreach (KeySourcePair item in _musicSourcePair)
             {
-                item.Second.Pause();
+                item.MusicSource.Pause();
             }
         }
         else
         {
-            foreach (GenericCouple<MusicKey, AudioSource> item in MusicSourceMap)
+            foreach (KeySourcePair item in _musicSourcePair)
             {
-                item.Second.Play();
+                item.MusicSource.Play();
             }
         }
     }
 
     public void StopMusic(object eventData)
     {
-        foreach (GenericCouple<MusicKey, AudioSource> item in MusicSourceMap)
+        foreach (KeySourcePair item in _musicSourcePair)
         {
-            item.Second.Stop();
+            item.MusicSource.Stop();
         }
     }
 
@@ -196,9 +196,9 @@ public class AudioManager : MonoBehaviour
         }
         else
         {
-            foreach (GenericCouple<MusicKey, AudioSource> item in MusicSourceMap)
+            foreach (KeySourcePair item in _musicSourcePair)
             {
-                item.Second.Play();
+                item.MusicSource.Play();
             }
         }
     }
@@ -214,8 +214,8 @@ public class AudioManager : MonoBehaviour
         if (_musicMuted) return;
 
         MusicAudioClip musicClip = Array.Find(MusicAudioClipArray, x => x.Music == musicKey);
-        GenericCouple<MusicKey, AudioSource> mappedSource = Array.Find(MusicSourceMap, x => x.First == musicKey);
-        AudioSource musicSource = mappedSource.Second;
+        KeySourcePair mappedSource = Array.Find(_musicSourcePair, x => x.MusicKey == musicKey);
+        AudioSource musicSource = mappedSource.MusicSource;
         if (musicSource == null) return;
 
         StopAllCoroutines();
@@ -231,8 +231,8 @@ public class AudioManager : MonoBehaviour
         if (_musicMuted) return;
 
         MusicAudioClip musicClip = Array.Find(MusicAudioClipArray, x => x.Music == musicKey);
-        GenericCouple<MusicKey, AudioSource> mappedSource = Array.Find(MusicSourceMap, x => x.First == musicKey);
-        AudioSource musicSource = mappedSource.Second;
+        KeySourcePair mappedSource = Array.Find(_musicSourcePair, x => x.MusicKey == musicKey);
+        AudioSource musicSource = mappedSource.MusicSource;
         if (musicSource == null) return;
 
         StopAllCoroutines();
@@ -240,11 +240,11 @@ public class AudioManager : MonoBehaviour
         StartCoroutine(FadeTrack(musicSource, musicFadeData.FadeTime, musicFadeData.FinalVolume));
 
         // Fade out all the other tracks
-        foreach (GenericCouple<MusicKey, AudioSource> item in MusicSourceMap)
+        foreach (KeySourcePair item in _musicSourcePair)
         {
-            if (item.First == musicKey) continue;
-            if (item.First == _curretPrimaryMusicSource.First) continue;
-            StartCoroutine(FadeTrack(item.Second, musicFadeData.FadeTime, 0));
+            if (item.MusicKey == musicKey) continue;
+            if (item.MusicKey == _currentPrimaryMusicSource.MusicKey) continue;
+            StartCoroutine(FadeTrack(item.MusicSource, musicFadeData.FadeTime, 0));
         }
     }
 
@@ -264,9 +264,9 @@ public class AudioManager : MonoBehaviour
 
         // Set track time
         float startTime = 0;
-        if (_curretPrimaryMusicSource.Second)
+        if (_currentPrimaryMusicSource.MusicSource)
         {
-            startTime = _curretPrimaryMusicSource.Second.time;
+            startTime = _currentPrimaryMusicSource.MusicSource.time;
         }
 
         audioSource.time = startTime;
@@ -314,9 +314,9 @@ public class AudioManager : MonoBehaviour
         float volumeDB = _musicVolume > 0 ? Mathf.Log10(_musicVolume) * 20 : -80f;
         _mixer.SetFloat("MusicVolume", volumeDB);
 
-        foreach (GenericCouple<MusicKey, AudioSource> item in MusicSourceMap)
+        foreach (KeySourcePair item in _musicSourcePair)
         {
-            item.Second.volume = _musicVolume;
+            item.MusicSource.volume = _musicVolume;
         }
     }
 
@@ -332,7 +332,7 @@ public class AudioManager : MonoBehaviour
     // }
     #endregion
 
-    #region Audio Clip Classes
+    #region Private Classes
     [Serializable]
     private class SoundAudioClip
     {
@@ -349,6 +349,19 @@ public class AudioManager : MonoBehaviour
         public AudioClip AudioClip;
         public bool RandomisePitch = false;
         [Range(0, 1)] public float Volume = 1f;
+    }
+
+    [Serializable]
+    private struct KeySourcePair
+    {
+        public MusicKey MusicKey;
+        public AudioSource MusicSource;
+
+        public KeySourcePair(MusicKey inMusicKey, AudioSource inMusicSource)
+        {
+            MusicKey = inMusicKey;
+            MusicSource = inMusicSource;
+        }
     }
     #endregion
 }

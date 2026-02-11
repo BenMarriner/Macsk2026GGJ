@@ -513,15 +513,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09ce9771f377f5a45b3133025865b6cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
-  MusicSourceMap:
-  - First: 0
-    Second: {fileID: 1416829827}
-  - First: 1
-    Second: {fileID: 1298279424}
-  - First: 2
-    Second: {fileID: 228650200}
-  - First: 3
-    Second: {fileID: 464253867}
+  _musicSourcePair:
+  - MusicKey: 0
+    MusicSource: {fileID: 1416829827}
+  - MusicKey: 1
+    MusicSource: {fileID: 1298279424}
+  - MusicKey: 2
+    MusicSource: {fileID: 228650200}
+  - MusicKey: 3
+    MusicSource: {fileID: 464253867}
   AudioSourceArray:
   - {fileID: 95752858}
   - {fileID: 525729797}

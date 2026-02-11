@@ -11,6 +11,7 @@ public enum EventKey
     MUTEMUSIC_TOGGLE,
     SFX_VOLUME_CHANGED,
     MUSIC_VOLUME_CHANGED,
+    FADE_MUSIC,
 
     // Inputs
     MASK_INPUT,

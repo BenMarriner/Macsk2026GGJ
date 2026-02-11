@@ -8,6 +8,7 @@ public class AudioManager : MonoBehaviour
 {
     #region Variables
     [SerializeField] private AudioSource MusicSource;
+    [SerializeField] private AudioSource FadeMusicSource;
     [SerializeField] private AudioSource[] AudioSourceArray;
     [SerializeField] private SoundAudioClip[] SoundAudioClipArray;
     [SerializeField] private SoundAudioClip[] MusicAudioClipArray;
@@ -23,13 +24,15 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        EventManager.TriggerEvent(EventKey.MUSIC, SoundType.NoMask);
+        // EventManager.TriggerEvent(EventKey.MUSIC, SoundType.NoMask);
+        FadeMusicEventHandler(SoundType.NoMask);
     }
 
     private void OnEnable()
     {
         EventManager.RegisterEvent(EventKey.SFX, SFXEventHandler);
         EventManager.RegisterEvent(EventKey.MUSIC, MusicEventHandler);
+        EventManager.RegisterEvent(EventKey.FADE_MUSIC, FadeMusicEventHandler);
         EventManager.RegisterEvent(EventKey.STOP_MUSIC, StopMusic);
         EventManager.RegisterEvent(EventKey.PAUSE_MUSIC, PauseMusic);
         EventManager.RegisterEvent(EventKey.MUTEMUSIC_TOGGLE, MuteMusic);
@@ -40,7 +43,8 @@ public class AudioManager : MonoBehaviour
     private void OnDisable()
     {
         EventManager.DeregisterEvent(EventKey.SFX, SFXEventHandler);
-        EventManager.DeregisterEvent(EventKey.MUSIC, MusicEventHandler);
+        EventManager.DeregisterEvent(EventKey.MUSIC, FadeMusicEventHandler);
+        EventManager.DeregisterEvent(EventKey.FADE_MUSIC, MusicEventHandler);
         EventManager.DeregisterEvent(EventKey.STOP_MUSIC, StopMusic);
         EventManager.DeregisterEvent(EventKey.PAUSE_MUSIC, PauseMusic);
         EventManager.DeregisterEvent(EventKey.MUTEMUSIC_TOGGLE, MuteMusic);
@@ -172,6 +176,69 @@ public class AudioManager : MonoBehaviour
         {
             MusicSource.Play();
         }
+    }
+
+    public void FadeMusicEventHandler(object eventData)
+    {
+        if (eventData is not SoundType) this.LogError("Event listener recieved incorrect data type!");
+        SoundType music = (SoundType)eventData;
+
+        if (_musicMuted) return;
+
+        float MusicTime = MusicSource.time; 
+        StopMusic(false);
+
+        SoundAudioClip musicClip = Array.Find(MusicAudioClipArray, x => x.sound == music);
+
+        // if (musicClip == null)
+        // {
+        //     this.LogError($"SoundAudioClip's music track not found {music}");
+        //     return;
+        // }
+
+        // MusicSource.clip = musicClip.audioClip;
+        // MusicSource.volume = musicClip.volume * _musicVolume;
+        // MusicSource.Play();
+        // MusicSource.time = MusicTime;
+
+        StartCoroutine(CrossFade(MusicSource, musicClip.audioClip, 1, 2));
+    }
+
+    private IEnumerator CrossFade( 
+        AudioSource audioSource, 
+        AudioClip newSound, 
+        float finalVolume, 
+        float fadeTime)
+    {
+        yield return FadeOutTrack(audioSource, fadeTime);
+        audioSource.clip = newSound;
+        yield return FadeInTrack(audioSource, fadeTime, finalVolume);
+        yield return FadeOutTrack(audioSource, fadeTime);
+        yield return FadeInTrack(audioSource, fadeTime, finalVolume);
+    }
+
+    private IEnumerator FadeInTrack(AudioSource audioSource, float fadeTime, float finalVolume)
+    {
+        audioSource.volume = 0;
+        audioSource.Play();
+        while (audioSource.volume < finalVolume)
+        {
+            audioSource.volume += finalVolume * Time.deltaTime / fadeTime;
+            yield return null;
+        }
+        audioSource.volume = finalVolume;
+    }
+    
+    private IEnumerator FadeOutTrack(AudioSource audioSource, float fadeTime)
+    {
+        float startVolume = audioSource.volume;
+        while (audioSource.volume > 0)
+        {
+            audioSource.volume -= startVolume * Time.deltaTime / fadeTime;
+            yield return null;
+        }
+        audioSource.Stop();
+        audioSource.volume = 0;
     }
     #endregion
 

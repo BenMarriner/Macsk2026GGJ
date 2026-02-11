@@ -25,7 +25,7 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         // EventManager.TriggerEvent(EventKey.MUSIC, SoundType.NoMask);
-        MusicEventHandler(MusicKey.NoMask);
+        FadeMusicEventHandler(new MusicFadeData(MusicKey.NoMask, 1, 1));
     }
 
     private void OnEnable()
@@ -83,7 +83,6 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-
         source.pitch = 1f;
         if (clipSound.randomisePitch)
         {
@@ -115,15 +114,15 @@ public class AudioManager : MonoBehaviour
     }
     #endregion
 
-    #region Music Functions
+    #region Generic Music
     public void MusicEventHandler(object eventData)
     {
         if (eventData is not MusicKey) this.LogError("Event listener recieved incorrect data type!");
-        MusicKey music = (MusicKey)eventData;
+        MusicKey musicKey = (MusicKey)eventData;
 
         if (_musicMuted) return;
 
-        GenericCouple<MusicKey, AudioSource> mappedSource = Array.Find(MusicSourceMap, x => x.First == music);
+        GenericCouple<MusicKey, AudioSource> mappedSource = Array.Find(MusicSourceMap, x => x.First == musicKey);
         AudioSource musicSource = mappedSource.Second;
 
         if (musicSource == null) return;
@@ -136,10 +135,10 @@ public class AudioManager : MonoBehaviour
 
         StopMusic(false);
 
-        MusicAudioClip musicClip = Array.Find(MusicAudioClipArray, x => x.Music == music);
+        MusicAudioClip musicClip = Array.Find(MusicAudioClipArray, x => x.Music == musicKey);
         if (musicClip == null)
         {
-            this.LogError($"MusicAudioClip's music track not found {music}");
+            this.LogError($"MusicAudioClip's music track not found {musicKey}");
             return;
         }
 
@@ -200,31 +199,31 @@ public class AudioManager : MonoBehaviour
             }
         }
     }
+    #endregion
 
+    #region Music Fading
     public void FadeMusicEventHandler(object eventData)
     {
-        if (eventData is not MusicKey) this.LogError("Event listener recieved incorrect data type!");
-        MusicKey music = (MusicKey)eventData;
+        if (eventData is not MusicFadeData) this.LogError("Event listener recieved incorrect data type!");
+        MusicFadeData musicFadeData = (MusicFadeData)eventData;
+        MusicKey musicKey = musicFadeData.MusicKey;
 
         if (_musicMuted) return;
 
-        float MusicTime = _curretPrimaryMusicSource.time; 
-        StopMusic(false);
+        MusicAudioClip musicClip = Array.Find(MusicAudioClipArray, x => x.Music == musicKey);
+        GenericCouple<MusicKey, AudioSource> mappedSource = Array.Find(MusicSourceMap, x => x.First == musicKey);
+        AudioSource musicSource = mappedSource.Second;
+        if (musicSource == null) return;
 
-        MusicAudioClip musicClip = Array.Find(MusicAudioClipArray, x => x.Music == music);
+        float musicTime = 0;
+        if (_curretPrimaryMusicSource)
+        {
+            musicTime = _curretPrimaryMusicSource.time;
+        }
 
-        // if (musicClip == null)
-        // {
-        //     this.LogError($"MusicAudioClip's music track not found {music}");
-        //     return;
-        // }
+        musicSource.time = musicTime;
 
-        // MusicSource.clip = musicClip.audioClip;
-        // MusicSource.volume = musicClip.volume * _musicVolume;
-        // MusicSource.Play();
-        // MusicSource.time = MusicTime;
-
-        StartCoroutine(CrossFade(MusicSourceMap[0].Second, musicClip.AudioClip, 1, 5));
+        StartCoroutine(CrossFade(musicSource, musicClip.AudioClip, musicFadeData.FinalVolume, musicFadeData.FadeTime));
     }
 
     private IEnumerator CrossFade( 

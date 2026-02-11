@@ -25,7 +25,8 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         // EventManager.TriggerEvent(EventKey.MUSIC, SoundType.NoMask);
-        FadeMusicEventHandler(new MusicFadeData(MusicKey.NoMask, 1, 1));
+        _curretPrimaryMusicSource = MusicSourceMap[0].Second;
+        FadeMusicEventHandler(new MusicFadeData(MusicKey.NoMask, 5, 1));
     }
 
     private void OnEnable()
@@ -215,30 +216,71 @@ public class AudioManager : MonoBehaviour
         AudioSource musicSource = mappedSource.Second;
         if (musicSource == null) return;
 
-        float musicTime = 0;
-        if (_curretPrimaryMusicSource)
-        {
-            musicTime = _curretPrimaryMusicSource.time;
-        }
-
-        musicSource.time = musicTime;
-
-        StartCoroutine(CrossFade(musicSource, musicClip.AudioClip, musicFadeData.FinalVolume, musicFadeData.FadeTime));
+        StartCoroutine(FadeTrack(musicSource, musicFadeData.FadeTime, musicFadeData.FinalVolume));
     }
 
-    private IEnumerator CrossFade( 
-        AudioSource audioSource, 
-        AudioClip newSound, 
-        float finalVolume, 
-        float fadeTime)
+    private IEnumerator CrossFade(float fadeTime,
+        AudioSource music1Source, float music1FinalVolume,
+        AudioSource music2Source, float music2FinalVolume)
     {
-        // yield return FadeOutTrack(audioSource, fadeTime);
-        audioSource.clip = newSound;
-        yield return FadeInTrack(audioSource, fadeTime, finalVolume);
-        yield return FadeOutTrack(audioSource, fadeTime);
-        yield return FadeInTrack(audioSource, fadeTime, finalVolume);
-        yield return FadeOutTrack(audioSource, fadeTime);
-        yield return FadeInTrack(audioSource, fadeTime, finalVolume);
+        yield return FadeTrack(music1Source, fadeTime, music1FinalVolume);
+        yield return FadeTrack(music2Source, fadeTime, music2FinalVolume);
+
+        // yield return FadeTrack(music1Source, fadeTime, music1FinalVolume);
+        // yield return FadeTrack(music1Source, fadeTime, music2FinalVolume);
+        // yield return FadeTrack(music2Source, fadeTime, music1FinalVolume);
+        // yield return FadeTrack(music2Source, fadeTime, music2FinalVolume);
+        // yield return FadeTrack(music1Source, fadeTime, music1FinalVolume);
+        // yield return FadeTrack(music1Source, fadeTime, music1FinalVolume);
+        // yield return FadeTrack(music1Source, fadeTime, music2FinalVolume);
+        // yield return FadeTrack(music2Source, fadeTime, music1FinalVolume);
+        // yield return FadeTrack(music2Source, fadeTime, music2FinalVolume);
+        // yield return FadeTrack(music1Source, fadeTime, music1FinalVolume);
+    }
+
+    private IEnumerator FadeTrack(AudioSource audioSource, float fadeTime, float finalVolume)
+    {
+        if (!audioSource.isPlaying && finalVolume == 0) yield break;
+        if (audioSource.isPlaying && audioSource.volume == finalVolume) yield break;
+
+        float startVolume = audioSource.volume;
+
+        if (!audioSource.isPlaying)
+        {
+            audioSource.Play();
+            startVolume = 0;
+            audioSource.volume = startVolume;
+        }
+
+        // Set track time
+        float startTime = 0;
+        if (_curretPrimaryMusicSource)
+        {
+            startTime = _curretPrimaryMusicSource.time;
+        }
+
+        audioSource.time = startTime;
+
+        // Fade in or out
+        if (audioSource.volume < finalVolume)
+        {
+            while (audioSource.volume < finalVolume)
+            {
+                audioSource.volume += finalVolume * Time.deltaTime / fadeTime;
+                yield return null;
+            }
+        }
+        else if (audioSource.volume > finalVolume)
+        {
+            while (audioSource.volume > finalVolume)
+            {
+                audioSource.volume -= startVolume * Time.deltaTime / fadeTime;
+                yield return null;
+            }
+            // audioSource.Stop();
+        }
+        
+        audioSource.volume = finalVolume;
     }
 
     private IEnumerator FadeInTrack(AudioSource audioSource, float fadeTime, float finalVolume)

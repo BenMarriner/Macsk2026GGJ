@@ -9,12 +9,13 @@ public class AudioManager : MonoBehaviour
     #region Variables
     [SerializeField] private AudioSource MusicSource;
     [SerializeField] private AudioSource FadeMusicSource;
+    [SerializeField] private List<GenericCouple<MusicKey, AudioSource>> MusicSourceMap;
     [SerializeField] private AudioSource[] AudioSourceArray;
     [SerializeField] private SoundAudioClip[] SoundAudioClipArray;
-    [SerializeField] private SoundAudioClip[] MusicAudioClipArray;
-    [SerializeField] AudioMixer _mixer;
+    [SerializeField] private MusicAudioClip[] MusicAudioClipArray;
+    [SerializeField] private AudioMixer _mixer;
 
-    private List<SoundType> CurrentSoundsList = new List<SoundType>();
+    private List<SoundType> CurrentSoundsList = new();
     private bool _musicMuted = false;
     private float _sfxVolume = 1;
     private float _musicVolume = 1;
@@ -278,7 +279,7 @@ public class AudioManager : MonoBehaviour
     // }
     #endregion
 
-    #region Sound Clip Class
+    #region Audio Clip Classes
     [Serializable]
     private class SoundAudioClip
     {
@@ -286,6 +287,15 @@ public class AudioManager : MonoBehaviour
         public AudioClip audioClip;
         public bool randomisePitch = false;
         [Range(0, 1)] public float volume = 1f;
+    }
+
+    [Serializable]
+    private class MusicAudioClip
+    {
+        public MusicKey Music;
+        public AudioClip AudioClip;
+        public bool RandomisePitch = false;
+        [Range(0, 1)] public float Volume = 1f;
     }
     #endregion
 }

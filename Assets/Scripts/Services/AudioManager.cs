@@ -12,7 +12,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private SoundAudioClip[] SoundAudioClipArray;
     [SerializeField] private MusicAudioClip[] MusicAudioClipArray;
     [SerializeField] private AudioMixer _mixer;
-    private AudioSource _curretPrimaryMusicSource;
+    private GenericCouple<MusicKey, AudioSource> _curretPrimaryMusicSource;
 
     private List<SoundType> CurrentSoundsList = new();
     private bool _musicMuted = false;
@@ -24,8 +24,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        // EventManager.TriggerEvent(EventKey.MUSIC, SoundType.NoMask);
-        _curretPrimaryMusicSource = MusicSourceMap[0].Second;
+        _curretPrimaryMusicSource.Second = MusicSourceMap[0].Second;
         FadeMusicEventHandler(new MusicFadeData(MusicKey.NoMask, 5, 1));
     }
 
@@ -34,6 +33,7 @@ public class AudioManager : MonoBehaviour
         EventManager.RegisterEvent(EventKey.SFX, SFXEventHandler);
         EventManager.RegisterEvent(EventKey.MUSIC, MusicEventHandler);
         EventManager.RegisterEvent(EventKey.FADE_MUSIC, FadeMusicEventHandler);
+        EventManager.RegisterEvent(EventKey.FADE_SECONDARY_TRACKS, FadeSecondaryTracksHandler);
         EventManager.RegisterEvent(EventKey.STOP_MUSIC, StopMusic);
         EventManager.RegisterEvent(EventKey.PAUSE_MUSIC, PauseMusic);
         EventManager.RegisterEvent(EventKey.MUTEMUSIC_TOGGLE, MuteMusic);
@@ -46,6 +46,7 @@ public class AudioManager : MonoBehaviour
         EventManager.DeregisterEvent(EventKey.SFX, SFXEventHandler);
         EventManager.DeregisterEvent(EventKey.MUSIC, FadeMusicEventHandler);
         EventManager.DeregisterEvent(EventKey.FADE_MUSIC, MusicEventHandler);
+        EventManager.DeregisterEvent(EventKey.FADE_SECONDARY_TRACKS, FadeSecondaryTracksHandler);
         EventManager.DeregisterEvent(EventKey.STOP_MUSIC, StopMusic);
         EventManager.DeregisterEvent(EventKey.PAUSE_MUSIC, PauseMusic);
         EventManager.DeregisterEvent(EventKey.MUTEMUSIC_TOGGLE, MuteMusic);
@@ -129,9 +130,9 @@ public class AudioManager : MonoBehaviour
         if (musicSource == null) return;
 
         float musicTime = 0;
-        if (_curretPrimaryMusicSource)
+        if (_curretPrimaryMusicSource.Second)
         {
-            musicTime = _curretPrimaryMusicSource.time;
+            musicTime = _curretPrimaryMusicSource.Second.time;
         }
 
         StopMusic(false);
@@ -143,7 +144,8 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-        _curretPrimaryMusicSource = musicSource;
+        _curretPrimaryMusicSource.First = musicKey;
+        _curretPrimaryMusicSource.Second = musicSource;
         musicSource.clip = musicClip.AudioClip;
         musicSource.volume = musicClip.Volume * _musicVolume;
         musicSource.Play();
@@ -216,26 +218,34 @@ public class AudioManager : MonoBehaviour
         AudioSource musicSource = mappedSource.Second;
         if (musicSource == null) return;
 
+        StopAllCoroutines();
         StartCoroutine(FadeTrack(musicSource, musicFadeData.FadeTime, musicFadeData.FinalVolume));
     }
 
-    private IEnumerator CrossFade(float fadeTime,
-        AudioSource music1Source, float music1FinalVolume,
-        AudioSource music2Source, float music2FinalVolume)
+    public void FadeSecondaryTracksHandler(object eventData)
     {
-        yield return FadeTrack(music1Source, fadeTime, music1FinalVolume);
-        yield return FadeTrack(music2Source, fadeTime, music2FinalVolume);
+        if (eventData is not MusicFadeData) this.LogError("Event listener recieved incorrect data type!");
+        MusicFadeData musicFadeData = (MusicFadeData)eventData;
+        MusicKey musicKey = musicFadeData.MusicKey;
 
-        // yield return FadeTrack(music1Source, fadeTime, music1FinalVolume);
-        // yield return FadeTrack(music1Source, fadeTime, music2FinalVolume);
-        // yield return FadeTrack(music2Source, fadeTime, music1FinalVolume);
-        // yield return FadeTrack(music2Source, fadeTime, music2FinalVolume);
-        // yield return FadeTrack(music1Source, fadeTime, music1FinalVolume);
-        // yield return FadeTrack(music1Source, fadeTime, music1FinalVolume);
-        // yield return FadeTrack(music1Source, fadeTime, music2FinalVolume);
-        // yield return FadeTrack(music2Source, fadeTime, music1FinalVolume);
-        // yield return FadeTrack(music2Source, fadeTime, music2FinalVolume);
-        // yield return FadeTrack(music1Source, fadeTime, music1FinalVolume);
+        if (_musicMuted) return;
+
+        MusicAudioClip musicClip = Array.Find(MusicAudioClipArray, x => x.Music == musicKey);
+        GenericCouple<MusicKey, AudioSource> mappedSource = Array.Find(MusicSourceMap, x => x.First == musicKey);
+        AudioSource musicSource = mappedSource.Second;
+        if (musicSource == null) return;
+
+        StopAllCoroutines();
+
+        StartCoroutine(FadeTrack(musicSource, musicFadeData.FadeTime, musicFadeData.FinalVolume));
+
+        // Fade out all the other tracks
+        foreach (GenericCouple<MusicKey, AudioSource> item in MusicSourceMap)
+        {
+            if (item.First == musicKey) continue;
+            if (item.First == _curretPrimaryMusicSource.First) continue;
+            StartCoroutine(FadeTrack(item.Second, musicFadeData.FadeTime, 0));
+        }
     }
 
     private IEnumerator FadeTrack(AudioSource audioSource, float fadeTime, float finalVolume)
@@ -254,9 +264,9 @@ public class AudioManager : MonoBehaviour
 
         // Set track time
         float startTime = 0;
-        if (_curretPrimaryMusicSource)
+        if (_curretPrimaryMusicSource.Second)
         {
-            startTime = _curretPrimaryMusicSource.time;
+            startTime = _curretPrimaryMusicSource.Second.time;
         }
 
         audioSource.time = startTime;
@@ -281,30 +291,6 @@ public class AudioManager : MonoBehaviour
         }
         
         audioSource.volume = finalVolume;
-    }
-
-    private IEnumerator FadeInTrack(AudioSource audioSource, float fadeTime, float finalVolume)
-    {
-        audioSource.volume = 0;
-        audioSource.Play();
-        while (audioSource.volume < finalVolume)
-        {
-            audioSource.volume += finalVolume * Time.deltaTime / fadeTime;
-            yield return null;
-        }
-        audioSource.volume = finalVolume;
-    }
-    
-    private IEnumerator FadeOutTrack(AudioSource audioSource, float fadeTime)
-    {
-        float startVolume = audioSource.volume;
-        while (audioSource.volume > 0)
-        {
-            audioSource.volume -= startVolume * Time.deltaTime / fadeTime;
-            yield return null;
-        }
-        audioSource.Stop();
-        audioSource.volume = 0;
     }
     #endregion
 

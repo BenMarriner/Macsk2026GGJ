@@ -513,8 +513,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09ce9771f377f5a45b3133025865b6cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
-  MusicSource: {fileID: 1416829827}
-  FadeMusicSource: {fileID: 0}
+  _primaryMusicSource: {fileID: 1416829827}
   MusicSourceMap:
   - First: 0
     Second: {fileID: 1416829827}

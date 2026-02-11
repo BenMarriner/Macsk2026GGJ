@@ -7,13 +7,12 @@ using UnityEngine.Audio;
 public class AudioManager : MonoBehaviour
 {
     #region Variables
-    [SerializeField] private AudioSource MusicSource;
-    [SerializeField] private AudioSource FadeMusicSource;
-    [SerializeField] private List<GenericCouple<MusicKey, AudioSource>> MusicSourceMap;
+    [SerializeField] private GenericCouple<MusicKey, AudioSource>[] MusicSourceMap;
     [SerializeField] private AudioSource[] AudioSourceArray;
     [SerializeField] private SoundAudioClip[] SoundAudioClipArray;
     [SerializeField] private MusicAudioClip[] MusicAudioClipArray;
     [SerializeField] private AudioMixer _mixer;
+    private AudioSource _curretPrimaryMusicSource;
 
     private List<SoundType> CurrentSoundsList = new();
     private bool _musicMuted = false;
@@ -26,7 +25,7 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         // EventManager.TriggerEvent(EventKey.MUSIC, SoundType.NoMask);
-        FadeMusicEventHandler(SoundType.NoMask);
+        MusicEventHandler(MusicKey.NoMask);
     }
 
     private void OnEnable()
@@ -119,26 +118,36 @@ public class AudioManager : MonoBehaviour
     #region Music Functions
     public void MusicEventHandler(object eventData)
     {
-        if (eventData is not SoundType) this.LogError("Event listener recieved incorrect data type!");
-        SoundType music = (SoundType)eventData;
+        if (eventData is not MusicKey) this.LogError("Event listener recieved incorrect data type!");
+        MusicKey music = (MusicKey)eventData;
 
         if (_musicMuted) return;
 
-        float MusicTime = MusicSource.time; 
+        GenericCouple<MusicKey, AudioSource> mappedSource = Array.Find(MusicSourceMap, x => x.First == music);
+        AudioSource musicSource = mappedSource.Second;
+
+        if (musicSource == null) return;
+
+        float musicTime = 0;
+        if (_curretPrimaryMusicSource)
+        {
+            musicTime = _curretPrimaryMusicSource.time;
+        }
+
         StopMusic(false);
 
-        SoundAudioClip musicClip = Array.Find(MusicAudioClipArray, x => x.sound == music);
-
+        MusicAudioClip musicClip = Array.Find(MusicAudioClipArray, x => x.Music == music);
         if (musicClip == null)
         {
-            this.LogError($"SoundAudioClip's music track not found {music}");
+            this.LogError($"MusicAudioClip's music track not found {music}");
             return;
         }
 
-        MusicSource.clip = musicClip.audioClip;
-        MusicSource.volume = musicClip.volume * _musicVolume;
-        MusicSource.Play();
-        MusicSource.time = MusicTime;
+        _curretPrimaryMusicSource = musicSource;
+        musicSource.clip = musicClip.AudioClip;
+        musicSource.volume = musicClip.Volume * _musicVolume;
+        musicSource.Play();
+        musicSource.time = musicTime;
     }
 
     public void PauseMusic(object eventData)
@@ -150,17 +159,26 @@ public class AudioManager : MonoBehaviour
 
         if (paused)
         {
-            MusicSource.Pause();
+            foreach (GenericCouple<MusicKey, AudioSource> item in MusicSourceMap)
+            {
+                item.Second.Pause();
+            }
         }
         else
         {
-            MusicSource.Play();
+            foreach (GenericCouple<MusicKey, AudioSource> item in MusicSourceMap)
+            {
+                item.Second.Play();
+            }
         }
     }
 
     public void StopMusic(object eventData)
     {
-        MusicSource.Stop();
+        foreach (GenericCouple<MusicKey, AudioSource> item in MusicSourceMap)
+        {
+            item.Second.Stop();
+        }
     }
 
     public void MuteMusic(object eventData)
@@ -169,31 +187,35 @@ public class AudioManager : MonoBehaviour
         bool muted = (bool)eventData;
 
         _musicMuted = muted;
+
         if (_musicMuted)
         {
             StopMusic(true);
         }
         else
         {
-            MusicSource.Play();
+            foreach (GenericCouple<MusicKey, AudioSource> item in MusicSourceMap)
+            {
+                item.Second.Play();
+            }
         }
     }
 
     public void FadeMusicEventHandler(object eventData)
     {
-        if (eventData is not SoundType) this.LogError("Event listener recieved incorrect data type!");
-        SoundType music = (SoundType)eventData;
+        if (eventData is not MusicKey) this.LogError("Event listener recieved incorrect data type!");
+        MusicKey music = (MusicKey)eventData;
 
         if (_musicMuted) return;
 
-        float MusicTime = MusicSource.time; 
+        float MusicTime = _curretPrimaryMusicSource.time; 
         StopMusic(false);
 
-        SoundAudioClip musicClip = Array.Find(MusicAudioClipArray, x => x.sound == music);
+        MusicAudioClip musicClip = Array.Find(MusicAudioClipArray, x => x.Music == music);
 
         // if (musicClip == null)
         // {
-        //     this.LogError($"SoundAudioClip's music track not found {music}");
+        //     this.LogError($"MusicAudioClip's music track not found {music}");
         //     return;
         // }
 
@@ -202,7 +224,7 @@ public class AudioManager : MonoBehaviour
         // MusicSource.Play();
         // MusicSource.time = MusicTime;
 
-        StartCoroutine(CrossFade(MusicSource, musicClip.audioClip, 1, 2));
+        StartCoroutine(CrossFade(MusicSourceMap[0].Second, musicClip.AudioClip, 1, 5));
     }
 
     private IEnumerator CrossFade( 
@@ -211,8 +233,10 @@ public class AudioManager : MonoBehaviour
         float finalVolume, 
         float fadeTime)
     {
-        yield return FadeOutTrack(audioSource, fadeTime);
+        // yield return FadeOutTrack(audioSource, fadeTime);
         audioSource.clip = newSound;
+        yield return FadeInTrack(audioSource, fadeTime, finalVolume);
+        yield return FadeOutTrack(audioSource, fadeTime);
         yield return FadeInTrack(audioSource, fadeTime, finalVolume);
         yield return FadeOutTrack(audioSource, fadeTime);
         yield return FadeInTrack(audioSource, fadeTime, finalVolume);
@@ -263,8 +287,10 @@ public class AudioManager : MonoBehaviour
         float volumeDB = _musicVolume > 0 ? Mathf.Log10(_musicVolume) * 20 : -80f;
         _mixer.SetFloat("MusicVolume", volumeDB);
 
-        // Also update the direct music source volume for immediate effect
-        MusicSource.volume = _musicVolume;
+        foreach (GenericCouple<MusicKey, AudioSource> item in MusicSourceMap)
+        {
+            item.Second.volume = _musicVolume;
+        }
     }
 
     // public void SettingsRequestHandler(object eventData)

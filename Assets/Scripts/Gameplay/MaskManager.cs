@@ -65,19 +65,19 @@ public class MaskManager : MonoBehaviour
         switch (_currentMaskMode)
         {
             case MaskMode.NoMask:
-                EventManager.TriggerEvent(EventKey.MUSIC, SoundType.NoMask);
+                EventManager.TriggerEvent(EventKey.MUSIC, MusicKey.NoMask);
                 ResetScreenTint();
                 break;
             case MaskMode.RedMask:
-                EventManager.TriggerEvent(EventKey.MUSIC, SoundType.RedMask);
+                EventManager.TriggerEvent(EventKey.MUSIC, MusicKey.RedMask);
                 SetRedScreenTint();
                 break;
             case MaskMode.GreenMask:
-                EventManager.TriggerEvent(EventKey.MUSIC, SoundType.GreenMask);
+                EventManager.TriggerEvent(EventKey.MUSIC, MusicKey.GreenMask);
                 SetGreenScreenTint();
                 break;
             case MaskMode.BlueMask:
-                EventManager.TriggerEvent(EventKey.MUSIC, SoundType.BlueMask);
+                EventManager.TriggerEvent(EventKey.MUSIC, MusicKey.BlueMask);
                 SetBlueScreenTint();
             break;
         }

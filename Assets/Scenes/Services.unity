@@ -522,16 +522,20 @@ MonoBehaviour:
     MusicSource: {fileID: 228650200}
   - MusicKey: 3
     MusicSource: {fileID: 464253867}
-  AudioSourceArray:
+  _audioSourceArray:
   - {fileID: 95752858}
   - {fileID: 525729797}
   - {fileID: 1390767567}
   - {fileID: 1629886003}
   - {fileID: 1408839691}
   - {fileID: 2138460445}
-  SoundAudioClipArray:
+  _soundAudioClipArray:
   - sound: 0
     audioClip: {fileID: 8300000, guid: 3cab5f4c91431e540a787ef2c16d805a, type: 3}
+    randomisePitch: 1
+    volume: 1
+  - sound: 2
+    audioClip: {fileID: 8300000, guid: 97dde1bbe7da8d041a4efe0ce9e90b03, type: 3}
     randomisePitch: 1
     volume: 1
   - sound: 7
@@ -550,11 +554,11 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 97dde1bbe7da8d041a4efe0ce9e90b03, type: 3}
     randomisePitch: 1
     volume: 1
-  - sound: 2
+  - sound: 10
     audioClip: {fileID: 8300000, guid: 97dde1bbe7da8d041a4efe0ce9e90b03, type: 3}
     randomisePitch: 1
     volume: 1
-  MusicAudioClipArray:
+  _musicAudioClipArray:
   - Music: 0
     AudioClip: {fileID: 8300000, guid: 8515c13b668328846a10d07206cbe311, type: 3}
     RandomisePitch: 0

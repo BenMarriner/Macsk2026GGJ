@@ -8,13 +8,13 @@ public class AudioManager : MonoBehaviour
 {
     #region Variables
     [SerializeField] private KeySourcePair[] _musicSourcePair;
-    [SerializeField] private AudioSource[] AudioSourceArray;
-    [SerializeField] private SoundAudioClip[] SoundAudioClipArray;
-    [SerializeField] private MusicAudioClip[] MusicAudioClipArray;
+    [SerializeField] private AudioSource[] _audioSourceArray;
+    [SerializeField] private SoundAudioClip[] _soundAudioClipArray;
+    [SerializeField] private MusicAudioClip[] _musicAudioClipArray;
     [SerializeField] private AudioMixer _mixer;
     private KeySourcePair _currentPrimaryMusicSource;
 
-    private List<SoundType> CurrentSoundsList = new();
+    private readonly List<SoundType> _currentSoundsList = new();
     private bool _musicMuted = false;
     private float _sfxVolume = 1;
     private float _musicVolume = 1;
@@ -64,21 +64,21 @@ public class AudioManager : MonoBehaviour
         SoundType sound = (SoundType)eventData;
 
         //Find SoundAudioClip from array that has the same sound variable as the input
-        SoundAudioClip clipSound = Array.Find(SoundAudioClipArray, x => x.sound == sound);
+        SoundAudioClip clipSound = Array.Find(_soundAudioClipArray, x => x.sound == sound);
         if (clipSound == null)
         {
             this.LogError($"SoundAudioClip's sound not found: {sound}");
             return;
         }
 
-        if (CurrentSoundsList.Contains(sound))
+        if (_currentSoundsList.Contains(sound))
         {
             RestartSound(clipSound);
             return;
         }
 
         //Find first AudioSource that is not playing
-        AudioSource source = Array.Find(AudioSourceArray, x => x.isPlaying == false);
+        AudioSource source = Array.Find(_audioSourceArray, x => x.isPlaying == false);
         if (source == null)
         {
             this.LogWarning("No audio source available to play this sound!");
@@ -97,7 +97,7 @@ public class AudioManager : MonoBehaviour
 
     private void RestartSound(SoundAudioClip clipSound)
     {
-        AudioSource source = Array.Find(AudioSourceArray, x => x.clip == clipSound.audioClip);
+        AudioSource source = Array.Find(_audioSourceArray, x => x.clip == clipSound.audioClip);
         if (source == null)
         {
             this.LogWarning("No audio source playing this sound!");
@@ -110,9 +110,9 @@ public class AudioManager : MonoBehaviour
 
     private IEnumerator DoNotPlayMultipleOfSame(SoundType sound, AudioClip clip)
     {
-        CurrentSoundsList.Add(sound);
+        _currentSoundsList.Add(sound);
         yield return new WaitForSecondsRealtime(clip.length);
-        CurrentSoundsList.Remove(sound);
+        _currentSoundsList.Remove(sound);
     }
     #endregion
 
@@ -137,7 +137,7 @@ public class AudioManager : MonoBehaviour
 
         StopMusic(false);
 
-        MusicAudioClip musicClip = Array.Find(MusicAudioClipArray, x => x.Music == musicKey);
+        MusicAudioClip musicClip = Array.Find(_musicAudioClipArray, x => x.Music == musicKey);
         if (musicClip == null)
         {
             this.LogError($"MusicAudioClip's music track not found {musicKey}");
@@ -213,7 +213,7 @@ public class AudioManager : MonoBehaviour
 
         if (_musicMuted) return;
 
-        MusicAudioClip musicClip = Array.Find(MusicAudioClipArray, x => x.Music == musicKey);
+        MusicAudioClip musicClip = Array.Find(_musicAudioClipArray, x => x.Music == musicKey);
         KeySourcePair mappedSource = Array.Find(_musicSourcePair, x => x.MusicKey == musicKey);
         AudioSource musicSource = mappedSource.MusicSource;
         if (musicSource == null) return;
@@ -230,7 +230,7 @@ public class AudioManager : MonoBehaviour
 
         if (_musicMuted) return;
 
-        MusicAudioClip musicClip = Array.Find(MusicAudioClipArray, x => x.Music == musicKey);
+        MusicAudioClip musicClip = Array.Find(_musicAudioClipArray, x => x.Music == musicKey);
         KeySourcePair mappedSource = Array.Find(_musicSourcePair, x => x.MusicKey == musicKey);
         AudioSource musicSource = mappedSource.MusicSource;
         if (musicSource == null) return;

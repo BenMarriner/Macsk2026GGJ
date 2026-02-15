@@ -628,18 +628,10 @@ public class CharacterMovementController : MonoBehaviour
 
         // Turn off gravity when on slopes
         if (!IsWallRunning) { _rigidbody.useGravity = !OnSlope(); }
-    }
-    /*
-    // Rate in which the agent slows down to a stop when there is no movement input
-    [SerializeField, Range(0.01f, 1f)] private float decelerationRate = 0.5f;    // Must be between 0 and 1
 
-    // Reduces the velocity of the game object to zero over time
-    private void DecelerateVelocity()
-    {
-        rb.linearVelocity = rb.linearVelocity * decelerationRate * Time.deltaTime;
-        rb.angularVelocity = rb.angularVelocity * decelerationRate * Time.deltaTime;
+        DecelerateVelocity();
     }
-    */
+
     private void SpeedControl()
     {
         if (OnSlope() && !_exitingSlope)
@@ -708,4 +700,18 @@ public class CharacterMovementController : MonoBehaviour
     [SerializeField] private float slideSpeed;
     [SerializeField] private float climbSpeed;
     [SerializeField] private float wallRunSpeed;
+    
+    // Rate in which the agent slows down to a stop when there is no movement input
+    [SerializeField, Range(0.01f, 1f)] private float decelerationRate = 0.9f;    // Must be between 0 and 1
+
+    // Reduces the velocity of the game object to zero over time
+    private void DecelerateVelocity()
+    {
+        if (_movementInput != Vector2.zero)
+        { return; }
+        
+        
+        _rigidbody.linearVelocity -= _rigidbody.linearVelocity * (decelerationRate * Time.fixedDeltaTime);
+        _rigidbody.angularVelocity -= _rigidbody.angularVelocity * (decelerationRate * Time.fixedDeltaTime);
+    }
 }

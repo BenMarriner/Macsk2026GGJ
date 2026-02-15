@@ -137,9 +137,7 @@ MonoBehaviour:
   slideSpeed: 30
   climbSpeed: 3
   wallRunSpeed: 8.5
-  swingSpeed: 15
-  grappleOrientation: {fileID: 0}
-  grappleSpeed: 0
+  decelerationRate: 0.9
 --- !u!114 &5058632963573295704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,6 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MaskManager
   _currentMaskMode: 0
+  _maskMusicFadeTime: 1
   screenTint: {fileID: 2100000, guid: 8125e6aaf93d7f544bc94f01b84bef75, type: 2}
   redTintValue: 0.6
   blueTintValue: 0.5
@@ -183,7 +182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Interactor
   _currentMaskMode: 0
   _effectReversed: 0
-  Distance: 1500
+  _distance: 1500
 --- !u!1 &5738846007680838133
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,7 +312,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7776251590875880125}
-  m_Material: {fileID: 13400000, guid: edff560d3d66820438737a3709b79b1c, type: 2}
+  m_Material: {fileID: 13400000, guid: 4c6704fecef9d9e4a95092134ec675ed, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

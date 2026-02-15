@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class MaskManager : MonoBehaviour
 {
     [SerializeField] private MaskMode _currentMaskMode = MaskMode.NoMask;
+    [SerializeField] private float _maskMusicFadeTime = 1f;
     private int MaskIntMax = Enum.GetNames(typeof(MaskMode)).Length - 1;
     private bool _maskEnabled = false;
     
@@ -65,19 +66,19 @@ public class MaskManager : MonoBehaviour
         switch (_currentMaskMode)
         {
             case MaskMode.NoMask:
-                EventManager.TriggerEvent(EventKey.MUSIC, SoundType.NoMask);
+                EventManager.TriggerEvent(EventKey.FADE_SECONDARY_TRACKS, new MusicFadeData(MusicKey.NoMask, _maskMusicFadeTime, 1));
                 ResetScreenTint();
                 break;
             case MaskMode.RedMask:
-                EventManager.TriggerEvent(EventKey.MUSIC, SoundType.RedMask);
+                EventManager.TriggerEvent(EventKey.FADE_SECONDARY_TRACKS, new MusicFadeData(MusicKey.RedMask, _maskMusicFadeTime, 1));
                 SetRedScreenTint();
                 break;
             case MaskMode.GreenMask:
-                EventManager.TriggerEvent(EventKey.MUSIC, SoundType.GreenMask);
+                EventManager.TriggerEvent(EventKey.FADE_SECONDARY_TRACKS, new MusicFadeData(MusicKey.GreenMask, _maskMusicFadeTime, 1));
                 SetGreenScreenTint();
                 break;
             case MaskMode.BlueMask:
-                EventManager.TriggerEvent(EventKey.MUSIC, SoundType.BlueMask);
+                EventManager.TriggerEvent(EventKey.FADE_SECONDARY_TRACKS, new MusicFadeData(MusicKey.BlueMask, _maskMusicFadeTime, 1));
                 SetBlueScreenTint();
             break;
         }

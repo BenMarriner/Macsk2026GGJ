@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 150463874}
   - component: {fileID: 150463876}
   - component: {fileID: 150463877}
+  - component: {fileID: 150463878}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -263,6 +264,14 @@ MonoBehaviour:
   _servicesSceneIndex: 0
   _gameplaySceneIndex: 2
   _loadGameplay: 0
+--- !u!81 &150463878
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150463872}
+  m_Enabled: 1
 --- !u!1 &286042229
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,6 +456,7 @@ MonoBehaviour:
   _mainMenuContainer: {fileID: 1354506184}
   _playButton: {fileID: 1098776650}
   _quitButton: {fileID: 2094483640}
+  travelSceneIndex: 3
 --- !u!1 &604455997
 GameObject:
   m_ObjectHideFlags: 0

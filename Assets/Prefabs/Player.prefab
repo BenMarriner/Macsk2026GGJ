@@ -139,9 +139,6 @@ MonoBehaviour:
   slideSpeed: 30
   climbSpeed: 3
   wallRunSpeed: 8.5
-  swingSpeed: 15
-  grappleOrientation: {fileID: 0}
-  grappleSpeed: 0
 --- !u!114 &5058632963573295704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,7 +183,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Interactor
   _currentMaskMode: 0
   _effectReversed: 0
-  _distance: 1500
+  _distance: 4
 --- !u!82 &8087726580598743957
 AudioSource:
   m_ObjectHideFlags: 0

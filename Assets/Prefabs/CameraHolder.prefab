@@ -208,7 +208,7 @@ MonoBehaviour:
   camera: {fileID: 54512353491437800}
   mouseSensitivityX: 170
   mouseSensitivityY: 170
-  enableRotationSmoothing: 0
+  enableRotationSmoothing: 1
   rotationSmoothSpeed: 30
   enablePositionSmoothing: 1
   positionSmoothSpeed: 60

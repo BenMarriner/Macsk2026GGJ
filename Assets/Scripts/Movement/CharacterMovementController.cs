@@ -102,6 +102,9 @@ public class CharacterMovementController : MonoBehaviour
     private CameraController _cameraController;
     private bool _wasGrounded = false;
     private float _fallVelocity = 0f;
+
+    [Header("SFX")]
+    [SerializeField] private AudioSource _footstepAudioSource;
     
     public Transform GetCameraPoint()
     {
@@ -519,6 +522,20 @@ public class CharacterMovementController : MonoBehaviour
     {
         _horizontalMovement = _movementInput.x;
         _verticalMovement = _movementInput.y;
+
+        if ( state == MovementState.Walking && 
+            (_verticalMovement != 0 || _horizontalMovement != 0) && 
+            _rigidbody.linearVelocity.sqrMagnitude > 0.1f)
+        {
+            if (!_footstepAudioSource.isPlaying)
+            {
+                _footstepAudioSource.Play();
+            }
+        }
+        else if (_footstepAudioSource.isPlaying)
+        {
+            _footstepAudioSource.Stop();
+        }
     }
 
     private bool _stillCrouching = false;

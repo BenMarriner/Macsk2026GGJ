@@ -14,37 +14,25 @@ public class CharacterMovementController : MonoBehaviour
 
     private Vector3 _movementDirection;
     private Rigidbody _rigidbody;
+    private InputReader _inputReader;
 
-    public bool enableSprint { get; private set; } = false;
-    public bool enableCrouch { get; private set; } = false;
+    public bool EnableSprint { get; private set; } = false;
+    public bool EnableCrouch { get; private set; } = false;
+
+    private bool _toggleSprint = false;
+    private bool _toggleCrouch = false;
 
     #region MovementStateVariables
     [SerializeField] private MovementState state;
-    public enum MovementState
-    {
-        Freeze,
-        Unlimited,
-        Walking,
-        Sprinting,
-        WallRunning,
-        Grappling,
-        Swinging,
-        Crouching,
-        Dashing,
-        Climbing,
-        Sliding,
-        Air
-    }
 
-    public bool isDashing { get; set; } = false;
-    public bool isSliding { get; set; } = false;
-    public bool isClimbing { get; set; } = false;
-    public bool isWallRunning { get; set; } = false;
-    public bool isExitingWall { get; set; } = false;
-    public bool isFrozen { get; set; } = false;
-    public bool isUnlimited { get; set; } = false;
-    public bool restricted { get; set; } = false;
-    public bool activeSwinging { get; set; } = false;
+    public bool IsDashing { get; set; } = false;
+    public bool IsSliding { get; set; } = false;
+    public bool IsClimbing { get; set; } = false;
+    public bool IsWallRunning { get; set; } = false;
+    public bool IsExitingWall { get; set; } = false;
+    public bool IsFrozen { get; set; } = false;
+    public bool IsUnlimited { get; set; } = false;
+    public bool Restricted { get; set; } = false;
     #endregion
     
     [Header("Movement")]
@@ -55,7 +43,7 @@ public class CharacterMovementController : MonoBehaviour
     private float _moveSpeed;
     private float _desiredMoveSpeed;
     private float _lastDesiredMoveSpeed;
-    public float maxYSpeed { get; set; }
+    public float MaxYSpeed { get; set; }
 
     [SerializeField] private float speedIncreaseMultiplier;
     [SerializeField] private float slopeIncreaseMultiplier;
@@ -80,10 +68,10 @@ public class CharacterMovementController : MonoBehaviour
     [SerializeField] private Collider playerCollider;
     [SerializeField] private float lengthOfCheck = -1.1f;
     [SerializeField, Range(0.001f, 3f)] private float groundCheckBoxSizeMultiplier = 0.8f;
-    public float defaultHeight { get; private set; }
-    public float currentHeight { get; set; }
+    public float DefaultHeight { get; private set; }
+    public float CurrentHeight { get; set; }
     private Vector3 _groundCheckBoxSize;
-    public bool grounded { get; private set; } = false;
+    public bool Grounded { get; private set; } = false;
 
     [Header("Slope Handling")]
     [SerializeField] private float maxSlopeAngle;
@@ -91,16 +79,29 @@ public class CharacterMovementController : MonoBehaviour
     private bool _exitingSlope;
 
     public void SetCapabilities(
+        InputReader inputReader,
         bool sprint, 
-        bool crouch)
+        bool crouch,
+        bool toggleSprint,
+        bool toggleCrouch)
     {
-        enableSprint = sprint;
-        enableCrouch = crouch;
+        _inputReader = inputReader;
+        EnableSprint = sprint;
+        EnableCrouch = crouch;
+        _toggleSprint = toggleSprint;
+        _toggleCrouch = toggleCrouch;
+
+        if (_inputReader)
+        { AssignInputs(); }
     }
 
     [Header("Camera Position")]
     public Transform cameraPoint;
-    public Transform playerCameraTransform { get; private set; }
+    
+    [Header("Camera Integration")]
+    private CameraController _cameraController;
+    private bool _wasGrounded = false;
+    private float _fallVelocity = 0f;
     
     public Transform GetCameraPoint()
     {
@@ -112,7 +113,7 @@ public class CharacterMovementController : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        float maxDistance = currentHeight * 0.5f + lengthOfCheck;
+        float maxDistance = CurrentHeight * 0.5f + lengthOfCheck;
         /*
         RaycastHit hit;
 
@@ -143,8 +144,8 @@ public class CharacterMovementController : MonoBehaviour
     }
     private void SetGroundCheckBoxSize()
     {
-        defaultHeight = 1.8f * 2f; // TODO: maybe not hard coded
-        currentHeight = defaultHeight;
+        DefaultHeight = 1.8f * 2f; // TODO: maybe not hard coded
+        CurrentHeight = DefaultHeight;
         // Note: also used for Sphere Cast
         _groundCheckBoxSize = new Vector3(
             playerModel.transform.localScale.x * groundCheckBoxSizeMultiplier
@@ -157,7 +158,7 @@ public class CharacterMovementController : MonoBehaviour
             transform.position,
             _groundCheckBoxSize.x / 2,
             Vector3.down, out RaycastHit hit,
-            currentHeight * 0.5f + lengthOfCheck,
+            CurrentHeight * 0.5f + lengthOfCheck,
             groundLayer);
     }
 
@@ -168,24 +169,13 @@ public class CharacterMovementController : MonoBehaviour
                 transform.position,
                 _groundCheckBoxSize.x / 2,
                 Vector3.down, out _slopeHit,
-                currentHeight * 0.5f + lengthOfCheck)) return false;
+                CurrentHeight * 0.5f + lengthOfCheck)) return false;
         float angle = Vector3.Angle(Vector3.up, _slopeHit.normal);
         return angle < maxSlopeAngle && angle != 0f;
 
     }
 
     private bool _enableMovementOnNextTouch;
-
-    public void JumpToPosition(Vector3 targetPosition, float trajectoryHeight)
-    {
-        activeGrapple = true;
-
-        _velocityToSet = CalculateJumpVelocity(
-            transform.position, targetPosition, trajectoryHeight);
-        Invoke(nameof(SetVelocity), 0.1f);
-
-        Invoke(nameof(ResetRestrictions), 3f);
-    }
 
     private Vector3 _velocityToSet;
 
@@ -200,7 +190,6 @@ public class CharacterMovementController : MonoBehaviour
     {
         if (!_enableMovementOnNextTouch) return;
         _enableMovementOnNextTouch = false;
-        ResetRestrictions();
     }
 
     public Vector3 CalculateJumpVelocity(Vector3 startPoint, Vector3 endPoint, float trajectoryHeight)
@@ -232,33 +221,119 @@ public class CharacterMovementController : MonoBehaviour
         
     }
 
+    #region InputHandling
+
     private Vector2 _movementInput;
     private bool _jumpInput;
     private bool _sprintInput;
     private bool _crouchInput;
 
-    // called every frame
-    public void HandlePlayerInputs(
-        Vector2 moving, bool jumping, bool sprinting, bool crouching)
+    private void OnMove(Vector2 val)
     {
-        if (!isUnlimited)
+        if (IsUnlimited)
         {
-            _movementInput = moving;
-            _jumpInput = jumping;
-            _sprintInput = sprinting;
-            _crouchInput = crouching;
-            
+            _movementInput = Vector2.zero;
             return;
         }
-        _movementInput = Vector2.zero;
-        _jumpInput = false;
-        _sprintInput = false;
-        _crouchInput = false;
+
+        _movementInput = val;
     }
 
+    private void OnJump(bool val)
+    {
+        if (IsUnlimited)
+        {
+            _jumpInput = false;
+            return;
+        }
+
+        _jumpInput = val;
+    }
+
+    private void OnSprint(bool val)
+    {
+        if (IsUnlimited)
+        {
+            _sprintInput = false;
+            return;
+        }
+        
+        switch (_toggleSprint)
+        {
+            case false:
+                _sprintInput = val;
+                return;
+            case true when !val:
+                return;
+            default:
+                _sprintInput = !_sprintInput;
+                break;
+        }
+    }
+    
+    private void OnCrouch(bool val)
+    {
+        if (IsUnlimited)
+        {
+            _crouchInput = false;
+            return;
+        }
+            
+        switch (_toggleCrouch)
+        {
+            case false:
+                _crouchInput = val;
+                return;
+            case true when !val:
+                return;
+            default:
+                _crouchInput = !_crouchInput;
+                break;
+        }
+    }
+
+    private void AssignInputs()
+    {
+        _inputReader.MoveEvent += OnMove;
+        _inputReader.JumpEvent += OnJump;
+        _inputReader.CrouchEvent += OnCrouch;
+        _inputReader.SprintEvent += OnSprint;
+    }
+    
+    private void UnassignInputs()
+    {
+        _inputReader.MoveEvent -= OnMove;
+        _inputReader.JumpEvent -= OnJump;
+        _inputReader.CrouchEvent -= OnCrouch;
+        _inputReader.SprintEvent -= OnSprint;
+    }
+
+    public void ResetInputValues()
+    {
+        _movementInput = Vector2.zero;
+        _sprintInput = false;
+    }
+
+    #endregion
+
+    private void OnEnable()
+    {
+        if (_inputReader)
+        { AssignInputs(); }
+    }
+    
+    private void OnDisable()
+    {
+        if (_inputReader)
+        { UnassignInputs(); }
+    }
+    
     private void Update()
     {
-        grounded = SphereCastCheck();
+        Grounded = SphereCastCheck();
+        
+        // Landing detection for camera effects
+        DetectLanding();
 
         HandleMovement();
         HandleJump();
@@ -270,6 +345,41 @@ public class CharacterMovementController : MonoBehaviour
 
         GroundDrag();
     }
+    
+    /// <summary>
+    /// Detects landing events and notifies the camera controller.
+    /// Tracks fall velocity and triggers camera landing effect when player lands.
+    /// </summary>
+    private void DetectLanding()
+    {
+        // Track fall velocity when in the air
+        if (!Grounded && _rigidbody)
+        {
+            // Store the downward velocity (negative Y velocity)
+            float currentFallVelocity = -_rigidbody.linearVelocity.y;
+            if (currentFallVelocity > _fallVelocity)
+            {
+                _fallVelocity = currentFallVelocity;
+            }
+        }
+        
+        // Detect landing: transition from not grounded to grounded
+        if (Grounded && !_wasGrounded)
+        {
+            // Player just landed
+            if (_cameraController && _fallVelocity > 0f)
+            {
+                // Call camera controller with impact velocity
+                _cameraController.OnLanding(_fallVelocity);
+            }
+            
+            // Reset fall velocity
+            _fallVelocity = 0f;
+        }
+        
+        // Update previous grounded state for next frame
+        _wasGrounded = Grounded;
+    }
 
     private bool _keepMomentum;
     private MovementState _lastState;
@@ -277,51 +387,39 @@ public class CharacterMovementController : MonoBehaviour
     private void StateHandler()
     { 
         // Mode - Freeze
-        if (isFrozen)
+        if (IsFrozen)
         { 
             state = MovementState.Freeze; 
             _rigidbody.linearVelocity = Vector3.zero;
             _desiredMoveSpeed = 0f;
         }
         // Mode - Unlimited
-        else if (isUnlimited)
+        else if (IsUnlimited)
         { 
             state = MovementState.Unlimited;
             _desiredMoveSpeed = 999f;
         }
-        // Mode - Grappling
-        else if (activeGrapple)
-        {
-            state = MovementState.Grappling;
-            _desiredMoveSpeed = grappleSpeed;
-        }
-        // Mode - Swinging
-        else if (activeSwinging)
-        {
-            state = MovementState.Swinging;
-            _desiredMoveSpeed = swingSpeed;
-        }
         // Mode - Dashing
-        else if (isDashing)
+        else if (IsDashing)
         {
             state = MovementState.Dashing;
             _desiredMoveSpeed = dashSpeed;
             _speedChangeFactor = dashSpeedChangeFactor;
         }
         // Mode - Climbing
-        else if (isClimbing)
+        else if (IsClimbing)
         {
             state = MovementState.Climbing;
             _desiredMoveSpeed = climbSpeed;
         }
         // Mode - Wall Running
-        else if (isWallRunning)
+        else if (IsWallRunning)
         {
             state = MovementState.WallRunning;
             _desiredMoveSpeed = wallRunSpeed;
         }
         // Mode - Sliding
-        else if (isSliding)
+        else if (IsSliding)
         {
             state = MovementState.Sliding;
             if (OnSlope() && _rigidbody.linearVelocity.y < 0.1f)
@@ -333,19 +431,19 @@ public class CharacterMovementController : MonoBehaviour
             { _desiredMoveSpeed = sprintSpeed; }
         }
         // Mode - Crouch
-        else if (enableCrouch && _crouchInput)
+        else if (EnableCrouch && _crouchInput)
         {
             state = MovementState.Crouching;
             _desiredMoveSpeed = crouchSpeed;
         }
         // Mode - Sprinting
-        else if (enableSprint && grounded && _sprintInput)
+        else if (EnableSprint && Grounded && _sprintInput)
         {
             state = MovementState.Sprinting;
             _desiredMoveSpeed = sprintSpeed;
         }
         // Mode - Walk
-        else if (grounded)
+        else if (Grounded)
         {
             state = MovementState.Walking;
             _desiredMoveSpeed = walkSpeed;
@@ -427,7 +525,7 @@ public class CharacterMovementController : MonoBehaviour
 
     private void HandleCrouch()
     {
-        if (!enableCrouch) { return; }
+        if (!EnableCrouch) { return; }
         
         if (_crouchInput && !_stillCrouching)
         {
@@ -440,7 +538,7 @@ public class CharacterMovementController : MonoBehaviour
                     crouchYScale,
                     playerModel.transform.localScale.z);
 
-            currentHeight *= crouchYScale + 0.25f;
+            CurrentHeight *= crouchYScale + 0.25f;
 
             _rigidbody.AddForce(Vector3.down * 5f, ForceMode.Impulse);
             _stillCrouching = true;
@@ -453,7 +551,7 @@ public class CharacterMovementController : MonoBehaviour
                    _startYScale,
                    playerModel.transform.localScale.z);
 
-            currentHeight = defaultHeight;
+            CurrentHeight = DefaultHeight;
 
             _stillCrouching = false;
         }
@@ -463,9 +561,9 @@ public class CharacterMovementController : MonoBehaviour
     {
         if (_jumpInput && _canJump)
         {
-            if (grounded || (!grounded && _jumpCount < jumpLimit))
+            if (Grounded || (!Grounded && _jumpCount < jumpLimit))
             {
-                if (!grounded && _jumpCount == 0)
+                if (!Grounded && _jumpCount == 0)
                 { 
                     if (jumpLimit <= 1) { return; }
                     _jumpCount++; 
@@ -484,7 +582,20 @@ public class CharacterMovementController : MonoBehaviour
     public void UpdateOrientationRotation(float yRotation)
     { orientation.rotation = Quaternion.Euler(0, yRotation, 0); }
 
-
+    // State exposure methods for CameraController integration
+    public MovementState GetCurrentState()
+    { return state; }
+    
+    public Vector3 GetVelocity()
+    { return _rigidbody ? _rigidbody.linearVelocity : Vector3.zero; }
+    
+    /// <summary>
+    /// Sets the camera controller reference for landing detection.
+    /// </summary>
+    public void SetCameraController(CameraController cameraController)
+    {
+        _cameraController = cameraController;
+    }
 
     private void UpdateMovementDirection()
     { 
@@ -495,8 +606,7 @@ public class CharacterMovementController : MonoBehaviour
 
     private void MoveCharacter()
     {
-        if (state == MovementState.Dashing || 
-            activeGrapple || activeSwinging)
+        if (state == MovementState.Dashing)
         { return; }
 
         UpdateMovementDirection();
@@ -510,14 +620,14 @@ public class CharacterMovementController : MonoBehaviour
             { _rigidbody.AddForce(Vector3.down * (80f * _rigidbody.mass), ForceMode.Force); }
         }
         // on ground
-        else if (grounded)
+        else if (Grounded)
         { _rigidbody.AddForce(_movementDirection.normalized * (_moveSpeed * 10f * _rigidbody.mass), ForceMode.Force); }
         // in air
-        else if (!grounded)
+        else if (!Grounded)
         { _rigidbody.AddForce(_movementDirection.normalized * (_moveSpeed * 10f * _rigidbody.mass * airMultiplier), ForceMode.Force); }
 
         // Turn off gravity when on slopes
-        if (!isWallRunning) { _rigidbody.useGravity = !OnSlope(); }
+        if (!IsWallRunning) { _rigidbody.useGravity = !OnSlope(); }
     }
     /*
     // Rate in which the agent slows down to a stop when there is no movement input
@@ -532,8 +642,6 @@ public class CharacterMovementController : MonoBehaviour
     */
     private void SpeedControl()
     {
-        if (activeGrapple) { return; }
-
         if (OnSlope() && !_exitingSlope)
         {
             if (_rigidbody.linearVelocity.magnitude > _moveSpeed)
@@ -550,8 +658,8 @@ public class CharacterMovementController : MonoBehaviour
             }
         }
 
-        if (maxYSpeed != 0 && _rigidbody.linearVelocity.y > maxYSpeed)
-        { _rigidbody.linearVelocity = new Vector3(_rigidbody.linearVelocity.x, maxYSpeed, _rigidbody.linearVelocity.z); }
+        if (MaxYSpeed != 0 && _rigidbody.linearVelocity.y > MaxYSpeed)
+        { _rigidbody.linearVelocity = new Vector3(_rigidbody.linearVelocity.x, MaxYSpeed, _rigidbody.linearVelocity.z); }
     }
 
     private void Jump()
@@ -564,7 +672,7 @@ public class CharacterMovementController : MonoBehaviour
     
     private void TryResetJumpLimit()
     {
-        if (grounded && _canJump)
+        if (Grounded && _canJump)
         { _jumpCount = 0; }
     }
 
@@ -576,11 +684,12 @@ public class CharacterMovementController : MonoBehaviour
 
     private void GroundDrag()
     {
-        if ((state == MovementState.Walking || 
-            state == MovementState.Sprinting || 
-            state == MovementState.Crouching ||
-            state == MovementState.Sliding) && 
-            !activeGrapple && !Mathf.Approximately(_rigidbody.linearDamping, groundDrag))
+        if (state is 
+                MovementState.Walking or 
+                MovementState.Sprinting or 
+                MovementState.Crouching or 
+                MovementState.Sliding && 
+             !Mathf.Approximately(_rigidbody.linearDamping, groundDrag))
         { _rigidbody.linearDamping = groundDrag; }
         else
         { _rigidbody.linearDamping = 0; }
@@ -588,14 +697,10 @@ public class CharacterMovementController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (isExitingWall || restricted) return;
+        if (IsExitingWall || Restricted) return;
 
         MoveCharacter();
     }
-    
-    /// <summary>
-    /// Extra movement features section
-    /// </summary>
     
     [Header("Extra Movement Feature Variables")]
     [SerializeField] private float dashSpeed;
@@ -603,17 +708,4 @@ public class CharacterMovementController : MonoBehaviour
     [SerializeField] private float slideSpeed;
     [SerializeField] private float climbSpeed;
     [SerializeField] private float wallRunSpeed;
-    [SerializeField] private float swingSpeed;
-    
-    [Header("Grapple Movement Feature Variables")]
-    [SerializeField] private Transform grappleOrientation;
-    [SerializeField] private float grappleSpeed;
-    public bool activeGrapple { get; set; } = false;
-    
-    public void UpdateGrappleOrientationRotation(float x, float y)
-    { grappleOrientation.rotation = Quaternion.Euler(x, y, 0); }
-    
-    public void ResetRestrictions()
-    { activeGrapple = false; }
-
 }

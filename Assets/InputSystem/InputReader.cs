@@ -33,10 +33,11 @@ public class InputReader : ScriptableObject, IFirstPersonInputsActions
 
     private void OnDisable()
     {
-        if (_controls == null) return;
-        
-        _controls.FirstPersonInputs.RemoveCallbacks(this);
-        _controls.FirstPersonInputs.Disable();
+        if (_controls != null)
+        {
+            _controls.FirstPersonInputs.RemoveCallbacks(this);
+            _controls.FirstPersonInputs.Disable();
+        }
     }
 
     public void OnMovement(InputAction.CallbackContext context)

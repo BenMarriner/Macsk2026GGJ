@@ -54,9 +54,9 @@ public class DashingController : MonoBehaviour
         int inputChange = _dashInput.HasStateChanged();
 
         if (canOnlyDashAgainOnceGrounded && !_canDashAgain)
-        { _canDashAgain = _characterMovementController.grounded; }
+        { _canDashAgain = _characterMovementController.Grounded; }
 
-        if (inputChange == 0 && !_characterMovementController.isWallRunning)
+        if (inputChange == 0 && !_characterMovementController.IsWallRunning)
         { Dash(); }
 
         // Controls dash cooldown
@@ -71,8 +71,8 @@ public class DashingController : MonoBehaviour
         
         _dashCooldownTimer = dashCooldown; 
 
-        _characterMovementController.isDashing = true;
-        _characterMovementController.maxYSpeed = maxDashYSpeed;
+        _characterMovementController.IsDashing = true;
+        _characterMovementController.MaxYSpeed = maxDashYSpeed;
 
         Transform forwardT = orientation;
 
@@ -108,8 +108,8 @@ public class DashingController : MonoBehaviour
     // Resets the Dash ability (not cooldown)
     private void ResetDash()
     {
-        _characterMovementController.isDashing = false;
-        _characterMovementController.maxYSpeed = 0;
+        _characterMovementController.IsDashing = false;
+        _characterMovementController.MaxYSpeed = 0;
 
         if (disableGravity)
         { _rigidbody.useGravity = true; }

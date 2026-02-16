@@ -147,6 +147,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8463287488183639592}
   - component: {fileID: 6870754854984553198}
+  - component: {fileID: 6877216457252284394}
   m_Layer: 0
   m_Name: CameraHolder
   m_TagString: Untagged
@@ -184,7 +185,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InputHandler
   inputReader: {fileID: 11400000, guid: d6f928fbef4715d449bc50d19055c31e, type: 2}
-  playerCamera: {fileID: 3361897128969818242}
   toggleCrouch: 0
   toggleSprint: 0
   enableCrouch: 0
@@ -193,6 +193,38 @@ MonoBehaviour:
   enableClimbing: 0
   enableWallRunning: 0
   enableDashing: 0
+--- !u!114 &6877216457252284394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7444070387976628105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc40429b5451f4d4884b33e675f43e8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraController
+  camera: {fileID: 54512353491437800}
+  mouseSensitivityX: 170
+  mouseSensitivityY: 170
+  enableRotationSmoothing: 0
+  rotationSmoothSpeed: 30
+  enablePositionSmoothing: 1
+  positionSmoothSpeed: 60
+  enableHeadBob: 1
+  headBobAmplitude: 0.05
+  headBobFrequency: 1.5
+  headBobSmoothSpeed: 5
+  enableLandingImpact: 1
+  landingImpactIntensity: 5
+  landingRecoverySpeed: 8
+  minImpactVelocity: 5
+  enableFOVEffects: 1
+  defaultFOV: 60
+  sprintFOV: 70
+  slideFOV: 75
+  fovTransitionSpeed: 8
 --- !u!1 &7451705109636236096
 GameObject:
   m_ObjectHideFlags: 0

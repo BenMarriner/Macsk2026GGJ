@@ -91,7 +91,7 @@ public class ClimbingController : MonoBehaviour
             if (_exitWallTimer < 0) 
             { 
                 _exitingWall = false;
-                _characterMovementController.isExitingWall = false;
+                _characterMovementController.IsExitingWall = false;
             }
         }
         // State 3 - None
@@ -117,7 +117,7 @@ public class ClimbingController : MonoBehaviour
         bool newWall = _frontWallHit.transform != _lastWall || 
             Mathf.Abs(Vector3.Angle(_lastWallNormal, _frontWallHit.normal)) > minWallNormalAngleChange;
 
-        if ((_wallFront && newWall) || _characterMovementController.grounded) 
+        if ((_wallFront && newWall) || _characterMovementController.Grounded) 
         { 
             _climbTimer = maxClimbTime;
             _climbJumpsLeft = climbJumps;
@@ -134,7 +134,7 @@ public class ClimbingController : MonoBehaviour
     private void StartClimbing()
     {
         _climbing = true;
-        _characterMovementController.isClimbing = true;
+        _characterMovementController.IsClimbing = true;
 
         _lastWall = _frontWallHit.transform;
         _lastWallNormal = _frontWallHit.normal;
@@ -145,16 +145,16 @@ public class ClimbingController : MonoBehaviour
     private void StopClimbing()
     {
         _climbing = false;
-        _characterMovementController.isClimbing = false;
+        _characterMovementController.IsClimbing = false;
         // revert camera view
     }
     
     private void ClimbJump()
     {
-        if (_characterMovementController.grounded) { return; }
+        if (_characterMovementController.Grounded) { return; }
 
         _exitingWall = true;
-        _characterMovementController.isExitingWall = true;
+        _characterMovementController.IsExitingWall = true;
         _exitWallTimer = exitWallTime;
 
         Vector3 forceToApply = (transform.up * climbJumpUpForce) + (_frontWallHit.normal * climbJumpBackForce);

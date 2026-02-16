@@ -40,23 +40,23 @@ public class SlidingController : MonoBehaviour
     {
         int inputChange = _slideInput.HasStateChanged();
 
-        if (!_characterMovementController.isSliding && inputChange == 0 &&
+        if (!_characterMovementController.IsSliding && inputChange == 0 &&
             (_horizontalInput != 0 || _verticalInput != 0))
         { StartSlide(); }
 
-        if (inputChange == 1 && _characterMovementController.isSliding)
+        if (inputChange == 1 && _characterMovementController.IsSliding)
         { StopSlide(); }
     }
 
     private void FixedUpdate()
     {
-        if (_characterMovementController.isSliding)
+        if (_characterMovementController.IsSliding)
         { SlidingMovement(); }
     }
 
     private void SlidingMovement()
     {
-        if (_slideTimer <= 0 || !_characterMovementController.isSliding) { return; }
+        if (_slideTimer <= 0 || !_characterMovementController.IsSliding) { return; }
 
         Vector3 inputDirection = orientation.forward * _verticalInput + orientation.right * _horizontalInput;
 
@@ -81,9 +81,9 @@ public class SlidingController : MonoBehaviour
     }
     private void StartSlide()
     {
-        if (_characterMovementController.isWallRunning) { return; }
+        if (_characterMovementController.IsWallRunning) { return; }
 
-        _characterMovementController.isSliding = true;
+        _characterMovementController.IsSliding = true;
 
         playerModel.transform.localScale =
                 new Vector3(
@@ -91,7 +91,7 @@ public class SlidingController : MonoBehaviour
                     slideYScale,
                     playerModel.transform.localScale.z);
 
-        _characterMovementController.currentHeight *= slideYScale + 0.25f;
+        _characterMovementController.CurrentHeight *= slideYScale + 0.25f;
 
         _rigidbody.AddForce(Vector3.down * (5f * _rigidbody.mass), ForceMode.Impulse);
 
@@ -99,7 +99,7 @@ public class SlidingController : MonoBehaviour
     }
     private void StopSlide()
     {
-        _characterMovementController.isSliding = false;
+        _characterMovementController.IsSliding = false;
 
         playerModel.transform.localScale =
                 new Vector3(
@@ -107,6 +107,6 @@ public class SlidingController : MonoBehaviour
                     _startYScale,
                     playerModel.transform.localScale.z);
 
-        _characterMovementController.currentHeight = _characterMovementController.defaultHeight;
+        _characterMovementController.CurrentHeight = _characterMovementController.DefaultHeight;
     }
 }

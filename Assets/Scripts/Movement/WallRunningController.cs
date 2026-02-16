@@ -111,7 +111,7 @@ public class WallRunningController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_characterMovementController.isWallRunning)
+        if (_characterMovementController.IsWallRunning)
         { WallRunningMovement(); }
     }
 
@@ -132,15 +132,15 @@ public class WallRunningController : MonoBehaviour
             _movementInputs.y > 0 && 
             AboveGround() && 
             !_exitingWall && 
-            (IsNewWall(GetCurrentWall()) || _characterMovementController.isWallRunning)) 
+            (IsNewWall(GetCurrentWall()) || _characterMovementController.IsWallRunning)) 
         {
-            if (!_characterMovementController.isWallRunning)
+            if (!_characterMovementController.IsWallRunning)
             { StartWallRun(); }
             
             if (_wallRunTimer > 0)
             { _wallRunTimer -= Time.deltaTime; }
 
-            if (_wallRunTimer <= 0 && _characterMovementController.isWallRunning)
+            if (_wallRunTimer <= 0 && _characterMovementController.IsWallRunning)
             { 
                 _exitingWall = true;
                 _exitWallTimer = exitWallTime;
@@ -155,7 +155,7 @@ public class WallRunningController : MonoBehaviour
         // State 2 - Exiting
         else if (_exitingWall)
         {
-            if (_characterMovementController.isWallRunning)
+            if (_characterMovementController.IsWallRunning)
             { StopWallRun(); }
 
             if (_exitWallTimer > 0)
@@ -176,7 +176,7 @@ public class WallRunningController : MonoBehaviour
         // State 3 - None
         else
         {
-            if (_characterMovementController.isWallRunning)
+            if (_characterMovementController.IsWallRunning)
             { StopWallRun(); }
         }
 
@@ -192,7 +192,7 @@ public class WallRunningController : MonoBehaviour
 
     private void StartWallRun()
     {
-        _characterMovementController.isWallRunning = true;
+        _characterMovementController.IsWallRunning = true;
         SetLastWall();
         _wallRunTimer = maxWallRunTime;
         _rigidbody.linearVelocity = new Vector3(_rigidbody.linearVelocity.x, 0f, _rigidbody.linearVelocity.z);
@@ -200,7 +200,7 @@ public class WallRunningController : MonoBehaviour
 
     private void StopWallRun()
     {
-        _characterMovementController.isWallRunning = false;
+        _characterMovementController.IsWallRunning = false;
     }
 
     private void WallRunningMovement()

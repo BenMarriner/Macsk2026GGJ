@@ -23,8 +23,6 @@ public struct InputDetector
 public class InputHandler : MonoBehaviour
 {
     [SerializeField] private InputReader inputReader;
-    [SerializeField] private GameObject playerCamera;
-    private Transform _cameraFollowPoint;
     private GameObject _playerComponentHolder; // object with all the movement components
 
     private CharacterMovementController _characterMovementController;
@@ -39,52 +37,6 @@ public class InputHandler : MonoBehaviour
     [SerializeField] private bool enableSprint = false;
 
     #region InputHandleFunctions
-
-    private float _xRotation;
-    private float _yRotation;
-
-    private bool _inputEnabled = false;
-
-    private Vector2 _movementInput = Vector2.zero;
-    private void HandleMove(Vector2 val)
-    { _movementInput = val; }
-    private Vector2 _lookInput = Vector2.zero;
-    private void HandleLook(Vector2 val)
-    { _lookInput = val; }
-    private bool _jumpInput = false;
-    private void HandleJump(bool val)
-    { _jumpInput = val;}
-    private bool _sprintInput = false;
-    private void HandleSprint(bool val)
-    {
-        switch (toggleSprint)
-        {
-            case false:
-                _sprintInput = val;
-                return;
-            case true when !val:
-                return;
-            default:
-                _sprintInput = !_sprintInput;
-                break;
-        }
-    }
-    private bool _crouchInput = false;
-    private void HandleCrouch(bool val)
-    {
-        switch (toggleCrouch)
-        {
-            case false:
-                _crouchInput = val;
-                return;
-            case true when !val:
-                return;
-            default:
-                _crouchInput = !_crouchInput;
-                break;
-        }
-    }
-    
     // 1 or -1
     private float _toggleMaskInput = 0;
     private void HandleToggleMask(float val)
@@ -98,7 +50,6 @@ public class InputHandler : MonoBehaviour
     private void HandleInteract(bool val)
     {
         _interactInput = val;
-        
         if (val) _playerInteract?.InteractWithObject();
     }
 
@@ -154,26 +105,31 @@ public class InputHandler : MonoBehaviour
             return;
         }
 
-        _cameraFollowPoint = _characterMovementController.GetCameraPoint();
-
-        if (!_cameraFollowPoint)
-        {
-            Debug.LogError("ERROR: Missing camera follow point, camera can't follow the player.");
-            return;
-        }
-
         SetUpCapabilities();
     }
 
     private void SetUpCapabilities()
     {
         _characterMovementController.SetCapabilities(
-            enableSprint, enableCrouch);
+            inputReader,
+            enableSprint, 
+            enableCrouch,
+            toggleSprint,
+            toggleCrouch);
         
-        _playerInteract.SetCapabilities(playerCamera);
-        //TODO: Setup capabilities for MASK TOGGLE script here
-        
-        //TODO: Setup capabilities for INTERACTION script here
+        if (TryGetComponent(out CameraController cameraController))
+        {
+            cameraController.Initialize(
+                inputReader, 
+                _characterMovementController, 
+                _characterMovementController.GetCameraPoint());
+            
+            _playerInteract.SetCapabilities(cameraController.GetCameraObject());
+        }
+        else
+        {
+            Debug.LogError("ERROR: Cannot get CameraController component.");
+        }
         
         // For disabling unused scripts
         //SetupExtraInputFeatureCapabilities();
@@ -184,21 +140,14 @@ public class InputHandler : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
-
+    
     private void ResetInputValues()
     {
-        _movementInput = Vector2.zero;
-        _sprintInput = false;
+        _characterMovementController.ResetInputValues();
     }
+    
     private void AssignInputs()
     {
-        //Debug.Log("Assigning inputs");
-        _inputEnabled = true;
-        inputReader.MoveEvent += HandleMove;
-        inputReader.LookEvent += HandleLook;
-        inputReader.JumpEvent += HandleJump;
-        inputReader.CrouchEvent += HandleCrouch;
-        inputReader.SprintEvent += HandleSprint;
         inputReader.ToggleMaskEvent += HandleToggleMask;
         inputReader.InteractEvent += HandleInteract;
         inputReader.EscapeEvent += HandleEscape;
@@ -207,13 +156,6 @@ public class InputHandler : MonoBehaviour
     }
     private void UnassignInputs()
     {
-        //Debug.Log("Unassigning inputs");
-        _inputEnabled = false;
-        inputReader.MoveEvent -= HandleMove;
-        inputReader.LookEvent -= HandleLook;
-        inputReader.JumpEvent -= HandleJump;
-        inputReader.CrouchEvent -= HandleCrouch;
-        inputReader.SprintEvent -= HandleSprint;
         inputReader.ToggleMaskEvent -= HandleToggleMask;
         inputReader.InteractEvent -= HandleInteract;
         inputReader.EscapeEvent -= HandleEscape;
@@ -221,63 +163,6 @@ public class InputHandler : MonoBehaviour
         UnassignExtraInputFeatures();
 
         ResetInputValues();
-    }
-
-    private void CameraControl()
-    {
-        _yRotation += _lookInput.x * inputReader.mouseSensitivityX * Time.deltaTime;
-        _xRotation -= _lookInput.y * inputReader.mouseSensitivityY * Time.deltaTime;
-
-        _xRotation = Mathf.Clamp(_xRotation, -90f, 90f);
-    }
-    private void CameraMove()
-    {
-        transform.rotation = Quaternion.Euler(_xRotation, _yRotation, 0);
-        // Controls character body face rotation
-        if (!_characterMovementController) return;
-        _characterMovementController.UpdateOrientationRotation(_yRotation);
-        
-        //TODO: Feed Input data for MASK TOGGLE script through here
-        
-        //TODO: Feed Input data for INTERACTION script through here
-
-        
-       
-        
-        //_characterMovementController.UpdateGrappleOrientationRotation(_xRotation, _yRotation);
-    }
-
-    private void UpdateCameraFollowPoint()
-    {
-        if (!_cameraFollowPoint) { return; }
-        transform.position = _cameraFollowPoint.position;
-    }
-    private void MovementControl()
-    {
-        if (!_characterMovementController) return;
-        _characterMovementController.HandlePlayerInputs(
-            _movementInput, _jumpInput, _sprintInput, _crouchInput);
-            
-        
-        
-
-        //HandleExtraInputFeatures();
-    }
-
-    private void Update()
-    {
-        if (_inputEnabled)
-        { MovementControl(); }
-    }
-
-    private void LateUpdate()
-    {
-        if (_inputEnabled)
-        {
-            CameraControl();
-            CameraMove();
-        }
-        UpdateCameraFollowPoint();
     }
     
     #region ExtraInputFeatures
@@ -354,11 +239,13 @@ public class InputHandler : MonoBehaviour
         { 
             _dashingController.enabled = enableDashing; 
             // assign camera transform if enabled
-            _dashingController.SetPlayerCamera(playerCamera.transform);
+            if (TryGetComponent(out CameraController cameraController))
+            { _dashingController.SetPlayerCamera(cameraController.GetCameraObject().transform); }
         }
     }
     private void HandleExtraInputFeatures()
     {
+        /*
         if (_slidingController && enableSlide)
         { _slidingController.HandlePlayerInputs(_slideInput, _movementInput); }
 
@@ -373,6 +260,7 @@ public class InputHandler : MonoBehaviour
 
         if (_dashingController && enableDashing)
         { _dashingController.HandlePlayerInputs(_movementInput, _dashInput); }
+        */
     }
     #endregion
 }

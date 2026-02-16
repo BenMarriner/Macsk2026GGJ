@@ -25,6 +25,11 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         _currentPrimaryMusicSource.MusicSource = _musicSourcePair[0].MusicSource;
+        foreach (KeySourcePair item in _musicSourcePair)
+        {
+            item.MusicSource.volume = 0f;
+            item.MusicSource.Play();
+        }
         FadeMusicEventHandler(new MusicFadeData(MusicKey.NoMask, 5, 1));
     }
 

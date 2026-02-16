@@ -15,7 +15,7 @@ interface IActivate
 
 public class Interactor : MaskChangeDetector
 {
-    [SerializeField] private float _distance = 1500.0f;
+    [SerializeField] private float _distance = 4.0f;
     private Camera _camera;
     private GameObject _previousHitObject;
     private GameObject _currentHitObject;
@@ -37,10 +37,15 @@ public class Interactor : MaskChangeDetector
         
         CastRay(out RaycastHit currentHit);
         if (currentHit.transform)
+        {
             _currentHitObject = currentHit.transform.gameObject;
+        }
+        else
+        {
+            _currentHitObject = null;
+        }
 
-        if (_previousHitObject == _currentHitObject)
-            return;
+        if (_previousHitObject == _currentHitObject) return;
 
         // Send out unhighlighted event for previous object
         if (IsValidInteractable(_previousHitObject))
@@ -92,23 +97,11 @@ public class Interactor : MaskChangeDetector
     public void InteractWithObject()
     {
         if (!_interactionEnabled) return;
+        if (!_currentHitObject) return;
 
-        if (_currentHitObject)
+        if (_currentHitObject.TryGetComponent(out IInteractable interactable))
         {
-            if (_currentHitObject.TryGetComponent(out IInteractable interactable))
-            {
-                interactable.Interact();
-            }
-            return;
-        }
-
-        if (_currentHitObject.transform.parent)
-        {
-            if (_currentHitObject.transform.parent.gameObject.TryGetComponent(out IInteractable interactable))
-            {
-                interactable.Interact();
-            }
-            return;
+            interactable.Interact();
         }
     }
 

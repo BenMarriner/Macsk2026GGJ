@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06eadc979ec2465448db424c6f642f7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResponseActivation
-  animationClip: {fileID: 7400000, guid: c283b05ef4cdfb047940a3f1d8d59bb9, type: 2}
+  animationClip: {fileID: 0}
   animator: {fileID: 5638380149723170880}
 --- !u!95 &5638380149723170880
 Animator:

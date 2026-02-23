@@ -222,6 +222,16 @@ public class CharacterMovementController : MonoBehaviour
 
         _canJump = true;
         
+        if (!_footstepAudioSource)
+        {
+            this.LogError(nameof(_footstepAudioSource), " is null or has not been set!");
+            return;
+        }
+        if (!_footstepAudioSource.clip)
+        {
+            this.LogError(nameof(_footstepAudioSource), nameof(_footstepAudioSource.clip), " is null or has not been set!");
+            return;
+        }
     }
 
     #region InputHandling
@@ -522,6 +532,9 @@ public class CharacterMovementController : MonoBehaviour
     {
         _horizontalMovement = _movementInput.x;
         _verticalMovement = _movementInput.y;
+
+        if (!_footstepAudioSource) return;
+        if (!_footstepAudioSource.clip) return;
 
         if ( state == MovementState.Walking && 
             (_verticalMovement != 0 || _horizontalMovement != 0) && 

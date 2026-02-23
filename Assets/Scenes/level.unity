@@ -58879,6 +58879,14 @@ PrefabInstance:
       propertyPath: pairedInteractable
       value: 
       objectReference: {fileID: 89871362}
+    - target: {fileID: 7270686319803624734, guid: 45209c7d0755f054abdaf519a2c4e4eb, type: 3}
+      propertyPath: _pairedInteractables.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7270686319803624734, guid: 45209c7d0755f054abdaf519a2c4e4eb, type: 3}
+      propertyPath: '_pairedInteractables.Array.data[0]'
+      value: 
+      objectReference: {fileID: 89871362}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -252912,7 +252920,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: da4ea374002e82f49b825f7cf5ed6a7a, type: 3}
       propertyPath: m_Name
-      value: Iron_Gate
+      value: CastleIron_Gate
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -263073,6 +263081,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7270686319803624734, guid: 45209c7d0755f054abdaf519a2c4e4eb, type: 3}
       propertyPath: pairedInteractable
+      value: 
+      objectReference: {fileID: 986651769}
+    - target: {fileID: 7270686319803624734, guid: 45209c7d0755f054abdaf519a2c4e4eb, type: 3}
+      propertyPath: _pairedInteractables.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7270686319803624734, guid: 45209c7d0755f054abdaf519a2c4e4eb, type: 3}
+      propertyPath: '_pairedInteractables.Array.data[0]'
       value: 
       objectReference: {fileID: 986651769}
     m_RemovedComponents: []
@@ -281493,6 +281509,14 @@ PrefabInstance:
       propertyPath: pairedInteractable
       value: 
       objectReference: {fileID: 578151762}
+    - target: {fileID: 7270686319803624734, guid: 45209c7d0755f054abdaf519a2c4e4eb, type: 3}
+      propertyPath: _pairedInteractables.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7270686319803624734, guid: 45209c7d0755f054abdaf519a2c4e4eb, type: 3}
+      propertyPath: '_pairedInteractables.Array.data[0]'
+      value: 
+      objectReference: {fileID: 578151762}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -291097,6 +291121,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7270686319803624734, guid: 45209c7d0755f054abdaf519a2c4e4eb, type: 3}
       propertyPath: pairedInteractable
+      value: 
+      objectReference: {fileID: 1852776150}
+    - target: {fileID: 7270686319803624734, guid: 45209c7d0755f054abdaf519a2c4e4eb, type: 3}
+      propertyPath: _pairedInteractables.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7270686319803624734, guid: 45209c7d0755f054abdaf519a2c4e4eb, type: 3}
+      propertyPath: '_pairedInteractables.Array.data[0]'
       value: 
       objectReference: {fileID: 1852776150}
     m_RemovedComponents: []
@@ -314281,6 +314313,18 @@ PrefabInstance:
       propertyPath: pairedInteractable
       value: 
       objectReference: {fileID: 1702386460}
+    - target: {fileID: 7270686319803624734, guid: 45209c7d0755f054abdaf519a2c4e4eb, type: 3}
+      propertyPath: 'managedReferences[-2]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7270686319803624734, guid: 45209c7d0755f054abdaf519a2c4e4eb, type: 3}
+      propertyPath: _pairedInteractables.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7270686319803624734, guid: 45209c7d0755f054abdaf519a2c4e4eb, type: 3}
+      propertyPath: '_pairedInteractables.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1702386460}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -332462,10 +332506,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 758351887505126869, guid: c4e0583c4e3a37b42afbe69e9aab0a80, type: 3}
-      propertyPath: _nextSceneIndex
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5170207735627937412, guid: c4e0583c4e3a37b42afbe69e9aab0a80, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.33
@@ -332505,18 +332545,6 @@ PrefabInstance:
     - target: {fileID: 5170207735627937412, guid: c4e0583c4e3a37b42afbe69e9aab0a80, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 5454863387363176633, guid: c4e0583c4e3a37b42afbe69e9aab0a80, type: 3}
-      propertyPath: m_Size.x
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5454863387363176633, guid: c4e0583c4e3a37b42afbe69e9aab0a80, type: 3}
-      propertyPath: m_Size.z
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5454863387363176633, guid: c4e0583c4e3a37b42afbe69e9aab0a80, type: 3}
-      propertyPath: m_Center.z
-      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 5515665061515111486, guid: c4e0583c4e3a37b42afbe69e9aab0a80, type: 3}
       propertyPath: m_Name

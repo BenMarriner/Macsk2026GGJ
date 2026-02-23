@@ -7,14 +7,14 @@ public class ColouredObject : MaskChangeDetector
     [SerializeField] protected bool _isEnabled = true;
     protected List<GenericCouple<Renderer, Material>> _defaultMaterialList = new();
 
-    public void SetEnabled(bool enabled)
+    public virtual void SetEnabled(bool enabled)
     {
         _isEnabled = enabled;
     }
 
-    public void ToggleEnabled()
+    public virtual void ToggleEnabled()
     {
-        _isEnabled = !_isEnabled;
+        SetEnabled(!_isEnabled);
     }
 
     // Loop through all children of the gameobject, getting the renderers and 

@@ -6,10 +6,10 @@ public class GreenObject : ColouredObject
     [SerializeField] private List<Renderer> _highlightMeshes;
     [SerializeField] private string _solhouetteLayer;
 
-    private bool _greenMaskMode = false;
+    protected bool _greenMaskMode = false;
     private IInteractable _interactable;
     private int _defaultObjectLayer;
-    private bool _silhouetteEnabled = false;
+    protected bool _silhouetteEnabled = false;
     private Transform[] _allObjectTransforms;
 
     protected virtual void Start()
@@ -48,8 +48,8 @@ public class GreenObject : ColouredObject
 
     protected virtual void EnableGreenEffect()
     {
-        if (!_isEnabled) return;
         _greenMaskMode = true;
+        if (!_isEnabled) return;
         foreach (GenericCouple<Renderer, Material> item in _defaultMaterialList)
         {
             item.First.material = _colouredMaterial;

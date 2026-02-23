@@ -93,6 +93,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bececaabf276f094b8ae57449c4ce811, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5454863387363176633}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bececaabf276f094b8ae57449c4ce811, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 304749054588795989}
   m_SourcePrefab: {fileID: 100100000, guid: bececaabf276f094b8ae57449c4ce811, type: 3}
 --- !u!4 &5170207735627937412 stripped
 Transform:
@@ -119,10 +122,10 @@ MonoBehaviour:
   _currentMaskMode: 0
   _effectReversed: 0
   _colouredMaterial: {fileID: 2100000, guid: a3ce89f0ec7981a49a4db075b9611c65, type: 2}
-  _isEnabled: 1
+  _isEnabled: 0
   _highlightMeshes:
   - {fileID: 7774349914684755686}
-  _solhouetteLayer: 
+  _solhouetteLayer: Silhouette
   _animationClip: {fileID: 0}
   _animator: {fileID: 0}
   _nextSceneIndex: 1
@@ -147,6 +150,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.3, y: 0.7, z: 0.3}
   m_Center: {x: 0, y: 0.6, z: 0.02}
+--- !u!114 &304749054588795989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5515665061515111486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03c62e1d3b3c6a546ab577d04633436d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CountFirstActivation
+  _pairedInteractables:
+  - {fileID: 8134897850496593715}
+  _activationsBeforeTrigger: 4
+  _currentActivations: 0
 --- !u!1001 &8945731810738639458
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -222,13 +241,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bececaabf276f094b8ae57449c4ce811, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6456725891469520576}
   m_SourcePrefab: {fileID: 100100000, guid: bececaabf276f094b8ae57449c4ce811, type: 3}
 --- !u!23 &7774349914684755686 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: bececaabf276f094b8ae57449c4ce811, type: 3}
   m_PrefabInstance: {fileID: 8945731810738639458}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8134897850496593715 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: bececaabf276f094b8ae57449c4ce811, type: 3}
+  m_PrefabInstance: {fileID: 8945731810738639458}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6456725891469520576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8134897850496593715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36b103592218db747a4b4af64f9a330d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColourObjectActivator
+  _colouredObject: {fileID: 758351887505126869}
+  _disablesObjects: 0
 --- !u!4 &8912384871180039561 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bececaabf276f094b8ae57449c4ce811, type: 3}

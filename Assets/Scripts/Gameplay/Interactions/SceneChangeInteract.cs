@@ -33,4 +33,14 @@ public class SceneChangeInteract : GreenObject, IInteractable
     public void SetCanBeInteracted(bool val)
     {
     }
+
+    public override void SetEnabled(bool enabled)
+    {
+        _isEnabled = enabled;
+
+        if (_isEnabled && _greenMaskMode)
+        {
+            EnableGreenEffect();
+        }
+    }
 }

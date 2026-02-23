@@ -11,6 +11,7 @@ public class CountFirstActivation : MonoBehaviour, IActivate
     public void Activate()
     {
         if (_activated) return;
+        _currentActivations++;
         if (_currentActivations < _activationsBeforeTrigger) return;
 
         _activated = true;

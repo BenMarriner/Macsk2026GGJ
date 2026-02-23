@@ -34,8 +34,6 @@ public class TriggerInteract : GreenObject, IInteractable
 
         foreach (GameObject item in _pairedInteractables)
         {
-            if (item == null) continue;
-
             if (!item || !item.TryGetComponent(out IActivate activateable)) return;
 
             activateable.Activate();

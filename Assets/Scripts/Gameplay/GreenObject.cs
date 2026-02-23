@@ -48,6 +48,7 @@ public class GreenObject : ColouredObject
 
     protected virtual void EnableGreenEffect()
     {
+        if (!_isEnabled) return;
         _greenMaskMode = true;
         foreach (GenericCouple<Renderer, Material> item in _defaultMaterialList)
         {
@@ -74,6 +75,7 @@ public class GreenObject : ColouredObject
 
     public virtual void Highlight()
     {
+        if (!_isEnabled) return;
         _interactable.SetCanBeInteracted(true);
         foreach (Renderer item in _highlightMeshes)
         {
@@ -94,7 +96,7 @@ public class GreenObject : ColouredObject
     {
         _silhouetteEnabled = enabled;
 
-        if (_silhouetteEnabled && _greenMaskMode)
+        if (_silhouetteEnabled && _greenMaskMode && _isEnabled)
         {
             SetSelfAndChildrenLayers(LayerMask.NameToLayer(_solhouetteLayer));
         }

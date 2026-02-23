@@ -119,6 +119,7 @@ MonoBehaviour:
   _currentMaskMode: 0
   _effectReversed: 0
   _colouredMaterial: {fileID: 2100000, guid: a3ce89f0ec7981a49a4db075b9611c65, type: 2}
+  _isEnabled: 1
   _highlightMeshes:
   - {fileID: 7774349914684755686}
   _solhouetteLayer: 

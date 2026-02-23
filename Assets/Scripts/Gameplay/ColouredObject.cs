@@ -4,7 +4,7 @@ using UnityEngine;
 public class ColouredObject : MaskChangeDetector
 {
     [SerializeField] protected Material _colouredMaterial;
-    [SerializeField] protected bool _isEnabled;
+    [SerializeField] protected bool _isEnabled = true;
     protected List<GenericCouple<Renderer, Material>> _defaultMaterialList = new();
 
     public void SetEnabled(bool enabled)

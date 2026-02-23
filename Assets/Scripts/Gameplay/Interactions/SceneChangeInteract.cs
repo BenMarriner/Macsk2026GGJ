@@ -10,6 +10,7 @@ public class SceneChangeInteract : GreenObject, IInteractable
     [SerializeField] private int _nextSceneIndex = 4;
     public void Interact()
     {
+        if (!_isEnabled) return;
         if (_activated) return;
         _activated = !_activated;
         

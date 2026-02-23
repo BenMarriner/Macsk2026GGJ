@@ -45,7 +45,6 @@ GameObject:
   - component: {fileID: 5058632963573295704}
   - component: {fileID: 4656890721979414612}
   - component: {fileID: -1503267713433760565}
-  - component: {fileID: 8087726580598743957}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -133,7 +132,7 @@ MonoBehaviour:
   groundCheckBoxSizeMultiplier: 0.8
   maxSlopeAngle: 40
   cameraPoint: {fileID: 8010555415384143426}
-  _footstepAudioSource: {fileID: 8087726580598743957}
+  _footstepAudioSource: {fileID: 0}
   dashSpeed: 20
   dashSpeedChangeFactor: 50
   slideSpeed: 30

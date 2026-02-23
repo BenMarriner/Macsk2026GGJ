@@ -522,7 +522,9 @@ public class CharacterMovementController : MonoBehaviour
     {
         _horizontalMovement = _movementInput.x;
         _verticalMovement = _movementInput.y;
-
+        
+        if (!_footstepAudioSource) return;
+        
         if ( state == MovementState.Walking && 
             (_verticalMovement != 0 || _horizontalMovement != 0) && 
             _rigidbody.linearVelocity.sqrMagnitude > 0.1f)

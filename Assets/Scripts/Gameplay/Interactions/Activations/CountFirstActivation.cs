@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MultipleResponseActivation : MonoBehaviour, IActivate
+public class CountFirstActivation : MonoBehaviour, IActivate
 {
     private bool _activated = false;
 

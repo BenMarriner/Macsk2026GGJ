@@ -184,7 +184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Interactor
   _currentMaskMode: 0
   _effectReversed: 0
-  _distance: 1500
+  _distance: 3
 --- !u!82 &350942907610082643
 AudioSource:
   m_ObjectHideFlags: 0

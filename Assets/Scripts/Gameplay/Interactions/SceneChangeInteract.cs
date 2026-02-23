@@ -13,7 +13,14 @@ public class SceneChangeInteract : GreenObject, IInteractable
         if (_activated) return;
         _activated = !_activated;
         
-        _animator.Play(_animationClip.name);
+        if (_animator && _animationClip)
+        {
+            _animator.Play(_animationClip.name);
+        }
+        else
+        {
+            ChangeScenes();
+        }
     }
 
     // Triggered with animation event

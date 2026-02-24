@@ -48,8 +48,7 @@ public class MainMenuManager : MonoBehaviour
         
         _optionsButton?.onClick.AddListener(OnOptionsClicked);
         _backOptionsButton?.onClick.AddListener(OnBackOptionsClicked);
-        
-        cameraSensitivitySlider.onValueChanged.AddListener(OnChangeCameraSensitivity);
+        cameraSensitivitySlider?.onValueChanged.AddListener(OnChangeCameraSensitivity);
     }
 
     #region Button Handlers

@@ -90,6 +90,8 @@ public class MainMenuManager : MonoBehaviour
     protected virtual void OnChangeCameraSensitivity(float value)
     {
         //gameSettingsManger.cameraSensitivity = cameraSensitivitySlider.value;
+        
+        if (!cameraSensitivitySlider || !cameraSensitivityText) return;
         SaveCameraSensitivity(value);
 
         cameraSensitivityText.text = cameraSensitivitySlider.value.ToString("F1");
@@ -97,6 +99,7 @@ public class MainMenuManager : MonoBehaviour
     
     private void LoadCameraSensitivity()
     {
+        if (!cameraSensitivitySlider || !cameraSensitivityText) return;
         cameraSensitivitySlider.value = PlayerPrefs.GetFloat("cameraSensitivity");
         cameraSensitivityText.text = cameraSensitivitySlider.value.ToString("F1");
     }

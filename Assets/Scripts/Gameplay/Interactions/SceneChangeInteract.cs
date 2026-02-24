@@ -10,10 +10,18 @@ public class SceneChangeInteract : GreenObject, IInteractable
     [SerializeField] private int _nextSceneIndex = 4;
     public void Interact()
     {
+        if (!_isEnabled) return;
         if (_activated) return;
         _activated = !_activated;
         
-        _animator.Play(_animationClip.name);
+        if (_animator && _animationClip)
+        {
+            _animator.Play(_animationClip.name);
+        }
+        else
+        {
+            ChangeScenes();
+        }
     }
 
     // Triggered with animation event
@@ -24,5 +32,15 @@ public class SceneChangeInteract : GreenObject, IInteractable
 
     public void SetCanBeInteracted(bool val)
     {
+    }
+
+    public override void SetEnabled(bool enabled)
+    {
+        _isEnabled = enabled;
+
+        if (_isEnabled && _greenMaskMode)
+        {
+            EnableGreenEffect();
+        }
     }
 }

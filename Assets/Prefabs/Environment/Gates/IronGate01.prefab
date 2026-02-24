@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06eadc979ec2465448db424c6f642f7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResponseActivation
-  animationClip: {fileID: 7400000, guid: c283b05ef4cdfb047940a3f1d8d59bb9, type: 2}
+  animationClip: {fileID: 0}
   animator: {fileID: 5638380149723170880}
 --- !u!95 &5638380149723170880
 Animator:
@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Iron_Gate
       objectReference: {fileID: 0}
+    - target: {fileID: 4153696015207483067, guid: da4ea374002e82f49b825f7cf5ed6a7a, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

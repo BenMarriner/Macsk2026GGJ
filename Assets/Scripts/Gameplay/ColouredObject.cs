@@ -4,7 +4,18 @@ using UnityEngine;
 public class ColouredObject : MaskChangeDetector
 {
     [SerializeField] protected Material _colouredMaterial;
+    [SerializeField] protected bool _isEnabled = true;
     protected List<GenericCouple<Renderer, Material>> _defaultMaterialList = new();
+
+    public virtual void SetEnabled(bool enabled)
+    {
+        _isEnabled = enabled;
+    }
+
+    public virtual void ToggleEnabled()
+    {
+        SetEnabled(!_isEnabled);
+    }
 
     // Loop through all children of the gameobject, getting the renderers and 
     // their default material, then adding them to a list

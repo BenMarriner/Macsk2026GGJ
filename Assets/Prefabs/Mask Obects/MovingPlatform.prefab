@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 8247510599656250732}
   - component: {fileID: 5751839112910159730}
   m_Layer: 0
-  m_Name: BlueObject
+  m_Name: MovingPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80,9 +80,10 @@ MonoBehaviour:
   _currentMaskMode: 0
   _effectReversed: 0
   _colouredMaterial: {fileID: 2100000, guid: 88b5a51b7b4b21543b672edacc142e67, type: 2}
+  _isEnabled: 1
+  _speed: 5
   _movingPlatform: {fileID: 2884312137801227305}
   _waypointPath: {fileID: 8460008634902862602}
-  _speed: 5
 --- !u!1 &2884312137801227305
 GameObject:
   m_ObjectHideFlags: 0

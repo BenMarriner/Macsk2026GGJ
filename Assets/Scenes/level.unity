@@ -1123,7 +1123,7 @@ GameObject:
   - component: {fileID: 35923521}
   - component: {fileID: 35923520}
   - component: {fileID: 35923519}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plane (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33637,7 +33637,7 @@ GameObject:
   - component: {fileID: 49513419}
   - component: {fileID: 49513418}
   - component: {fileID: 49513417}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48334,7 +48334,7 @@ GameObject:
   - component: {fileID: 179769283}
   - component: {fileID: 179769282}
   - component: {fileID: 179769287}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MazeRed (11)
   m_TagString: Red
   m_Icon: {fileID: 0}
@@ -49026,6 +49026,10 @@ PrefabInstance:
     - target: {fileID: 5125114772422845782, guid: 2bc25de9f103c7443b05dd86ddbf0952, type: 3}
       propertyPath: m_Name
       value: Vertical Moving Platform (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5125114772422845782, guid: 2bc25de9f103c7443b05dd86ddbf0952, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5513510922323763722, guid: 2bc25de9f103c7443b05dd86ddbf0952, type: 3}
       propertyPath: m_LocalPosition.y
@@ -51839,6 +51843,10 @@ PrefabInstance:
       value: Vertical Moving Platform (2)
       objectReference: {fileID: 0}
     - target: {fileID: 5125114772422845782, guid: 2bc25de9f103c7443b05dd86ddbf0952, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5125114772422845782, guid: 2bc25de9f103c7443b05dd86ddbf0952, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -52051,7 +52059,7 @@ GameObject:
   - component: {fileID: 267388277}
   - component: {fileID: 267388276}
   - component: {fileID: 267388275}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70106,7 +70114,7 @@ GameObject:
   - component: {fileID: 368026903}
   - component: {fileID: 368026902}
   - component: {fileID: 368026907}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MazeRed (1)
   m_TagString: Red
   m_Icon: {fileID: 0}
@@ -70779,7 +70787,7 @@ GameObject:
   - component: {fileID: 386140302}
   - component: {fileID: 386140301}
   - component: {fileID: 386140300}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71903,7 +71911,7 @@ GameObject:
   - component: {fileID: 402279914}
   - component: {fileID: 402279913}
   - component: {fileID: 402279918}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MazeRed (3)
   m_TagString: Red
   m_Icon: {fileID: 0}
@@ -225236,7 +225244,7 @@ GameObject:
   - component: {fileID: 520886429}
   - component: {fileID: 520886428}
   - component: {fileID: 520886427}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227769,7 +227777,7 @@ GameObject:
   - component: {fileID: 563585828}
   - component: {fileID: 563585827}
   - component: {fileID: 563585832}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MazeRed (5)
   m_TagString: Red
   m_Icon: {fileID: 0}
@@ -233410,6 +233418,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vertical Moving Platform (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5125114772422845782, guid: 2bc25de9f103c7443b05dd86ddbf0952, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8570466579692543826, guid: 2bc25de9f103c7443b05dd86ddbf0952, type: 3}
       propertyPath: m_LocalPosition.y
       value: 2.89
@@ -233734,7 +233746,7 @@ GameObject:
   - component: {fileID: 689477265}
   - component: {fileID: 689477264}
   - component: {fileID: 689477269}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Red
   m_Icon: {fileID: 0}
@@ -238012,6 +238024,10 @@ PrefabInstance:
     - target: {fileID: 5125114772422845782, guid: 2bc25de9f103c7443b05dd86ddbf0952, type: 3}
       propertyPath: m_Name
       value: Vertical Moving Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 5125114772422845782, guid: 2bc25de9f103c7443b05dd86ddbf0952, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8570466579692543826, guid: 2bc25de9f103c7443b05dd86ddbf0952, type: 3}
       propertyPath: m_LocalPosition.y
@@ -265439,6 +265455,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vertical Moving Platform (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5125114772422845782, guid: 2bc25de9f103c7443b05dd86ddbf0952, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8570466579692543826, guid: 2bc25de9f103c7443b05dd86ddbf0952, type: 3}
       propertyPath: m_LocalPosition.y
       value: 2.71
@@ -276542,7 +276562,7 @@ GameObject:
   - component: {fileID: 1295902980}
   - component: {fileID: 1295902979}
   - component: {fileID: 1295902978}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (66)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282677,7 +282697,7 @@ GameObject:
   - component: {fileID: 1429515821}
   - component: {fileID: 1429515820}
   - component: {fileID: 1429515825}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MazeRed (10)
   m_TagString: Red
   m_Icon: {fileID: 0}
@@ -287137,7 +287157,7 @@ GameObject:
   - component: {fileID: 1485606607}
   - component: {fileID: 1485606606}
   - component: {fileID: 1485606611}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MazeRed (2)
   m_TagString: Red
   m_Icon: {fileID: 0}
@@ -316018,7 +316038,7 @@ GameObject:
   - component: {fileID: 1799928954}
   - component: {fileID: 1799928953}
   - component: {fileID: 1799928958}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (1)
   m_TagString: Red
   m_Icon: {fileID: 0}
@@ -328569,7 +328589,7 @@ GameObject:
   - component: {fileID: 2036013284}
   - component: {fileID: 2036013283}
   - component: {fileID: 2036013288}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MazeRed (4)
   m_TagString: Red
   m_Icon: {fileID: 0}
@@ -333090,7 +333110,7 @@ GameObject:
   - component: {fileID: 2144256828}
   - component: {fileID: 2144256827}
   - component: {fileID: 2144256832}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MazeRed (6)
   m_TagString: Red
   m_Icon: {fileID: 0}

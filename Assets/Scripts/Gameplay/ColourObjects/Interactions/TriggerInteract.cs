@@ -25,6 +25,7 @@ public class TriggerInteract : GreenObject, IInteractable
     
     public void Interact()
     {
+        if (!_isEnabled) return;
         if (!canBeInteracted || isTriggered)  return;
         if (_onlyInteractableOnce && isTriggered) return;
         isTriggered = !isTriggered;

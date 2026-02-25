@@ -2,12 +2,11 @@ using UnityEngine;
 
 public class SceneChangeInteract : GreenObject, IInteractable
 {
-    private bool _activated = false;
-
     [SerializeField] private AnimationClip _animationClip;
-    
     [SerializeField] private Animator _animator;
     [SerializeField] private int _nextSceneIndex = 4;
+    private bool _activated = false;
+
     public void Interact()
     {
         if (!_isEnabled) return;
@@ -32,15 +31,5 @@ public class SceneChangeInteract : GreenObject, IInteractable
 
     public void SetCanBeInteracted(bool val)
     {
-    }
-
-    public override void SetEnabled(bool enabled)
-    {
-        _isEnabled = enabled;
-
-        if (_isEnabled && _greenMaskMode)
-        {
-            EnableGreenEffect();
-        }
     }
 }

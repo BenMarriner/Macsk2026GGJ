@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using static GamePlayStatics;
 
@@ -15,6 +13,7 @@ class TeleportInteract: GreenObject, IInteractable
     
     public void Interact()
     {
+        if (!_isEnabled) return;
         if (GetPlayer().TryGetComponent(out PlayerTeleport pt))
         {
             pt.TeleportToPosition(teleportPoint.position);

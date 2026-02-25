@@ -1,16 +1,14 @@
 using UnityEngine;
 
-public class ColourObjectActivator : MonoBehaviour, IActivate
+public class ColourObjectActivator : AbstractActivation
 {
-    private bool activated = false;
-
     [SerializeField] private ColouredObject _colouredObject;
     [SerializeField] private bool _disablesObjects = false;
     
-    public void Activate()
+    public override void Activate()
     {
-        if (activated) return;
-        activated = !activated;
+        if (_activated) return;
+        _activated = !_activated;
         
         _colouredObject.SetEnabled(!_disablesObjects);
     }

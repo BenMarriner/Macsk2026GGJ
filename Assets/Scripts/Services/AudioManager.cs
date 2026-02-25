@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -18,6 +19,8 @@ public class AudioManager : MonoBehaviour
     private bool _musicMuted = false;
     private float _sfxVolume = 1;
     private float _musicVolume = 1;
+
+    private List<IEnumerator> _musicFadeCoroutines = new();
     #endregion
 
     #region Unity Functions
@@ -225,8 +228,13 @@ public class AudioManager : MonoBehaviour
         float maxVolumeMultiplier = mappedSource.MaxVolumeMultiplier;
         if (musicSource == null) return;
 
-        StopAllCoroutines();
-        StartCoroutine(FadeTrack(musicSource, musicFadeData.FadeTime, musicFadeData.FinalVolume, maxVolumeMultiplier));
+        foreach (var item in _musicFadeCoroutines)
+        {
+            StopCoroutine(item);
+        }
+
+        IEnumerator tempMusicCoroutine = FadeTrack(musicSource, musicFadeData.FadeTime, musicFadeData.FinalVolume, maxVolumeMultiplier);
+        SetupMusicCoutoutine(tempMusicCoroutine);
     }
 
     public void FadeSecondaryTracksHandler(object eventData)
@@ -243,16 +251,21 @@ public class AudioManager : MonoBehaviour
         float maxVolumeMultiplier = mappedSource.MaxVolumeMultiplier;
         if (musicSource == null) return;
 
-        StopAllCoroutines();
+        foreach (var item in _musicFadeCoroutines)
+        {
+            StopCoroutine(item);
+        }
 
-        StartCoroutine(FadeTrack(musicSource, musicFadeData.FadeTime, musicFadeData.FinalVolume, maxVolumeMultiplier));
+        IEnumerator tempMusicCoroutine = FadeTrack(musicSource, musicFadeData.FadeTime, musicFadeData.FinalVolume, maxVolumeMultiplier);
+        SetupMusicCoutoutine(tempMusicCoroutine);
 
         // Fade out all the other tracks
         foreach (KeySourcePair item in _musicSourcePair)
         {
             if (item.MusicKey == musicKey) continue;
             if (item.MusicKey == _currentPrimaryMusicSource.MusicKey) continue;
-            StartCoroutine(FadeTrack(item.MusicSource, musicFadeData.FadeTime, 0, 0));
+            IEnumerator tempMusicCoroutine2 = FadeTrack(item.MusicSource, musicFadeData.FadeTime, 0, 0);
+            SetupMusicCoutoutine(tempMusicCoroutine2);
         }
     }
 
@@ -301,6 +314,13 @@ public class AudioManager : MonoBehaviour
         }
         
         audioSource.volume = processedFinalVolume;
+    }
+
+    private void SetupMusicCoutoutine(IEnumerator newMusicCoroutine)
+    {
+        StartCoroutine(newMusicCoroutine);
+        _musicFadeCoroutines.Append(newMusicCoroutine);
+        _musicFadeCoroutines.RemoveAll(item => item == null);
     }
     #endregion
 

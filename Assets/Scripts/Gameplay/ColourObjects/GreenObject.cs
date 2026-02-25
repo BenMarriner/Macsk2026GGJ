@@ -28,6 +28,16 @@ public class GreenObject : ColouredObject
         DisableGreenEffect();
     }
 
+    public override void SetEnabled(bool enabled)
+    {
+        _isEnabled = enabled;
+        
+        if (_isEnabled && _greenMaskMode)
+        {
+            EnableGreenEffect();
+        }
+    }
+
     protected override void SetGreenEffect(bool greenEnabled)
     {
         bool interactionEnabled = greenEnabled;

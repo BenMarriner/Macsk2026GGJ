@@ -27,10 +27,7 @@ public class BlueWaypointObject : BlueObject
 
     private void FixedUpdate()
     {
-        if (!_isMoving)
-        {
-            return;
-        }
+        if (!_isEnabled || !_isMoving) return;
 
         _elapsedTime += Time.deltaTime;
 

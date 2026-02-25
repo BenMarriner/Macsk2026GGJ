@@ -25,10 +25,7 @@ public class BlueRotateObject : BlueObject
 
     protected virtual void FixedUpdate()
     {
-        if (!_isMoving)
-        {
-            return;
-        }
+        if (!_isEnabled || !_isMoving) return;
 
         gameObject.transform.Rotate(_speed * Time.deltaTime * _rotateDirectionVector);
     }

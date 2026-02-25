@@ -1,14 +1,12 @@
 using UnityEngine;
 
-public class CountFirstActivation : MonoBehaviour, IActivate
+public class CountFirstActivation : AbstractActivation
 {
-    private bool _activated = false;
-
     [SerializeField] private GameObject[] _pairedInteractables;
     [SerializeField] private int _activationsBeforeTrigger = 1;
     [SerializeField] private int _currentActivations = 0;
     
-    public void Activate()
+    public override void Activate()
     {
         if (_activated) return;
         _currentActivations++;

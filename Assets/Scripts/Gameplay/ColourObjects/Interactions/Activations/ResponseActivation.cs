@@ -1,19 +1,17 @@
 using UnityEngine;
 
-public class ResponseActivation : MonoBehaviour, IActivate
+public class ResponseActivation : AbstractActivation
 {
-    private bool activated = false;
-
     [SerializeField]
     private AnimationClip animationClip;
     
     [SerializeField]
     private Animator animator;
     
-    public void Activate()
+    public override void Activate()
     {
-        if (activated) return;
-        activated = !activated;
+        if (_activated) return;
+        _activated = !_activated;
         
         animator.Play(animationClip.name);
             

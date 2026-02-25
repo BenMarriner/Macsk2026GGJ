@@ -24,6 +24,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 5751839112910159730, guid: 8192fca317ee3f3468cd421f3407e98c, type: 3}
+      propertyPath: _slowNearEnd
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5751839112910159730, guid: 8192fca317ee3f3468cd421f3407e98c, type: 3}
+      propertyPath: _arrivalPauseTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8247510599656250732, guid: 8192fca317ee3f3468cd421f3407e98c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

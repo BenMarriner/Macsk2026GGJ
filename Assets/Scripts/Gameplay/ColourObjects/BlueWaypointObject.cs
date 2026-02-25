@@ -41,6 +41,7 @@ public class BlueWaypointObject : BlueObject
         }
 
         float elapsedPercentage = _elapsedTime / _speed;
+        
         if (_slowNearEnd)
         {
             elapsedPercentage = Mathf.SmoothStep(0, 1, elapsedPercentage);

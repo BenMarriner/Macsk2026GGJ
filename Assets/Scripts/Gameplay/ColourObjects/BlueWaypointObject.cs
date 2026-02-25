@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class BlueWaypointObject : BlueObject
@@ -6,13 +7,14 @@ public class BlueWaypointObject : BlueObject
     [SerializeField] private WaypointPath _waypointPath;
     [SerializeField] private bool _useWaypointRotation;
     [SerializeField] private bool _slowNearEnd;
+    [SerializeField] private float _arrivalPauseTime = 0.5f;
     private int _targetWaypointIndex;
 
     private Transform _previousWaypoint;
     private Transform _targetWaypoint;
 
-    private float _timeToWaypoint;
     private float _elapsedTime;
+    private bool _platformPaused = false;
 
     protected override void Start()
     {
@@ -25,7 +27,7 @@ public class BlueWaypointObject : BlueObject
 
     private void FixedUpdate()
     {
-        if (!_isMoving)
+        if (!_isMoving || _platformPaused)
         {
             return;
         }
@@ -48,6 +50,7 @@ public class BlueWaypointObject : BlueObject
         if (elapsedPercentage >= 1)
         {
             TargetNextWaypoint();
+            StartCoroutine(PausePlatformForTime(_arrivalPauseTime));
         }
     }
 
@@ -58,8 +61,12 @@ public class BlueWaypointObject : BlueObject
         _targetWaypoint = _waypointPath.GetWaypoint(_targetWaypointIndex);
 
         _elapsedTime = 0f;
+    }
 
-        float distanceToWaypoint = Vector3.Distance(_previousWaypoint.position, _targetWaypoint.position);
-        _timeToWaypoint = distanceToWaypoint / _speed;
+    private IEnumerator PausePlatformForTime(float pauseTime)
+    {
+        _platformPaused = true;
+        yield return new WaitForSeconds(pauseTime);
+        _platformPaused = false;
     }
 }

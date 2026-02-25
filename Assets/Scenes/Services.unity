@@ -558,10 +558,6 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 97dde1bbe7da8d041a4efe0ce9e90b03, type: 3}
     randomisePitch: 1
     volume: 1
-  - sound: 10
-    audioClip: {fileID: 8300000, guid: 97dde1bbe7da8d041a4efe0ce9e90b03, type: 3}
-    randomisePitch: 1
-    volume: 1
   _musicAudioClipArray:
   - Music: 0
     AudioClip: {fileID: 8300000, guid: 8515c13b668328846a10d07206cbe311, type: 3}

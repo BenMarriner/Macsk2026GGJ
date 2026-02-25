@@ -27,12 +27,18 @@ public class BlueWaypointObject : BlueObject
 
     private void FixedUpdate()
     {
-        if (!_isMoving || _platformPaused)
+        if (!_isMoving)
         {
             return;
         }
 
         _elapsedTime += Time.deltaTime;
+
+        if (_platformPaused)
+        {
+            if (_elapsedTime > _arrivalPauseTime) Unpause();
+            return;
+        }
 
         float elapsedPercentage = _elapsedTime / _speed;
         if (_slowNearEnd)
@@ -50,7 +56,7 @@ public class BlueWaypointObject : BlueObject
         if (elapsedPercentage >= 1)
         {
             TargetNextWaypoint();
-            StartCoroutine(PausePlatformForTime(_arrivalPauseTime));
+            _platformPaused = true;
         }
     }
 
@@ -63,10 +69,9 @@ public class BlueWaypointObject : BlueObject
         _elapsedTime = 0f;
     }
 
-    private IEnumerator PausePlatformForTime(float pauseTime)
+    private void Unpause()
     {
-        _platformPaused = true;
-        yield return new WaitForSeconds(pauseTime);
+        _elapsedTime = 0f;
         _platformPaused = false;
     }
 }

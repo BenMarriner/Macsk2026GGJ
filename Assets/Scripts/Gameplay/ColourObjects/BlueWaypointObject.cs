@@ -4,6 +4,8 @@ public class BlueWaypointObject : BlueObject
 {
     [SerializeField] private GameObject _movingPlatform;
     [SerializeField] private WaypointPath _waypointPath;
+    [SerializeField] private bool _useWaypointRotation;
+    [SerializeField] private bool _slowNearEnd;
     private int _targetWaypointIndex;
 
     private Transform _previousWaypoint;
@@ -31,7 +33,17 @@ public class BlueWaypointObject : BlueObject
         _elapsedTime += Time.deltaTime;
 
         float elapsedPercentage = _elapsedTime / _speed;
+        if (_slowNearEnd)
+        {
+            elapsedPercentage = Mathf.SmoothStep(0, 1, elapsedPercentage);
+        }
+
         _movingPlatform.transform.position = Vector3.Lerp(_previousWaypoint.position, _targetWaypoint.position, elapsedPercentage);
+
+        if (_useWaypointRotation)
+        {
+            _movingPlatform.transform.rotation = Quaternion.Lerp(_previousWaypoint.rotation, _targetWaypoint.rotation, elapsedPercentage);
+        }
 
         if (elapsedPercentage >= 1)
         {

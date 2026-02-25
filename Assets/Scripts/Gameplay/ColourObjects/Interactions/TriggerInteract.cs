@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class TriggerInteract : GreenObject, IInteractable
 {
-    [SerializeField]
-    private GameObject[] _pairedInteractables;
+    [SerializeField] 
+    private AbstractActivation[] _pairedInteractables;
     
     [SerializeField]
     private AnimationClip animationClip;
@@ -25,18 +25,17 @@ public class TriggerInteract : GreenObject, IInteractable
     
     public void Interact()
     {
-        DebugLogger.Log("interact");
         if (!canBeInteracted || isTriggered)  return;
         if (_onlyInteractableOnce && isTriggered) return;
         isTriggered = !isTriggered;
         
         animator.Play(animationClip.name, 0, 0.0f);
 
-        foreach (GameObject item in _pairedInteractables)
+        foreach (AbstractActivation item in _pairedInteractables)
         {
-            if (!item || !item.TryGetComponent(out IActivate activateable)) return;
+            if (!item) return;
 
-            activateable.Activate();
+            item.Activate();
         }
 
         EventManager.TriggerEvent(EventKey.SFX, SoundType.LeverSwitch);

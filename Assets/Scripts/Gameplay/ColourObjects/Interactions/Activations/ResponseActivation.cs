@@ -14,6 +14,5 @@ public class ResponseActivation : AbstractActivation
         _activated = !_activated;
         
         animator.Play(animationClip.name);
-            
     }
 }

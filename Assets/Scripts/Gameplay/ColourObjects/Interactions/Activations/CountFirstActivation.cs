@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CountFirstActivation : AbstractActivation
 {
-    [SerializeField] private GameObject[] _pairedInteractables;
+    [SerializeField] private AbstractActivation[] _pairedInteractables;
     [SerializeField] private int _activationsBeforeTrigger = 1;
     [SerializeField] private int _currentActivations = 0;
     
@@ -14,11 +14,11 @@ public class CountFirstActivation : AbstractActivation
 
         _activated = true;
         
-        foreach (GameObject item in _pairedInteractables)
+        foreach (AbstractActivation item in _pairedInteractables)
         {
-            if (!item || !item.TryGetComponent(out IActivate activateable)) return;
+            if (!item) return;
 
-            activateable.Activate();
+            item.Activate();
         }
     }
 }

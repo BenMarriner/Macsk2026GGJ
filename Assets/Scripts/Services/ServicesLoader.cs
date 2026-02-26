@@ -12,6 +12,7 @@ public class ServicesLoader : MonoBehaviour
 
         if (!services.isLoaded)
         {
+            EventManager.TriggerEvent(EventKey.LOADING_COMPLETE, true);
             SceneManager.LoadScene(_servicesSceneIndex, LoadSceneMode.Additive);
         }
 

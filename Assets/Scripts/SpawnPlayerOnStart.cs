@@ -5,6 +5,7 @@ public class SpawnPlayerOnStart : MonoBehaviour
     [SerializeField] private GameObject cameraHolder;
     [SerializeField] private GameObject playerCharacter;
     [SerializeField] private Transform spawnPosition;
+    private bool _spawnedPlayer = false;
 
     private void OnEnable()
 	{
@@ -18,8 +19,10 @@ public class SpawnPlayerOnStart : MonoBehaviour
 
     private void SpawnPlayerHandler(object eventData)
     {
+        if (_spawnedPlayer) return;
         if (!cameraHolder || !playerCharacter) return;
 
+        _spawnedPlayer = true;
         GameObject ch = Instantiate(cameraHolder, spawnPosition.position, Quaternion.identity);
         GameObject pc = Instantiate(playerCharacter, spawnPosition.position, Quaternion.identity);
 

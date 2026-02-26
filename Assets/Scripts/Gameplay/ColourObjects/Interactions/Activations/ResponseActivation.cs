@@ -2,17 +2,27 @@ using UnityEngine;
 
 public class ResponseActivation : AbstractActivation
 {
-    [SerializeField]
-    private AnimationClip animationClip;
+    [SerializeField] private AnimationClip[] animationClip;
+    [SerializeField] private Animator animator;
+    [SerializeField] private bool _loopAnimations = true;
+    private int _activationAmount = 0;
     
-    [SerializeField]
-    private Animator animator;
     
     public override void Activate()
     {
-        if (_activated) return;
-        _activated = !_activated;
+        _activated = true;
         
-        animator.Play(animationClip.name);
+        if (animationClip.Length < _activationAmount)
+        {
+            return;
+        }
+
+        animator.Play(animationClip[_activationAmount].name);
+        _activationAmount++;
+
+        if (animationClip.Length < _activationAmount &&_loopAnimations) 
+        {
+            _activationAmount = 0;
+        }
     }
 }

@@ -27,6 +27,7 @@ public class SceneSystemManager : MonoBehaviour
 		EventManager.RegisterEvent(EventKey.OPEN_SCENE, ChangeSceneEvent);
 
 		_currentScene = SceneManager.GetActiveScene();
+		EventManager.TriggerEvent(EventKey.LOADING_COMPLETE, true);
 	}
 
 	private void OnDisable()
@@ -61,7 +62,7 @@ public class SceneSystemManager : MonoBehaviour
 		// If scene is level, set gameplay mode
 		else if (_levelSceneIndexes.Contains(sceneNum))
 		{
-			_sceneChangeMode = SceneChangeMode.GAMEPLAY;
+			// _sceneChangeMode = SceneChangeMode.GAMEPLAY;
 		}
 		// If scene is end screen, services mode
 		else if (_endScreenIndexes.Contains(sceneNum))

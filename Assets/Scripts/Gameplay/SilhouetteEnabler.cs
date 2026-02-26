@@ -15,6 +15,7 @@ public class SilhouetteEnabler : MonoBehaviour
 
         foreach (GreenObject item in _silhouetteObjects)
         {
+            if (!item) continue;
             item.SetSilhouetteEnabled(true);
         }
     }
@@ -28,6 +29,7 @@ public class SilhouetteEnabler : MonoBehaviour
 
         foreach (GreenObject item in _silhouetteObjects)
         {
+            if (!item) continue;
             item.SetSilhouetteEnabled(false);
         }
     }

@@ -4,13 +4,25 @@ public class SpawnPlayerOnStart : MonoBehaviour
 {
     [SerializeField] private GameObject cameraHolder;
     [SerializeField] private GameObject playerCharacter;
-
     [SerializeField] private Transform spawnPosition;
+    private bool _spawnedPlayer = false;
 
-    private void Start()
+    private void OnEnable()
+	{
+		EventManager.RegisterEvent(EventKey.LOADING_COMPLETE, SpawnPlayerHandler);
+	}
+
+	private void OnDisable()
+	{
+		EventManager.DeregisterEvent(EventKey.LOADING_COMPLETE, SpawnPlayerHandler);
+	}
+
+    private void SpawnPlayerHandler(object eventData)
     {
-        if (!cameraHolder || !playerCharacter) { return; }
+        if (_spawnedPlayer) return;
+        if (!cameraHolder || !playerCharacter) return;
 
+        _spawnedPlayer = true;
         GameObject ch = Instantiate(cameraHolder, spawnPosition.position, Quaternion.identity);
         GameObject pc = Instantiate(playerCharacter, spawnPosition.position, Quaternion.identity);
 

@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: animationClip
       value: 
       objectReference: {fileID: 7400000, guid: 71e5e6da578d8ea4b9f0e3038edcefcf, type: 2}
+    - target: {fileID: 7128102861360247052, guid: ca1d620e07aceae4490f4e095929a1db, type: 3}
+      propertyPath: 'animationClip.Array.data[0]'
+      value: 
+      objectReference: {fileID: 7400000, guid: 71e5e6da578d8ea4b9f0e3038edcefcf, type: 2}
     - target: {fileID: 8959164212972205803, guid: ca1d620e07aceae4490f4e095929a1db, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

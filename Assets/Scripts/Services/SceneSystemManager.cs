@@ -27,6 +27,7 @@ public class SceneSystemManager : MonoBehaviour
 		EventManager.RegisterEvent(EventKey.OPEN_SCENE, ChangeSceneEvent);
 
 		_currentScene = SceneManager.GetActiveScene();
+		EventManager.TriggerEvent(EventKey.LOADING_COMPLETE, true);
 	}
 
 	private void OnDisable()

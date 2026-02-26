@@ -184,6 +184,12 @@ public class CameraController : MonoBehaviour
 
     #region Input Handling
 
+    public void SetCameraSensitivity(float value)
+    {
+        mouseSensitivityX = value;
+        mouseSensitivityY = value;
+    }
+    
     private void OnLookInput(Vector2 lookDelta)
     {
         // Store input for processing in LateUpdate

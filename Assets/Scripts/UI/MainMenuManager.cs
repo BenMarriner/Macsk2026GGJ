@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,14 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private Button _playButton;
     [SerializeField] private Button _quitButton;
     [SerializeField] protected int travelSceneIndex = 3;
+    
+    [Header("Options")]
+    [SerializeField] private Button _optionsButton;
+    [SerializeField] private Button _backOptionsButton;
+    [SerializeField] private GameObject _optionsMenu;
+    
+    [SerializeField] private TextMeshProUGUI cameraSensitivityText;
+    [SerializeField] private Slider cameraSensitivitySlider;
     
     private void Start()
     {
@@ -20,7 +29,15 @@ public class MainMenuManager : MonoBehaviour
 
     private void InitialiseMenu()
     {
-
+        if (!PlayerPrefs.HasKey("cameraSensitivity"))
+        {
+            PlayerPrefs.SetFloat("cameraSensitivity", 100);
+            LoadCameraSensitivity();
+        }
+        else
+        {
+            LoadCameraSensitivity();
+        }
     }
 
     private void SetupButtonListeners()
@@ -28,6 +45,10 @@ public class MainMenuManager : MonoBehaviour
         // Main menu buttons
         _playButton?.onClick.AddListener(OnPlayClicked);
         _quitButton?.onClick.AddListener(OnQuitClicked);
+        
+        _optionsButton?.onClick.AddListener(OnOptionsClicked);
+        _backOptionsButton?.onClick.AddListener(OnBackOptionsClicked);
+        cameraSensitivitySlider?.onValueChanged.AddListener(OnChangeCameraSensitivity);
     }
 
     #region Button Handlers
@@ -35,7 +56,7 @@ public class MainMenuManager : MonoBehaviour
     {
         EventManager.TriggerEvent(EventKey.SFX, SoundType.ButtonClick);
         DebugLogger.Log("Starting game...");
-        // Scene index 2 should be your Gameplay scene
+        
         EventManager.TriggerEvent(EventKey.OPEN_SCENE, travelSceneIndex);
     }
 
@@ -45,5 +66,46 @@ public class MainMenuManager : MonoBehaviour
         DebugLogger.Log("Quitting game...");
         EventManager.TriggerEvent(EventKey.QUIT_GAME, null);
     }
+
+    protected virtual void OnOptionsClicked()
+    {
+        EventManager.TriggerEvent(EventKey.SFX, SoundType.ButtonClick);
+        DebugLogger.Log("Opening options menu...");
+        
+        // Enable Options menu
+        _optionsMenu.SetActive(true);
+    }
+    
+    protected virtual void OnBackOptionsClicked()
+    {
+        EventManager.TriggerEvent(EventKey.SFX, SoundType.ButtonClick);
+        DebugLogger.Log("Opening options menu...");
+        
+        // Disable Options menu
+        _optionsMenu.SetActive(false);
+    }
+    
     #endregion
+    
+    protected virtual void OnChangeCameraSensitivity(float value)
+    {
+        //gameSettingsManger.cameraSensitivity = cameraSensitivitySlider.value;
+        
+        if (!cameraSensitivitySlider || !cameraSensitivityText) return;
+        SaveCameraSensitivity(value);
+
+        cameraSensitivityText.text = cameraSensitivitySlider.value.ToString("F1");
+    }
+    
+    private void LoadCameraSensitivity()
+    {
+        if (!cameraSensitivitySlider || !cameraSensitivityText) return;
+        cameraSensitivitySlider.value = PlayerPrefs.GetFloat("cameraSensitivity");
+        cameraSensitivityText.text = cameraSensitivitySlider.value.ToString("F1");
+    }
+    
+    private void SaveCameraSensitivity(float value)
+    {
+        PlayerPrefs.SetFloat("cameraSensitivity", value);
+    }
 }

@@ -17,6 +17,11 @@ public class SpawnPlayerOnStart : MonoBehaviour
         if (ch && pc && ch.TryGetComponent(out InputHandler ih))
         {
             ih.AssignAndSetupPlayerCharacter(pc);
+
+            if (PlayerPrefs.HasKey("cameraSensitivity") && ch.TryGetComponent(out CameraController cc))
+            {
+                cc.SetCameraSensitivity(PlayerPrefs.GetFloat("cameraSensitivity"));
+            }
         }
     }
 }

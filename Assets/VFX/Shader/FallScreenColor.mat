@@ -38,8 +38,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _Blue: 0
-    - _Green: 0
-    - _Red: 0.6
+    - _Green: 0.4
+    - _Red: 0
     m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1

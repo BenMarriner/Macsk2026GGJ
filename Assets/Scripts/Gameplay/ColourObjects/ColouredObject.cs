@@ -115,19 +115,21 @@ public class ColouredObject : MaskChangeDetector
 
         if (isActive)
         {
-            if (_ambientSfxFade != null)
-            {
-                StopCoroutine(_ambientSfxFade);
-            }
-            StartCoroutine(FadeAmbientMusic(_ambientFadeTime, 1, _maxVolumeMultiplier));
+            // if (_ambientSfxFade != null)
+            // {
+            //     StopCoroutine(_ambientSfxFade);
+            // }
+            // StartCoroutine(FadeAmbientMusic(_ambientFadeTime, 1, _maxVolumeMultiplier));
+            _ambientSFXSource.volume = 1f * _maxVolumeMultiplier;
         }
         else
         {
-            if (_ambientSfxFade != null)
-            {
-                StopCoroutine(_ambientSfxFade);
-            }
-            StartCoroutine(FadeAmbientMusic(_ambientFadeTime, 0, _maxVolumeMultiplier));
+            // if (_ambientSfxFade != null)
+            // {
+            //     StopCoroutine(_ambientSfxFade);
+            // }
+            // StartCoroutine(FadeAmbientMusic(_ambientFadeTime, 0, _maxVolumeMultiplier));
+            _ambientSFXSource.volume = 0;
         }
     }
 }

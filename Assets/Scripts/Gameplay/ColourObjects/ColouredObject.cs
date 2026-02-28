@@ -108,4 +108,26 @@ public class ColouredObject : MaskChangeDetector
         
         _ambientSFXSource.volume = processedFinalVolume;
     }
+
+    protected virtual void UpdateAmbientSFX(bool isActive)
+    {
+        if (!_ambientSFXSource) return;
+
+        if (isActive)
+        {
+            if (_ambientSfxFade != null)
+            {
+                StopCoroutine(_ambientSfxFade);
+            }
+            StartCoroutine(FadeAmbientMusic(_ambientFadeTime, 1, _maxVolumeMultiplier));
+        }
+        else
+        {
+            if (_ambientSfxFade != null)
+            {
+                StopCoroutine(_ambientSfxFade);
+            }
+            StartCoroutine(FadeAmbientMusic(_ambientFadeTime, 0, _maxVolumeMultiplier));
+        }
+    }
 }

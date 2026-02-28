@@ -54,6 +54,7 @@ public class GreenObject : ColouredObject
         {
             DisableGreenEffect();
         }
+        UpdateAmbientSFX(interactionEnabled);
     }
 
     protected virtual void EnableGreenEffect()

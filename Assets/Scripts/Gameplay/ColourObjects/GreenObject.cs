@@ -54,12 +54,12 @@ public class GreenObject : ColouredObject
         {
             DisableGreenEffect();
         }
-        UpdateAmbientSFX(interactionEnabled);
     }
 
     protected virtual void EnableGreenEffect()
     {
         _greenMaskMode = true;
+        UpdateAmbientSFX(_silhouetteEnabled && _greenMaskMode && _isEnabled);
         if (!_isEnabled) return;
         foreach (GenericCouple<Renderer, Material> item in _defaultMaterialList)
         {
@@ -75,6 +75,7 @@ public class GreenObject : ColouredObject
     protected virtual void DisableGreenEffect()
     {
         _greenMaskMode = false;
+        UpdateAmbientSFX(_silhouetteEnabled && _greenMaskMode && _isEnabled);
         foreach (GenericCouple<Renderer, Material> item in _defaultMaterialList)
         {
             item.First.material = item.Second;
@@ -106,6 +107,8 @@ public class GreenObject : ColouredObject
     public virtual void SetSilhouetteEnabled(bool enabled)
     {
         _silhouetteEnabled = enabled;
+
+        UpdateAmbientSFX(_silhouetteEnabled && _greenMaskMode && _isEnabled);
 
         if (_silhouetteEnabled && _greenMaskMode && _isEnabled)
         {

@@ -34,6 +34,8 @@ public class BlueObject : ColouredObject
             _isMoving = _blueMaskMode;
         }
 
+        UpdateAmbientSFX();
+
         foreach (GenericCouple<Renderer, Material> item in _defaultMaterialList)
         {
             Material newMaterial;
@@ -48,6 +50,28 @@ public class BlueObject : ColouredObject
             }
 
             item.First.material = newMaterial;
+        }
+    }
+
+    protected virtual void UpdateAmbientSFX()
+    {
+        if (!_ambientSFXSource) return;
+
+        if (_isMoving)
+        {
+            if (_ambientSfxFade != null)
+            {
+                StopCoroutine(_ambientSfxFade);
+            }
+            StartCoroutine(FadeAmbientMusic(_ambientFadeTime, 1, _maxVolumeMultiplier));
+        }
+        else
+        {
+            if (_ambientSfxFade != null)
+            {
+                StopCoroutine(_ambientSfxFade);
+            }
+            StartCoroutine(FadeAmbientMusic(_ambientFadeTime, 0, _maxVolumeMultiplier));
         }
     }
 }

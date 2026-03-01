@@ -4,7 +4,8 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - _greenMaterial: {fileID: 2100000, guid: a3ce89f0ec7981a49a4db075b9611c65, type: 2}
+  - _colouredMaterial: {fileID: 2100000, guid: a3ce89f0ec7981a49a4db075b9611c65, type: 2}
+  - _ambientSFXSource: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

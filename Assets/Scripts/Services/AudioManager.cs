@@ -36,6 +36,7 @@ public class AudioManager : MonoBehaviour
         EventManager.RegisterEvent(EventKey.MUTEMUSIC_TOGGLE, MuteMusic);
         EventManager.RegisterEvent(EventKey.SFX_VOLUME_CHANGED, SFXVolumeHandler);
         EventManager.RegisterEvent(EventKey.MUSIC_VOLUME_CHANGED, MusicVolumeHandler);
+        EventManager.RegisterEvent(EventKey.LOADING_COMPLETE, AmbientMusicSyncHandler);
     }
 
     private void OnDisable()
@@ -49,12 +50,14 @@ public class AudioManager : MonoBehaviour
         EventManager.DeregisterEvent(EventKey.MUTEMUSIC_TOGGLE, MuteMusic);
         EventManager.DeregisterEvent(EventKey.SFX_VOLUME_CHANGED, SFXVolumeHandler);
         EventManager.DeregisterEvent(EventKey.MUSIC_VOLUME_CHANGED, MusicVolumeHandler);
+		EventManager.DeregisterEvent(EventKey.LOADING_COMPLETE, AmbientMusicSyncHandler);
         StopAllCoroutines();
     }
 
     private void Start()
     {
         _currentPrimaryMusicSource = _musicSourcePair[0];
+        AmbientMusicSyncHandler(null);
         foreach (KeySourcePair item in _musicSourcePair)
         {
             item.MaxVolumeMultiplier = item.MusicSource.volume;
@@ -122,6 +125,17 @@ public class AudioManager : MonoBehaviour
         _currentSoundsList.Add(sound);
         yield return new WaitForSecondsRealtime(clip.length);
         _currentSoundsList.Remove(sound);
+    }
+    #endregion
+
+    #region Music Sync
+    private void AmbientMusicSyncHandler(object eventData)
+    {
+        if (_currentPrimaryMusicSource == null) return;
+        if (!_currentPrimaryMusicSource.MusicSource) return;
+        float musicTime = _currentPrimaryMusicSource.MusicSource.time;
+
+        EventManager.TriggerEvent(EventKey.SYNC_MUSIC_TIME, musicTime);
     }
     #endregion
 

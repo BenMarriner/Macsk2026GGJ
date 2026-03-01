@@ -13,6 +13,7 @@ public enum EventKey
     MUSIC_VOLUME_CHANGED,
     FADE_MUSIC,
     FADE_SECONDARY_TRACKS,
+    SYNC_MUSIC_TIME,
 
     // Inputs
     MASK_INPUT,

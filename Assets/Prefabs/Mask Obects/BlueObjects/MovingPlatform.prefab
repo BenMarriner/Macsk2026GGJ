@@ -79,7 +79,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BlueObject
   _currentMaskMode: 0
   _effectReversed: 0
-  _colouredMaterial: {fileID: 2100000, guid: 88b5a51b7b4b21543b672edacc142e67, type: 2}
+  _colouredMaterial: {fileID: 2100000, guid: a5e69015353451848b5b9426220f078e, type: 2}
   _isEnabled: 1
   _ambientSFXSource: {fileID: 1608934420809724249}
   _ambientFadeTime: 0.5

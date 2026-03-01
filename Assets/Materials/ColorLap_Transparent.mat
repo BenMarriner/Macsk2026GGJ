@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5460544348159263085
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Editor::UnityEditor.Rendering.Universal.AssetVersion
+  version: 10
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -7,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FallScreenColor
-  m_Shader: {fileID: -6465566751694194690, guid: 89459d9f0ee282f4ea2dfc0784570c1d, type: 3}
+  m_Name: ColorLap_Transparent
+  m_Shader: {fileID: -6465566751694194690, guid: b7adfbd925d0e254887fb2a61a5707e6, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -18,7 +31,8 @@ Material:
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
-  disabledShaderPasses: []
+  disabledShaderPasses:
+  - MOTIONVECTORS
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
@@ -37,9 +51,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Blue: 0
-    - _Green: 0.4
-    - _Red: 0
-    m_Colors: []
+    - _BaseCellSIze: 5
+    - _DissCellSize: 10
+    - _Dissolved: 0
+    - _Float: 0.05
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    m_Colors:
+    - _BaseColour: {r: 1, g: 0.15343815, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 54512353491437800}
   - component: {fileID: 1853554948979341797}
   - component: {fileID: 6632972529327399742}
+  - component: {fileID: 6508449753981288947}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -137,6 +138,15 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!45 &6508449753981288947
+Skybox:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3361897128969818242}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: e9e0b684b60a740448a1c74f52aaed37, type: 2}
 --- !u!1 &7444070387976628105
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,7 +218,7 @@ MonoBehaviour:
   camera: {fileID: 54512353491437800}
   mouseSensitivityX: 170
   mouseSensitivityY: 170
-  enableRotationSmoothing: 0
+  enableRotationSmoothing: 1
   rotationSmoothSpeed: 30
   enablePositionSmoothing: 1
   positionSmoothSpeed: 60

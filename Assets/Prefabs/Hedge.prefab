@@ -63,7 +63,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 60cd9b68b814f044fad1280eee990e20, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 5bd6ac193bf9d8b41ad5ce1e502bce79, type: 2}
+      objectReference: {fileID: 2100000, guid: 1a17ac5d7fe2a5d48a5a755f98d6dd1d, type: 2}
     - target: {fileID: 919132149155446097, guid: 60cd9b68b814f044fad1280eee990e20, type: 3}
       propertyPath: m_Name
       value: Hedge (2)
@@ -129,7 +129,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 60cd9b68b814f044fad1280eee990e20, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 5bd6ac193bf9d8b41ad5ce1e502bce79, type: 2}
+      objectReference: {fileID: 2100000, guid: 1a17ac5d7fe2a5d48a5a755f98d6dd1d, type: 2}
     - target: {fileID: 919132149155446097, guid: 60cd9b68b814f044fad1280eee990e20, type: 3}
       propertyPath: m_Name
       value: Hedge
@@ -239,7 +239,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 60cd9b68b814f044fad1280eee990e20, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 5bd6ac193bf9d8b41ad5ce1e502bce79, type: 2}
+      objectReference: {fileID: 2100000, guid: 1a17ac5d7fe2a5d48a5a755f98d6dd1d, type: 2}
     - target: {fileID: 919132149155446097, guid: 60cd9b68b814f044fad1280eee990e20, type: 3}
       propertyPath: m_Name
       value: Hedge (1)

@@ -15,10 +15,7 @@ public class InputReader : ScriptableObject, IFirstPersonInputsActions
     public event Action<float> ToggleMaskEvent;
     public event Action<bool> InteractEvent;
     public event Action<bool> EscapeEvent;
-
-    [Range(1f, 500f)] public float mouseSensitivityX = 200f;
-    [Range(1f, 500f)] public float mouseSensitivityY = 200f;
-
+    
     private PlayerInputScheme _controls;
 
     private void OnEnable()

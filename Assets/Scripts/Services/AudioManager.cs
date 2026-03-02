@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -18,20 +19,11 @@ public class AudioManager : MonoBehaviour
     private bool _musicMuted = false;
     private float _sfxVolume = 1;
     private float _musicVolume = 1;
+
+    private List<IEnumerator> _musicFadeCoroutines = new();
     #endregion
 
     #region Unity Functions
-
-    private void Start()
-    {
-        _currentPrimaryMusicSource.MusicSource = _musicSourcePair[0].MusicSource;
-        foreach (KeySourcePair item in _musicSourcePair)
-        {
-            item.MusicSource.volume = 0f;
-            item.MusicSource.Play();
-        }
-        FadeMusicEventHandler(new MusicFadeData(MusicKey.NoMask, 5, 1));
-    }
 
     private void OnEnable()
     {
@@ -58,6 +50,18 @@ public class AudioManager : MonoBehaviour
         EventManager.DeregisterEvent(EventKey.SFX_VOLUME_CHANGED, SFXVolumeHandler);
         EventManager.DeregisterEvent(EventKey.MUSIC_VOLUME_CHANGED, MusicVolumeHandler);
         StopAllCoroutines();
+    }
+
+    private void Start()
+    {
+        _currentPrimaryMusicSource = _musicSourcePair[0];
+        foreach (KeySourcePair item in _musicSourcePair)
+        {
+            item.MaxVolumeMultiplier = item.MusicSource.volume;
+            item.MusicSource.volume = 0f;
+            item.MusicSource.Play();
+        }
+        FadeMusicEventHandler(new MusicFadeData(MusicKey.NoMask, 5, 1));
     }
     #endregion
 
@@ -221,10 +225,16 @@ public class AudioManager : MonoBehaviour
         MusicAudioClip musicClip = Array.Find(_musicAudioClipArray, x => x.Music == musicKey);
         KeySourcePair mappedSource = Array.Find(_musicSourcePair, x => x.MusicKey == musicKey);
         AudioSource musicSource = mappedSource.MusicSource;
+        float maxVolumeMultiplier = mappedSource.MaxVolumeMultiplier;
         if (musicSource == null) return;
 
-        StopAllCoroutines();
-        StartCoroutine(FadeTrack(musicSource, musicFadeData.FadeTime, musicFadeData.FinalVolume));
+        foreach (var item in _musicFadeCoroutines)
+        {
+            StopCoroutine(item);
+        }
+
+        IEnumerator tempMusicCoroutine = FadeTrack(musicSource, musicFadeData.FadeTime, musicFadeData.FinalVolume, maxVolumeMultiplier);
+        SetupMusicCoutoutine(tempMusicCoroutine);
     }
 
     public void FadeSecondaryTracksHandler(object eventData)
@@ -238,22 +248,28 @@ public class AudioManager : MonoBehaviour
         MusicAudioClip musicClip = Array.Find(_musicAudioClipArray, x => x.Music == musicKey);
         KeySourcePair mappedSource = Array.Find(_musicSourcePair, x => x.MusicKey == musicKey);
         AudioSource musicSource = mappedSource.MusicSource;
+        float maxVolumeMultiplier = mappedSource.MaxVolumeMultiplier;
         if (musicSource == null) return;
 
-        StopAllCoroutines();
+        foreach (var item in _musicFadeCoroutines)
+        {
+            StopCoroutine(item);
+        }
 
-        StartCoroutine(FadeTrack(musicSource, musicFadeData.FadeTime, musicFadeData.FinalVolume));
+        IEnumerator tempMusicCoroutine = FadeTrack(musicSource, musicFadeData.FadeTime, musicFadeData.FinalVolume, maxVolumeMultiplier);
+        SetupMusicCoutoutine(tempMusicCoroutine);
 
         // Fade out all the other tracks
         foreach (KeySourcePair item in _musicSourcePair)
         {
             if (item.MusicKey == musicKey) continue;
             if (item.MusicKey == _currentPrimaryMusicSource.MusicKey) continue;
-            StartCoroutine(FadeTrack(item.MusicSource, musicFadeData.FadeTime, 0));
+            IEnumerator tempMusicCoroutine2 = FadeTrack(item.MusicSource, musicFadeData.FadeTime, 0, 0);
+            SetupMusicCoutoutine(tempMusicCoroutine2);
         }
     }
 
-    private IEnumerator FadeTrack(AudioSource audioSource, float fadeTime, float finalVolume)
+    private IEnumerator FadeTrack(AudioSource audioSource, float fadeTime, float finalVolume, float maxVolumeMultiplier)
     {
         if (!audioSource.isPlaying && finalVolume == 0) yield break;
         if (audioSource.isPlaying && audioSource.volume == finalVolume) yield break;
@@ -276,18 +292,20 @@ public class AudioManager : MonoBehaviour
 
         audioSource.time = startTime;
 
+        float processedFinalVolume = finalVolume * maxVolumeMultiplier;
+
         // Fade in or out
-        if (audioSource.volume < finalVolume)
+        if (audioSource.volume < processedFinalVolume)
         {
-            while (audioSource.volume < finalVolume)
+            while (audioSource.volume < processedFinalVolume)
             {
-                audioSource.volume += finalVolume * Time.deltaTime / fadeTime;
+                audioSource.volume += processedFinalVolume * Time.deltaTime / fadeTime;
                 yield return null;
             }
         }
-        else if (audioSource.volume > finalVolume)
+        else if (audioSource.volume > processedFinalVolume)
         {
-            while (audioSource.volume > finalVolume)
+            while (audioSource.volume > processedFinalVolume)
             {
                 audioSource.volume -= startVolume * Time.deltaTime / fadeTime;
                 yield return null;
@@ -295,7 +313,14 @@ public class AudioManager : MonoBehaviour
             // audioSource.Stop();
         }
         
-        audioSource.volume = finalVolume;
+        audioSource.volume = processedFinalVolume;
+    }
+
+    private void SetupMusicCoutoutine(IEnumerator newMusicCoroutine)
+    {
+        StartCoroutine(newMusicCoroutine);
+        _musicFadeCoroutines.Append(newMusicCoroutine);
+        _musicFadeCoroutines.RemoveAll(item => item == null);
     }
     #endregion
 
@@ -357,15 +382,17 @@ public class AudioManager : MonoBehaviour
     }
 
     [Serializable]
-    private struct KeySourcePair
+    private class KeySourcePair
     {
         public MusicKey MusicKey;
         public AudioSource MusicSource;
+        [HideInInspector] public float MaxVolumeMultiplier = 1f;
 
-        public KeySourcePair(MusicKey inMusicKey, AudioSource inMusicSource)
+        public KeySourcePair(MusicKey inMusicKey, AudioSource inMusicSource, float inMaxVolume)
         {
             MusicKey = inMusicKey;
             MusicSource = inMusicSource;
+            MaxVolumeMultiplier = inMaxVolume;
         }
     }
     #endregion

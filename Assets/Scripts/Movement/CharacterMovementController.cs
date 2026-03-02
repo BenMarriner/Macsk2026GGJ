@@ -222,6 +222,16 @@ public class CharacterMovementController : MonoBehaviour
 
         _canJump = true;
         
+        if (!_footstepAudioSource)
+        {
+            this.LogError(nameof(_footstepAudioSource), " is null or has not been set!");
+            return;
+        }
+        if (!_footstepAudioSource.clip)
+        {
+            this.LogError(nameof(_footstepAudioSource), nameof(_footstepAudioSource.clip), " is null or has not been set!");
+            return;
+        }
     }
 
     #region InputHandling
@@ -523,6 +533,9 @@ public class CharacterMovementController : MonoBehaviour
         _horizontalMovement = _movementInput.x;
         _verticalMovement = _movementInput.y;
 
+        if (!_footstepAudioSource) return;
+        if (!_footstepAudioSource.clip) return;
+
         if ( state == MovementState.Walking && 
             (_verticalMovement != 0 || _horizontalMovement != 0) && 
             _rigidbody.linearVelocity.sqrMagnitude > 0.1f)
@@ -645,18 +658,10 @@ public class CharacterMovementController : MonoBehaviour
 
         // Turn off gravity when on slopes
         if (!IsWallRunning) { _rigidbody.useGravity = !OnSlope(); }
-    }
-    /*
-    // Rate in which the agent slows down to a stop when there is no movement input
-    [SerializeField, Range(0.01f, 1f)] private float decelerationRate = 0.5f;    // Must be between 0 and 1
 
-    // Reduces the velocity of the game object to zero over time
-    private void DecelerateVelocity()
-    {
-        rb.linearVelocity = rb.linearVelocity * decelerationRate * Time.deltaTime;
-        rb.angularVelocity = rb.angularVelocity * decelerationRate * Time.deltaTime;
+        DecelerateVelocity();
     }
-    */
+
     private void SpeedControl()
     {
         if (OnSlope() && !_exitingSlope)
@@ -725,4 +730,18 @@ public class CharacterMovementController : MonoBehaviour
     [SerializeField] private float slideSpeed;
     [SerializeField] private float climbSpeed;
     [SerializeField] private float wallRunSpeed;
+    
+    // Rate in which the agent slows down to a stop when there is no movement input
+    [SerializeField, Range(0.01f, 1f)] private float decelerationRate = 0.9f;    // Must be between 0 and 1
+
+    // Reduces the velocity of the game object to zero over time
+    private void DecelerateVelocity()
+    {
+        if (_movementInput != Vector2.zero)
+        { return; }
+        
+        
+        _rigidbody.linearVelocity -= _rigidbody.linearVelocity * (decelerationRate * Time.fixedDeltaTime);
+        _rigidbody.angularVelocity -= _rigidbody.angularVelocity * (decelerationRate * Time.fixedDeltaTime);
+    }
 }

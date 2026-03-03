@@ -560,7 +560,7 @@ MonoBehaviour:
     volume: 1
   - sound: 11
     audioClip: {fileID: 8300000, guid: bae99d54a285afc448b2a4a714aec0a1, type: 3}
-    randomisePitch: 1
+    randomisePitch: 0
     volume: 1
   _musicAudioClipArray:
   - Music: 0

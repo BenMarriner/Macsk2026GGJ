@@ -26510,6 +26510,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3838681738915107354, guid: fe789f19938dd294083f218351d5f932, type: 3}
+      propertyPath: 'animationClip.Array.data[0]'
+      value: 
+      objectReference: {fileID: 7400000, guid: 5b44251b6b9daff4998f501ac4470c04, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -42148,7 +42152,7 @@ PrefabInstance:
     - target: {fileID: 3838681738915107354, guid: fe789f19938dd294083f218351d5f932, type: 3}
       propertyPath: 'animationClip.Array.data[1]'
       value: 
-      objectReference: {fileID: 7400000, guid: f5e7e31cdeaa9cf4491f4f4588f5b691, type: 2}
+      objectReference: {fileID: 7400000, guid: 6cd12f5c95042254bac2f64eab1431b8, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -43639,6 +43643,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4699538513102782326, guid: b356647fd12980b47a7e83ecdedbd640, type: 3}
+      propertyPath: 'animationClip.Array.data[0]'
+      value: 
+      objectReference: {fileID: 7400000, guid: ab21b464dc73f3041a600c16bb7aa780, type: 2}
     - target: {fileID: 6881885934028667025, guid: b356647fd12980b47a7e83ecdedbd640, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.19
@@ -50850,7 +50858,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 160795389568909533, guid: 45209c7d0755f054abdaf519a2c4e4eb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 43.532
+      value: 43.916
       objectReference: {fileID: 0}
     - target: {fileID: 160795389568909533, guid: 45209c7d0755f054abdaf519a2c4e4eb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -222384,6 +222392,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3838681738915107354, guid: fe789f19938dd294083f218351d5f932, type: 3}
+      propertyPath: 'animationClip.Array.data[0]'
+      value: 
+      objectReference: {fileID: 7400000, guid: 5b44251b6b9daff4998f501ac4470c04, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -225232,7 +225244,7 @@ PrefabInstance:
     - target: {fileID: 3838681738915107354, guid: fe789f19938dd294083f218351d5f932, type: 3}
       propertyPath: 'animationClip.Array.data[1]'
       value: 
-      objectReference: {fileID: 7400000, guid: f5e7e31cdeaa9cf4491f4f4588f5b691, type: 2}
+      objectReference: {fileID: 7400000, guid: 6cd12f5c95042254bac2f64eab1431b8, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -233722,7 +233734,7 @@ PrefabInstance:
     - target: {fileID: 3838681738915107354, guid: fe789f19938dd294083f218351d5f932, type: 3}
       propertyPath: 'animationClip.Array.data[1]'
       value: 
-      objectReference: {fileID: 7400000, guid: be6f6b30e1e3e00458c1e40c0e351462, type: 2}
+      objectReference: {fileID: 7400000, guid: 570a79481edf838469e937ade09536a3, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -253623,7 +253635,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 160795389568909533, guid: 45209c7d0755f054abdaf519a2c4e4eb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13.995
+      value: 14.402
       objectReference: {fileID: 0}
     - target: {fileID: 160795389568909533, guid: 45209c7d0755f054abdaf519a2c4e4eb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -271580,7 +271592,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 160795389568909533, guid: 45209c7d0755f054abdaf519a2c4e4eb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 42.46
+      value: 42.922
       objectReference: {fileID: 0}
     - target: {fileID: 160795389568909533, guid: 45209c7d0755f054abdaf519a2c4e4eb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -280469,7 +280481,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 160795389568909533, guid: 45209c7d0755f054abdaf519a2c4e4eb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 42.46
+      value: 42.926
       objectReference: {fileID: 0}
     - target: {fileID: 160795389568909533, guid: 45209c7d0755f054abdaf519a2c4e4eb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -283506,6 +283518,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3838681738915107354, guid: fe789f19938dd294083f218351d5f932, type: 3}
+      propertyPath: 'animationClip.Array.data[0]'
+      value: 
+      objectReference: {fileID: 7400000, guid: 5b44251b6b9daff4998f501ac4470c04, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -291576,7 +291592,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 160795389568909533, guid: 45209c7d0755f054abdaf519a2c4e4eb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 43.39
+      value: 43.791
       objectReference: {fileID: 0}
     - target: {fileID: 160795389568909533, guid: 45209c7d0755f054abdaf519a2c4e4eb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -294612,6 +294628,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3838681738915107354, guid: fe789f19938dd294083f218351d5f932, type: 3}
+      propertyPath: 'animationClip.Array.data[0]'
+      value: 
+      objectReference: {fileID: 7400000, guid: 5b44251b6b9daff4998f501ac4470c04, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -295997,7 +296017,7 @@ PrefabInstance:
     - target: {fileID: 3838681738915107354, guid: fe789f19938dd294083f218351d5f932, type: 3}
       propertyPath: 'animationClip.Array.data[1]'
       value: 
-      objectReference: {fileID: 7400000, guid: f5e7e31cdeaa9cf4491f4f4588f5b691, type: 2}
+      objectReference: {fileID: 7400000, guid: 6cd12f5c95042254bac2f64eab1431b8, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -300350,7 +300370,7 @@ PrefabInstance:
     - target: {fileID: 3838681738915107354, guid: fe789f19938dd294083f218351d5f932, type: 3}
       propertyPath: 'animationClip.Array.data[1]'
       value: 
-      objectReference: {fileID: 7400000, guid: f5e7e31cdeaa9cf4491f4f4588f5b691, type: 2}
+      objectReference: {fileID: 7400000, guid: 6cd12f5c95042254bac2f64eab1431b8, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -309658,6 +309678,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5953846707405870597, guid: 0394c2723fde33744b5d40f7bd10f050, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: b513cb804b5aa104293d78eb973c079d, type: 3}
     - target: {fileID: 6692368994856433809, guid: 0394c2723fde33744b5d40f7bd10f050, type: 3}
       propertyPath: m_Name
       value: ElevatorMedium

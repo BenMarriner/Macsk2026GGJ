@@ -559,7 +559,7 @@ MonoBehaviour:
     randomisePitch: 1
     volume: 1
   - sound: 11
-    audioClip: {fileID: 8300000, guid: bae99d54a285afc448b2a4a714aec0a1, type: 3}
+    audioClip: {fileID: 8300000, guid: e1953327b9ebdce4da120d2a6010ce4a, type: 3}
     randomisePitch: 0
     volume: 1
   _musicAudioClipArray:
@@ -1305,7 +1305,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -2863233260492802776, guid: 59b36550b0be81248bdf896c8c4c08e0, type: 2}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: f221854829042664fa77cc0e8907fc42, type: 3}
+  m_Resource: {fileID: 8300000, guid: 8515c13b668328846a10d07206cbe311, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

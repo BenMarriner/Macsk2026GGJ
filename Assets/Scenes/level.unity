@@ -52117,12 +52117,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 320386749}
   serializedVersion: 2
-  m_LocalRotation: {x: -6.5213555e-18, y: 0.99980676, z: 8.634965e-17, w: 0.019661007}
-  m_LocalPosition: {x: 14.7, y: 101.34918, z: 114.84}
-  m_LocalScale: {x: 40.72602, y: 40.726006, z: 40.72601}
+  m_LocalRotation: {x: -6.5213534e-18, y: 0.9998067, z: 8.634966e-17, w: 0.0196611}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.92222, y: 1.2911079, z: 0.92222}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1646529037}
   m_LocalEulerAnglesHint: {x: 0, y: 39.555, z: 0}
 --- !u!199 &320386751
 ParticleSystemRenderer:
@@ -246972,7 +246972,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &968201890
 Transform:
   m_ObjectHideFlags: 0
@@ -253629,7 +253629,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7296544282381763326, guid: bbda615a43b6ad64781f61e3b128329d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -281095,6 +281095,39 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3437192564630134875, guid: e149c5c18f58d4542ae0e53149f157ec, type: 3}
   m_PrefabInstance: {fileID: 516844990}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1646529036
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1646529037}
+  m_Layer: 0
+  m_Name: GiantCrystal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1646529037
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1646529036}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 12.33, y: 97.1, z: 116.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 60052859613115171}
+  - {fileID: 320386750}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1650634713
 GameObject:
   m_ObjectHideFlags: 0
@@ -309192,7 +309225,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2130261363
 Transform:
   m_ObjectHideFlags: 0
@@ -309897,7 +309930,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1646529037}
     m_Modifications:
     - target: {fileID: 304749054588795989, guid: c4e0583c4e3a37b42afbe69e9aab0a80, type: 3}
       propertyPath: '_pairedInteractables.Array.data[0]'
@@ -309908,16 +309941,24 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5170207735627937412, guid: c4e0583c4e3a37b42afbe69e9aab0a80, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 6.6159863
+      objectReference: {fileID: 0}
+    - target: {fileID: 5170207735627937412, guid: c4e0583c4e3a37b42afbe69e9aab0a80, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 6.6159863
+      objectReference: {fileID: 0}
+    - target: {fileID: 5170207735627937412, guid: c4e0583c4e3a37b42afbe69e9aab0a80, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.33
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5170207735627937412, guid: c4e0583c4e3a37b42afbe69e9aab0a80, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 52.9
+      value: -44.199997
       objectReference: {fileID: 0}
     - target: {fileID: 5170207735627937412, guid: c4e0583c4e3a37b42afbe69e9aab0a80, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 116.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5170207735627937412, guid: c4e0583c4e3a37b42afbe69e9aab0a80, type: 3}
       propertyPath: m_LocalRotation.w
@@ -310497,8 +310538,7 @@ SceneRoots:
   - {fileID: 1960210855}
   - {fileID: 1078248843}
   - {fileID: 532504909}
-  - {fileID: 60052859613115165}
-  - {fileID: 320386750}
+  - {fileID: 1646529037}
   - {fileID: 1871306281}
   - {fileID: 119772231}
   - {fileID: 1239951498}

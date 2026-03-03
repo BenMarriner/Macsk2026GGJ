@@ -30,6 +30,8 @@ public class PickupInteract : MonoBehaviour, IInteractable
 
         EventManager.TriggerEvent(EventKey.MASK_PICKUP, null);
 
+        EventManager.TriggerEvent(EventKey.SFX, SoundType.MaskPickup);
+
         Destroy(gameObject);
     }
 }

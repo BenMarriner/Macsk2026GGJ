@@ -10,4 +10,5 @@ public enum SoundType
     LeverSwitch = 8,
     MaskChanage01 = 09,
     MaskChanage02 = 10,
+    MaskPickup = 11,
 }

@@ -41,6 +41,8 @@ public class RedObject : ColouredObject
             _meshRenderer.enabled = isTangible;
         }
 
+        UpdateAmbientSFX(redEnabled);
+
         foreach (GenericCouple<Renderer, Material> item in _defaultMaterialList)
         {
             Material newMaterial;

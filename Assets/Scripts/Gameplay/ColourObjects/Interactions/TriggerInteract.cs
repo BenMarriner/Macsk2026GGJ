@@ -13,6 +13,7 @@ public class TriggerInteract : GreenObject, IInteractable
 
     [SerializeField] 
     private bool _onlyInteractableOnce = false;
+    [SerializeField] protected AudioSource _leverSwitchSource;
 
     private bool canBeInteracted = false;
     
@@ -39,7 +40,10 @@ public class TriggerInteract : GreenObject, IInteractable
             item.Activate();
         }
 
-        EventManager.TriggerEvent(EventKey.SFX, SoundType.LeverSwitch);
+        if (_leverSwitchSource && _leverSwitchSource.clip)
+        {
+            _leverSwitchSource.Play();
+        }
 
         if (_onlyInteractableOnce)
         {

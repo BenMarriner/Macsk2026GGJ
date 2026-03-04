@@ -23,7 +23,6 @@ public class GameMusicManager : MonoBehaviour
 
     private void OnEnable()
     {
-        EventManager.RegisterEvent(EventKey.MUSIC, MusicEventHandler);
         EventManager.RegisterEvent(EventKey.FADE_MUSIC, FadeMusicEventHandler);
         EventManager.RegisterEvent(EventKey.FADE_SECONDARY_TRACKS, FadeSecondaryTracksHandler);
         EventManager.RegisterEvent(EventKey.STOP_MUSIC, StopMusic);
@@ -36,8 +35,7 @@ public class GameMusicManager : MonoBehaviour
 
     private void OnDisable()
     {
-        EventManager.DeregisterEvent(EventKey.MUSIC, FadeMusicEventHandler);
-        EventManager.DeregisterEvent(EventKey.FADE_MUSIC, MusicEventHandler);
+        EventManager.DeregisterEvent(EventKey.FADE_MUSIC, FadeMusicEventHandler);
         EventManager.DeregisterEvent(EventKey.FADE_SECONDARY_TRACKS, FadeSecondaryTracksHandler);
         EventManager.DeregisterEvent(EventKey.STOP_MUSIC, StopMusic);
         EventManager.DeregisterEvent(EventKey.PAUSE_MUSIC, PauseMusic);
@@ -60,14 +58,22 @@ public class GameMusicManager : MonoBehaviour
     private void Update()
     {
         // this.Log(_currentPrimaryMusicSource.MusicSource.timeSamples);
-        foreach (KeySourcePair item in _musicSourcePair)
-        {
-            this.Log(item.MusicSource.timeSamples);
-        }
+        // foreach (KeySourcePair item in _musicSourcePair)
+        // {
+        //     this.Log(item.MusicKey, item.MusicSource.timeSamples);
+        // }
     }
     #endregion
 
     #region Music Sync
+
+    protected virtual void SendMusicSyncTime()
+    {
+        if (!_currentPrimaryMusicSource.MusicSource) return;
+        int startTime = _currentPrimaryMusicSource.MusicSource.timeSamples;
+        EventManager.TriggerEvent(EventKey.SYNC_MUSIC_TIME, startTime);
+    }
+
     protected virtual void SetMusicSyncTime(object eventData)
     {
         if (eventData is not int) this.LogError("Event listener recieved incorrect data type!");
@@ -75,6 +81,7 @@ public class GameMusicManager : MonoBehaviour
         
         foreach (KeySourcePair item in _musicSourcePair)
         {
+            if (!item.MusicSource) continue;
             item.MusicSource.timeSamples = sourceSyncTime;
         }
     }
@@ -92,40 +99,6 @@ public class GameMusicManager : MonoBehaviour
     #endregion
 
     #region Generic Music
-    public void MusicEventHandler(object eventData)
-    {
-        if (eventData is not MusicKey) this.LogError("Event listener recieved incorrect data type!");
-        MusicKey musicKey = (MusicKey)eventData;
-
-        if (_musicMuted) return;
-
-        KeySourcePair mappedSource = Array.Find(_musicSourcePair, x => x.MusicKey == musicKey);
-        AudioSource musicSource = mappedSource.MusicSource;
-
-        if (musicSource == null) return;
-
-        int musicTime = 0;
-        if (_currentPrimaryMusicSource.MusicSource)
-        {
-            musicTime = _currentPrimaryMusicSource.MusicSource.timeSamples;
-        }
-
-        StopMusic(false);
-
-        MusicAudioClip musicClip = Array.Find(_musicAudioClipArray, x => x.Music == musicKey);
-        if (musicClip == null)
-        {
-            this.LogError($"MusicAudioClip's music track not found {musicKey}");
-            return;
-        }
-
-        _currentPrimaryMusicSource.MusicKey = musicKey;
-        _currentPrimaryMusicSource.MusicSource = musicSource;
-        musicSource.clip = musicClip.AudioClip;
-        musicSource.volume = musicClip.Volume * _musicVolume;
-        musicSource.timeSamples = musicTime;
-    }
-
     public void PauseMusic(object eventData)
     {
         if (eventData is not bool) this.LogError("Event listener recieved incorrect data type!");
@@ -221,6 +194,7 @@ public class GameMusicManager : MonoBehaviour
             StopCoroutine(item);
         }
 
+        SendMusicSyncTime();
         IEnumerator tempMusicCoroutine = FadeTrack(musicSource, musicFadeData.FadeTime, musicFadeData.FinalVolume, maxVolumeMultiplier);
         SetupMusicCoutoutine(tempMusicCoroutine);
 
@@ -240,16 +214,6 @@ public class GameMusicManager : MonoBehaviour
         if (audioSource.isPlaying && audioSource.volume == finalVolume) yield break;
 
         float startVolume = audioSource.volume;
-
-        // Set track time
-        int startTime = 0;
-        if (_currentPrimaryMusicSource.MusicSource)
-        {
-            startTime = _currentPrimaryMusicSource.MusicSource.timeSamples;
-        }
-
-        audioSource.timeSamples = startTime;
-
         float processedFinalVolume = finalVolume * maxVolumeMultiplier;
 
         if (!audioSource.isPlaying)
@@ -274,7 +238,6 @@ public class GameMusicManager : MonoBehaviour
                 audioSource.volume -= startVolume * Time.deltaTime / fadeTime;
                 yield return null;
             }
-            // audioSource.Stop();
         }
         
         audioSource.volume = processedFinalVolume;
@@ -303,17 +266,6 @@ public class GameMusicManager : MonoBehaviour
             item.MusicSource.volume = _musicVolume;
         }
     }
-
-    // public void SettingsRequestHandler(object eventData)
-    // {
-    //     if (eventData is not RequestType) this.LogError("Event listener recieved incorrect data type!");
-    //     RequestType setting = (RequestType)eventData;
-
-    //     if (setting != RequestType.AUDIO_SETTINGS) return;
-
-    //     SettingsData tempSettings = new SettingsData(_sfxVolume, _musicVolume, 0);
-    //     EventManager.TriggerEvent(EventKey.SEND_SETTING, tempSettings);
-    // }
     #endregion
 
     #region Private Classes

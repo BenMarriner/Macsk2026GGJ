@@ -48,9 +48,6 @@ public class GameMusicManager : MonoBehaviour
 
     private void Start()
     {
-        EventManager.DeregisterEvent(EventKey.STOP_MUSIC, StopMusic);
-        EventManager.TriggerEvent(EventKey.PAUSE_MUSIC, true);
-        EventManager.RegisterEvent(EventKey.PAUSE_MUSIC, PauseMusic);
         _currentPrimaryMusicSource = _musicSourcePair[0];
         EventManager.TriggerEvent(EventKey.START_SYNCED_MUSIC, null);
     }

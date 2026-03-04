@@ -29,42 +29,30 @@ public class AudioManager : MonoBehaviour
     {
         EventManager.RegisterEvent(EventKey.SFX, SFXEventHandler);
         EventManager.RegisterEvent(EventKey.MUSIC, MusicEventHandler);
-        EventManager.RegisterEvent(EventKey.FADE_MUSIC, FadeMusicEventHandler);
-        EventManager.RegisterEvent(EventKey.FADE_SECONDARY_TRACKS, FadeSecondaryTracksHandler);
         EventManager.RegisterEvent(EventKey.STOP_MUSIC, StopMusic);
         EventManager.RegisterEvent(EventKey.PAUSE_MUSIC, PauseMusic);
         EventManager.RegisterEvent(EventKey.MUTEMUSIC_TOGGLE, MuteMusic);
         EventManager.RegisterEvent(EventKey.SFX_VOLUME_CHANGED, SFXVolumeHandler);
         EventManager.RegisterEvent(EventKey.MUSIC_VOLUME_CHANGED, MusicVolumeHandler);
-        EventManager.RegisterEvent(EventKey.LOADING_COMPLETE, AmbientMusicSyncHandler);
+        EventManager.RegisterEvent(EventKey.OPEN_SCENE, StopMusic);
     }
 
     private void OnDisable()
     {
         EventManager.DeregisterEvent(EventKey.SFX, SFXEventHandler);
-        EventManager.DeregisterEvent(EventKey.MUSIC, FadeMusicEventHandler);
-        EventManager.DeregisterEvent(EventKey.FADE_MUSIC, MusicEventHandler);
-        EventManager.DeregisterEvent(EventKey.FADE_SECONDARY_TRACKS, FadeSecondaryTracksHandler);
+        EventManager.DeregisterEvent(EventKey.MUSIC, MusicEventHandler);
         EventManager.DeregisterEvent(EventKey.STOP_MUSIC, StopMusic);
         EventManager.DeregisterEvent(EventKey.PAUSE_MUSIC, PauseMusic);
         EventManager.DeregisterEvent(EventKey.MUTEMUSIC_TOGGLE, MuteMusic);
         EventManager.DeregisterEvent(EventKey.SFX_VOLUME_CHANGED, SFXVolumeHandler);
         EventManager.DeregisterEvent(EventKey.MUSIC_VOLUME_CHANGED, MusicVolumeHandler);
-		EventManager.DeregisterEvent(EventKey.LOADING_COMPLETE, AmbientMusicSyncHandler);
+		EventManager.DeregisterEvent(EventKey.OPEN_SCENE, StopMusic);
         StopAllCoroutines();
     }
 
     private void Start()
     {
         _currentPrimaryMusicSource = _musicSourcePair[0];
-        AmbientMusicSyncHandler(null);
-        foreach (KeySourcePair item in _musicSourcePair)
-        {
-            item.MaxVolumeMultiplier = item.MusicSource.volume;
-            item.MusicSource.volume = 0f;
-            item.MusicSource.Play();
-        }
-        FadeMusicEventHandler(new MusicFadeData(MusicKey.NoMask, 5, 1));
     }
     #endregion
 
@@ -128,17 +116,6 @@ public class AudioManager : MonoBehaviour
     }
     #endregion
 
-    #region Music Sync
-    private void AmbientMusicSyncHandler(object eventData)
-    {
-        if (_currentPrimaryMusicSource == null) return;
-        if (!_currentPrimaryMusicSource.MusicSource) return;
-        int musicTime = _currentPrimaryMusicSource.MusicSource.timeSamples;
-
-        EventManager.TriggerEvent(EventKey.SYNC_MUSIC_TIME, musicTime);
-    }
-    #endregion
-
     #region Generic Music
     public void MusicEventHandler(object eventData)
     {
@@ -171,8 +148,8 @@ public class AudioManager : MonoBehaviour
         _currentPrimaryMusicSource.MusicSource = musicSource;
         musicSource.clip = musicClip.AudioClip;
         musicSource.volume = musicClip.Volume * _musicVolume;
-        musicSource.Play();
         musicSource.timeSamples = musicTime;
+        musicSource.Play();
     }
 
     public void PauseMusic(object eventData)
@@ -289,13 +266,6 @@ public class AudioManager : MonoBehaviour
         if (audioSource.isPlaying && audioSource.volume == finalVolume) yield break;
 
         float startVolume = audioSource.volume;
-
-        if (!audioSource.isPlaying)
-        {
-            audioSource.Play();
-            startVolume = 0;
-            audioSource.volume = startVolume;
-        }
 
         // Set track time
         int startTime = 0;

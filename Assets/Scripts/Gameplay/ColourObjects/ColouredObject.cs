@@ -22,12 +22,14 @@ public class ColouredObject : MaskChangeDetector
     protected override void OnEnable()
 	{
         base.OnEnable();
+		EventManager.RegisterEvent(EventKey.START_SYNCED_MUSIC, StartSyncedAmbientSFX);
 		EventManager.RegisterEvent(EventKey.SYNC_MUSIC_TIME, SetMusicSyncTime);
 	}
 
 	protected override void OnDisable()
 	{
         base.OnDisable();
+		EventManager.DeregisterEvent(EventKey.START_SYNCED_MUSIC, StartSyncedAmbientSFX);
 		EventManager.DeregisterEvent(EventKey.SYNC_MUSIC_TIME, SetMusicSyncTime);
 	}
 
@@ -43,12 +45,17 @@ public class ColouredObject : MaskChangeDetector
 
     protected virtual void SetMusicSyncTime(object eventData)
     {
-        if (eventData is not float) this.LogError("Event listener recieved incorrect data type!");
-        float sourceSyncTime = (float)eventData;
+        if (eventData is not int) this.LogError("Event listener recieved incorrect data type!");
+        int sourceSyncTime = (int)eventData;
         
         if (!_ambientSFXSource) return;
-        _ambientSFXSource.Play();
-        _ambientSFXSource.time = sourceSyncTime;
+        _ambientSFXSource.timeSamples = sourceSyncTime;
+    }
+
+    protected virtual void StartSyncedAmbientSFX(object eventData)
+    {
+        if (!_ambientSFXSource) return;
+        _ambientSFXSource.PlayScheduled(AudioSettings.dspTime + 1);
     }
 
     // Loop through all children of the gameobject, getting the renderers and 

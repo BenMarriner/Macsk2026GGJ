@@ -43,12 +43,12 @@ public class ColouredObject : MaskChangeDetector
 
     protected virtual void SetMusicSyncTime(object eventData)
     {
-        if (eventData is not float) this.LogError("Event listener recieved incorrect data type!");
-        float sourceSyncTime = (float)eventData;
+        if (eventData is not int) this.LogError("Event listener recieved incorrect data type!");
+        int sourceSyncTime = (int)eventData;
         
         if (!_ambientSFXSource) return;
         _ambientSFXSource.Play();
-        _ambientSFXSource.time = sourceSyncTime;
+        _ambientSFXSource.timeSamples = sourceSyncTime;
     }
 
     // Loop through all children of the gameobject, getting the renderers and 

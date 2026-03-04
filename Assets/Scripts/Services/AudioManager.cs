@@ -133,7 +133,7 @@ public class AudioManager : MonoBehaviour
     {
         if (_currentPrimaryMusicSource == null) return;
         if (!_currentPrimaryMusicSource.MusicSource) return;
-        float musicTime = _currentPrimaryMusicSource.MusicSource.time;
+        int musicTime = _currentPrimaryMusicSource.MusicSource.timeSamples;
 
         EventManager.TriggerEvent(EventKey.SYNC_MUSIC_TIME, musicTime);
     }
@@ -152,10 +152,10 @@ public class AudioManager : MonoBehaviour
 
         if (musicSource == null) return;
 
-        float musicTime = 0;
+        int musicTime = 0;
         if (_currentPrimaryMusicSource.MusicSource)
         {
-            musicTime = _currentPrimaryMusicSource.MusicSource.time;
+            musicTime = _currentPrimaryMusicSource.MusicSource.timeSamples;
         }
 
         StopMusic(false);
@@ -172,7 +172,7 @@ public class AudioManager : MonoBehaviour
         musicSource.clip = musicClip.AudioClip;
         musicSource.volume = musicClip.Volume * _musicVolume;
         musicSource.Play();
-        musicSource.time = musicTime;
+        musicSource.timeSamples = musicTime;
     }
 
     public void PauseMusic(object eventData)
@@ -298,13 +298,13 @@ public class AudioManager : MonoBehaviour
         }
 
         // Set track time
-        float startTime = 0;
+        int startTime = 0;
         if (_currentPrimaryMusicSource.MusicSource)
         {
-            startTime = _currentPrimaryMusicSource.MusicSource.time;
+            startTime = _currentPrimaryMusicSource.MusicSource.timeSamples;
         }
 
-        audioSource.time = startTime;
+        audioSource.timeSamples = startTime;
 
         float processedFinalVolume = finalVolume * maxVolumeMultiplier;
 

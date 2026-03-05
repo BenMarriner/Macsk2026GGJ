@@ -41,6 +41,7 @@ public class ColouredObject : MaskChangeDetector
     public virtual void ToggleEffectReversed()
     {
         _effectReversed = !_effectReversed;
+        SetEnabled(_isEnabled);
     }
 
     public virtual void ToggleEnabled()

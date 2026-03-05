@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Grass
-  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+  m_Name: Grass-Dirt-BlendMaterial
+  m_Shader: {fileID: -6465566751694194690, guid: 6c7e34740eb3e88419b463b46c662ba7, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -30,14 +30,53 @@ Material:
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap:
-    RenderType: Opaque
+  stringTagMap: {}
   disabledShaderPasses:
   - MOTIONVECTORS
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _1_Base_Color:
+        m_Texture: {fileID: 2800000, guid: e4fe0687e90e6b7408164c6a87809f0a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _1_Height:
+        m_Texture: {fileID: 2800000, guid: ca7634bd684c527498b77d67c3dbe62e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _1_Normal:
+        m_Texture: {fileID: 2800000, guid: f5eb130900e7644409f2cfeac1e2f997, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _1_Occlusion:
+        m_Texture: {fileID: 2800000, guid: f06e074783cd3fb45986fec5f8ffa834, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _1_Roughness:
+        m_Texture: {fileID: 2800000, guid: 77b8459c00406e74baee5ff8dff266b8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _2_Base_Color:
+        m_Texture: {fileID: 2800000, guid: 41cfb819bc5046d4b812682f2be3ee77, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _2_Height:
+        m_Texture: {fileID: 2800000, guid: 0f8a0b415e0946044b4089530092f92b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _2_Normal:
+        m_Texture: {fileID: 2800000, guid: 0bbb15c857fd0124c8f1aa1621154742, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _2_Occlusion:
+        m_Texture: {fileID: 2800000, guid: 900bca920f2ec6b40b447f505da6c42a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _2_Roughness:
+        m_Texture: {fileID: 2800000, guid: 510fd44d5621b544aa938d697d5e26ca, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -96,6 +135,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _1_Scale: 0.22
+    - _2_Scale: 0.24
     - _AddPrecomputedVelocity: 0
     - _AlphaClip: 0
     - _AlphaToMask: 0
@@ -114,9 +155,12 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
+    - _Height_Mask_Factor: 0.5
+    - _Invert_Vertex_Mask: 1
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
+    - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Smoothness: 0.5
@@ -129,6 +173,8 @@ Material:
     - _XRMotionVectorsPass: 1
     - _ZWrite: 1
     m_Colors:
+    - _1_UV_Scale: {r: 1, g: 1, b: 0, a: 0}
+    - _2_UV_Scale: {r: 5, g: 5, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

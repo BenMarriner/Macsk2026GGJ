@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 8c5ebdaf1fe1973428dcf81e97a9dd41
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 352952
+  packageName: RealBlend - Mesh Painting & Creation
+  packageVersion: 1.1.0
+  assetPath: Assets/RealBlend/Art/Shaders/RealBlendBuiltInVariation.shader
+  uploadId: 864662

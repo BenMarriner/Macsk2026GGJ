@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 165e1f6589329e349b188aaab6c15beb
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 352952
+  packageName: RealBlend - Mesh Painting & Creation
+  packageVersion: 1.1.0
+  assetPath: Assets/RealBlend/Demo/Scenes/RealBlend Sample Scene.unity
+  uploadId: 864662

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: bc455deac9263bd46ae1913124571640
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 352952
+  packageName: RealBlend - Mesh Painting & Creation
+  packageVersion: 1.1.0
+  assetPath: Assets/RealBlend/Demo/Scenes/RealBlend Sample Scene/GameObject Profile.asset
+  uploadId: 864662

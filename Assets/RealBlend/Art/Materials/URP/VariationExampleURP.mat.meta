@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 46bdc21a474e3a44eacfaa2d7c9bd403
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 352952
+  packageName: RealBlend - Mesh Painting & Creation
+  packageVersion: 1.1.0
+  assetPath: Assets/RealBlend/Art/Materials/URP/VariationExampleURP.mat
+  uploadId: 864662

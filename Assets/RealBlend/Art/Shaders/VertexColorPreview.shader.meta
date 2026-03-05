@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: e79cbac5b101f0d4bba716de7d19abc3
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 352952
+  packageName: RealBlend - Mesh Painting & Creation
+  packageVersion: 1.1.0
+  assetPath: Assets/RealBlend/Art/Shaders/VertexColorPreview.shader
+  uploadId: 864662

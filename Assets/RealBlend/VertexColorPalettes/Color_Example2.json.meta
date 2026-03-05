@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 41409e563f7e5234eafa173f47c1e53d
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 352952
+  packageName: RealBlend - Mesh Painting & Creation
+  packageVersion: 1.1.0
+  assetPath: Assets/RealBlend/VertexColorPalettes/Color_Example2.json
+  uploadId: 864662

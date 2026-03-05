@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 2c26f9e8c98b3004c902c14cf0ac18bb
+ShaderIncludeImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 352952
+  packageName: RealBlend - Mesh Painting & Creation
+  packageVersion: 1.1.0
+  assetPath: Assets/RealBlend/Art/Shaders/PolybrushMixer5.cginc
+  uploadId: 864662

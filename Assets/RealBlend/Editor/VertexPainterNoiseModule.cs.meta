@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: ddaec87ee425d544ca4f778319278732
+AssetOrigin:
+  serializedVersion: 1
+  productId: 352952
+  packageName: RealBlend - Mesh Painting & Creation
+  packageVersion: 1.1.0
+  assetPath: Assets/RealBlend/Editor/VertexPainterNoiseModule.cs
+  uploadId: 864662

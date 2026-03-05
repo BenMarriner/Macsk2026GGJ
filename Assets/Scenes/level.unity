@@ -314383,6 +314383,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 682883036}
     m_Modifications:
     - target: {fileID: 3847417154011114799, guid: 3c082170113c07941bb63ba5924853ac, type: 3}
+      propertyPath: _pairedInteractables.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3847417154011114799, guid: 3c082170113c07941bb63ba5924853ac, type: 3}
       propertyPath: '_pairedInteractables.Array.data[0]'
       value: 
       objectReference: {fileID: 1946238307}
@@ -314402,6 +314406,10 @@ PrefabInstance:
       propertyPath: '_pairedInteractables.Array.data[4]'
       value: 
       objectReference: {fileID: 868503880}
+    - target: {fileID: 3847417154011114799, guid: 3c082170113c07941bb63ba5924853ac, type: 3}
+      propertyPath: '_pairedInteractables.Array.data[5]'
+      value: 
+      objectReference: {fileID: 511015500}
     - target: {fileID: 5242465254201512948, guid: 3c082170113c07941bb63ba5924853ac, type: 3}
       propertyPath: m_Name
       value: CageTriggerEnter

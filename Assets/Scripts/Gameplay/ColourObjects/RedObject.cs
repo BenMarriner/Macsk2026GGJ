@@ -3,6 +3,7 @@ using UnityEngine;
 public class RedObject : ColouredObject
 {
     [SerializeField] protected Material _transparentColouredMaterial;
+    protected bool _redMaskMode = false;
     private Rigidbody _rb;
     private Collider _objectCollider;
     private MeshRenderer _meshRenderer;
@@ -20,6 +21,7 @@ public class RedObject : ColouredObject
 
     protected override void SetRedEffect(bool redEnabled)
     {
+        _redMaskMode = redEnabled;
         bool isTangible = redEnabled;
         if (_effectReversed)
         {
@@ -36,9 +38,16 @@ public class RedObject : ColouredObject
             _objectCollider.enabled = isTangible;
         }
 
-        if (_meshRenderer && !_effectReversed)
+        if (_meshRenderer)
         {
-            _meshRenderer.enabled = isTangible;
+            if (!_effectReversed)
+            {
+                _meshRenderer.enabled = isTangible;
+            }
+            else
+            {
+                _meshRenderer.enabled = true;
+            }
         }
 
         UpdateAmbientSFX(redEnabled);
@@ -65,5 +74,12 @@ public class RedObject : ColouredObject
 
             item.First.material = newMaterial;
         }
+    }
+
+    public override void ToggleEffectReversed()
+    {
+        _effectReversed = !_effectReversed;
+        SetEnabled(_isEnabled);
+        SetRedEffect(_redMaskMode);
     }
 }

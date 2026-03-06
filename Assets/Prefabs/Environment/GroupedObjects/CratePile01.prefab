@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 741710657563487132}
   m_Layer: 0
-  m_Name: CratePile
+  m_Name: CratePile01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

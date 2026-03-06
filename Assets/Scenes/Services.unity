@@ -517,15 +517,6 @@ MonoBehaviour:
   - MusicKey: 0
     MusicSource: {fileID: 1416829827}
     MaxVolumeMultiplier: 0
-  - MusicKey: 1
-    MusicSource: {fileID: 1298279424}
-    MaxVolumeMultiplier: 0
-  - MusicKey: 2
-    MusicSource: {fileID: 228650200}
-    MaxVolumeMultiplier: 0
-  - MusicKey: 3
-    MusicSource: {fileID: 464253867}
-    MaxVolumeMultiplier: 0
   _audioSourceArray:
   - {fileID: 95752858}
   - {fileID: 525729797}
@@ -558,21 +549,13 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 97dde1bbe7da8d041a4efe0ce9e90b03, type: 3}
     randomisePitch: 1
     volume: 1
+  - sound: 11
+    audioClip: {fileID: 8300000, guid: e1953327b9ebdce4da120d2a6010ce4a, type: 3}
+    randomisePitch: 0
+    volume: 1
   _musicAudioClipArray:
   - Music: 0
     AudioClip: {fileID: 8300000, guid: 8515c13b668328846a10d07206cbe311, type: 3}
-    RandomisePitch: 0
-    Volume: 1
-  - Music: 1
-    AudioClip: {fileID: 8300000, guid: 95aa201693e08924c9bcfbf219ff0c5c, type: 3}
-    RandomisePitch: 0
-    Volume: 1
-  - Music: 2
-    AudioClip: {fileID: 8300000, guid: d13dc446e173ed74087ee42907086324, type: 3}
-    RandomisePitch: 0
-    Volume: 1
-  - Music: 3
-    AudioClip: {fileID: 8300000, guid: b513cb804b5aa104293d78eb973c079d, type: 3}
     RandomisePitch: 0
     Volume: 1
   _mixer: {fileID: 24100000, guid: 59b36550b0be81248bdf896c8c4c08e0, type: 2}

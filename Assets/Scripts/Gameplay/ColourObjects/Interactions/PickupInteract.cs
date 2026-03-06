@@ -21,14 +21,16 @@ public class PickupInteract : MonoBehaviour, IInteractable
     {
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collider)
     {
-        if (!collision.gameObject.CompareTag("Player"))
+        if (!collider.gameObject.CompareTag("Player"))
         {
             return;
         }
 
         EventManager.TriggerEvent(EventKey.MASK_PICKUP, null);
+
+        EventManager.TriggerEvent(EventKey.SFX, SoundType.MaskPickup);
 
         Destroy(gameObject);
     }

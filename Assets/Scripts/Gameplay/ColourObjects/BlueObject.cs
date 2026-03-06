@@ -34,6 +34,10 @@ public class BlueObject : ColouredObject
             _isMoving = _blueMaskMode;
         }
 
+        UpdateAmbientSFX(_isMoving);
+
+        if (!_colouredMaterial) return;
+
         foreach (GenericCouple<Renderer, Material> item in _defaultMaterialList)
         {
             Material newMaterial;

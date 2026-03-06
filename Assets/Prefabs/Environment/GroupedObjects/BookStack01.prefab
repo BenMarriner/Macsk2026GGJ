@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7745942199369383732}
   - component: {fileID: 3221870945651740778}
   m_Layer: 0
-  m_Name: BookStack
+  m_Name: BookStack01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

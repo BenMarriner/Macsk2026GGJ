@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2151397592653972365}
   m_Layer: 0
-  m_Name: Barrel03
+  m_Name: Barrels03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

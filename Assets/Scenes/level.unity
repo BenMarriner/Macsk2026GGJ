@@ -211829,7 +211829,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 580092611}
+  m_Mesh: {fileID: 1916080047}
 --- !u!33 &542209994
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -219888,38 +219888,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6488974342884015553, guid: 55d07ebe9e2dac842916b61b3556dcd4, type: 3}
   m_PrefabInstance: {fileID: 1082873006}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &765221730 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5144429387519356256, guid: 45209c7d0755f054abdaf519a2c4e4eb, type: 3}
-  m_PrefabInstance: {fileID: 1150819664}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &765221736 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4731171384091855629, guid: 45209c7d0755f054abdaf519a2c4e4eb, type: 3}
   m_PrefabInstance: {fileID: 1150819664}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 765221730}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: acdbd61fc56604d4b9830921cb136459, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LeverInteract
---- !u!114 &765221739
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 765221730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bcf48e2aa047314fa398593bf8797e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ColourReverseActivator
-  _colouredObject:
-  - {fileID: 689477269}
-  - {fileID: 391879669}
-  - {fileID: 1799928958}
 --- !u!1 &765611163
 GameObject:
   m_ObjectHideFlags: 0
@@ -245746,7 +245725,7 @@ PrefabInstance:
     - target: {fileID: 4731171384091855629, guid: 45209c7d0755f054abdaf519a2c4e4eb, type: 3}
       propertyPath: '_pairedInteractables.Array.data[1]'
       value: 
-      objectReference: {fileID: 765221739}
+      objectReference: {fileID: 0}
     - target: {fileID: 5144429387519356256, guid: 45209c7d0755f054abdaf519a2c4e4eb, type: 3}
       propertyPath: m_Name
       value: LeverRealCastle
@@ -245770,10 +245749,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5144429387519356256, guid: 45209c7d0755f054abdaf519a2c4e4eb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 765221739}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45209c7d0755f054abdaf519a2c4e4eb, type: 3}
 --- !u!4 &1150819665 stripped
 Transform:

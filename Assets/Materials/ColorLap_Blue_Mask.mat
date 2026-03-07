@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6370196833467349318
+--- !u!114 &-2119897569103922999
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,9 +20,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ColorLap_BlueDense
+  m_Name: ColorLap_Blue_Mask
   m_Shader: {fileID: -6465566751694194690, guid: ae12d56dc77cdfa4c85a189c7b6a6d64, type: 3}
-  m_Parent: {fileID: 0}
+  m_Parent: {fileID: 2100000, guid: a5e69015353451848b5b9426220f078e, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -36,29 +36,13 @@ Material:
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs:
-    - unity_Lightmaps:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_LightmapsInd:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_ShadowMasks:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
+    m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _BaseCellSIze: 10
-    - _CellSize: 4
+    - _BaseCellSIze: 16
     - _DissCellSize: 10
     - _Dissolved: 0
-    - _Emission: 1
-    - _QueueControl: 0
-    - _QueueOffset: 0
-    m_Colors:
-    - _BaseColour: {r: 0, g: 0.23385859, b: 1, a: 0}
+    - _Emission: 5
+    m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1

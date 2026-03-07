@@ -136,9 +136,6 @@
             "m_Id": "47f801fdd29d4f7fa1e564c278791e84"
         },
         {
-            "m_Id": "cf2321899a744c5291a6c379f0a2ee2d"
-        },
-        {
             "m_Id": "4331bab4f9cc42df96e75a74eeab4452"
         }
     ],
@@ -285,20 +282,6 @@
             "m_InputSlot": {
                 "m_Node": {
                     "m_Id": "b4391ecdb0b546ad8bedec9504f369cb"
-                },
-                "m_SlotId": 0
-            }
-        },
-        {
-            "m_OutputSlot": {
-                "m_Node": {
-                    "m_Id": "47f801fdd29d4f7fa1e564c278791e84"
-                },
-                "m_SlotId": 2
-            },
-            "m_InputSlot": {
-                "m_Node": {
-                    "m_Id": "cf2321899a744c5291a6c379f0a2ee2d"
                 },
                 "m_SlotId": 0
             }
@@ -639,9 +622,6 @@
                 "m_Id": "b4391ecdb0b546ad8bedec9504f369cb"
             },
             {
-                "m_Id": "cf2321899a744c5291a6c379f0a2ee2d"
-            },
-            {
                 "m_Id": "14bf6628e8c24e1bbc901b055d439533"
             },
             {
@@ -773,7 +753,7 @@
     "m_Title": "Wold Space Cut",
     "m_Position": {
         "x": -2316.999755859375,
-        "y": 256.0
+        "y": 256.00006103515627
     }
 }
 
@@ -3823,40 +3803,6 @@
 
 {
     "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.BlockNode",
-    "m_ObjectId": "cf2321899a744c5291a6c379f0a2ee2d",
-    "m_Group": {
-        "m_Id": ""
-    },
-    "m_Name": "SurfaceDescription.Emission",
-    "m_DrawState": {
-        "m_Expanded": true,
-        "m_Position": {
-            "serializedVersion": "2",
-            "x": 11.0,
-            "y": 258.0,
-            "width": 200.0,
-            "height": 41.0
-        }
-    },
-    "m_Slots": [
-        {
-            "m_Id": "d062abda268a49eb979175b035adfb3c"
-        }
-    ],
-    "synonyms": [],
-    "m_Precision": 0,
-    "m_PreviewExpanded": true,
-    "m_DismissedVersion": 0,
-    "m_PreviewMode": 0,
-    "m_CustomColors": {
-        "m_SerializableColors": []
-    },
-    "m_SerializedDescriptor": "SurfaceDescription.Emission"
-}
-
-{
-    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.DynamicVectorMaterialSlot",
     "m_ObjectId": "cf28cb8879a54114a4700e4a70d9e604",
     "m_Id": 1,
@@ -3906,36 +3852,6 @@
         "r": 0.5,
         "g": 0.5,
         "b": 0.5,
-        "a": 1.0
-    }
-}
-
-{
-    "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.ColorRGBMaterialSlot",
-    "m_ObjectId": "d062abda268a49eb979175b035adfb3c",
-    "m_Id": 0,
-    "m_DisplayName": "Emission",
-    "m_SlotType": 0,
-    "m_Hidden": false,
-    "m_ShaderOutputName": "Emission",
-    "m_StageCapability": 2,
-    "m_Value": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0
-    },
-    "m_DefaultValue": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0
-    },
-    "m_Labels": [],
-    "m_ColorMode": 1,
-    "m_DefaultColor": {
-        "r": 0.0,
-        "g": 0.0,
-        "b": 0.0,
         "a": 1.0
     }
 }
@@ -4300,7 +4216,7 @@
     "m_Hidden": false,
     "m_PerRendererData": false,
     "m_customAttributes": [],
-    "m_Value": 0.0,
+    "m_Value": 1.0,
     "m_FloatType": 0,
     "m_LiteralFloatMode": false,
     "m_RangeValues": {

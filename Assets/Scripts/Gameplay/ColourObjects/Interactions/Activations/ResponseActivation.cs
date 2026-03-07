@@ -13,7 +13,7 @@ public class ResponseActivation : AbstractActivation
     {
         _activated = true;
         
-        if (_soundAnimPairs.Length < _activationAmount)
+        if (_soundAnimPairs.Length - 1 < _activationAmount)
         {
             return;
         }

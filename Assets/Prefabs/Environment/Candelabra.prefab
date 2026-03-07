@@ -171,13 +171,13 @@ Light:
   serializedVersion: 12
   m_Type: 2
   m_Color: {r: 0.9529412, g: 0.80784315, b: 0.43529412, a: 1}
-  m_Intensity: 10
+  m_Intensity: 2
   m_Range: 6
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize2D: {x: 0.5, y: 0.5}
   m_Shadows:
-    m_Type: 2
+    m_Type: 1
     m_Resolution: 128
     m_CustomResolution: -1
     m_Strength: 1
@@ -210,7 +210,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -238,7 +238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalLightData
   m_UsePipelineSettings: 1
-  m_AdditionalLightsShadowResolutionTier: 0
+  m_AdditionalLightsShadowResolutionTier: 1
   m_CustomShadowLayers: 0
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
@@ -1405,18 +1405,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: b72a376aefd244b47a53c1aa4f6dcc14, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.61844
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: b72a376aefd244b47a53c1aa4f6dcc14, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -16.03
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: b72a376aefd244b47a53c1aa4f6dcc14, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 28.923485
-      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b72a376aefd244b47a53c1aa4f6dcc14, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1

@@ -64,3 +64,4 @@ crashlytics-build.properties
 
 # LightingData files
 **/LightingData.asset
+ProjectSettings/Packages/com.unity.probuilder/Settings.json

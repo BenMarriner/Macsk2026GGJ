@@ -33658,7 +33658,7 @@ PrefabInstance:
     - target: {fileID: 3838681738915107354, guid: fe789f19938dd294083f218351d5f932, type: 3}
       propertyPath: _soundAnimPairs.Array.data[1].SoundClip
       value: 
-      objectReference: {fileID: 8300000, guid: e2d22d2736de0cd4eb2afe2a08c3b275, type: 3}
+      objectReference: {fileID: 8300000, guid: 54adb70d9060ea24da6ba7d057adccb7, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -218108,7 +218108,7 @@ PrefabInstance:
     - target: {fileID: 3838681738915107354, guid: fe789f19938dd294083f218351d5f932, type: 3}
       propertyPath: _soundAnimPairs.Array.data[1].SoundClip
       value: 
-      objectReference: {fileID: 8300000, guid: e2d22d2736de0cd4eb2afe2a08c3b275, type: 3}
+      objectReference: {fileID: 8300000, guid: 54adb70d9060ea24da6ba7d057adccb7, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -301451,7 +301451,7 @@ PrefabInstance:
     - target: {fileID: 3838681738915107354, guid: fe789f19938dd294083f218351d5f932, type: 3}
       propertyPath: _soundAnimPairs.Array.data[1].SoundClip
       value: 
-      objectReference: {fileID: 8300000, guid: e2d22d2736de0cd4eb2afe2a08c3b275, type: 3}
+      objectReference: {fileID: 8300000, guid: 54adb70d9060ea24da6ba7d057adccb7, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -305888,7 +305888,7 @@ PrefabInstance:
     - target: {fileID: 3838681738915107354, guid: fe789f19938dd294083f218351d5f932, type: 3}
       propertyPath: _soundAnimPairs.Array.data[1].SoundClip
       value: 
-      objectReference: {fileID: 8300000, guid: e2d22d2736de0cd4eb2afe2a08c3b275, type: 3}
+      objectReference: {fileID: 8300000, guid: 54adb70d9060ea24da6ba7d057adccb7, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

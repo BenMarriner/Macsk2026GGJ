@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 778e7ea62e742d0408ecb8342baf637c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 352952
+  packageName: RealBlend - Mesh Painting & Creation
+  packageVersion: 1.1.0
+  assetPath: Assets/RealBlend/Art/Materials/BuiltIn/VariationExampleBuilt-In.mat
+  uploadId: 864662

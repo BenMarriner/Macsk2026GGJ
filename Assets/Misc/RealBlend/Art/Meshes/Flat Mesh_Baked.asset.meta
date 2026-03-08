@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 7af47a0e106892440aeeae73ee6c935c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 4300000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 352952
+  packageName: RealBlend - Mesh Painting & Creation
+  packageVersion: 1.1.0
+  assetPath: Assets/RealBlend/Art/Meshes/Flat Mesh_Baked.asset
+  uploadId: 864662

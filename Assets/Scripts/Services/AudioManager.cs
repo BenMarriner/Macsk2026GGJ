@@ -50,7 +50,7 @@ public class AudioManager : MonoBehaviour
         StopAllCoroutines();
     }
 
-    private void Start()
+    private void Awake()
     {
         _currentPrimaryMusicSource = _musicSourcePair[0];
     }

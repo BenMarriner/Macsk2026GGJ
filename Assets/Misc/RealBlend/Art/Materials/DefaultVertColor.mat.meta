@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a5ee10b2344954d43b37da5051bccccb
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 352952
+  packageName: RealBlend - Mesh Painting & Creation
+  packageVersion: 1.1.0
+  assetPath: Assets/RealBlend/Art/Materials/DefaultVertColor.mat
+  uploadId: 864662

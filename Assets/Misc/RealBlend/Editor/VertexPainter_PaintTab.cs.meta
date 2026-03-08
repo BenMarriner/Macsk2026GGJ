@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: d55df57960899ea4d9fc0f7867ae4218
+AssetOrigin:
+  serializedVersion: 1
+  productId: 352952
+  packageName: RealBlend - Mesh Painting & Creation
+  packageVersion: 1.1.0
+  assetPath: Assets/RealBlend/Editor/VertexPainter_PaintTab.cs
+  uploadId: 864662

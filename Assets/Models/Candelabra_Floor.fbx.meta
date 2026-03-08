@@ -3,7 +3,22 @@ guid: b72a376aefd244b47a53c1aa4f6dcc14
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Candle
+    second: {fileID: 2100000, guid: 79d9c1391df5cf04eba10a4635fa91ad, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Candle_Stand
+    second: {fileID: 2100000, guid: feb27361d5f74284c8bfd7d55d363f87, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Candle_Tip
+    second: {fileID: 2100000, guid: 21acbe89a577dc444a742bdd79917acd, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -50,7 +65,7 @@ ModelImporter:
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
-    bakeAxisConversion: 0
+    bakeAxisConversion: 1
     preserveHierarchy: 0
     skinWeightsMode: 0
     maxBonesPerVertex: 4

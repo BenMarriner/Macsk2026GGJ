@@ -3,6 +3,12 @@ using UnityEngine;
 
 public class TriggerWaypointObject : BlueWaypointObject
 {
+    protected override void Start()
+    {
+        base.Start();
+        _isMoving = true;
+    }
+
     protected override void SetBlueEffect(bool blueEnabled){}
 
     protected override void TargetNextWaypoint()
@@ -16,6 +22,7 @@ public class TriggerWaypointObject : BlueWaypointObject
 
     protected override void Unpause(){}
 
+    [ContextMenu("Reset Platform")]
     protected virtual void Reset()
     {
         _movingPlatform.transform.position = _waypointPath.GetWaypoint(_targetWaypointIndex).transform.position;

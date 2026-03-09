@@ -167,10 +167,10 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 5
+  MinDistance: 5
+  MaxDistance: 10
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -268,7 +268,7 @@ Transform:
   m_GameObject: {fileID: 1661982530680909095}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 5.49, z: 0}
+  m_LocalPosition: {x: 0, y: 23.52, z: 57.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -522,7 +522,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 8891
+  m_VersionIndex: 8894
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -639,7 +639,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1030344927486307187}
-  - component: {fileID: 5754131966465783593}
+  - component: {fileID: 8983397736075544940}
   m_Layer: 6
   m_Name: TriggeredElevator
   m_TagString: Untagged
@@ -664,7 +664,7 @@ Transform:
   - {fileID: 7795757331332543143}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5754131966465783593
+--- !u!114 &8983397736075544940
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -673,21 +673,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 8571447759194730810}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ed7388c00eaec14c8e5e2f6ac9f1b77, type: 3}
+  m_Script: {fileID: 11500000, guid: 08f54bf0590f5c14e8cd86dc63ae79e1, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BlueObject
+  m_EditorClassIdentifier: Assembly-CSharp::TriggerWaypointObject
   _currentMaskMode: 0
   _effectReversed: 0
   _colouredMaterial: {fileID: 2100000, guid: a5e69015353451848b5b9426220f078e, type: 2}
   _isEnabled: 1
   _ambientSFXSource: {fileID: 7105529960336446886}
   _ambientFadeTime: 0.5
-  _speed: 4
+  _speed: 10
   _movingPlatform: {fileID: 1123834499156748164}
   _waypointPath: {fileID: 2308737969048410036}
   _useWaypointRotation: 0
-  _slowNearEnd: 1
-  _arrivalPauseTime: 0.75
+  _slowNearEnd: 0
+  _arrivalPauseTime: 0
   _playSoundWhenReachedWaypoint: 0
   _waypointReachedSound: {fileID: 0}
   _ambientClips:

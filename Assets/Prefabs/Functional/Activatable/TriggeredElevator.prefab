@@ -682,7 +682,7 @@ MonoBehaviour:
   _isEnabled: 0
   _ambientSFXSource: {fileID: 7105529960336446886}
   _ambientFadeTime: 0.5
-  _speed: 20
+  _speed: 25
   _movingPlatform: {fileID: 1123834499156748164}
   _waypointPath: {fileID: 2308737969048410036}
   _useWaypointRotation: 0
@@ -693,3 +693,4 @@ MonoBehaviour:
   _ambientClips:
   - {fileID: 8300000, guid: 1c9bc3f9026b70540901a3ff038151e7, type: 3}
   - {fileID: 8300000, guid: 3ca65042f620be84a87cbb86d0fe9a53, type: 3}
+  _resetBlueList: []

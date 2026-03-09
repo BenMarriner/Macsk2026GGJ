@@ -77,6 +77,26 @@ Material:
         m_Texture: {fileID: 2800000, guid: 510fd44d5621b544aa938d697d5e26ca, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _3_Base_Color:
+        m_Texture: {fileID: 2800000, guid: bd1cc475a4ff7c34686b62bb73094ae6, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _3_Height:
+        m_Texture: {fileID: 2800000, guid: 0ec97337523c4c844a2ca36007c35924, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _3_Normal:
+        m_Texture: {fileID: 2800000, guid: 7cf6901af6dcfdb4cb87304e4118eaf5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _3_Occlusion:
+        m_Texture: {fileID: 2800000, guid: 5f5286285540abd49a1ce0eb39172141, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _3_Roughness:
+        m_Texture: {fileID: 2800000, guid: 04501ec4a8dd257479751b7a12645b77, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 2800000, guid: de9a897915e0e024bae8721e08fa739c, type: 3}
         m_Scale: {x: 0.5, y: 0.5}
@@ -135,17 +155,22 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _1_Roughness_Amount: 0.878
+    - _1_Roughness_Amount: 0.785
     - _1_Scale: 0.28
+    - _2_Blend_Amount: 0.5
     - _2_Height_Offset: 0
-    - _2_Roughness_Amount: 0.171
+    - _2_Roughness_Amount: 0.226
     - _2_Scale: 0.18
+    - _3_Blend_Amount: 0.5
+    - _3_Height_Offset: 0
+    - _3_Roughness_Amount: 1
+    - _3_Scale: 1
     - _AddPrecomputedVelocity: 0
     - _AlphaClip: 0
     - _AlphaToMask: 0
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
-    - _Blend_Amount: 3
+    - _Blend_Amount: 1.68
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
@@ -161,6 +186,7 @@ Material:
     - _GlossyReflections: 0
     - _HightOffsetMat2: 0
     - _Metallic: 0
+    - _NumMaterials: 3
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0

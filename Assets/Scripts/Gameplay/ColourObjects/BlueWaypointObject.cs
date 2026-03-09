@@ -8,6 +8,11 @@ public class BlueWaypointObject : BlueObject
     [SerializeField] private bool _useWaypointRotation;
     [SerializeField] private bool _slowNearEnd;
     [SerializeField] private float _arrivalPauseTime = 0.5f;
+
+    [Header("SFX")]
+    [SerializeField] private bool _playSoundWhenReachedWaypoint = false;
+    [SerializeField] private AudioSource _waypointReachedSound;
+
     private int _targetWaypointIndex;
 
     private Transform _previousWaypoint;
@@ -55,6 +60,10 @@ public class BlueWaypointObject : BlueObject
         {
             TargetNextWaypoint();
             _platformPaused = true;
+            if (_playSoundWhenReachedWaypoint || _waypointReachedSound)
+            {
+                _waypointReachedSound.Play();
+            }
         }
     }
 

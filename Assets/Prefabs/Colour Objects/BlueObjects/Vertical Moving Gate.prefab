@@ -25,6 +25,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8550198129607781266}
     - target: {fileID: 1217912472659805673, guid: 2bc25de9f103c7443b05dd86ddbf0952, type: 3}
+      propertyPath: _ambientClips.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1217912472659805673, guid: 2bc25de9f103c7443b05dd86ddbf0952, type: 3}
       propertyPath: _playSoundWhenReachedWaypoint
       value: 1
       objectReference: {fileID: 0}

@@ -15,6 +15,8 @@ public class BlueWaypointObject : BlueObject
     [SerializeField] private AudioClip[] _ambientClips;
     private int _audioClipIndex = 0;
 
+    protected bool _wasEnabledAtStart;
+
     protected int _targetWaypointIndex;
 
     protected Transform _previousWaypoint;
@@ -27,6 +29,8 @@ public class BlueWaypointObject : BlueObject
         _defaultMaterialList = GetDefaultMaterialList(GetComponentsInChildren<Transform>());
         _movingPlatform.transform.position = _waypointPath.GetWaypoint(_targetWaypointIndex).transform.position;
         TargetNextWaypoint();
+
+        _wasEnabledAtStart = _isEnabled;
 
         if (_ambientSFXSource)
         {
@@ -123,5 +127,17 @@ public class BlueWaypointObject : BlueObject
         _ambientSFXSource.clip = _ambientClips[_audioClipIndex];
 
         _audioClipIndex++;
+    }
+
+    [ContextMenu("Reset Platform")]
+    public virtual void Reset()
+    {
+        _isEnabled = _wasEnabledAtStart;
+        _targetWaypointIndex = 0;
+        _movingPlatform.transform.position = _waypointPath.GetWaypoint(_targetWaypointIndex).transform.position;
+        TargetNextWaypoint();
+        _elapsedTime = 0f;
+        _movingPaused = false;
+        UpdateAmbientSFX(_isMoving && !_movingPaused);
     }
 }

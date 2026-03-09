@@ -1,8 +1,10 @@
-using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class TriggerWaypointObject : BlueWaypointObject
 {
+    [SerializeField] protected List<BlueWaypointObject> _resetBlueList;
+
     protected override void Start()
     {
         base.Start();
@@ -22,12 +24,17 @@ public class TriggerWaypointObject : BlueWaypointObject
 
     protected override void Unpause(){}
 
-    [ContextMenu("Reset Platform")]
-    protected virtual void Reset()
+    [ContextMenu("Reset Platform 2")]
+    public override void Reset()
     {
-        _movingPlatform.transform.position = _waypointPath.GetWaypoint(_targetWaypointIndex).transform.position;
-        _elapsedTime = 0f;
-        _movingPaused = false;
-        UpdateAmbientSFX(_isMoving && !_movingPaused);
+        base.Reset();
+
+        foreach (BlueWaypointObject item in _resetBlueList)
+        {
+            if (item)
+            {
+                item.Reset();
+            }
+        }
     }
 }

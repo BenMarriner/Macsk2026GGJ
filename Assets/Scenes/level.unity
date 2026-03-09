@@ -26004,6 +26004,10 @@ PrefabInstance:
       value: -0.24003777
       objectReference: {fileID: 0}
     - target: {fileID: 3847417154011114799, guid: 3c082170113c07941bb63ba5924853ac, type: 3}
+      propertyPath: _onlyTriggeredOnce
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3847417154011114799, guid: 3c082170113c07941bb63ba5924853ac, type: 3}
       propertyPath: _pairedInteractables.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -26120,7 +26124,7 @@ MonoBehaviour:
   - {fileID: 1326321081}
   - {fileID: 1806800669}
   _disablesObjects: 0
-  _onlyTriggeredOnce: 1
+  _onlyTriggeredOnce: 0
 --- !u!4 &288441250 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3437192564630134875, guid: e149c5c18f58d4542ae0e53149f157ec, type: 3}

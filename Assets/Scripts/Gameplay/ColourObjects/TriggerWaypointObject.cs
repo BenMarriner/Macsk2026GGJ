@@ -5,6 +5,18 @@ public class TriggerWaypointObject : BlueWaypointObject
 {
     [SerializeField] protected List<BlueWaypointObject> _resetBlueList;
 
+    protected override void OnEnable()
+	{
+        base.OnEnable();
+		EventManager.RegisterEvent(EventKey.PLAYER_DIED, PlayerDiedhandler);
+	}
+
+	protected override void OnDisable()
+	{
+        base.OnDisable();
+		EventManager.DeregisterEvent(EventKey.PLAYER_DIED, PlayerDiedhandler);
+	}
+
     protected override void Start()
     {
         base.Start();
@@ -23,6 +35,11 @@ public class TriggerWaypointObject : BlueWaypointObject
     }
 
     protected override void Unpause(){}
+
+    protected virtual void PlayerDiedhandler(object eventData)
+    {
+        Reset();
+    }
 
     [ContextMenu("Reset Platform 2")]
     public override void Reset()

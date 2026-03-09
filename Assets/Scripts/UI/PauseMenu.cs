@@ -10,12 +10,15 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject eventSystem;
     
     [Header("Canvas Panels")]
+    [SerializeField] private GameObject pauseCanvas;
+
     [SerializeField] private GameObject pausePanel;
     
     [Header("UI Elements")]
     [SerializeField] private Button resumeButton;
     [SerializeField] private Button quitButton;
-    //Todo: add options menu button UI elements
+    [SerializeField] private Button optionsButton;
+    [SerializeField] private OptionsMenu optionsMenu;
     
     public bool IsPaused { get; private set; } = false;
     
@@ -23,7 +26,7 @@ public class PauseMenu : MonoBehaviour
     {
         DisableCursor();
         SetupButtonListeners();
-        pausePanel.SetActive(false);
+        pauseCanvas.SetActive(false);
     }
 
     private void EnableCursor()
@@ -44,7 +47,7 @@ public class PauseMenu : MonoBehaviour
 
         if (eventSystem && eventSystem.TryGetComponent(out InputSystemUIInputModule ISUIInputModule))
         {
-            ISUIInputModule.cancel.action.performed += EnablePause;
+            ISUIInputModule.cancel.action.performed += OnCancelClicked;
         }
         else
         {
@@ -52,6 +55,7 @@ public class PauseMenu : MonoBehaviour
         }
         
         //Todo: add options menu button listeners
+        optionsButton?.onClick.AddListener(OnOptionsClicked);
     }
 
     private void OnResumeClicked()
@@ -61,14 +65,36 @@ public class PauseMenu : MonoBehaviour
 
     private void OnQuitClicked()
     {
+        DisablePause();
+        
         EventManager.TriggerEvent(EventKey.OPEN_SCENE, 1);
     }
 
-    private void EnablePause(InputAction.CallbackContext context)
+    private void OnOptionsClicked()
+    {
+        optionsMenu.AccessOptionsMenu(pausePanel);
+    }
+
+    private void OnCancelClicked(InputAction.CallbackContext context)
+    {
+        if (!IsPaused)
+        {
+            EnablePause();
+        }
+        else if (optionsMenu.IsInOptionsMenu)
+        {
+            optionsMenu.OnBackOptionsClicked();
+        }
+        else
+        {
+            DisablePause();
+        }
+    }
+    
+    private void EnablePause()
     {
         if (IsPaused)
         {
-            DisablePause();
             return;
         }
         
@@ -81,7 +107,7 @@ public class PauseMenu : MonoBehaviour
         TogglePlayerControls(false);
         
         // Enable Pause Menu UI
-        pausePanel.SetActive(true);
+        pauseCanvas?.SetActive(true);
         
         // Set Time scale to 0
         Time.timeScale = 0;
@@ -100,7 +126,7 @@ public class PauseMenu : MonoBehaviour
         TogglePlayerControls(true);
         
         // Disable Pause Menu UI
-        pausePanel.SetActive(false);
+        pauseCanvas?.SetActive(false);
         
         // Set Time scale to 1
         Time.timeScale = 1;

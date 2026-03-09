@@ -55,6 +55,8 @@ public class InputHandler : MonoBehaviour
 
     private void HandleEscape(bool val)
     {
+        return;
+        
         Debug.Log("Escape");
         if (val)
         {

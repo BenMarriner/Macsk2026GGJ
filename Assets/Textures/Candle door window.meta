@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Textures/Candle door window.meta
 guid: 61bf30b5163b8274e81fe0ada8715ad9
+========
+guid: 35a7a95996258a14397d7f596f8f4cfd
+>>>>>>>> Ben-Branch:Assets/Misc/RealBlend.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

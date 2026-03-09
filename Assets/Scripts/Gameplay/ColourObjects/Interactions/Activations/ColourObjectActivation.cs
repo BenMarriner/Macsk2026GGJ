@@ -5,11 +5,13 @@ public class ColourObjectActivator : AbstractActivation
     [SerializeField] private ColouredObject _colouredObject;
     [SerializeField] private ColouredObject[] _colouredObjects;
     [SerializeField] private bool _disablesObjects = false;
+    [SerializeField] private bool _onlyTriggeredOnce = true;
     
     public override void Activate()
     {
         if (_activated) return;
-        _activated = !_activated;
+
+        if (_onlyTriggeredOnce) _activated = !_activated;
 
         if (_colouredObject)
         {

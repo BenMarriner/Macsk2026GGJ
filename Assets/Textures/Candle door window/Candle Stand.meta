@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Textures/Candle door window/Candle Stand.meta
 guid: bf67fd4d6ca55a345b22f224497571db
+========
+guid: 28642993ed22fd0438df54f0e7460876
+>>>>>>>> Ben-Branch:Assets/Misc/RealBlend/VertexColorPalettes.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

@@ -18,5 +18,10 @@ public static class GamePlayStatics
     {
         return GameObject.FindGameObjectWithTag("Player");
     }
+    
+    public static GameObject GetCameraHolder()
+    {
+        return GameObject.FindGameObjectWithTag("CameraHolder");
+    }
 }
 

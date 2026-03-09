@@ -12,32 +12,14 @@ public class MainMenuManager : MonoBehaviour
     
     [Header("Options")]
     [SerializeField] private Button _optionsButton;
-    [SerializeField] private Button _backOptionsButton;
-    [SerializeField] private GameObject _optionsMenu;
-    
-    [SerializeField] private TextMeshProUGUI cameraSensitivityText;
-    [SerializeField] private Slider cameraSensitivitySlider;
+    [SerializeField] private OptionsMenu optionsMenu;
     
     private void Start()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        InitialiseMenu();
         SetupButtonListeners();
         EventManager.TriggerEvent(EventKey.MUSIC, MusicKey.NoMask);
-    }
-
-    private void InitialiseMenu()
-    {
-        if (!PlayerPrefs.HasKey("cameraSensitivity"))
-        {
-            PlayerPrefs.SetFloat("cameraSensitivity", 100);
-            LoadCameraSensitivity();
-        }
-        else
-        {
-            LoadCameraSensitivity();
-        }
     }
 
     private void SetupButtonListeners()
@@ -47,8 +29,6 @@ public class MainMenuManager : MonoBehaviour
         _quitButton?.onClick.AddListener(OnQuitClicked);
         
         _optionsButton?.onClick.AddListener(OnOptionsClicked);
-        _backOptionsButton?.onClick.AddListener(OnBackOptionsClicked);
-        cameraSensitivitySlider?.onValueChanged.AddListener(OnChangeCameraSensitivity);
     }
 
     #region Button Handlers
@@ -73,39 +53,11 @@ public class MainMenuManager : MonoBehaviour
         DebugLogger.Log("Opening options menu...");
         
         // Enable Options menu
-        _optionsMenu.SetActive(true);
+        optionsMenu?.AccessOptionsMenu(_mainMenuContainer);
     }
     
-    protected virtual void OnBackOptionsClicked()
-    {
-        EventManager.TriggerEvent(EventKey.SFX, SoundType.ButtonClick);
-        DebugLogger.Log("Opening options menu...");
-        
-        // Disable Options menu
-        _optionsMenu.SetActive(false);
-    }
     
     #endregion
     
-    protected virtual void OnChangeCameraSensitivity(float value)
-    {
-        //gameSettingsManger.cameraSensitivity = cameraSensitivitySlider.value;
-        
-        if (!cameraSensitivitySlider || !cameraSensitivityText) return;
-        SaveCameraSensitivity(value);
 
-        cameraSensitivityText.text = cameraSensitivitySlider.value.ToString("F1");
-    }
-    
-    private void LoadCameraSensitivity()
-    {
-        if (!cameraSensitivitySlider || !cameraSensitivityText) return;
-        cameraSensitivitySlider.value = PlayerPrefs.GetFloat("cameraSensitivity");
-        cameraSensitivityText.text = cameraSensitivitySlider.value.ToString("F1");
-    }
-    
-    private void SaveCameraSensitivity(float value)
-    {
-        PlayerPrefs.SetFloat("cameraSensitivity", value);
-    }
 }

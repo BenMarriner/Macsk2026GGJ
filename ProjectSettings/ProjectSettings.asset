@@ -14,7 +14,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: The Makk Room
   productName: Hue Behind The Mask
-  defaultCursor: {fileID: 2800000, guid: 91cb14fc437f96b4ab8c7f6e7bb52982, type: 3}
+  defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
   m_ShowUnitySplashScreen: 1

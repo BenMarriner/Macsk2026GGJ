@@ -4,23 +4,23 @@ public class PlatformParenter : MonoBehaviour
 {
     [SerializeField] string PlayerTag = "Player";
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collider)
     {
-        if (!collision.gameObject.CompareTag(PlayerTag))
+        if (!collider.gameObject.CompareTag(PlayerTag))
         {
             return;
         }
 
-        collision.transform.SetParent(transform);
+        collider.transform.parent.SetParent(transform);
     }
 
-    void OnCollisionExit(Collision collision)
+    void OnTriggerExit(Collider collider)
     {
-        if (!collision.gameObject.CompareTag(PlayerTag))
+        if (!collider.gameObject.CompareTag(PlayerTag))
         {
             return;
         }
 
-        collision.transform.SetParent(null);
+        collider.transform.parent.SetParent(null);
     }
 }

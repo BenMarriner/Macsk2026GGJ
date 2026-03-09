@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class BlueWaypointObject : BlueObject
 {
-    [SerializeField] private GameObject _movingPlatform;
-    [SerializeField] private WaypointPath _waypointPath;
+    [SerializeField] protected GameObject _movingPlatform;
+    [SerializeField] protected WaypointPath _waypointPath;
     [SerializeField] private bool _useWaypointRotation;
     [SerializeField] private bool _slowNearEnd;
     [SerializeField] private float _arrivalPauseTime = 0.5f;
@@ -15,18 +15,22 @@ public class BlueWaypointObject : BlueObject
     [SerializeField] private AudioClip[] _ambientClips;
     private int _audioClipIndex = 0;
 
-    private int _targetWaypointIndex;
+    protected bool _wasEnabledAtStart;
 
-    private Transform _previousWaypoint;
-    private Transform _targetWaypoint;
+    protected int _targetWaypointIndex;
 
-    private float _elapsedTime;
+    protected Transform _previousWaypoint;
+    protected Transform _targetWaypoint;
+
+    protected float _elapsedTime;
 
     protected override void Start()
     {
         _defaultMaterialList = GetDefaultMaterialList(GetComponentsInChildren<Transform>());
         _movingPlatform.transform.position = _waypointPath.GetWaypoint(_targetWaypointIndex).transform.position;
         TargetNextWaypoint();
+
+        _wasEnabledAtStart = _isEnabled;
 
         if (_ambientSFXSource)
         {
@@ -76,7 +80,7 @@ public class BlueWaypointObject : BlueObject
         }
     }
 
-    private void TargetNextWaypoint()
+    protected virtual void TargetNextWaypoint()
     {
         _previousWaypoint = _waypointPath.GetWaypoint(_targetWaypointIndex);
         _targetWaypointIndex = _waypointPath.GetNextWaypointIndex(_targetWaypointIndex);
@@ -85,7 +89,7 @@ public class BlueWaypointObject : BlueObject
         _elapsedTime = 0f;
     }
 
-    private void Unpause()
+    protected virtual void Unpause()
     {
         _elapsedTime = 0f;
         _movingPaused = false;
@@ -123,5 +127,17 @@ public class BlueWaypointObject : BlueObject
         _ambientSFXSource.clip = _ambientClips[_audioClipIndex];
 
         _audioClipIndex++;
+    }
+
+    [ContextMenu("Reset Platform")]
+    public virtual void Reset()
+    {
+        _isEnabled = _wasEnabledAtStart;
+        _targetWaypointIndex = 0;
+        _movingPlatform.transform.position = _waypointPath.GetWaypoint(_targetWaypointIndex).transform.position;
+        TargetNextWaypoint();
+        _elapsedTime = 0f;
+        _movingPaused = false;
+        UpdateAmbientSFX(_isMoving && !_movingPaused);
     }
 }

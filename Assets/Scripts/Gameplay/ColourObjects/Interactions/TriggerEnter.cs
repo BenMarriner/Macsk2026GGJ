@@ -4,6 +4,7 @@ public class TriggerEnter : MonoBehaviour
 {
     [SerializeField] private AbstractActivation[] _pairedInteractables;
     [SerializeField] private string _playerTag = "Player";
+    [SerializeField] private bool _onlyTriggeredOnce = true;
     private bool _activated = false;
 
     void OnTriggerEnter(Collider collider)
@@ -15,7 +16,7 @@ public class TriggerEnter : MonoBehaviour
             return;
         }
 
-        _activated = true;
+        if (_onlyTriggeredOnce) _activated = true;
         
         foreach (AbstractActivation item in _pairedInteractables)
         {

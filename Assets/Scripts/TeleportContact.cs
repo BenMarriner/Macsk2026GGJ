@@ -1,15 +1,15 @@
-using System;
 using UnityEngine;
 
 public class TeleportContact : MonoBehaviour
 {
-    [SerializeField]
-    private Transform teleportPoint;
-
-    private void OnTriggerEnter(Collider other)
+    [SerializeField] private string _playerTag = "Player";
+    private void OnTriggerEnter(Collider collider)
     {
-        if (!teleportPoint || other.transform.parent.gameObject.TryGetComponent(out PlayerTeleport pt)) return;
+        if (!collider.gameObject.CompareTag(_playerTag))
+        {
+            return;
+        }
         
-        pt.TeleportToPosition(teleportPoint.position);
+        EventManager.TriggerEvent(EventKey.PLAYER_DIED, null);
     }
 }

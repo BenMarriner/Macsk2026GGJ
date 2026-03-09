@@ -89,6 +89,11 @@ MonoBehaviour:
   _useWaypointRotation: 0
   _slowNearEnd: 0
   _arrivalPauseTime: 0.5
+  _playSoundWhenReachedWaypoint: 0
+  _waypointReachedSound: {fileID: 0}
+  _ambientClips:
+  - {fileID: 8300000, guid: 1c9bc3f9026b70540901a3ff038151e7, type: 3}
+  - {fileID: 8300000, guid: 3ca65042f620be84a87cbb86d0fe9a53, type: 3}
 --- !u!1 &2884312137801227305
 GameObject:
   m_ObjectHideFlags: 0

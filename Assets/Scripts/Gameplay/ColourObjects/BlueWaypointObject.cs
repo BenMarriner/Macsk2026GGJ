@@ -30,7 +30,7 @@ public class BlueWaypointObject : BlueObject
 
         if (_ambientSFXSource)
         {
-            _ambientSFXSource.volume = 1f;
+            _ambientSFXSource.volume = 1f * _maxVolumeMultiplier;
         }
 
         IncrementAmbientSFX();

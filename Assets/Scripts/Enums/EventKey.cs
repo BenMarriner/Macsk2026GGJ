@@ -15,6 +15,8 @@ public enum EventKey
     FADE_SECONDARY_TRACKS,
     SYNC_MUSIC_TIME,
     START_SYNCED_MUSIC,
+    PLAYER_DIED,
+    RESPAWN_SET,
 
     // Inputs
     MASK_INPUT,

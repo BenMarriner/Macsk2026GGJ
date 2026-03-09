@@ -156,11 +156,11 @@ Material:
     m_Ints: []
     m_Floats:
     - _1_Roughness_Amount: 0.785
-    - _1_Scale: 0.28
+    - _1_Scale: 0.56
     - _2_Blend_Amount: 0.5
     - _2_Height_Offset: 0
     - _2_Roughness_Amount: 0.226
-    - _2_Scale: 0.18
+    - _2_Scale: 0.68
     - _3_Blend_Amount: 0.5
     - _3_Height_Offset: 0
     - _3_Roughness_Amount: 1
@@ -192,6 +192,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
+    - _Scale: 0
     - _Smoothness: 0.2
     - _SmoothnessMultiplier: 0.3
     - _SmoothnessTextureChannel: 0

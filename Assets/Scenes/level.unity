@@ -229258,6 +229258,10 @@ PrefabInstance:
       value: Hedge (33)
       objectReference: {fileID: 0}
     - target: {fileID: 3437192564630134875, guid: e149c5c18f58d4542ae0e53149f157ec, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3437192564630134875, guid: e149c5c18f58d4542ae0e53149f157ec, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.92
       objectReference: {fileID: 0}
@@ -270584,7 +270588,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 160795389568909533, guid: 45209c7d0755f054abdaf519a2c4e4eb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.68
+      value: 9.09
       objectReference: {fileID: 0}
     - target: {fileID: 160795389568909533, guid: 45209c7d0755f054abdaf519a2c4e4eb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -295888,8 +295892,16 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3437192564630134875, guid: e149c5c18f58d4542ae0e53149f157ec, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3437192564630134875, guid: e149c5c18f58d4542ae0e53149f157ec, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3437192564630134875, guid: e149c5c18f58d4542ae0e53149f157ec, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.47
+      value: 7.31
       objectReference: {fileID: 0}
     - target: {fileID: 3437192564630134875, guid: e149c5c18f58d4542ae0e53149f157ec, type: 3}
       propertyPath: m_LocalPosition.y
@@ -295897,7 +295909,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3437192564630134875, guid: e149c5c18f58d4542ae0e53149f157ec, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 101.64001
+      value: 101.2
       objectReference: {fileID: 0}
     - target: {fileID: 3437192564630134875, guid: e149c5c18f58d4542ae0e53149f157ec, type: 3}
       propertyPath: m_LocalRotation.w
@@ -295925,6 +295937,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3437192564630134875, guid: e149c5c18f58d4542ae0e53149f157ec, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4817967686838690720, guid: e149c5c18f58d4542ae0e53149f157ec, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -295959,7 +295975,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RedObject
   _currentMaskMode: 0
   _effectReversed: 1
-  _colouredMaterial: {fileID: 2100000, guid: 22aad7390dadad34b98fb982d58adbb4, type: 2}
+  _colouredMaterial: {fileID: 2100000, guid: a136fce3a6e8aaf4eb03a6f9eca68027, type: 2}
   _isEnabled: 1
   _ambientSFXSource: {fileID: 1485606612}
   _ambientFadeTime: 0.5

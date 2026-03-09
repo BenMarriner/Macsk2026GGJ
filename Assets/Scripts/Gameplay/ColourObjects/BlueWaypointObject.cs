@@ -12,6 +12,8 @@ public class BlueWaypointObject : BlueObject
     [Header("SFX")]
     [SerializeField] private bool _playSoundWhenReachedWaypoint = false;
     [SerializeField] private AudioSource _waypointReachedSound;
+    [SerializeField] private AudioClip[] _ambientClips;
+    private int _audioClipIndex = 0;
 
     private int _targetWaypointIndex;
 
@@ -19,7 +21,6 @@ public class BlueWaypointObject : BlueObject
     private Transform _targetWaypoint;
 
     private float _elapsedTime;
-    private bool _platformPaused = false;
 
     protected override void Start()
     {
@@ -27,6 +28,12 @@ public class BlueWaypointObject : BlueObject
         _movingPlatform.transform.position = _waypointPath.GetWaypoint(_targetWaypointIndex).transform.position;
         TargetNextWaypoint();
 
+        if (_ambientSFXSource)
+        {
+            _ambientSFXSource.volume = 1f;
+        }
+
+        IncrementAmbientSFX();
         SetBlueEffect(false);
     }
 
@@ -36,7 +43,7 @@ public class BlueWaypointObject : BlueObject
 
         _elapsedTime += Time.deltaTime;
 
-        if (_platformPaused)
+        if (_movingPaused)
         {
             if (_elapsedTime > _arrivalPauseTime) Unpause();
             return;
@@ -59,11 +66,13 @@ public class BlueWaypointObject : BlueObject
         if (elapsedPercentage >= 1)
         {
             TargetNextWaypoint();
-            _platformPaused = true;
+            _movingPaused = true;
             if (_playSoundWhenReachedWaypoint || _waypointReachedSound)
             {
                 _waypointReachedSound.Play();
             }
+            UpdateAmbientSFX(_isMoving && !_movingPaused);
+            IncrementAmbientSFX();
         }
     }
 
@@ -79,6 +88,40 @@ public class BlueWaypointObject : BlueObject
     private void Unpause()
     {
         _elapsedTime = 0f;
-        _platformPaused = false;
+        _movingPaused = false;
+        UpdateAmbientSFX(_isMoving && !_movingPaused);
+    }
+
+    protected override void SetMusicSyncTime(object eventData){}
+
+    protected override void StartSyncedAmbientSFX(object eventData){}
+
+    protected override void UpdateAmbientSFX(bool isActive)
+    {
+        if (!_ambientSFXSource) return;
+
+        if (isActive)
+        {
+            _ambientSFXSource.Play();
+        }
+        else
+        {
+            _ambientSFXSource.Stop();
+        }
+    }
+
+    protected virtual void IncrementAmbientSFX()
+    {
+        if (!_ambientSFXSource) return;
+        if (_ambientClips.Length < 2) return;
+
+        if (_audioClipIndex > _ambientClips.Length-1)
+        {
+            _audioClipIndex = 0;
+        }
+
+        _ambientSFXSource.clip = _ambientClips[_audioClipIndex];
+
+        _audioClipIndex++;
     }
 }

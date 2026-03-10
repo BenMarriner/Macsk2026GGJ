@@ -27495,6 +27495,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5981121546080350258, guid: 98455711da6b128488e41baa5f7f2d8c, type: 3}
+      propertyPath: MaxDistance
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5981121546080350258, guid: 98455711da6b128488e41baa5f7f2d8c, type: 3}
+      propertyPath: MinDistance
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6875319758390898845, guid: 98455711da6b128488e41baa5f7f2d8c, type: 3}
       propertyPath: m_Name
       value: RedGate
@@ -46099,6 +46107,14 @@ PrefabInstance:
     - target: {fileID: 3702899915339811158, guid: baabcd35b95df844ca5fbe20ddc9aecf, type: 3}
       propertyPath: m_Name
       value: Obstacle Platform 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405389011416803266, guid: baabcd35b95df844ca5fbe20ddc9aecf, type: 3}
+      propertyPath: MaxDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405389011416803266, guid: baabcd35b95df844ca5fbe20ddc9aecf, type: 3}
+      propertyPath: MinDistance
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6413701543914949623, guid: baabcd35b95df844ca5fbe20ddc9aecf, type: 3}
       propertyPath: m_LocalScale.x
@@ -201618,6 +201634,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5981121546080350258, guid: 98455711da6b128488e41baa5f7f2d8c, type: 3}
+      propertyPath: MaxDistance
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5981121546080350258, guid: 98455711da6b128488e41baa5f7f2d8c, type: 3}
+      propertyPath: MinDistance
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6875319758390898845, guid: 98455711da6b128488e41baa5f7f2d8c, type: 3}
       propertyPath: m_Name
       value: RedGate (2)
@@ -204500,6 +204524,14 @@ PrefabInstance:
     - target: {fileID: 153800299751345673, guid: 98455711da6b128488e41baa5f7f2d8c, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5981121546080350258, guid: 98455711da6b128488e41baa5f7f2d8c, type: 3}
+      propertyPath: MaxDistance
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5981121546080350258, guid: 98455711da6b128488e41baa5f7f2d8c, type: 3}
+      propertyPath: MinDistance
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6875319758390898845, guid: 98455711da6b128488e41baa5f7f2d8c, type: 3}
       propertyPath: m_Name
@@ -231955,6 +231987,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obstacle Platform 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4405389011416803266, guid: baabcd35b95df844ca5fbe20ddc9aecf, type: 3}
+      propertyPath: MaxDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405389011416803266, guid: baabcd35b95df844ca5fbe20ddc9aecf, type: 3}
+      propertyPath: MinDistance
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6413701543914949623, guid: baabcd35b95df844ca5fbe20ddc9aecf, type: 3}
       propertyPath: m_LocalScale.x
       value: 4
@@ -232690,6 +232730,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5981121546080350258, guid: 98455711da6b128488e41baa5f7f2d8c, type: 3}
+      propertyPath: MaxDistance
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5981121546080350258, guid: 98455711da6b128488e41baa5f7f2d8c, type: 3}
+      propertyPath: MinDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6875319758390898845, guid: 98455711da6b128488e41baa5f7f2d8c, type: 3}
       propertyPath: m_Name
       value: RedGate (4)
@@ -232900,6 +232948,14 @@ PrefabInstance:
     - target: {fileID: 153800299751345673, guid: 98455711da6b128488e41baa5f7f2d8c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5981121546080350258, guid: 98455711da6b128488e41baa5f7f2d8c, type: 3}
+      propertyPath: MaxDistance
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5981121546080350258, guid: 98455711da6b128488e41baa5f7f2d8c, type: 3}
+      propertyPath: MinDistance
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6875319758390898845, guid: 98455711da6b128488e41baa5f7f2d8c, type: 3}
       propertyPath: m_Name
@@ -234658,6 +234714,10 @@ PrefabInstance:
     - target: {fileID: 7296544282381763326, guid: bbda615a43b6ad64781f61e3b128329d, type: 3}
       propertyPath: m_Name
       value: PlayerSpawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 7296544282381763326, guid: bbda615a43b6ad64781f61e3b128329d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -249453,6 +249513,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obstacle Platform 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4405389011416803266, guid: baabcd35b95df844ca5fbe20ddc9aecf, type: 3}
+      propertyPath: MaxDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405389011416803266, guid: baabcd35b95df844ca5fbe20ddc9aecf, type: 3}
+      propertyPath: MinDistance
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6413701543914949623, guid: baabcd35b95df844ca5fbe20ddc9aecf, type: 3}
       propertyPath: m_LocalScale.x
       value: 4
@@ -249627,7 +249695,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4297455194633692868, guid: 1a1890979533e44479bf36edcc91ca42, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1388846786}
   m_SourcePrefab: {fileID: 100100000, guid: 1a1890979533e44479bf36edcc91ca42, type: 3}
 --- !u!4 &1326954703 stripped
 Transform:
@@ -252932,6 +253003,108 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e149c5c18f58d4542ae0e53149f157ec, type: 3}
+--- !u!1 &1388846784 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4297455194633692868, guid: 1a1890979533e44479bf36edcc91ca42, type: 3}
+  m_PrefabInstance: {fileID: 1326954702}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1388846786
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388846784}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 5074911642573715101, guid: 59b36550b0be81248bdf896c8c4c08e0, type: 2}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: dbbf8ca4e5f4d6240be556f58e504575, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 2
+  MaxDistance: 7
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &1390937811
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -275176,6 +275349,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5981121546080350258, guid: 98455711da6b128488e41baa5f7f2d8c, type: 3}
+      propertyPath: MaxDistance
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5981121546080350258, guid: 98455711da6b128488e41baa5f7f2d8c, type: 3}
+      propertyPath: MinDistance
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6875319758390898845, guid: 98455711da6b128488e41baa5f7f2d8c, type: 3}
       propertyPath: m_Name
       value: RedGate (3)
@@ -287114,6 +287295,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5451706581036609301, guid: 0d6ab9bd468913e4b90a26fca711f572, type: 3}
+      propertyPath: _ambientSFXSource
+      value: 
+      objectReference: {fileID: 1388846786}
+    - target: {fileID: 5451706581036609301, guid: 0d6ab9bd468913e4b90a26fca711f572, type: 3}
       propertyPath: _colouredMaterial
       value: 
       objectReference: {fileID: 2100000, guid: 7e4430289ff4b6d4cb886a5e51bd4b44, type: 2}
@@ -287177,7 +287362,8 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1310244191026979134, guid: 0d6ab9bd468913e4b90a26fca711f572, type: 3}
     m_RemovedGameObjects:
     - {fileID: 6710561946466763292, guid: 0d6ab9bd468913e4b90a26fca711f572, type: 3}
     m_AddedGameObjects:
@@ -299410,6 +299596,14 @@ PrefabInstance:
     - target: {fileID: 153800299751345673, guid: 98455711da6b128488e41baa5f7f2d8c, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5981121546080350258, guid: 98455711da6b128488e41baa5f7f2d8c, type: 3}
+      propertyPath: MaxDistance
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5981121546080350258, guid: 98455711da6b128488e41baa5f7f2d8c, type: 3}
+      propertyPath: MinDistance
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6875319758390898845, guid: 98455711da6b128488e41baa5f7f2d8c, type: 3}
       propertyPath: m_Name

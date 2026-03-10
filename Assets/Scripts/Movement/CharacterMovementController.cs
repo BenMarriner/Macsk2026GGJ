@@ -737,11 +737,13 @@ public class CharacterMovementController : MonoBehaviour
     // Reduces the velocity of the game object to zero over time
     private void DecelerateVelocity()
     {
-        if (_movementInput != Vector2.zero)
-        { return; }
+        if (_movementInput != Vector2.zero) return;
+
+        Vector3 linearVelocity = _rigidbody.linearVelocity;
         
-        
-        _rigidbody.linearVelocity -= _rigidbody.linearVelocity * (decelerationRate * Time.fixedDeltaTime);
+        linearVelocity.x -= linearVelocity.x * (decelerationRate * Time.fixedDeltaTime);
+        linearVelocity.z -= linearVelocity.z * (decelerationRate * Time.fixedDeltaTime);
+        _rigidbody.linearVelocity = linearVelocity;
         _rigidbody.angularVelocity -= _rigidbody.angularVelocity * (decelerationRate * Time.fixedDeltaTime);
     }
 }

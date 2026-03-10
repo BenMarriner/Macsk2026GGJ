@@ -21,27 +21,82 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Grass
-  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 9ab2645dbc346254b8dd193976b96ed1, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
-  - _METALLICSPECGLOSSMAP
-  - _NORMALMAP
-  - _OCCLUSIONMAP
-  - _PARALLAXMAP
+  m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap:
-    RenderType: Opaque
+  stringTagMap: {}
   disabledShaderPasses:
   - MOTIONVECTORS
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _1_Base_Color:
+        m_Texture: {fileID: 2800000, guid: e4fe0687e90e6b7408164c6a87809f0a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _1_Height:
+        m_Texture: {fileID: 2800000, guid: ca7634bd684c527498b77d67c3dbe62e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _1_Normal:
+        m_Texture: {fileID: 2800000, guid: f5eb130900e7644409f2cfeac1e2f997, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _1_Occlusion:
+        m_Texture: {fileID: 2800000, guid: f06e074783cd3fb45986fec5f8ffa834, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _1_Roughness:
+        m_Texture: {fileID: 2800000, guid: 77b8459c00406e74baee5ff8dff266b8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _2_Base_Color:
+        m_Texture: {fileID: 2800000, guid: 41cfb819bc5046d4b812682f2be3ee77, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _2_Height:
+        m_Texture: {fileID: 2800000, guid: 0f8a0b415e0946044b4089530092f92b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _2_Normal:
+        m_Texture: {fileID: 2800000, guid: 0bbb15c857fd0124c8f1aa1621154742, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _2_Occlusion:
+        m_Texture: {fileID: 2800000, guid: 900bca920f2ec6b40b447f505da6c42a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _2_Roughness:
+        m_Texture: {fileID: 2800000, guid: 510fd44d5621b544aa938d697d5e26ca, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _3_Base_Color:
+        m_Texture: {fileID: 2800000, guid: bd1cc475a4ff7c34686b62bb73094ae6, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _3_Height:
+        m_Texture: {fileID: 2800000, guid: 0ec97337523c4c844a2ca36007c35924, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _3_Normal:
+        m_Texture: {fileID: 2800000, guid: 7cf6901af6dcfdb4cb87304e4118eaf5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _3_Occlusion:
+        m_Texture: {fileID: 2800000, guid: 5f5286285540abd49a1ce0eb39172141, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _3_Roughness:
+        m_Texture: {fileID: 2800000, guid: 04501ec4a8dd257479751b7a12645b77, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 2800000, guid: de9a897915e0e024bae8721e08fa739c, type: 3}
         m_Scale: {x: 0.5, y: 0.5}
@@ -100,11 +155,22 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _1_Roughness_Amount: 0.785
+    - _1_Scale: 0.56
+    - _2_Blend_Amount: 0.5
+    - _2_Height_Offset: 0
+    - _2_Roughness_Amount: 0.226
+    - _2_Scale: 0.68
+    - _3_Blend_Amount: 0.5
+    - _3_Height_Offset: 0
+    - _3_Roughness_Amount: 1
+    - _3_Scale: 1
     - _AddPrecomputedVelocity: 0
     - _AlphaClip: 0
     - _AlphaToMask: 0
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
+    - _Blend_Amount: 1.68
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
@@ -118,12 +184,17 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
+    - _HightOffsetMat2: 0
     - _Metallic: 0
+    - _NumMaterials: 3
     - _OcclusionStrength: 1
     - _Parallax: 0.005
+    - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Smoothness: 0.1
+    - _Scale: 0
+    - _Smoothness: 0.2
+    - _SmoothnessMultiplier: 0.3
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1

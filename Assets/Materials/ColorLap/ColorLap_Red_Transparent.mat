@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ColorLap_RedTransparentDense
+  m_Name: ColorLap_Red_Transparent
   m_Shader: {fileID: -6465566751694194690, guid: b7adfbd925d0e254887fb2a61a5707e6, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -51,7 +51,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _BaseCellSIze: 100
+    - _BaseCellSIze: 5
     - _DissCellSize: 10
     - _Dissolved: 0
     - _Float: 0.05

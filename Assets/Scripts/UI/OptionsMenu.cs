@@ -100,6 +100,11 @@ public class OptionsMenu : MonoBehaviour
         SaveCameraSensitivity(value);
         
         cameraSensitivityText.text = cameraSensitivitySlider.value.ToString("F1");
+
+        if (!cameraControllerRef)
+        {
+            GetCameraControllerRef();
+        }
         
         cameraControllerRef?.SetCameraSensitivity(value);
     }

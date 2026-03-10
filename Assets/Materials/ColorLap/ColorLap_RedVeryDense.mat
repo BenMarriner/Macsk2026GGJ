@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5460544348159263085
+--- !u!114 &-6370196833467349318
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ColorLap_RedTransparentDense
-  m_Shader: {fileID: -6465566751694194690, guid: b7adfbd925d0e254887fb2a61a5707e6, type: 3}
+  m_Name: ColorLap_RedVeryDense
+  m_Shader: {fileID: -6465566751694194690, guid: ae12d56dc77cdfa4c85a189c7b6a6d64, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -51,10 +51,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _BaseCellSIze: 100
+    - _BaseCellSIze: 25
+    - _CellSize: 4
     - _DissCellSize: 10
     - _Dissolved: 0
-    - _Float: 0.05
+    - _Emission: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:

@@ -10,6 +10,8 @@ public class OptionsMenu : MonoBehaviour
     
     [SerializeField] private TextMeshProUGUI cameraSensitivityText;
     [SerializeField] private Slider cameraSensitivitySlider;
+
+    [SerializeField] private float _defaultCameraSensitivity = 50;
     
     private CameraController cameraControllerRef;
     private GameObject previousUIElementsHolder;
@@ -63,7 +65,7 @@ public class OptionsMenu : MonoBehaviour
     {
         if (!PlayerPrefs.HasKey("cameraSensitivity"))
         {
-            PlayerPrefs.SetFloat("cameraSensitivity", 100);
+            PlayerPrefs.SetFloat("cameraSensitivity", _defaultCameraSensitivity);
             LoadCameraSensitivity();
         }
         else
@@ -98,6 +100,11 @@ public class OptionsMenu : MonoBehaviour
         SaveCameraSensitivity(value);
         
         cameraSensitivityText.text = cameraSensitivitySlider.value.ToString("F1");
+
+        if (!cameraControllerRef)
+        {
+            GetCameraControllerRef();
+        }
         
         cameraControllerRef?.SetCameraSensitivity(value);
     }

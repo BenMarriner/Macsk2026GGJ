@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DungeonStoneWall_BRICKS
+  m_Name: DungeonStoneWall_BRICKS_DARK
   m_Shader: {fileID: -6465566751694194690, guid: 9ab2645dbc346254b8dd193976b96ed1, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -146,7 +146,7 @@ Material:
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _Blend_Amount: 1000
-    - _Brightness: 1
+    - _Brightness: 0.5
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0

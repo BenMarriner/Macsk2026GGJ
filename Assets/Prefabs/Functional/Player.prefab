@@ -139,7 +139,7 @@ MonoBehaviour:
   slideSpeed: 30
   climbSpeed: 3
   wallRunSpeed: 8.5
-  decelerationRate: 0.9
+  decelerationRate: 5
 --- !u!114 &5058632963573295704
 MonoBehaviour:
   m_ObjectHideFlags: 0

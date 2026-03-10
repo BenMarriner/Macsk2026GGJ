@@ -11313,6 +11313,10 @@ PrefabInstance:
       propertyPath: _ambientFadeTime
       value: 0.75
       objectReference: {fileID: 0}
+    - target: {fileID: 2429377423935490492, guid: 34dc33c35007b3c459d1eb58717b878c, type: 3}
+      propertyPath: _colouredMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 7e4430289ff4b6d4cb886a5e51bd4b44, type: 2}
     - target: {fileID: 5161244914751558407, guid: 34dc33c35007b3c459d1eb58717b878c, type: 3}
       propertyPath: m_LocalPosition.y
       value: -9
@@ -18583,6 +18587,10 @@ PrefabInstance:
       propertyPath: _ambientFadeTime
       value: 0.75
       objectReference: {fileID: 0}
+    - target: {fileID: 2429377423935490492, guid: 34dc33c35007b3c459d1eb58717b878c, type: 3}
+      propertyPath: _colouredMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 39f945da7c5bc2c4cb827cd775ee8fcc, type: 2}
     - target: {fileID: 5161244914751558407, guid: 34dc33c35007b3c459d1eb58717b878c, type: 3}
       propertyPath: m_LocalPosition.y
       value: 8
@@ -38606,6 +38614,10 @@ PrefabInstance:
       propertyPath: _ambientFadeTime
       value: 0.75
       objectReference: {fileID: 0}
+    - target: {fileID: 2429377423935490492, guid: 34dc33c35007b3c459d1eb58717b878c, type: 3}
+      propertyPath: _colouredMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 7e4430289ff4b6d4cb886a5e51bd4b44, type: 2}
     - target: {fileID: 5161244914751558407, guid: 34dc33c35007b3c459d1eb58717b878c, type: 3}
       propertyPath: m_LocalPosition.y
       value: -9
@@ -45383,6 +45395,10 @@ PrefabInstance:
       propertyPath: _arrivalPauseTime
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7252382618176350697, guid: baabcd35b95df844ca5fbe20ddc9aecf, type: 3}
+      propertyPath: _colouredMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 078d3222468f8eb46bf093f64ff4000c, type: 2}
     m_RemovedComponents:
     - {fileID: 8380057110759139720, guid: baabcd35b95df844ca5fbe20ddc9aecf, type: 3}
     - {fileID: 2246149308471418557, guid: baabcd35b95df844ca5fbe20ddc9aecf, type: 3}
@@ -230909,6 +230925,10 @@ PrefabInstance:
       propertyPath: _arrivalPauseTime
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7252382618176350697, guid: baabcd35b95df844ca5fbe20ddc9aecf, type: 3}
+      propertyPath: _colouredMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 078d3222468f8eb46bf093f64ff4000c, type: 2}
     m_RemovedComponents:
     - {fileID: 8380057110759139720, guid: baabcd35b95df844ca5fbe20ddc9aecf, type: 3}
     - {fileID: 2246149308471418557, guid: baabcd35b95df844ca5fbe20ddc9aecf, type: 3}
@@ -248021,6 +248041,10 @@ PrefabInstance:
       propertyPath: _arrivalPauseTime
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7252382618176350697, guid: baabcd35b95df844ca5fbe20ddc9aecf, type: 3}
+      propertyPath: _colouredMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 184858f8dcebce245837b7980006cae7, type: 2}
     - target: {fileID: 9027670253251365794, guid: baabcd35b95df844ca5fbe20ddc9aecf, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.63
@@ -272869,6 +272893,10 @@ PrefabInstance:
       propertyPath: _effectReversed
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2429377423935490492, guid: 34dc33c35007b3c459d1eb58717b878c, type: 3}
+      propertyPath: _colouredMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 39f945da7c5bc2c4cb827cd775ee8fcc, type: 2}
     - target: {fileID: 5161244914751558407, guid: 34dc33c35007b3c459d1eb58717b878c, type: 3}
       propertyPath: m_LocalPosition.y
       value: 8
@@ -276356,6 +276384,10 @@ PrefabInstance:
       propertyPath: _ambientFadeTime
       value: 0.75
       objectReference: {fileID: 0}
+    - target: {fileID: 2429377423935490492, guid: 34dc33c35007b3c459d1eb58717b878c, type: 3}
+      propertyPath: _colouredMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 39f945da7c5bc2c4cb827cd775ee8fcc, type: 2}
     - target: {fileID: 5161244914751558407, guid: 34dc33c35007b3c459d1eb58717b878c, type: 3}
       propertyPath: m_LocalPosition.y
       value: 8
@@ -299638,6 +299670,10 @@ PrefabInstance:
       propertyPath: _ambientFadeTime
       value: 0.75
       objectReference: {fileID: 0}
+    - target: {fileID: 2429377423935490492, guid: 34dc33c35007b3c459d1eb58717b878c, type: 3}
+      propertyPath: _colouredMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 7e4430289ff4b6d4cb886a5e51bd4b44, type: 2}
     - target: {fileID: 5161244914751558407, guid: 34dc33c35007b3c459d1eb58717b878c, type: 3}
       propertyPath: m_LocalPosition.y
       value: -9

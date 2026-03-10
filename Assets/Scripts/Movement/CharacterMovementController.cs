@@ -732,7 +732,7 @@ public class CharacterMovementController : MonoBehaviour
     [SerializeField] private float wallRunSpeed;
     
     // Rate in which the agent slows down to a stop when there is no movement input
-    [SerializeField, Range(0.01f, 1f)] private float decelerationRate = 0.9f;    // Must be between 0 and 1
+    [SerializeField, Range(0.01f, 5f)] private float decelerationRate = 0.9f;    // Must be between 0 and 1
 
     // Reduces the velocity of the game object to zero over time
     private void DecelerateVelocity()

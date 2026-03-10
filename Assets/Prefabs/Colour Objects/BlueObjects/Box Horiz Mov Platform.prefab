@@ -12,6 +12,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1310244191026979134, guid: 0d6ab9bd468913e4b90a26fca711f572, type: 3}
+      propertyPath: MaxDistance
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310244191026979134, guid: 0d6ab9bd468913e4b90a26fca711f572, type: 3}
+      propertyPath: MinDistance
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2048766246683512746, guid: 0d6ab9bd468913e4b90a26fca711f572, type: 3}
       propertyPath: m_Name
       value: Box Horiz Mov Platform

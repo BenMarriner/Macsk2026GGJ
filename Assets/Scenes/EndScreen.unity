@@ -458,10 +458,7 @@ MonoBehaviour:
   _quitButton: {fileID: 2094483640}
   travelSceneIndex: 1
   _optionsButton: {fileID: 0}
-  _backOptionsButton: {fileID: 0}
-  _optionsMenu: {fileID: 0}
-  cameraSensitivityText: {fileID: 0}
-  cameraSensitivitySlider: {fileID: 0}
+  optionsMenu: {fileID: 0}
 --- !u!1 &604455997
 GameObject:
   m_ObjectHideFlags: 0
@@ -494,10 +491,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1513738349}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1200, y: 200}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &604455999
 MonoBehaviour:
@@ -970,10 +967,10 @@ RectTransform:
   - {fileID: 2094483639}
   m_Father: {fileID: 1354506185}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -50}
-  m_SizeDelta: {x: 2028, y: 1022}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1220376903
 CanvasRenderer:

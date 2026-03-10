@@ -12170,6 +12170,14 @@ PrefabInstance:
       propertyPath: _soundAnimPairs.Array.data[0].SoundClip
       value: 
       objectReference: {fileID: 8300000, guid: 54adb70d9060ea24da6ba7d057adccb7, type: 3}
+    - target: {fileID: 5410921200190979113, guid: fe789f19938dd294083f218351d5f932, type: 3}
+      propertyPath: MaxDistance
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 5410921200190979113, guid: fe789f19938dd294083f218351d5f932, type: 3}
+      propertyPath: MinDistance
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12943,11 +12951,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5642424498231747045, guid: bbda615a43b6ad64781f61e3b128329d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 18.9
+      value: 44.43
       objectReference: {fileID: 0}
     - target: {fileID: 5642424498231747045, guid: bbda615a43b6ad64781f61e3b128329d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 110.37
+      value: 181.32
       objectReference: {fileID: 0}
     - target: {fileID: 5642424498231747045, guid: bbda615a43b6ad64781f61e3b128329d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -19256,6 +19264,10 @@ PrefabInstance:
       propertyPath: _soundAnimPairs.Array.data[1].SoundClip
       value: 
       objectReference: {fileID: 8300000, guid: 54adb70d9060ea24da6ba7d057adccb7, type: 3}
+    - target: {fileID: 5410921200190979113, guid: fe789f19938dd294083f218351d5f932, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20789,6 +20801,14 @@ PrefabInstance:
     - target: {fileID: 4282299123980753249, guid: b356647fd12980b47a7e83ecdedbd640, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4569700055078998341, guid: b356647fd12980b47a7e83ecdedbd640, type: 3}
+      propertyPath: MaxDistance
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 4569700055078998341, guid: b356647fd12980b47a7e83ecdedbd640, type: 3}
+      propertyPath: MinDistance
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4699538513102782326, guid: b356647fd12980b47a7e83ecdedbd640, type: 3}
       propertyPath: _soundAnimPairs.Array.size
@@ -202377,6 +202397,14 @@ PrefabInstance:
       propertyPath: _soundAnimPairs.Array.data[0].SoundClip
       value: 
       objectReference: {fileID: 8300000, guid: 54adb70d9060ea24da6ba7d057adccb7, type: 3}
+    - target: {fileID: 5410921200190979113, guid: fe789f19938dd294083f218351d5f932, type: 3}
+      propertyPath: MaxDistance
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 5410921200190979113, guid: fe789f19938dd294083f218351d5f932, type: 3}
+      propertyPath: MinDistance
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -205338,6 +205366,10 @@ PrefabInstance:
       propertyPath: _soundAnimPairs.Array.data[1].SoundClip
       value: 
       objectReference: {fileID: 8300000, guid: 54adb70d9060ea24da6ba7d057adccb7, type: 3}
+    - target: {fileID: 5410921200190979113, guid: fe789f19938dd294083f218351d5f932, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -234627,10 +234659,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerSpawn
       objectReference: {fileID: 0}
-    - target: {fileID: 7296544282381763326, guid: bbda615a43b6ad64781f61e3b128329d, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -234832,11 +234860,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4589608413144182877, guid: 83efbdeb105518640b37e3d525819e2e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 18.37
+      value: 43.9
       objectReference: {fileID: 0}
     - target: {fileID: 4589608413144182877, guid: 83efbdeb105518640b37e3d525819e2e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 110.05
+      value: 181
       objectReference: {fileID: 0}
     - target: {fileID: 4589608413144182877, guid: 83efbdeb105518640b37e3d525819e2e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -277778,6 +277806,14 @@ PrefabInstance:
       propertyPath: _soundAnimPairs.Array.data[0].SoundClip
       value: 
       objectReference: {fileID: 8300000, guid: 54adb70d9060ea24da6ba7d057adccb7, type: 3}
+    - target: {fileID: 5410921200190979113, guid: fe789f19938dd294083f218351d5f932, type: 3}
+      propertyPath: MaxDistance
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 5410921200190979113, guid: fe789f19938dd294083f218351d5f932, type: 3}
+      propertyPath: MinDistance
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -289633,6 +289669,14 @@ PrefabInstance:
       propertyPath: _soundAnimPairs.Array.data[0].SoundClip
       value: 
       objectReference: {fileID: 8300000, guid: 54adb70d9060ea24da6ba7d057adccb7, type: 3}
+    - target: {fileID: 5410921200190979113, guid: fe789f19938dd294083f218351d5f932, type: 3}
+      propertyPath: MaxDistance
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 5410921200190979113, guid: fe789f19938dd294083f218351d5f932, type: 3}
+      propertyPath: MinDistance
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -291603,6 +291647,10 @@ PrefabInstance:
       propertyPath: _soundAnimPairs.Array.data[1].SoundClip
       value: 
       objectReference: {fileID: 8300000, guid: 54adb70d9060ea24da6ba7d057adccb7, type: 3}
+    - target: {fileID: 5410921200190979113, guid: fe789f19938dd294083f218351d5f932, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -295195,6 +295243,18 @@ PrefabInstance:
       propertyPath: _soundAnimPairs.Array.data[1].SoundClip
       value: 
       objectReference: {fileID: 8300000, guid: 54adb70d9060ea24da6ba7d057adccb7, type: 3}
+    - target: {fileID: 5410921200190979113, guid: fe789f19938dd294083f218351d5f932, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5410921200190979113, guid: fe789f19938dd294083f218351d5f932, type: 3}
+      propertyPath: MaxDistance
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5410921200190979113, guid: fe789f19938dd294083f218351d5f932, type: 3}
+      propertyPath: MinDistance
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -36,6 +36,10 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: 1.2
       objectReference: {fileID: 0}
+    - target: {fileID: 5451706581036609301, guid: 0d6ab9bd468913e4b90a26fca711f572, type: 3}
+      propertyPath: _colouredMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 7e4430289ff4b6d4cb886a5e51bd4b44, type: 2}
     - target: {fileID: 6459024349969059362, guid: 0d6ab9bd468913e4b90a26fca711f572, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -131,7 +135,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColourObjectActivator
   _colouredObject: {fileID: 7252382618176350697}
+  _colouredObjects: []
   _disablesObjects: 0
+  _onlyTriggeredOnce: 1
 --- !u!114 &7252382618176350697 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5451706581036609301, guid: 0d6ab9bd468913e4b90a26fca711f572, type: 3}

@@ -231,6 +231,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 67.776
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 01401ab4b3af6314cbf8325a0d971f57, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 5561349426305759274, guid: 1022ecc09769d4349bbd6cc4e1203149, type: 3}
     - target: {fileID: 919132149155446097, guid: 01401ab4b3af6314cbf8325a0d971f57, type: 3}
       propertyPath: m_Name
       value: Book_Open
@@ -305,6 +309,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -745428125751424386, guid: 1cb0a9c7d89d67140802cda86c195dd9, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: -468342129003903177, guid: 1cb0a9c7d89d67140802cda86c195dd9, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 919132149155446097, guid: 1cb0a9c7d89d67140802cda86c195dd9, type: 3}
       propertyPath: m_Name
       value: Chest
@@ -367,6 +379,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -111.959
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 48a184682de373c449caead58db02af3, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 5561349426305759274, guid: 1022ecc09769d4349bbd6cc4e1203149, type: 3}
     - target: {fileID: 919132149155446097, guid: 48a184682de373c449caead58db02af3, type: 3}
       propertyPath: m_Name
       value: Scroll

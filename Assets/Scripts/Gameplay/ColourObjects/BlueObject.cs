@@ -5,6 +5,7 @@ public class BlueObject : ColouredObject
     [SerializeField] protected float _speed = 10f;
     protected bool _blueMaskMode = false;
     protected bool _isMoving;
+    protected bool _movingPaused = false;
 
     protected virtual void Start()
     {
@@ -34,7 +35,7 @@ public class BlueObject : ColouredObject
             _isMoving = _blueMaskMode;
         }
 
-        UpdateAmbientSFX(_isMoving);
+        UpdateAmbientSFX(_isMoving && !_movingPaused);
 
         if (!_colouredMaterial) return;
 

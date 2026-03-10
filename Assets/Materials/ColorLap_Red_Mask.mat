@@ -42,7 +42,7 @@ Material:
     - _BaseCellSIze: 16
     - _DissCellSize: 10
     - _Dissolved: 0
-    - _Emission: 5
+    - _Emission: 2.56
     m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1

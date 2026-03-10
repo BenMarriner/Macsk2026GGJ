@@ -3,18 +3,26 @@ using UnityEngine;
 
 public class BlueWaypointObject : BlueObject
 {
-    [SerializeField] private GameObject _movingPlatform;
-    [SerializeField] private WaypointPath _waypointPath;
+    [SerializeField] protected GameObject _movingPlatform;
+    [SerializeField] protected WaypointPath _waypointPath;
     [SerializeField] private bool _useWaypointRotation;
     [SerializeField] private bool _slowNearEnd;
     [SerializeField] private float _arrivalPauseTime = 0.5f;
-    private int _targetWaypointIndex;
 
-    private Transform _previousWaypoint;
-    private Transform _targetWaypoint;
+    [Header("SFX")]
+    [SerializeField] private bool _playSoundWhenReachedWaypoint = false;
+    [SerializeField] private AudioSource _waypointReachedSound;
+    [SerializeField] private AudioClip[] _ambientClips;
+    private int _audioClipIndex = 0;
 
-    private float _elapsedTime;
-    private bool _platformPaused = false;
+    protected bool _wasEnabledAtStart;
+
+    protected int _targetWaypointIndex;
+
+    protected Transform _previousWaypoint;
+    protected Transform _targetWaypoint;
+
+    protected float _elapsedTime;
 
     protected override void Start()
     {
@@ -22,6 +30,14 @@ public class BlueWaypointObject : BlueObject
         _movingPlatform.transform.position = _waypointPath.GetWaypoint(_targetWaypointIndex).transform.position;
         TargetNextWaypoint();
 
+        _wasEnabledAtStart = _isEnabled;
+
+        if (_ambientSFXSource)
+        {
+            _ambientSFXSource.volume = 1f * _maxVolumeMultiplier;
+        }
+
+        IncrementAmbientSFX();
         SetBlueEffect(false);
     }
 
@@ -31,7 +47,7 @@ public class BlueWaypointObject : BlueObject
 
         _elapsedTime += Time.deltaTime;
 
-        if (_platformPaused)
+        if (_movingPaused)
         {
             if (_elapsedTime > _arrivalPauseTime) Unpause();
             return;
@@ -54,11 +70,17 @@ public class BlueWaypointObject : BlueObject
         if (elapsedPercentage >= 1)
         {
             TargetNextWaypoint();
-            _platformPaused = true;
+            _movingPaused = true;
+            if (_playSoundWhenReachedWaypoint || _waypointReachedSound)
+            {
+                _waypointReachedSound.Play();
+            }
+            UpdateAmbientSFX(_isMoving && !_movingPaused);
+            IncrementAmbientSFX();
         }
     }
 
-    private void TargetNextWaypoint()
+    protected virtual void TargetNextWaypoint()
     {
         _previousWaypoint = _waypointPath.GetWaypoint(_targetWaypointIndex);
         _targetWaypointIndex = _waypointPath.GetNextWaypointIndex(_targetWaypointIndex);
@@ -67,9 +89,55 @@ public class BlueWaypointObject : BlueObject
         _elapsedTime = 0f;
     }
 
-    private void Unpause()
+    protected virtual void Unpause()
     {
         _elapsedTime = 0f;
-        _platformPaused = false;
+        _movingPaused = false;
+        UpdateAmbientSFX(_isMoving && !_movingPaused);
+    }
+
+    protected override void SetMusicSyncTime(object eventData){}
+
+    protected override void StartSyncedAmbientSFX(object eventData){}
+
+    protected override void UpdateAmbientSFX(bool isActive)
+    {
+        if (!_ambientSFXSource) return;
+
+        if (isActive)
+        {
+            _ambientSFXSource.Play();
+        }
+        else
+        {
+            _ambientSFXSource.Stop();
+        }
+    }
+
+    protected virtual void IncrementAmbientSFX()
+    {
+        if (!_ambientSFXSource) return;
+        if (_ambientClips.Length < 2) return;
+
+        if (_audioClipIndex > _ambientClips.Length-1)
+        {
+            _audioClipIndex = 0;
+        }
+
+        _ambientSFXSource.clip = _ambientClips[_audioClipIndex];
+
+        _audioClipIndex++;
+    }
+
+    [ContextMenu("Reset Platform")]
+    public virtual void Reset()
+    {
+        _isEnabled = _wasEnabledAtStart;
+        _targetWaypointIndex = 0;
+        _movingPlatform.transform.position = _waypointPath.GetWaypoint(_targetWaypointIndex).transform.position;
+        TargetNextWaypoint();
+        _elapsedTime = 0f;
+        _movingPaused = false;
+        UpdateAmbientSFX(_isMoving && !_movingPaused);
     }
 }

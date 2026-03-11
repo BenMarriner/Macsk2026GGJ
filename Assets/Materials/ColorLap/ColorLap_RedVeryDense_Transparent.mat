@@ -54,7 +54,7 @@ Material:
     - _BaseCellSIze: 25
     - _DissCellSize: 10
     - _Dissolved: 0
-    - _Float: 0.05
+    - _Float: 0.04
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:

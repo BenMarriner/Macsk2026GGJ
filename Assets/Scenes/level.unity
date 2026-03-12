@@ -12365,7 +12365,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 131355514248017346, guid: 5b228a8c20fedc84ea6b93f5e3feb44e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 379445071156101431, guid: 5b228a8c20fedc84ea6b93f5e3feb44e, type: 3}
       propertyPath: m_Mesh
@@ -12958,11 +12958,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5642424498231747045, guid: bbda615a43b6ad64781f61e3b128329d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 19.63
+      value: 19.409998
       objectReference: {fileID: 0}
     - target: {fileID: 5642424498231747045, guid: bbda615a43b6ad64781f61e3b128329d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 112.72001
+      value: 112.08001
       objectReference: {fileID: 0}
     - target: {fileID: 5642424498231747045, guid: bbda615a43b6ad64781f61e3b128329d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -13094,7 +13094,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 2
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -14220,7 +14220,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &121006031
 Transform:
   m_ObjectHideFlags: 0
@@ -21032,7 +21032,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 131355514248017346, guid: 5b228a8c20fedc84ea6b93f5e3feb44e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 379445071156101431, guid: 5b228a8c20fedc84ea6b93f5e3feb44e, type: 3}
       propertyPath: m_Mesh
@@ -21041,7 +21041,7 @@ PrefabInstance:
     - target: {fileID: 866070189103455045, guid: 5b228a8c20fedc84ea6b93f5e3feb44e, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 740554266}
+      objectReference: {fileID: 1891311685}
     - target: {fileID: 881490619038003675, guid: 5b228a8c20fedc84ea6b93f5e3feb44e, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -27592,7 +27592,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 153800299751345673, guid: 98455711da6b128488e41baa5f7f2d8c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 74.46
+      value: 78.46
       objectReference: {fileID: 0}
     - target: {fileID: 153800299751345673, guid: 98455711da6b128488e41baa5f7f2d8c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -39770,7 +39770,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 2
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -40156,7 +40156,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &373288754
 Transform:
   m_ObjectHideFlags: 0
@@ -42004,7 +42004,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &401294984
 Transform:
   m_ObjectHideFlags: 0
@@ -46349,53 +46349,53 @@ MonoBehaviour:
   - m_Vertices: 0b0000000e00000012000000
   m_SharedTextures: []
   m_Positions:
-  - {x: -4.8394237, y: -3.249258, z: 29.90197}
-  - {x: 4.206953, y: -3.249258, z: 29.90197}
-  - {x: -4.8394237, y: 5, z: 29.90197}
-  - {x: 4.206953, y: 5, z: 29.90197}
-  - {x: 4.206953, y: -3.249258, z: 29.90197}
+  - {x: -4.8394237, y: -3.249258, z: 29.320404}
+  - {x: 4.206953, y: -3.249258, z: 29.320404}
+  - {x: -4.8394237, y: 5, z: 29.320404}
+  - {x: 4.206953, y: 5, z: 29.320404}
+  - {x: 4.206953, y: -3.249258, z: 29.320404}
   - {x: 4.206953, y: -3.249258, z: -8.991066}
-  - {x: 4.206953, y: 5, z: 29.90197}
+  - {x: 4.206953, y: 5, z: 29.320404}
   - {x: 4.206953, y: 5, z: -8.991066}
   - {x: 4.206953, y: -3.249258, z: -8.991066}
   - {x: -4.8394237, y: -3.249258, z: -8.991066}
   - {x: 4.206953, y: 5, z: -8.991066}
   - {x: -4.8394237, y: 5, z: -8.991066}
   - {x: -4.8394237, y: -3.249258, z: -8.991066}
-  - {x: -4.8394237, y: -3.249258, z: 29.90197}
+  - {x: -4.8394237, y: -3.249258, z: 29.320404}
   - {x: -4.8394237, y: 5, z: -8.991066}
-  - {x: -4.8394237, y: 5, z: 29.90197}
-  - {x: -4.8394237, y: 5, z: 29.90197}
-  - {x: 4.206953, y: 5, z: 29.90197}
+  - {x: -4.8394237, y: 5, z: 29.320404}
+  - {x: -4.8394237, y: 5, z: 29.320404}
+  - {x: 4.206953, y: 5, z: 29.320404}
   - {x: -4.8394237, y: 5, z: -8.991066}
   - {x: 4.206953, y: 5, z: -8.991066}
   - {x: -4.8394237, y: -3.249258, z: -8.991066}
   - {x: 4.206953, y: -3.249258, z: -8.991066}
-  - {x: -4.8394237, y: -3.249258, z: 29.90197}
-  - {x: 4.206953, y: -3.249258, z: 29.90197}
+  - {x: -4.8394237, y: -3.249258, z: 29.320404}
+  - {x: 4.206953, y: -3.249258, z: 29.320404}
   m_Textures0:
   - {x: 9.046377, y: -7.249258}
   - {x: 0, y: -7.249258}
   - {x: 9.046377, y: 1}
   - {x: 0, y: 1}
-  - {x: 38.893036, y: -7.249258}
+  - {x: 38.31147, y: -7.249258}
   - {x: 0, y: -7.249258}
-  - {x: 38.893036, y: 1}
+  - {x: 38.31147, y: 1}
   - {x: 0, y: 1}
   - {x: 9.046377, y: -7.249258}
   - {x: 0, y: -7.249258}
   - {x: 9.046377, y: 1}
   - {x: 0, y: 1}
-  - {x: 38.893036, y: -7.249258}
+  - {x: 38.31147, y: -7.249258}
   - {x: 0, y: -7.249258}
-  - {x: 38.893036, y: 1}
+  - {x: 38.31147, y: 1}
   - {x: 0, y: 1}
   - {x: 0, y: 1}
   - {x: 9.046377, y: 1}
-  - {x: 0, y: -37.893036}
-  - {x: 9.046377, y: -37.893036}
-  - {x: 9.046377, y: -37.893036}
-  - {x: 0, y: -37.893036}
+  - {x: 0, y: -37.31147}
+  - {x: 9.046377, y: -37.31147}
+  - {x: 9.046377, y: -37.31147}
+  - {x: 0, y: -37.31147}
   - {x: 9.046377, y: 1}
   - {x: 0, y: 1}
   m_Textures2: []
@@ -46434,7 +46434,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 609536697}
-  m_VersionIndex: 9740
+  m_VersionIndex: 9776
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -46493,7 +46493,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6413701543914949623, guid: baabcd35b95df844ca5fbe20ddc9aecf, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 90.3
+      value: 94.3
       objectReference: {fileID: 0}
     - target: {fileID: 6413701543914949623, guid: baabcd35b95df844ca5fbe20ddc9aecf, type: 3}
       propertyPath: m_LocalRotation.w
@@ -201118,7 +201118,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 2
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -201960,7 +201960,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 153800299751345673, guid: 98455711da6b128488e41baa5f7f2d8c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 100.48998
+      value: 104.49
       objectReference: {fileID: 0}
     - target: {fileID: 153800299751345673, guid: 98455711da6b128488e41baa5f7f2d8c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -204380,8 +204380,8 @@ Mesh:
     firstVertex: 0
     vertexCount: 24
     localAABB:
-      m_Center: {x: -0.3162353, y: 0.875371, z: 10.455452}
-      m_Extent: {x: 4.5231886, y: 4.124629, z: 19.446518}
+      m_Center: {x: -0.3162353, y: 0.875371, z: 10.164669}
+      m_Extent: {x: 4.5231886, y: 4.124629, z: 19.155735}
   m_Shapes:
     vertices: []
     shapes: []
@@ -204460,7 +204460,7 @@ Mesh:
       format: 0
       dimension: 0
     m_DataSize: 1344
-    _typelessdata: 8fdc9ac0d8f34fc03c37ef4100000000000000000000803f000080bf0000000000000000000080bff6bd1041ecf9e7c00bd7a33c28594e3f5c9f8640d8f34fc03c37ef4100000000000000000000803f000080bf0000000000000000000080bf00000000ecf9e7c0ff8e513e28594e3f8fdc9ac00000a0403c37ef4100000000000000000000803f000080bf0000000000000000000080bff6bd10410000803f0fd7a33ce673793f5c9f86400000a0403c37ef4100000000000000000000803f000080bf0000000000000000000080bf000000000000803fff8e513ee673793f5c9f8640d8f34fc03c37ef410000803f000000000000000000000000000000000000803f000080bf78921b42ecf9e7c05dd8a33c6fccdb3e5c9f8640d8f34fc068db0fc10000803f000000000000000000000000000000000000803f000080bf00000000ecf9e7c09b58503f6fccdb3e5c9f86400000a0403c37ef410000803f000000000000000000000000000000000000803f000080bf78921b420000803f0bd7a33cf800193f5c9f86400000a04068db0fc10000803f000000000000000000000000000000000000803f000080bf000000000000803f9158503ff800193f5c9f8640d8f34fc068db0fc10000000000000000000080bf0000803f0000000000000000000080bff6bd1041ecf9e7c0e109663e28594e3f8fdc9ac0d8f34fc068db0fc10000000000000000000080bf0000803f0000000000000000000080bf00000000ecf9e7c0ff8ed13e28594e3f5c9f86400000a04068db0fc10000000000000000000080bf0000803f0000000000000000000080bff6bd10410000803fe109663ee673793f8fdc9ac00000a04068db0fc10000000000000000000080bf0000803f0000000000000000000080bf000000000000803fff8ed13ee673793f8fdc9ac0d8f34fc068db0fc1000080bf00000000000000000000000000000000000080bf000080bf78921b42ecf9e7c05dd8a33cb01f1e3f8fdc9ac0d8f34fc03c37ef41000080bf00000000000000000000000000000000000080bf000080bf00000000ecf9e7c09b58503fb01f1e3f8fdc9ac00000a04068db0fc1000080bf00000000000000000000000000000000000080bf000080bf78921b420000803f0bd7a33c703a493f8fdc9ac00000a0403c37ef41000080bf00000000000000000000000000000000000080bf000080bf000000000000803f9158503f703a493f8fdc9ac00000a0403c37ef41000000000000803f000000000000803f0000000000000000000080bf000000000000803f9b58503f0bd7a33c5c9f86400000a0403c37ef41000000000000803f000000000000803f0000000000000000000080bff6bd10410000803f9c58503ff58e513e8fdc9ac00000a04068db0fc1000000000000803f000000000000803f0000000000000000000080bf00000000789217c20bd7a33c52d7a33c5c9f86400000a04068db0fc1000000000000803f000000000000803f0000000000000000000080bff6bd1041789217c22fd7a33cfe8e513e8fdc9ac0d8f34fc068db0fc100000000000080bf00000000000080bf0000000000000000000080bff6bd1041789217c29b58503fe909663e5c9f8640d8f34fc068db0fc100000000000080bf00000000000080bf0000000000000000000080bf00000000789217c29b58503ffe8ed13e8fdc9ac0d8f34fc03c37ef4100000000000080bf00000000000080bf0000000000000000000080bff6bd10410000803f0bd7a33cdf09663e5c9f8640d8f34fc03c37ef4100000000000080bf00000000000080bf0000000000000000000080bf000000000000803f0cd7a33cf98ed13e
+    _typelessdata: 8fdc9ac0d8f34fc03090ea4100000000000000000000803f000080bf0000000000000000000080bff6bd1041ecf9e7c00bd7a33cbfca4f3f5c9f8640d8f34fc03090ea4100000000000000000000803f000080bf0000000000000000000080bf00000000ecf9e7c09d11533ebfca4f3f8fdc9ac00000a0403090ea4100000000000000000000803f000080bf0000000000000000000080bff6bd10410000803f0fd7a33ca03d7b3f5c9f86400000a0403090ea4100000000000000000000803f000080bf0000000000000000000080bf000000000000803f9e11533ea03d7b3f5c9f8640d8f34fc03090ea410000803f000000000000000000000000000000000000803f000080bff23e1942ecf9e7c05bd8a33c23391f3f5c9f8640d8f34fc068db0fc10000803f000000000000000000000000000000000000803f000080bf00000000ecf9e7c0ffe74e3f23391f3f5c9f86400000a0403090ea410000803f000000000000000000000000000000000000803f000080bff23e19420000803f0bd7a33c06ac4a3f5c9f86400000a04068db0fc10000803f000000000000000000000000000000000000803f000080bf000000000000803ff5e74e3f06ac4a3f5c9f8640d8f34fc068db0fc10000000000000000000080bf0000803f0000000000000000000080bff6bd1041ecf9e7c07f8c673ebfca4f3f8fdc9ac0d8f34fc068db0fc10000000000000000000080bf0000803f0000000000000000000080bf00000000ecf9e7c09e11d33ebfca4f3f5c9f86400000a04068db0fc10000000000000000000080bf0000803f0000000000000000000080bff6bd10410000803f808c673ea03d7b3f8fdc9ac00000a04068db0fc10000000000000000000080bf0000803f0000000000000000000080bf000000000000803f9e11d33ea03d7b3f8fdc9ac0d8f34fc068db0fc1000080bf00000000000000000000000000000000000080bf000080bff23e1942ecf9e7c05bd8a33c0e4fdd3e8fdc9ac0d8f34fc03090ea41000080bf00000000000000000000000000000000000080bf000080bf00000000ecf9e7c0ffe74e3f0e4fdd3e8fdc9ac00000a04068db0fc1000080bf00000000000000000000000000000000000080bf000080bff23e19420000803f0bd7a33c6a1a1a3f8fdc9ac00000a0403090ea41000080bf00000000000000000000000000000000000080bf000080bf000000000000803ff5e74e3f6a1a1a3f8fdc9ac00000a0403090ea41000000000000803f000000000000803f0000000000000000000080bf000000000000803fffe74e3f0bd7a33c5c9f86400000a0403090ea41000000000000803f000000000000803f0000000000000000000080bff6bd10410000803f01e84e3f9311533e8fdc9ac00000a04068db0fc1000000000000803f000000000000803f0000000000000000000080bf00000000f23e15c20bd7a33c52d7a33c5c9f86400000a04068db0fc1000000000000803f000000000000803f0000000000000000000080bff6bd1041f23e15c230d7a33c9c11533e8fdc9ac0d8f34fc068db0fc100000000000080bf00000000000080bf0000000000000000000080bff6bd1041f23e15c2ffe74e3f888c673e5c9f8640d8f34fc068db0fc100000000000080bf00000000000080bf0000000000000000000080bf00000000f23e15c2ffe74e3f9d11d33e8fdc9ac0d8f34fc03090ea4100000000000080bf00000000000080bf0000000000000000000080bff6bd10410000803f0bd7a33c7e8c673e5c9f8640d8f34fc03090ea4100000000000080bf00000000000080bf0000000000000000000080bf000000000000803f0cd7a33c9811d33e
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -204514,14 +204514,14 @@ Mesh:
       m_BitSize: 0
     m_UVInfo: 0
   m_LocalAABB:
-    m_Center: {x: -0.3162353, y: 0.875371, z: 10.455452}
-    m_Extent: {x: 4.5231886, y: 4.124629, z: 19.446518}
+    m_Center: {x: -0.3162353, y: 0.875371, z: 10.164669}
+    m_Extent: {x: 4.5231886, y: 4.124629, z: 19.155735}
   m_MeshUsageFlags: 0
   m_CookingOptions: 30
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
   'm_MeshMetrics[0]': 1
-  'm_MeshMetrics[1]': 2400.2969
+  'm_MeshMetrics[1]': 2362.408
   m_MeshOptimizationFlags: 1
   m_StreamData:
     serializedVersion: 2
@@ -204851,7 +204851,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 153800299751345673, guid: 98455711da6b128488e41baa5f7f2d8c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 103.60999
+      value: 107.61
       objectReference: {fileID: 0}
     - target: {fileID: 153800299751345673, guid: 98455711da6b128488e41baa5f7f2d8c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -206770,7 +206770,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 131355514248017346, guid: 5b228a8c20fedc84ea6b93f5e3feb44e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 379445071156101431, guid: 5b228a8c20fedc84ea6b93f5e3feb44e, type: 3}
       propertyPath: m_Mesh
@@ -210745,7 +210745,7 @@ Transform:
   m_GameObject: {fileID: 767836057}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.35, y: 0, z: 98.3}
+  m_LocalPosition: {x: -1.35, y: 0, z: 102.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -212249,7 +212249,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 131355514248017346, guid: 5b228a8c20fedc84ea6b93f5e3feb44e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 379445071156101431, guid: 5b228a8c20fedc84ea6b93f5e3feb44e, type: 3}
       propertyPath: m_Mesh
@@ -212421,7 +212421,7 @@ PrefabInstance:
       objectReference: {fileID: 707239418}
     - target: {fileID: 6308006018116897150, guid: 5b228a8c20fedc84ea6b93f5e3feb44e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.61
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6424863344393595790, guid: 5b228a8c20fedc84ea6b93f5e3feb44e, type: 3}
       propertyPath: m_Mesh
@@ -213934,7 +213934,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 2
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -226396,7 +226396,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &890319695
 Transform:
   m_ObjectHideFlags: 0
@@ -232508,7 +232508,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6413701543914949623, guid: baabcd35b95df844ca5fbe20ddc9aecf, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 65.37
+      value: 69.37
       objectReference: {fileID: 0}
     - target: {fileID: 6413701543914949623, guid: baabcd35b95df844ca5fbe20ddc9aecf, type: 3}
       propertyPath: m_LocalRotation.w
@@ -235206,10 +235206,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerSpawn
       objectReference: {fileID: 0}
-    - target: {fileID: 7296544282381763326, guid: bbda615a43b6ad64781f61e3b128329d, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -235411,11 +235407,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4589608413144182877, guid: 83efbdeb105518640b37e3d525819e2e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 19.1
+      value: 18.88
       objectReference: {fileID: 0}
     - target: {fileID: 4589608413144182877, guid: 83efbdeb105518640b37e3d525819e2e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 112.4
+      value: 111.76
       objectReference: {fileID: 0}
     - target: {fileID: 4589608413144182877, guid: 83efbdeb105518640b37e3d525819e2e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -236316,7 +236312,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 2
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -240808,7 +240804,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1268174177
 Transform:
   m_ObjectHideFlags: 0
@@ -250151,7 +250147,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6413701543914949623, guid: baabcd35b95df844ca5fbe20ddc9aecf, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 90.3
+      value: 94.3
       objectReference: {fileID: 0}
     - target: {fileID: 6413701543914949623, guid: baabcd35b95df844ca5fbe20ddc9aecf, type: 3}
       propertyPath: m_LocalRotation.w
@@ -251707,7 +251703,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 2
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -258228,7 +258224,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 2
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -261012,7 +261008,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 2
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -275923,7 +275919,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 153800299751345673, guid: 98455711da6b128488e41baa5f7f2d8c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 103.61
+      value: 107.61
       objectReference: {fileID: 0}
     - target: {fileID: 153800299751345673, guid: 98455711da6b128488e41baa5f7f2d8c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -288224,7 +288220,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 2
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -289447,7 +289443,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 2
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -300181,7 +300177,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 153800299751345673, guid: 98455711da6b128488e41baa5f7f2d8c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 100.49
+      value: 104.49
       objectReference: {fileID: 0}
     - target: {fileID: 153800299751345673, guid: 98455711da6b128488e41baa5f7f2d8c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -301711,7 +301707,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2066237126
 Transform:
   m_ObjectHideFlags: 0
@@ -304996,7 +304992,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 2
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -306310,7 +306306,7 @@ PrefabInstance:
     - target: {fileID: 803582948140406830, guid: 0394c2723fde33744b5d40f7bd10f050, type: 3}
       propertyPath: _colouredMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 0f32b2814a5351346990c469d76e17a1, type: 2}
+      objectReference: {fileID: 2100000, guid: a5e69015353451848b5b9426220f078e, type: 2}
     - target: {fileID: 1012170753120237083, guid: 0394c2723fde33744b5d40f7bd10f050, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -307899,6 +307895,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1839492589514470568, guid: a2bdbae96e44c014894a063125322c66, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 61.7
+      objectReference: {fileID: 0}
     - target: {fileID: 2320784456890683173, guid: a2bdbae96e44c014894a063125322c66, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -307922,6 +307922,10 @@ PrefabInstance:
     - target: {fileID: 8571447759194730810, guid: a2bdbae96e44c014894a063125322c66, type: 3}
       propertyPath: m_Name
       value: TriggeredElevator
+      objectReference: {fileID: 0}
+    - target: {fileID: 8983397736075544940, guid: a2bdbae96e44c014894a063125322c66, type: 3}
+      propertyPath: _speed
+      value: 25.5
       objectReference: {fileID: 0}
     - target: {fileID: 8983397736075544940, guid: a2bdbae96e44c014894a063125322c66, type: 3}
       propertyPath: _resetBlueList.Array.size
@@ -308137,7 +308141,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 131355514248017346, guid: 5b228a8c20fedc84ea6b93f5e3feb44e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 379445071156101431, guid: 5b228a8c20fedc84ea6b93f5e3feb44e, type: 3}
       propertyPath: m_Mesh

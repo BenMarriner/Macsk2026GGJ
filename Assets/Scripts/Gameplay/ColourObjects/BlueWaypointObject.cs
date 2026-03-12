@@ -138,6 +138,13 @@ public class BlueWaypointObject : BlueObject
         TargetNextWaypoint();
         _elapsedTime = 0f;
         _movingPaused = false;
-        UpdateAmbientSFX(_isMoving && !_movingPaused);
+        UpdateAmbientSFX(_isMoving && !_movingPaused && _isEnabled);
+
+        if (!_colouredMaterial || _isEnabled) return;
+
+        foreach (GenericCouple<Renderer, Material> item in _defaultMaterialList)
+        {
+            item.First.material = item.Second;
+        }
     }
 }

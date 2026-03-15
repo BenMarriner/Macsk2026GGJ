@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3349409212945011616}
-  - component: {fileID: 5072502930852810960}
   m_Layer: 0
   m_Name: DecoratedTable01
   m_TagString: Untagged
@@ -27,7 +26,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1.16914, y: 1.16914, z: 1.16914}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5819125228857926558}
@@ -38,27 +37,6 @@ Transform:
   - {fileID: 3905346375811781340}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &5072502930852810960
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5931153757139038788}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.9205625, y: 1.4454336, z: 2.2204762}
-  m_Center: {x: -0.33556044, y: 0.715664, z: 0.04254198}
 --- !u!1001 &136800024521235001
 PrefabInstance:
   m_ObjectHideFlags: 0

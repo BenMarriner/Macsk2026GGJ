@@ -12365,7 +12365,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 131355514248017346, guid: 5b228a8c20fedc84ea6b93f5e3feb44e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 379445071156101431, guid: 5b228a8c20fedc84ea6b93f5e3feb44e, type: 3}
       propertyPath: m_Mesh
@@ -14220,7 +14220,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &121006031
 Transform:
   m_ObjectHideFlags: 0
@@ -21032,7 +21032,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 131355514248017346, guid: 5b228a8c20fedc84ea6b93f5e3feb44e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 379445071156101431, guid: 5b228a8c20fedc84ea6b93f5e3feb44e, type: 3}
       propertyPath: m_Mesh
@@ -40156,7 +40156,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &373288754
 Transform:
   m_ObjectHideFlags: 0
@@ -42004,7 +42004,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &401294984
 Transform:
   m_ObjectHideFlags: 0
@@ -46465,11 +46465,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4405389011416803266, guid: baabcd35b95df844ca5fbe20ddc9aecf, type: 3}
       propertyPath: MaxDistance
-      value: 20
+      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 4405389011416803266, guid: baabcd35b95df844ca5fbe20ddc9aecf, type: 3}
       propertyPath: MinDistance
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405389011416803266, guid: baabcd35b95df844ca5fbe20ddc9aecf, type: 3}
+      propertyPath: rolloffMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6413701543914949623, guid: baabcd35b95df844ca5fbe20ddc9aecf, type: 3}
       propertyPath: m_LocalScale.x
@@ -206770,7 +206774,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 131355514248017346, guid: 5b228a8c20fedc84ea6b93f5e3feb44e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 379445071156101431, guid: 5b228a8c20fedc84ea6b93f5e3feb44e, type: 3}
       propertyPath: m_Mesh
@@ -212249,7 +212253,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 131355514248017346, guid: 5b228a8c20fedc84ea6b93f5e3feb44e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 379445071156101431, guid: 5b228a8c20fedc84ea6b93f5e3feb44e, type: 3}
       propertyPath: m_Mesh
@@ -226396,7 +226400,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &890319695
 Transform:
   m_ObjectHideFlags: 0
@@ -232480,11 +232484,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4405389011416803266, guid: baabcd35b95df844ca5fbe20ddc9aecf, type: 3}
       propertyPath: MaxDistance
-      value: 20
+      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 4405389011416803266, guid: baabcd35b95df844ca5fbe20ddc9aecf, type: 3}
       propertyPath: MinDistance
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405389011416803266, guid: baabcd35b95df844ca5fbe20ddc9aecf, type: 3}
+      propertyPath: rolloffMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6413701543914949623, guid: baabcd35b95df844ca5fbe20ddc9aecf, type: 3}
       propertyPath: m_LocalScale.x
@@ -240804,7 +240812,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1268174177
 Transform:
   m_ObjectHideFlags: 0
@@ -250119,11 +250127,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4405389011416803266, guid: baabcd35b95df844ca5fbe20ddc9aecf, type: 3}
       propertyPath: MaxDistance
-      value: 20
+      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 4405389011416803266, guid: baabcd35b95df844ca5fbe20ddc9aecf, type: 3}
       propertyPath: MinDistance
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405389011416803266, guid: baabcd35b95df844ca5fbe20ddc9aecf, type: 3}
+      propertyPath: rolloffMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6413701543914949623, guid: baabcd35b95df844ca5fbe20ddc9aecf, type: 3}
       propertyPath: m_LocalScale.x
@@ -301707,7 +301719,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2066237126
 Transform:
   m_ObjectHideFlags: 0
@@ -306306,7 +306318,7 @@ PrefabInstance:
     - target: {fileID: 803582948140406830, guid: 0394c2723fde33744b5d40f7bd10f050, type: 3}
       propertyPath: _colouredMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: a5e69015353451848b5b9426220f078e, type: 2}
+      objectReference: {fileID: 2100000, guid: 0f32b2814a5351346990c469d76e17a1, type: 2}
     - target: {fileID: 1012170753120237083, guid: 0394c2723fde33744b5d40f7bd10f050, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -306406,6 +306418,10 @@ PrefabInstance:
     - target: {fileID: 6692368994856433809, guid: 0394c2723fde33744b5d40f7bd10f050, type: 3}
       propertyPath: m_Name
       value: ElevatorMedium
+      objectReference: {fileID: 0}
+    - target: {fileID: 8683219185298007022, guid: 0394c2723fde33744b5d40f7bd10f050, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8823687115808809538, guid: 0394c2723fde33744b5d40f7bd10f050, type: 3}
       propertyPath: m_Mesh
@@ -308141,7 +308157,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 131355514248017346, guid: 5b228a8c20fedc84ea6b93f5e3feb44e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 379445071156101431, guid: 5b228a8c20fedc84ea6b93f5e3feb44e, type: 3}
       propertyPath: m_Mesh

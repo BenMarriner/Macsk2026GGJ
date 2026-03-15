@@ -307940,10 +307940,6 @@ PrefabInstance:
       value: TriggeredElevator
       objectReference: {fileID: 0}
     - target: {fileID: 8983397736075544940, guid: a2bdbae96e44c014894a063125322c66, type: 3}
-      propertyPath: _speed
-      value: 25.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8983397736075544940, guid: a2bdbae96e44c014894a063125322c66, type: 3}
       propertyPath: _resetBlueList.Array.size
       value: 3
       objectReference: {fileID: 0}

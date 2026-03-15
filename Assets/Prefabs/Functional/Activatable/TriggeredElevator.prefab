@@ -682,7 +682,7 @@ MonoBehaviour:
   _isEnabled: 0
   _ambientSFXSource: {fileID: 7105529960336446886}
   _ambientFadeTime: 0.5
-  _speed: 25
+  _speed: 30
   _movingPlatform: {fileID: 1123834499156748164}
   _waypointPath: {fileID: 2308737969048410036}
   _useWaypointRotation: 0

@@ -89,6 +89,427 @@ public partial class @PlayerInputScheme: IInputActionCollection2, IDisposable
     ""name"": ""PlayerInputScheme"",
     ""maps"": [
         {
+            ""name"": ""FirstPersonInputs"",
+            ""id"": ""bd0250fe-b537-4eda-838d-45a745d6cf26"",
+            ""actions"": [
+                {
+                    ""name"": ""Movement"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""b2762536-5ce4-4533-b8af-44f34ce170f9"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Look"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""7790c9c7-1f15-4822-9671-53c492d5214b"",
+                    ""expectedControlType"": ""Delta"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""b7b646a0-c36f-48c6-b5f2-4abfeac49b28"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Crouch"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""b62c5798-72fa-4c4a-a3d6-a4ff54858555"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Sprint"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""f60411e5-0d2d-424a-bd44-44d7747b121c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ToggleMask"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""031698f1-16ba-4456-9d81-f4aaa5d935c6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""2c6d64eb-b863-4b44-98e1-12b752972f86"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Escape"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""6aace4d9-f320-4426-ab6f-e0b7828339a2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""d517f10b-d024-4899-b438-5acf2f06fe86"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""973e1b83-9069-422a-9c6f-51a673004ef0"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";KeyboardAndMouse"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""a135ff26-d070-41ad-900b-97b9cd263695"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";KeyboardAndMouse"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""f665a6ed-7e9e-447d-9a7d-b1764f7f6b16"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";KeyboardAndMouse"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""4b7509bf-4a81-4d07-b676-701f3c65a17b"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";KeyboardAndMouse"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""871baf1f-a2e8-48ac-8255-6a8441498de2"",
+                    ""path"": ""<XInputController>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";XboxController"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a85bbb2a-4fca-4e26-aa03-8e7ca14f4d9f"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";KeyboardAndMouse"",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""65573851-f4f0-45dd-8698-381cb9c8d4c2"",
+                    ""path"": ""<XInputController>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": ""StickDeadzone,ScaleVector2(x=4,y=4)"",
+                    ""groups"": "";XboxController"",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""12f5f42a-b314-488a-b9d0-e1c44bfed773"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";KeyboardAndMouse"",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1b905a73-1b31-40b0-bc8f-c838971872c7"",
+                    ""path"": ""<Keyboard>/ctrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";KeyboardAndMouse"",
+                    ""action"": ""Crouch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8ba7f80d-e0ce-4b4a-a99a-73d0a36ff590"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";KeyboardAndMouse"",
+                    ""action"": ""Sprint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""3bfe4b31-5dee-4a74-a354-e42a2c9e05a5"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToggleMask"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Positive"",
+                    ""id"": ""3733ace7-529b-4f31-badd-75d29f3c3a4d"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";KeyboardAndMouse"",
+                    ""action"": ""ToggleMask"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Negative"",
+                    ""id"": ""7a76afb8-fd81-4437-9d2b-0b6fcdb234cf"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";KeyboardAndMouse"",
+                    ""action"": ""ToggleMask"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""b3467974-88ea-4145-98dc-9974ebafb704"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToggleMask"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""978d6053-9a1a-48fa-bb65-4f1ae74ecd9e"",
+                    ""path"": ""<XInputController>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";XboxController"",
+                    ""action"": ""ToggleMask"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""2c46949b-95fd-4d69-b444-accaa64f1a8a"",
+                    ""path"": ""<XInputController>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";XboxController"",
+                    ""action"": ""ToggleMask"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""291fb7ba-ef74-42cc-936d-815e77133ba6"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToggleMask"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""afad1134-a755-4511-9cae-9482f2924132"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";XboxController"",
+                    ""action"": ""ToggleMask"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""7c02066c-1a0b-4e00-a2e2-aee07be4526d"",
+                    ""path"": ""<XInputController>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";XboxController"",
+                    ""action"": ""ToggleMask"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""a53d0cee-d8ca-434f-9a09-6fec69114fa0"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToggleMask"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""68ced205-25b3-4757-9506-447fb536040a"",
+                    ""path"": ""<XInputController>/leftStickPress"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";XboxController"",
+                    ""action"": ""ToggleMask"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""0f7a4a4b-2b42-4cea-a7d1-4dbd6e661ec6"",
+                    ""path"": ""<XInputController>/rightStickPress"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";XboxController"",
+                    ""action"": ""ToggleMask"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""75c6e872-c9d3-4eb1-9311-e8bff0ee95c5"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";KeyboardAndMouse"",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""79a73944-896c-4896-b0fe-6136b68b0deb"",
+                    ""path"": ""<XInputController>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";XboxController"",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6b869c46-2b66-4207-9ac4-8e34ccacf26e"",
+                    ""path"": ""<XInputController>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";XboxController"",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d499bb54-d49b-4f76-bbc2-45c3513d6197"",
+                    ""path"": ""<XInputController>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";XboxController"",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""75dd4fff-d6c7-4228-a7e1-e04b10f020a9"",
+                    ""path"": ""<XInputController>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";XboxController"",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""62fd7bc7-6809-4d30-b788-513239918815"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";KeyboardAndMouse"",
+                    ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""11758dd1-59dc-440d-b6c4-531ac74f0fe1"",
+                    ""path"": ""<XInputController>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";XboxController"",
+                    ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6fc9a51a-4b5c-4883-ae78-dabc3da4ef7b"",
+                    ""path"": ""<XInputController>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";XboxController"",
+                    ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
             ""name"": ""UI"",
             ""id"": ""e03a9a4b-ede2-4f27-99a8-0dc62f0f6d34"",
             ""actions"": [
@@ -647,427 +1068,6 @@ public partial class @PlayerInputScheme: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
-        },
-        {
-            ""name"": ""FirstPersonInputs"",
-            ""id"": ""bd0250fe-b537-4eda-838d-45a745d6cf26"",
-            ""actions"": [
-                {
-                    ""name"": ""Movement"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""b2762536-5ce4-4533-b8af-44f34ce170f9"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Look"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""7790c9c7-1f15-4822-9671-53c492d5214b"",
-                    ""expectedControlType"": ""Delta"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Jump"",
-                    ""type"": ""Button"",
-                    ""id"": ""b7b646a0-c36f-48c6-b5f2-4abfeac49b28"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Crouch"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""b62c5798-72fa-4c4a-a3d6-a4ff54858555"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Sprint"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""f60411e5-0d2d-424a-bd44-44d7747b121c"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""ToggleMask"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""031698f1-16ba-4456-9d81-f4aaa5d935c6"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Interact"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""2c6d64eb-b863-4b44-98e1-12b752972f86"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Escape"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""6aace4d9-f320-4426-ab6f-e0b7828339a2"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": ""WASD"",
-                    ""id"": ""d517f10b-d024-4899-b438-5acf2f06fe86"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""973e1b83-9069-422a-9c6f-51a673004ef0"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";KeyboardAndMouse"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""a135ff26-d070-41ad-900b-97b9cd263695"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";KeyboardAndMouse"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""f665a6ed-7e9e-447d-9a7d-b1764f7f6b16"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";KeyboardAndMouse"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""4b7509bf-4a81-4d07-b676-701f3c65a17b"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";KeyboardAndMouse"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""871baf1f-a2e8-48ac-8255-6a8441498de2"",
-                    ""path"": ""<XInputController>/leftStick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";XboxController"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""a85bbb2a-4fca-4e26-aa03-8e7ca14f4d9f"",
-                    ""path"": ""<Mouse>/delta"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";KeyboardAndMouse"",
-                    ""action"": ""Look"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""65573851-f4f0-45dd-8698-381cb9c8d4c2"",
-                    ""path"": ""<XInputController>/rightStick"",
-                    ""interactions"": """",
-                    ""processors"": ""ScaleVector2(x=2,y=2)"",
-                    ""groups"": "";XboxController"",
-                    ""action"": ""Look"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""12f5f42a-b314-488a-b9d0-e1c44bfed773"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";KeyboardAndMouse"",
-                    ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""1b905a73-1b31-40b0-bc8f-c838971872c7"",
-                    ""path"": ""<Keyboard>/ctrl"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";KeyboardAndMouse"",
-                    ""action"": ""Crouch"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8ba7f80d-e0ce-4b4a-a99a-73d0a36ff590"",
-                    ""path"": ""<Keyboard>/shift"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";KeyboardAndMouse"",
-                    ""action"": ""Sprint"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""1D Axis"",
-                    ""id"": ""3bfe4b31-5dee-4a74-a354-e42a2c9e05a5"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ToggleMask"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""Positive"",
-                    ""id"": ""3733ace7-529b-4f31-badd-75d29f3c3a4d"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";KeyboardAndMouse"",
-                    ""action"": ""ToggleMask"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Negative"",
-                    ""id"": ""7a76afb8-fd81-4437-9d2b-0b6fcdb234cf"",
-                    ""path"": ""<Mouse>/rightButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";KeyboardAndMouse"",
-                    ""action"": ""ToggleMask"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""1D Axis"",
-                    ""id"": ""b3467974-88ea-4145-98dc-9974ebafb704"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ToggleMask"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""978d6053-9a1a-48fa-bb65-4f1ae74ecd9e"",
-                    ""path"": ""<XInputController>/leftTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";XboxController"",
-                    ""action"": ""ToggleMask"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""2c46949b-95fd-4d69-b444-accaa64f1a8a"",
-                    ""path"": ""<XInputController>/rightTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";XboxController"",
-                    ""action"": ""ToggleMask"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""1D Axis"",
-                    ""id"": ""291fb7ba-ef74-42cc-936d-815e77133ba6"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ToggleMask"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""afad1134-a755-4511-9cae-9482f2924132"",
-                    ""path"": ""<Gamepad>/leftShoulder"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";XboxController"",
-                    ""action"": ""ToggleMask"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""7c02066c-1a0b-4e00-a2e2-aee07be4526d"",
-                    ""path"": ""<XInputController>/rightShoulder"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";XboxController"",
-                    ""action"": ""ToggleMask"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""1D Axis"",
-                    ""id"": ""a53d0cee-d8ca-434f-9a09-6fec69114fa0"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ToggleMask"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""68ced205-25b3-4757-9506-447fb536040a"",
-                    ""path"": ""<XInputController>/leftStickPress"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";XboxController"",
-                    ""action"": ""ToggleMask"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""0f7a4a4b-2b42-4cea-a7d1-4dbd6e661ec6"",
-                    ""path"": ""<XInputController>/rightStickPress"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";XboxController"",
-                    ""action"": ""ToggleMask"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""75c6e872-c9d3-4eb1-9311-e8bff0ee95c5"",
-                    ""path"": ""<Keyboard>/e"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";KeyboardAndMouse"",
-                    ""action"": ""Interact"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""79a73944-896c-4896-b0fe-6136b68b0deb"",
-                    ""path"": ""<XInputController>/buttonWest"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";XboxController"",
-                    ""action"": ""Interact"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""6b869c46-2b66-4207-9ac4-8e34ccacf26e"",
-                    ""path"": ""<XInputController>/buttonNorth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";XboxController"",
-                    ""action"": ""Interact"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""d499bb54-d49b-4f76-bbc2-45c3513d6197"",
-                    ""path"": ""<XInputController>/buttonEast"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";XboxController"",
-                    ""action"": ""Interact"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""75dd4fff-d6c7-4228-a7e1-e04b10f020a9"",
-                    ""path"": ""<XInputController>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";XboxController"",
-                    ""action"": ""Interact"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""62fd7bc7-6809-4d30-b788-513239918815"",
-                    ""path"": ""<Keyboard>/escape"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";KeyboardAndMouse"",
-                    ""action"": ""Escape"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""11758dd1-59dc-440d-b6c4-531ac74f0fe1"",
-                    ""path"": ""<XInputController>/select"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";XboxController"",
-                    ""action"": ""Escape"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""6fc9a51a-4b5c-4883-ae78-dabc3da4ef7b"",
-                    ""path"": ""<XInputController>/start"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";XboxController"",
-                    ""action"": ""Escape"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                }
-            ]
         }
     ],
     ""controlSchemes"": [
@@ -1100,6 +1100,16 @@ public partial class @PlayerInputScheme: IInputActionCollection2, IDisposable
         }
     ]
 }");
+        // FirstPersonInputs
+        m_FirstPersonInputs = asset.FindActionMap("FirstPersonInputs", throwIfNotFound: true);
+        m_FirstPersonInputs_Movement = m_FirstPersonInputs.FindAction("Movement", throwIfNotFound: true);
+        m_FirstPersonInputs_Look = m_FirstPersonInputs.FindAction("Look", throwIfNotFound: true);
+        m_FirstPersonInputs_Jump = m_FirstPersonInputs.FindAction("Jump", throwIfNotFound: true);
+        m_FirstPersonInputs_Crouch = m_FirstPersonInputs.FindAction("Crouch", throwIfNotFound: true);
+        m_FirstPersonInputs_Sprint = m_FirstPersonInputs.FindAction("Sprint", throwIfNotFound: true);
+        m_FirstPersonInputs_ToggleMask = m_FirstPersonInputs.FindAction("ToggleMask", throwIfNotFound: true);
+        m_FirstPersonInputs_Interact = m_FirstPersonInputs.FindAction("Interact", throwIfNotFound: true);
+        m_FirstPersonInputs_Escape = m_FirstPersonInputs.FindAction("Escape", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1112,22 +1122,12 @@ public partial class @PlayerInputScheme: IInputActionCollection2, IDisposable
         m_UI_ScrollWheel = m_UI.FindAction("ScrollWheel", throwIfNotFound: true);
         m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
-        // FirstPersonInputs
-        m_FirstPersonInputs = asset.FindActionMap("FirstPersonInputs", throwIfNotFound: true);
-        m_FirstPersonInputs_Movement = m_FirstPersonInputs.FindAction("Movement", throwIfNotFound: true);
-        m_FirstPersonInputs_Look = m_FirstPersonInputs.FindAction("Look", throwIfNotFound: true);
-        m_FirstPersonInputs_Jump = m_FirstPersonInputs.FindAction("Jump", throwIfNotFound: true);
-        m_FirstPersonInputs_Crouch = m_FirstPersonInputs.FindAction("Crouch", throwIfNotFound: true);
-        m_FirstPersonInputs_Sprint = m_FirstPersonInputs.FindAction("Sprint", throwIfNotFound: true);
-        m_FirstPersonInputs_ToggleMask = m_FirstPersonInputs.FindAction("ToggleMask", throwIfNotFound: true);
-        m_FirstPersonInputs_Interact = m_FirstPersonInputs.FindAction("Interact", throwIfNotFound: true);
-        m_FirstPersonInputs_Escape = m_FirstPersonInputs.FindAction("Escape", throwIfNotFound: true);
     }
 
     ~@PlayerInputScheme()
     {
-        UnityEngine.Debug.Assert(!m_UI.enabled, "This will cause a leak and performance issues, PlayerInputScheme.UI.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_FirstPersonInputs.enabled, "This will cause a leak and performance issues, PlayerInputScheme.FirstPersonInputs.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_UI.enabled, "This will cause a leak and performance issues, PlayerInputScheme.UI.Disable() has not been called.");
     }
 
     /// <summary>
@@ -1199,6 +1199,179 @@ public partial class @PlayerInputScheme: IInputActionCollection2, IDisposable
     {
         return asset.FindBinding(bindingMask, out action);
     }
+
+    // FirstPersonInputs
+    private readonly InputActionMap m_FirstPersonInputs;
+    private List<IFirstPersonInputsActions> m_FirstPersonInputsActionsCallbackInterfaces = new List<IFirstPersonInputsActions>();
+    private readonly InputAction m_FirstPersonInputs_Movement;
+    private readonly InputAction m_FirstPersonInputs_Look;
+    private readonly InputAction m_FirstPersonInputs_Jump;
+    private readonly InputAction m_FirstPersonInputs_Crouch;
+    private readonly InputAction m_FirstPersonInputs_Sprint;
+    private readonly InputAction m_FirstPersonInputs_ToggleMask;
+    private readonly InputAction m_FirstPersonInputs_Interact;
+    private readonly InputAction m_FirstPersonInputs_Escape;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "FirstPersonInputs".
+    /// </summary>
+    public struct FirstPersonInputsActions
+    {
+        private @PlayerInputScheme m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public FirstPersonInputsActions(@PlayerInputScheme wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "FirstPersonInputs/Movement".
+        /// </summary>
+        public InputAction @Movement => m_Wrapper.m_FirstPersonInputs_Movement;
+        /// <summary>
+        /// Provides access to the underlying input action "FirstPersonInputs/Look".
+        /// </summary>
+        public InputAction @Look => m_Wrapper.m_FirstPersonInputs_Look;
+        /// <summary>
+        /// Provides access to the underlying input action "FirstPersonInputs/Jump".
+        /// </summary>
+        public InputAction @Jump => m_Wrapper.m_FirstPersonInputs_Jump;
+        /// <summary>
+        /// Provides access to the underlying input action "FirstPersonInputs/Crouch".
+        /// </summary>
+        public InputAction @Crouch => m_Wrapper.m_FirstPersonInputs_Crouch;
+        /// <summary>
+        /// Provides access to the underlying input action "FirstPersonInputs/Sprint".
+        /// </summary>
+        public InputAction @Sprint => m_Wrapper.m_FirstPersonInputs_Sprint;
+        /// <summary>
+        /// Provides access to the underlying input action "FirstPersonInputs/ToggleMask".
+        /// </summary>
+        public InputAction @ToggleMask => m_Wrapper.m_FirstPersonInputs_ToggleMask;
+        /// <summary>
+        /// Provides access to the underlying input action "FirstPersonInputs/Interact".
+        /// </summary>
+        public InputAction @Interact => m_Wrapper.m_FirstPersonInputs_Interact;
+        /// <summary>
+        /// Provides access to the underlying input action "FirstPersonInputs/Escape".
+        /// </summary>
+        public InputAction @Escape => m_Wrapper.m_FirstPersonInputs_Escape;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_FirstPersonInputs; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="FirstPersonInputsActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(FirstPersonInputsActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="FirstPersonInputsActions" />
+        public void AddCallbacks(IFirstPersonInputsActions instance)
+        {
+            if (instance == null || m_Wrapper.m_FirstPersonInputsActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_FirstPersonInputsActionsCallbackInterfaces.Add(instance);
+            @Movement.started += instance.OnMovement;
+            @Movement.performed += instance.OnMovement;
+            @Movement.canceled += instance.OnMovement;
+            @Look.started += instance.OnLook;
+            @Look.performed += instance.OnLook;
+            @Look.canceled += instance.OnLook;
+            @Jump.started += instance.OnJump;
+            @Jump.performed += instance.OnJump;
+            @Jump.canceled += instance.OnJump;
+            @Crouch.started += instance.OnCrouch;
+            @Crouch.performed += instance.OnCrouch;
+            @Crouch.canceled += instance.OnCrouch;
+            @Sprint.started += instance.OnSprint;
+            @Sprint.performed += instance.OnSprint;
+            @Sprint.canceled += instance.OnSprint;
+            @ToggleMask.started += instance.OnToggleMask;
+            @ToggleMask.performed += instance.OnToggleMask;
+            @ToggleMask.canceled += instance.OnToggleMask;
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
+            @Escape.started += instance.OnEscape;
+            @Escape.performed += instance.OnEscape;
+            @Escape.canceled += instance.OnEscape;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="FirstPersonInputsActions" />
+        private void UnregisterCallbacks(IFirstPersonInputsActions instance)
+        {
+            @Movement.started -= instance.OnMovement;
+            @Movement.performed -= instance.OnMovement;
+            @Movement.canceled -= instance.OnMovement;
+            @Look.started -= instance.OnLook;
+            @Look.performed -= instance.OnLook;
+            @Look.canceled -= instance.OnLook;
+            @Jump.started -= instance.OnJump;
+            @Jump.performed -= instance.OnJump;
+            @Jump.canceled -= instance.OnJump;
+            @Crouch.started -= instance.OnCrouch;
+            @Crouch.performed -= instance.OnCrouch;
+            @Crouch.canceled -= instance.OnCrouch;
+            @Sprint.started -= instance.OnSprint;
+            @Sprint.performed -= instance.OnSprint;
+            @Sprint.canceled -= instance.OnSprint;
+            @ToggleMask.started -= instance.OnToggleMask;
+            @ToggleMask.performed -= instance.OnToggleMask;
+            @ToggleMask.canceled -= instance.OnToggleMask;
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
+            @Escape.started -= instance.OnEscape;
+            @Escape.performed -= instance.OnEscape;
+            @Escape.canceled -= instance.OnEscape;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="FirstPersonInputsActions.UnregisterCallbacks(IFirstPersonInputsActions)" />.
+        /// </summary>
+        /// <seealso cref="FirstPersonInputsActions.UnregisterCallbacks(IFirstPersonInputsActions)" />
+        public void RemoveCallbacks(IFirstPersonInputsActions instance)
+        {
+            if (m_Wrapper.m_FirstPersonInputsActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="FirstPersonInputsActions.AddCallbacks(IFirstPersonInputsActions)" />
+        /// <seealso cref="FirstPersonInputsActions.RemoveCallbacks(IFirstPersonInputsActions)" />
+        /// <seealso cref="FirstPersonInputsActions.UnregisterCallbacks(IFirstPersonInputsActions)" />
+        public void SetCallbacks(IFirstPersonInputsActions instance)
+        {
+            foreach (var item in m_Wrapper.m_FirstPersonInputsActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_FirstPersonInputsActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="FirstPersonInputsActions" /> instance referencing this action map.
+    /// </summary>
+    public FirstPersonInputsActions @FirstPersonInputs => new FirstPersonInputsActions(this);
 
     // UI
     private readonly InputActionMap m_UI;
@@ -1394,179 +1567,6 @@ public partial class @PlayerInputScheme: IInputActionCollection2, IDisposable
     /// Provides a new <see cref="UIActions" /> instance referencing this action map.
     /// </summary>
     public UIActions @UI => new UIActions(this);
-
-    // FirstPersonInputs
-    private readonly InputActionMap m_FirstPersonInputs;
-    private List<IFirstPersonInputsActions> m_FirstPersonInputsActionsCallbackInterfaces = new List<IFirstPersonInputsActions>();
-    private readonly InputAction m_FirstPersonInputs_Movement;
-    private readonly InputAction m_FirstPersonInputs_Look;
-    private readonly InputAction m_FirstPersonInputs_Jump;
-    private readonly InputAction m_FirstPersonInputs_Crouch;
-    private readonly InputAction m_FirstPersonInputs_Sprint;
-    private readonly InputAction m_FirstPersonInputs_ToggleMask;
-    private readonly InputAction m_FirstPersonInputs_Interact;
-    private readonly InputAction m_FirstPersonInputs_Escape;
-    /// <summary>
-    /// Provides access to input actions defined in input action map "FirstPersonInputs".
-    /// </summary>
-    public struct FirstPersonInputsActions
-    {
-        private @PlayerInputScheme m_Wrapper;
-
-        /// <summary>
-        /// Construct a new instance of the input action map wrapper class.
-        /// </summary>
-        public FirstPersonInputsActions(@PlayerInputScheme wrapper) { m_Wrapper = wrapper; }
-        /// <summary>
-        /// Provides access to the underlying input action "FirstPersonInputs/Movement".
-        /// </summary>
-        public InputAction @Movement => m_Wrapper.m_FirstPersonInputs_Movement;
-        /// <summary>
-        /// Provides access to the underlying input action "FirstPersonInputs/Look".
-        /// </summary>
-        public InputAction @Look => m_Wrapper.m_FirstPersonInputs_Look;
-        /// <summary>
-        /// Provides access to the underlying input action "FirstPersonInputs/Jump".
-        /// </summary>
-        public InputAction @Jump => m_Wrapper.m_FirstPersonInputs_Jump;
-        /// <summary>
-        /// Provides access to the underlying input action "FirstPersonInputs/Crouch".
-        /// </summary>
-        public InputAction @Crouch => m_Wrapper.m_FirstPersonInputs_Crouch;
-        /// <summary>
-        /// Provides access to the underlying input action "FirstPersonInputs/Sprint".
-        /// </summary>
-        public InputAction @Sprint => m_Wrapper.m_FirstPersonInputs_Sprint;
-        /// <summary>
-        /// Provides access to the underlying input action "FirstPersonInputs/ToggleMask".
-        /// </summary>
-        public InputAction @ToggleMask => m_Wrapper.m_FirstPersonInputs_ToggleMask;
-        /// <summary>
-        /// Provides access to the underlying input action "FirstPersonInputs/Interact".
-        /// </summary>
-        public InputAction @Interact => m_Wrapper.m_FirstPersonInputs_Interact;
-        /// <summary>
-        /// Provides access to the underlying input action "FirstPersonInputs/Escape".
-        /// </summary>
-        public InputAction @Escape => m_Wrapper.m_FirstPersonInputs_Escape;
-        /// <summary>
-        /// Provides access to the underlying input action map instance.
-        /// </summary>
-        public InputActionMap Get() { return m_Wrapper.m_FirstPersonInputs; }
-        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
-        public void Enable() { Get().Enable(); }
-        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
-        public void Disable() { Get().Disable(); }
-        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
-        public bool enabled => Get().enabled;
-        /// <summary>
-        /// Implicitly converts an <see ref="FirstPersonInputsActions" /> to an <see ref="InputActionMap" /> instance.
-        /// </summary>
-        public static implicit operator InputActionMap(FirstPersonInputsActions set) { return set.Get(); }
-        /// <summary>
-        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
-        /// </summary>
-        /// <param name="instance">Callback instance.</param>
-        /// <remarks>
-        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
-        /// </remarks>
-        /// <seealso cref="FirstPersonInputsActions" />
-        public void AddCallbacks(IFirstPersonInputsActions instance)
-        {
-            if (instance == null || m_Wrapper.m_FirstPersonInputsActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_FirstPersonInputsActionsCallbackInterfaces.Add(instance);
-            @Movement.started += instance.OnMovement;
-            @Movement.performed += instance.OnMovement;
-            @Movement.canceled += instance.OnMovement;
-            @Look.started += instance.OnLook;
-            @Look.performed += instance.OnLook;
-            @Look.canceled += instance.OnLook;
-            @Jump.started += instance.OnJump;
-            @Jump.performed += instance.OnJump;
-            @Jump.canceled += instance.OnJump;
-            @Crouch.started += instance.OnCrouch;
-            @Crouch.performed += instance.OnCrouch;
-            @Crouch.canceled += instance.OnCrouch;
-            @Sprint.started += instance.OnSprint;
-            @Sprint.performed += instance.OnSprint;
-            @Sprint.canceled += instance.OnSprint;
-            @ToggleMask.started += instance.OnToggleMask;
-            @ToggleMask.performed += instance.OnToggleMask;
-            @ToggleMask.canceled += instance.OnToggleMask;
-            @Interact.started += instance.OnInteract;
-            @Interact.performed += instance.OnInteract;
-            @Interact.canceled += instance.OnInteract;
-            @Escape.started += instance.OnEscape;
-            @Escape.performed += instance.OnEscape;
-            @Escape.canceled += instance.OnEscape;
-        }
-
-        /// <summary>
-        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
-        /// </summary>
-        /// <remarks>
-        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
-        /// </remarks>
-        /// <seealso cref="FirstPersonInputsActions" />
-        private void UnregisterCallbacks(IFirstPersonInputsActions instance)
-        {
-            @Movement.started -= instance.OnMovement;
-            @Movement.performed -= instance.OnMovement;
-            @Movement.canceled -= instance.OnMovement;
-            @Look.started -= instance.OnLook;
-            @Look.performed -= instance.OnLook;
-            @Look.canceled -= instance.OnLook;
-            @Jump.started -= instance.OnJump;
-            @Jump.performed -= instance.OnJump;
-            @Jump.canceled -= instance.OnJump;
-            @Crouch.started -= instance.OnCrouch;
-            @Crouch.performed -= instance.OnCrouch;
-            @Crouch.canceled -= instance.OnCrouch;
-            @Sprint.started -= instance.OnSprint;
-            @Sprint.performed -= instance.OnSprint;
-            @Sprint.canceled -= instance.OnSprint;
-            @ToggleMask.started -= instance.OnToggleMask;
-            @ToggleMask.performed -= instance.OnToggleMask;
-            @ToggleMask.canceled -= instance.OnToggleMask;
-            @Interact.started -= instance.OnInteract;
-            @Interact.performed -= instance.OnInteract;
-            @Interact.canceled -= instance.OnInteract;
-            @Escape.started -= instance.OnEscape;
-            @Escape.performed -= instance.OnEscape;
-            @Escape.canceled -= instance.OnEscape;
-        }
-
-        /// <summary>
-        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="FirstPersonInputsActions.UnregisterCallbacks(IFirstPersonInputsActions)" />.
-        /// </summary>
-        /// <seealso cref="FirstPersonInputsActions.UnregisterCallbacks(IFirstPersonInputsActions)" />
-        public void RemoveCallbacks(IFirstPersonInputsActions instance)
-        {
-            if (m_Wrapper.m_FirstPersonInputsActionsCallbackInterfaces.Remove(instance))
-                UnregisterCallbacks(instance);
-        }
-
-        /// <summary>
-        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
-        /// </summary>
-        /// <remarks>
-        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
-        /// </remarks>
-        /// <seealso cref="FirstPersonInputsActions.AddCallbacks(IFirstPersonInputsActions)" />
-        /// <seealso cref="FirstPersonInputsActions.RemoveCallbacks(IFirstPersonInputsActions)" />
-        /// <seealso cref="FirstPersonInputsActions.UnregisterCallbacks(IFirstPersonInputsActions)" />
-        public void SetCallbacks(IFirstPersonInputsActions instance)
-        {
-            foreach (var item in m_Wrapper.m_FirstPersonInputsActionsCallbackInterfaces)
-                UnregisterCallbacks(item);
-            m_Wrapper.m_FirstPersonInputsActionsCallbackInterfaces.Clear();
-            AddCallbacks(instance);
-        }
-    }
-    /// <summary>
-    /// Provides a new <see cref="FirstPersonInputsActions" /> instance referencing this action map.
-    /// </summary>
-    public FirstPersonInputsActions @FirstPersonInputs => new FirstPersonInputsActions(this);
     private int m_KeyboardAndMouseSchemeIndex = -1;
     /// <summary>
     /// Provides access to the input control scheme.
@@ -1592,6 +1592,70 @@ public partial class @PlayerInputScheme: IInputActionCollection2, IDisposable
             if (m_XboxControllerSchemeIndex == -1) m_XboxControllerSchemeIndex = asset.FindControlSchemeIndex("XboxController");
             return asset.controlSchemes[m_XboxControllerSchemeIndex];
         }
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "FirstPersonInputs" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="FirstPersonInputsActions.AddCallbacks(IFirstPersonInputsActions)" />
+    /// <seealso cref="FirstPersonInputsActions.RemoveCallbacks(IFirstPersonInputsActions)" />
+    public interface IFirstPersonInputsActions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "Movement" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnMovement(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Look" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnLook(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Jump" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnJump(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Crouch" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnCrouch(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Sprint" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSprint(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ToggleMask" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnToggleMask(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Interact" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnInteract(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Escape" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnEscape(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.
@@ -1670,69 +1734,5 @@ public partial class @PlayerInputScheme: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
-    }
-    /// <summary>
-    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "FirstPersonInputs" which allows adding and removing callbacks.
-    /// </summary>
-    /// <seealso cref="FirstPersonInputsActions.AddCallbacks(IFirstPersonInputsActions)" />
-    /// <seealso cref="FirstPersonInputsActions.RemoveCallbacks(IFirstPersonInputsActions)" />
-    public interface IFirstPersonInputsActions
-    {
-        /// <summary>
-        /// Method invoked when associated input action "Movement" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnMovement(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "Look" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnLook(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "Jump" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnJump(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "Crouch" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnCrouch(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "Sprint" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnSprint(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "ToggleMask" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnToggleMask(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "Interact" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnInteract(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "Escape" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnEscape(InputAction.CallbackContext context);
     }
 }

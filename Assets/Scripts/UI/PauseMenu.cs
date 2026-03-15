@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.InputSystem.UI;
 
-public class PauseMenu : MonoBehaviour
+public class PauseMenu : MonoBehaviour, IUIController
 {
     [SerializeField] private GameObject eventSystem;
     
@@ -40,6 +40,11 @@ public class PauseMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
+    public void EnablingUI()
+    {
+        resumeButton.Select();
+    }
+
     private void SetupButtonListeners()
     {
         resumeButton?.onClick.AddListener(OnResumeClicked);
@@ -72,7 +77,7 @@ public class PauseMenu : MonoBehaviour
 
     private void OnOptionsClicked()
     {
-        optionsMenu.AccessOptionsMenu(pausePanel);
+        optionsMenu.AccessOptionsMenu(pausePanel, this);
     }
 
     private void OnCancelClicked(InputAction.CallbackContext context)

@@ -2,7 +2,13 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MainMenuManager : MonoBehaviour
+public interface IUIController
+{
+    public void EnablingUI();
+}
+
+
+public class MainMenuManager : MonoBehaviour, IUIController
 {
     [Header("Main Menu")]
     [SerializeField] private GameObject _mainMenuContainer;
@@ -20,6 +26,11 @@ public class MainMenuManager : MonoBehaviour
         Cursor.visible = true;
         SetupButtonListeners();
         EventManager.TriggerEvent(EventKey.MUSIC, MusicKey.NoMask);
+    }
+
+    public void EnablingUI()
+    {
+        _playButton.Select();
     }
 
     private void SetupButtonListeners()
@@ -53,7 +64,7 @@ public class MainMenuManager : MonoBehaviour
         DebugLogger.Log("Opening options menu...");
         
         // Enable Options menu
-        optionsMenu?.AccessOptionsMenu(_mainMenuContainer);
+        optionsMenu?.AccessOptionsMenu(_mainMenuContainer, this);
     }
     
     

@@ -52,10 +52,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 6361535417129474870}
+    m_SelectOnDown: {fileID: 8186964838212083682}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -63,7 +63,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.5121472, g: 0.053266283, b: 0.5377358, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -79,7 +79,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 1905240469728985566}
   m_FillRect: {fileID: 658324926650312571}
   m_HandleRect: {fileID: 6698233210501815780}
   m_Direction: 0
@@ -143,6 +143,7 @@ MonoBehaviour:
   backOptionsButton: {fileID: 8186964838212083682}
   cameraSensitivityText: {fileID: 1905240469728985566}
   cameraSensitivitySlider: {fileID: 6361535417129474870}
+  _defaultCameraSensitivity: 50
 --- !u!1 &993243620630621719
 GameObject:
   m_ObjectHideFlags: 0
@@ -451,19 +452,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 6361535417129474870}
+    m_SelectOnDown: {fileID: 8186964838212083682}
+    m_SelectOnLeft: {fileID: 8186964838212083682}
+    m_SelectOnRight: {fileID: 6361535417129474870}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 0.6839622, b: 0.8526831, a: 0.8}
     m_HighlightedColor: {r: 0.7058824, g: 0.47843137, b: 0.6528104, a: 0.8}
     m_PressedColor: {r: 0.43529412, g: 0.296, b: 0.40279213, a: 0.8}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.8}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_SelectedColor: {r: 0.027233878, g: 0.4285483, b: 0.6415094, a: 0.8}
+    m_DisabledColor: {r: 0.2830189, g: 0.2763439, b: 0.2763439, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:

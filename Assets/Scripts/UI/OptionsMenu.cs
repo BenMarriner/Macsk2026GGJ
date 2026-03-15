@@ -15,6 +15,7 @@ public class OptionsMenu : MonoBehaviour
     
     private CameraController cameraControllerRef;
     private GameObject previousUIElementsHolder;
+    private IUIController previousUIController;
     
     public bool IsInOptionsMenu { get; private set; } = false;
     
@@ -32,9 +33,8 @@ public class OptionsMenu : MonoBehaviour
     }
     
     // Used by other scripts to enable the options menu
-    public void AccessOptionsMenu(GameObject previousUIElements)
+    public void AccessOptionsMenu(GameObject previousUIElements, IUIController controller)
     {
-
         if (previousUIElements != null && 
             previousUIElementsHolder != previousUIElements)
         {
@@ -46,6 +46,9 @@ public class OptionsMenu : MonoBehaviour
         optionsPanel.SetActive(true);
 
         IsInOptionsMenu = true;
+        
+        cameraSensitivitySlider.Select();
+        previousUIController = controller;
     }
     
     private void GetCameraControllerRef()
@@ -90,6 +93,8 @@ public class OptionsMenu : MonoBehaviour
         previousUIElementsHolder?.SetActive(true);
         
         IsInOptionsMenu = false;
+        
+        previousUIController.EnablingUI();
     }
     
     protected virtual void OnChangeCameraSensitivity(float value)

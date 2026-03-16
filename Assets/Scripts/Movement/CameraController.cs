@@ -41,6 +41,8 @@ public class CameraController : MonoBehaviour
     [SerializeField] [Range(1f, 179f)] private float slideFOV = 75f;
     [SerializeField] [Range(0.01f, 100f)] private float fovTransitionSpeed = 8f;
 
+    private bool _isControllerDisabled = false;
+    
     #endregion
 
     #region Private State
@@ -109,6 +111,8 @@ public class CameraController : MonoBehaviour
         {
             _inputReader.LookEvent += OnLookInput;
         }
+        
+        EventManager.RegisterEvent(EventKey.PLAYER_DIED, ResetCameraRotation);
     }
 
     private void OnDisable()
@@ -118,13 +122,31 @@ public class CameraController : MonoBehaviour
         {
             _inputReader.LookEvent -= OnLookInput;
         }
+        EventManager.DeregisterEvent(EventKey.PLAYER_DIED, ResetCameraRotation);
+    }
+
+    private void ResetCameraRotation(object eventData)
+    {
+        Debug.Log("ResetCameraRotation");
+        
+        _isControllerDisabled = true;
+        
+        // This makes that player look in the default direction
+        _lookInput = Vector2.zero;
+        _targetXRotation = 0.0f;
+        _targetYRotation = 0.0f;
+        
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+        //transform.rotation.Set(0.0f, 0.0f, 0.0f, 0.0f);
+        
+        _isControllerDisabled = false;
     }
 
     private void LateUpdate()
     {
         // Respect Time.timeScale for pause support
         // When timeScale is 0 or negative, skip all camera updates
-        if (Time.timeScale <= 0f)
+        if (Time.timeScale <= 0f || _isControllerDisabled)
         {
             return;
         }

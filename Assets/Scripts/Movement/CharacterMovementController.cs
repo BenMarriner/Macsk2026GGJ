@@ -612,6 +612,9 @@ public class CharacterMovementController : MonoBehaviour
     public void UpdateOrientationRotation(float yRotation)
     { orientation.rotation = Quaternion.Euler(0, yRotation, 0); }
 
+    public void ResetOrientationRotation()
+    { orientation.rotation = Quaternion.Euler(0, 0, 0); }
+    
     // State exposure methods for CameraController integration
     public MovementState GetCurrentState()
     { return state; }

@@ -56,12 +56,6 @@ public class InputHandler : MonoBehaviour
     private void HandleEscape(bool val)
     {
         return;
-        
-        Debug.Log("Escape");
-        if (val)
-        {
-            EventManager.TriggerEvent(EventKey.OPEN_SCENE, 1);
-        }
     }
     
     #endregion

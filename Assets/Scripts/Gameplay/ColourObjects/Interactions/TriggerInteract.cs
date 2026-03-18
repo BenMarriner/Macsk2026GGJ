@@ -63,4 +63,12 @@ public class TriggerInteract : GreenObject, IInteractable
         if (_onlyInteractableOnce && isTriggered) return;
         base.Highlight();
     }
+
+    public override void Reset()
+    {
+        _isEnabled = _wasEnabledAtStart;
+        isTriggered = false;
+
+        SetGreenEffect(_greenMaskMode);
+    }
 }

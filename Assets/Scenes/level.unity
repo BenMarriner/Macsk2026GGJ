@@ -28021,6 +28021,7 @@ Transform:
   - {fileID: 17118723}
   - {fileID: 1102134770}
   - {fileID: 973626786}
+  - {fileID: 2975848812878671706}
   - {fileID: 1338319921}
   - {fileID: 1343492740}
   - {fileID: 692782000}
@@ -306001,6 +306002,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5892939290549360465, guid: dadceb96a9b2e9c4d8d96863e262ae5a, type: 3}
   m_PrefabInstance: {fileID: 1013732065789672868}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1017572825925236256
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2975848812878671706}
+  - component: {fileID: 2975848812878671707}
+  m_Layer: 0
+  m_Name: ObstacleElevatorResetter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
 --- !u!114 &1562863307125874632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306270,6 +306288,40 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1030344927486307187, guid: a2bdbae96e44c014894a063125322c66, type: 3}
   m_PrefabInstance: {fileID: 7824568303302402307}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &2975848812878671706
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017572825925236256}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.6604395, y: 13.35, z: 55.22}
+  m_LocalScale: {x: 19.358921, y: 2.14, z: 15.532603}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 301538944}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2975848812878671707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017572825925236256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ad013a1eea41724982daa247b7a8dc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ResetActivation
+  _resetColourObjectList:
+  - {fileID: 1757806225}
+  - {fileID: 1326321081}
+  - {fileID: 1806800669}
+  - {fileID: 1203830567}
+  - {fileID: 5613466862040040373}
+  _resetOnPlayerDeath: 1
 --- !u!1001 &3000828379670641383
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -307896,7 +307948,7 @@ PrefabInstance:
       objectReference: {fileID: 540668932}
     - target: {fileID: 7658179471796695257, guid: a2bdbae96e44c014894a063125322c66, type: 3}
       propertyPath: m_VersionIndex
-      value: 8918
+      value: 8921
       objectReference: {fileID: 0}
     - target: {fileID: 8333735756435539059, guid: a2bdbae96e44c014894a063125322c66, type: 3}
       propertyPath: m_Size.z
@@ -307904,7 +307956,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8571447759194730810, guid: a2bdbae96e44c014894a063125322c66, type: 3}
       propertyPath: m_Name
-      value: TriggeredElevator
+      value: ObstacleElevator
       objectReference: {fileID: 0}
     - target: {fileID: 8983397736075544940, guid: a2bdbae96e44c014894a063125322c66, type: 3}
       propertyPath: _resetBlueList.Array.size

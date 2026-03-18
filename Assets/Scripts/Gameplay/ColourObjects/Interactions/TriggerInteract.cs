@@ -47,7 +47,8 @@ public class TriggerInteract : GreenObject, IInteractable
 
         if (_onlyInteractableOnce)
         {
-            DisableGreenEffect();
+            _isEnabled = false;
+            SetGreenEffect(_greenMaskMode);
         }
     }
 

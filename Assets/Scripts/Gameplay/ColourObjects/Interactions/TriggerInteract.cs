@@ -5,8 +5,8 @@ public class TriggerInteract : GreenObject, IInteractable
     [SerializeField] 
     private AbstractActivation[] _pairedInteractables;
     
-    [SerializeField]
-    private AnimationClip animationClip;
+    [SerializeField] private AnimationClip _pullingAnimClip;
+    [SerializeField] private AnimationClip _resetAnimClip;
     
     [SerializeField]
     private Animator animator;
@@ -31,7 +31,7 @@ public class TriggerInteract : GreenObject, IInteractable
         if (_onlyInteractableOnce && isTriggered) return;
         isTriggered = !isTriggered;
         
-        animator.Play(animationClip.name, 0, 0.0f);
+        animator.Play(_pullingAnimClip.name, 0, 0.0f);
 
         foreach (AbstractActivation item in _pairedInteractables)
         {
@@ -70,5 +70,8 @@ public class TriggerInteract : GreenObject, IInteractable
         isTriggered = false;
 
         SetGreenEffect(_greenMaskMode);
+
+        if (!_resetAnimClip) return;
+        animator.Play(_resetAnimClip.name, 0, 0.0f);
     }
 }

@@ -197304,7 +197304,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 680204220983859815, guid: 45209c7d0755f054abdaf519a2c4e4eb, type: 3}
       propertyPath: m_Name
-      value: Lever
+      value: ObstacleLever
       objectReference: {fileID: 0}
     - target: {fileID: 4731171384091855629, guid: 45209c7d0755f054abdaf519a2c4e4eb, type: 3}
       propertyPath: _pairedInteractables.Array.size
@@ -197314,6 +197314,10 @@ PrefabInstance:
       propertyPath: '_pairedInteractables.Array.data[0]'
       value: 
       objectReference: {fileID: 494990320}
+    - target: {fileID: 5144429387519356256, guid: 45209c7d0755f054abdaf519a2c4e4eb, type: 3}
+      propertyPath: m_Name
+      value: ObstacleLeverReal
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -238041,6 +238045,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3437192564630134875, guid: e149c5c18f58d4542ae0e53149f157ec, type: 3}
   m_PrefabInstance: {fileID: 1085378011}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1203830567 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4731171384091855629, guid: 45209c7d0755f054abdaf519a2c4e4eb, type: 3}
+  m_PrefabInstance: {fileID: 494990317}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acdbd61fc56604d4b9830921cb136459, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LeverInteract
 --- !u!43 &1204120866
 Mesh:
   m_ObjectHideFlags: 0
@@ -307881,7 +307896,7 @@ PrefabInstance:
       objectReference: {fileID: 540668932}
     - target: {fileID: 7658179471796695257, guid: a2bdbae96e44c014894a063125322c66, type: 3}
       propertyPath: m_VersionIndex
-      value: 8915
+      value: 8918
       objectReference: {fileID: 0}
     - target: {fileID: 8333735756435539059, guid: a2bdbae96e44c014894a063125322c66, type: 3}
       propertyPath: m_Size.z
@@ -307907,6 +307922,26 @@ PrefabInstance:
       propertyPath: '_resetBlueList.Array.data[2]'
       value: 
       objectReference: {fileID: 1806800669}
+    - target: {fileID: 8983397736075544940, guid: a2bdbae96e44c014894a063125322c66, type: 3}
+      propertyPath: _resetColourObjectList.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8983397736075544940, guid: a2bdbae96e44c014894a063125322c66, type: 3}
+      propertyPath: '_resetColourObjectList.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1757806225}
+    - target: {fileID: 8983397736075544940, guid: a2bdbae96e44c014894a063125322c66, type: 3}
+      propertyPath: '_resetColourObjectList.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1326321081}
+    - target: {fileID: 8983397736075544940, guid: a2bdbae96e44c014894a063125322c66, type: 3}
+      propertyPath: '_resetColourObjectList.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1806800669}
+    - target: {fileID: 8983397736075544940, guid: a2bdbae96e44c014894a063125322c66, type: 3}
+      propertyPath: '_resetColourObjectList.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1203830567}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

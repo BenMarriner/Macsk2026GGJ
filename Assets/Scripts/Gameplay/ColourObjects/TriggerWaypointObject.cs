@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class TriggerWaypointObject : BlueWaypointObject
 {
-    [SerializeField] protected List<BlueWaypointObject> _resetBlueList;
+    [SerializeField] protected List<ColouredObject> _resetColourObjectList;
 
     protected override void OnEnable()
 	{
@@ -46,7 +46,7 @@ public class TriggerWaypointObject : BlueWaypointObject
     {
         base.Reset();
 
-        foreach (BlueWaypointObject item in _resetBlueList)
+        foreach (ColouredObject item in _resetColourObjectList)
         {
             if (item)
             {

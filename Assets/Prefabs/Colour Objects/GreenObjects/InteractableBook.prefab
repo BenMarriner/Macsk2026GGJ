@@ -60,7 +60,8 @@ MonoBehaviour:
   _solhouetteLayer: Silhouette
   _pairedInteractables:
   - {fileID: 0}
-  animationClip: {fileID: 7400000, guid: cba9fdc7c39c44149a5965a8f517b7b3, type: 2}
+  _pullingAnimClip: {fileID: 7400000, guid: cba9fdc7c39c44149a5965a8f517b7b3, type: 2}
+  _resetAnimClip: {fileID: 0}
   animator: {fileID: 6273648589113722303}
   _onlyInteractableOnce: 1
   _leverSwitchSource: {fileID: 1710945856938698993}

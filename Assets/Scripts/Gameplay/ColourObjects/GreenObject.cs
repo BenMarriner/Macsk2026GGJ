@@ -10,6 +10,7 @@ public class GreenObject : ColouredObject
     private IInteractable _interactable;
     private int _defaultObjectLayer;
     protected bool _silhouetteEnabled = false;
+    protected bool _wasEnabledAtStart;
     private Transform[] _allObjectTransforms;
 
     protected virtual void Start()
@@ -21,32 +22,34 @@ public class GreenObject : ColouredObject
 
         _defaultObjectLayer = gameObject.layer;
 
+        _wasEnabledAtStart = _isEnabled;
+
         Unhighlight();
         _allObjectTransforms = GetComponentsInChildren<Transform>();
         _defaultMaterialList = GetDefaultMaterialList(_allObjectTransforms);
         
-        DisableGreenEffect();
+        SetGreenEffect(_greenMaskMode);
     }
 
     public override void SetEnabled(bool enabled)
     {
         _isEnabled = enabled;
         
-        if (_isEnabled && _greenMaskMode)
-        {
-            EnableGreenEffect();
-        }
+        SetGreenEffect(_greenMaskMode);
     }
 
     protected override void SetGreenEffect(bool greenEnabled)
     {
-        bool interactionEnabled = greenEnabled;
+        _greenMaskMode = greenEnabled;
+        bool interactionEnabled = _greenMaskMode;
         if (_effectReversed)
         {
             interactionEnabled = !enabled;
         }
 
-        if (interactionEnabled)
+        UpdateAmbientSFX(_silhouetteEnabled && _greenMaskMode && _isEnabled);
+
+        if (interactionEnabled && _isEnabled)
         {
             EnableGreenEffect();
         }
@@ -58,8 +61,6 @@ public class GreenObject : ColouredObject
 
     protected virtual void EnableGreenEffect()
     {
-        _greenMaskMode = true;
-        UpdateAmbientSFX(_silhouetteEnabled && _greenMaskMode && _isEnabled);
         if (!_isEnabled) return;
         foreach (GenericCouple<Renderer, Material> item in _defaultMaterialList)
         {
@@ -74,8 +75,6 @@ public class GreenObject : ColouredObject
 
     protected virtual void DisableGreenEffect()
     {
-        _greenMaskMode = false;
-        UpdateAmbientSFX(_silhouetteEnabled && _greenMaskMode && _isEnabled);
         foreach (GenericCouple<Renderer, Material> item in _defaultMaterialList)
         {
             item.First.material = item.Second;

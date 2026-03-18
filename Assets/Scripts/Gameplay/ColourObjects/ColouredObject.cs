@@ -49,6 +49,8 @@ public class ColouredObject : MaskChangeDetector
         SetEnabled(!_isEnabled);
     }
 
+    public virtual void Reset(){}
+
     protected virtual void SetMusicSyncTime(object eventData)
     {
         if (eventData is not int) this.LogError("Event listener recieved incorrect data type!");

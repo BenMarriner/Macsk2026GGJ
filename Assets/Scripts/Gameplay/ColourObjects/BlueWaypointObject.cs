@@ -130,7 +130,7 @@ public class BlueWaypointObject : BlueObject
     }
 
     [ContextMenu("Reset Platform")]
-    public virtual void Reset()
+    public override void Reset()
     {
         _isEnabled = _wasEnabledAtStart;
         _targetWaypointIndex = 0;

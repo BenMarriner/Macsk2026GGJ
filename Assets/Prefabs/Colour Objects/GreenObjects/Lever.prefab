@@ -447,7 +447,8 @@ MonoBehaviour:
   - {fileID: 6819228465643289884}
   _solhouetteLayer: Silhouette
   _pairedInteractables: []
-  animationClip: {fileID: 7400000, guid: 14e49ea1366cc6d4eb31ac214400e85c, type: 2}
+  _pullingAnimClip: {fileID: 7400000, guid: 14e49ea1366cc6d4eb31ac214400e85c, type: 2}
+  _resetAnimClip: {fileID: 7400000, guid: 02558683f6e02ca4881d93235b38b857, type: 2}
   animator: {fileID: 3257755672023033997}
   _onlyInteractableOnce: 1
   _leverSwitchSource: {fileID: 3452229458133936918}

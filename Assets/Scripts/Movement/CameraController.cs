@@ -18,7 +18,8 @@ public class CameraController : MonoBehaviour
     [SerializeField] private bool enableRotationSmoothing = false;
     [SerializeField] [Range(0.01f, 100f)] private float rotationSmoothSpeed = 30f;
 
-    [Header("Position Settings")]
+    [Header("Position Settings")] 
+    [SerializeField] private bool attachCameraToPlayerPoint = true;
     [SerializeField] private bool enablePositionSmoothing = true;
     [SerializeField] [Range(0.01f, 100f)] private float positionSmoothSpeed = 60f;
 
@@ -156,6 +157,7 @@ public class CameraController : MonoBehaviour
         UpdateHeadBob();
         UpdateLandingImpact();
         UpdateFOV();
+        
         UpdatePosition();
     }
 
@@ -282,13 +284,50 @@ public class CameraController : MonoBehaviour
 
     private void UpdatePosition()
     {
+        if (attachCameraToPlayerPoint)
+        {
+            AttachFollowPosition();
+            return;
+        }
+
+        FreeFollowPosition();
+    }
+
+    // When the camera is attached to the player
+    private void AttachFollowPosition()
+    {
+        // Target position for the camera is always Vector.zero relative to local position
+        // of the parent object the camera is attached to.
+        
+        // Calculate head bob offset
+        Vector3 headBobOffset = CalculateHeadBobOffset();
+
+        // Apply position (with or without smoothing)
+        if (enablePositionSmoothing)
+        {
+            // Smooth interpolation towards target position
+            transform.localPosition = Vector3.Lerp(
+                transform.localPosition, 
+                Vector3.zero + headBobOffset, 
+                positionSmoothSpeed * Time.deltaTime);
+        }
+        else
+        {
+            // Direct assignment (no smoothing) - exactly match follow point
+            transform.localPosition = Vector3.zero + headBobOffset;
+        }
+    }
+    
+    // When the camera isn't attached to the player
+    private void FreeFollowPosition()
+    {
         // Validate follow point reference
         if (!_followPoint)
         { return; }
 
         // Update target position from follow point
         _targetPosition = _followPoint.position;
-
+        
         // Calculate head bob offset
         Vector3 headBobOffset = CalculateHeadBobOffset();
 
@@ -484,8 +523,14 @@ public class CameraController : MonoBehaviour
         
         // Assign new references
         _inputReader = reader;
-        _followPoint = cameraFollowPoint;
         _movementController = characterMovementController;
+        _followPoint = cameraFollowPoint;
+
+        if (attachCameraToPlayerPoint)
+        {
+            gameObject.transform.SetParent(cameraFollowPoint);
+            gameObject.transform.localPosition = Vector3.zero;
+        }
         
         // Subscribe to new InputReader events
         AssignInputs();

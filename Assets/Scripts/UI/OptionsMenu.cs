@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class OptionsMenu : MonoBehaviour
@@ -10,8 +11,20 @@ public class OptionsMenu : MonoBehaviour
     
     [SerializeField] private TextMeshProUGUI cameraSensitivityText;
     [SerializeField] private Slider cameraSensitivitySlider;
+    [SerializeField] private TextMeshProUGUI _SFXVolumeText;
+    [SerializeField] private Slider _SFXVolumeSlider;
+    [SerializeField] private TextMeshProUGUI _musicVolumeText;
+    [SerializeField] private Slider _musicVolumeSlider;
 
     [SerializeField] private float _defaultCameraSensitivity = 50;
+    [SerializeField] private float _defaultSoundVolume = 50;
+
+    [SerializeField] private AudioMixer _SFXMixer;
+    [SerializeField] private AudioMixer _musicMixer;
+
+    private string _cameraSenseString = "cameraSensitivity";
+    private string _SFXVolumeString = "SFXVolume";
+    private string _musicVolumeString = "musicVolume";
     
     private CameraController cameraControllerRef;
     private GameObject previousUIElementsHolder;

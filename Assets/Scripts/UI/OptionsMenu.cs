@@ -17,15 +17,16 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] private Slider _musicVolumeSlider;
 
     [SerializeField] private float _defaultCameraSensitivity = 50;
-    [SerializeField] private float _defaultSoundVolume = 80;
+    [SerializeField] private float _defaultSoundVolume = 0;
+    [SerializeField] private float _volumeDisplayOffset = 80;
 
     [SerializeField] private AudioMixer _audioMixer;
 
-    private string _cameraSenseString = "cameraSensitivity";
-    private string _SFXVolumeString = "SFXVolume";
-    private string _musicVolumeString = "musicVolume";
-    private string _mixerMusicString = "MusicVolume";
-    private string _musicSFXString = "SFXVolume";
+    private string _cameraSenseString = "cameraSensitivity"; //variable name for accessing sensitivity setting in PlayerPrefs
+    private string _SFXVolumeString = "SFXVolume"; //variable name for accessing sfx setting in PlayerPrefs
+    private string _musicVolumeString = "musicVolume"; //variable name for accessing music setting in PlayerPrefs
+    private string _musicSFXString = "SFXVolume"; //variable name for accessing SFX setting in audio mixer
+    private string _mixerMusicString = "MusicVolume"; //variable name for accessing music setting in audio mixer
     
     private CameraController cameraControllerRef;
     private GameObject previousUIElementsHolder;
@@ -115,22 +116,29 @@ public class OptionsMenu : MonoBehaviour
     
     protected virtual void OnChangeCameraSensitivity(float sensitivity)
     {
-        SaveCameraSensitivity(sensitivity);
+        SaveFloatSetting(_cameraSenseString, sensitivity);
         SetCameraSensitivity(sensitivity, false);
     }
 
     protected virtual void OnChangeSFXVolume(float volume)
     {
-        SaveSFXVolume(volume);
+        SaveFloatSetting(_SFXVolumeString, volume);
         SetSFXVolume(volume, false);
     }
 
     protected virtual void OnChangeMusicVolume(float volume)
     {
-        SaveMusicVolume(volume);
+        SaveFloatSetting(_musicVolumeString, volume);
         SetMusicVolume(volume, false);
     }
 
+    private void LoadSettings()
+    {
+        SetCameraSensitivity(PlayerPrefs.GetFloat(_cameraSenseString));
+        SetSFXVolume(PlayerPrefs.GetFloat(_SFXVolumeString));
+        SetMusicVolume(PlayerPrefs.GetFloat(_musicVolumeString));
+    }
+    
     private void SetCameraSensitivity(float sensitivity, bool setSlider = true)
     {
         if (!cameraSensitivitySlider || !cameraSensitivityText) return;
@@ -149,7 +157,7 @@ public class OptionsMenu : MonoBehaviour
     {
         if (!_SFXVolumeSlider || !_SFXVolumeText || !_audioMixer) return;
         if (setSlider) _SFXVolumeSlider.value = volume;
-        _SFXVolumeText.text = volume.ToString("F1");
+        _SFXVolumeText.text = (volume + _volumeDisplayOffset).ToString("F1");
         _audioMixer.SetFloat(_musicSFXString, volume);
     }
 
@@ -157,27 +165,12 @@ public class OptionsMenu : MonoBehaviour
     {
         if (!_musicVolumeSlider || !_musicVolumeText || !_audioMixer) return;
         if (setSlider) _musicVolumeSlider.value = volume;
-        _musicVolumeText.text = volume.ToString("F1");
+        _musicVolumeText.text = (volume + _volumeDisplayOffset).ToString("F1");
         _audioMixer.SetFloat(_mixerMusicString, volume);
     }
-
-    private void SaveAndApplySettings(float sensitivity)
-    {
-        PlayerPrefs.SetFloat(_cameraSenseString, sensitivity);
-    }
     
-    private void SaveCameraSensitivity(float sensitivity)
+    private void SaveFloatSetting(string settingStringKey,float value)
     {
-        PlayerPrefs.SetFloat(_cameraSenseString, sensitivity);
-    }
-
-    private void SaveSFXVolume(float volume)
-    {
-        PlayerPrefs.SetFloat(_SFXVolumeString, volume);
-    }
-
-    private void SaveMusicVolume(float volume)
-    {
-        PlayerPrefs.SetFloat(_musicVolumeString, volume);
+        PlayerPrefs.SetFloat(settingStringKey, value);
     }
 }

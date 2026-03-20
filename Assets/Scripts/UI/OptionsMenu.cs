@@ -17,14 +17,15 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] private Slider _musicVolumeSlider;
 
     [SerializeField] private float _defaultCameraSensitivity = 50;
-    [SerializeField] private float _defaultSoundVolume = 50;
+    [SerializeField] private float _defaultSoundVolume = 80;
 
-    [SerializeField] private AudioMixer _SFXMixer;
-    [SerializeField] private AudioMixer _musicMixer;
+    [SerializeField] private AudioMixer _audioMixer;
 
     private string _cameraSenseString = "cameraSensitivity";
     private string _SFXVolumeString = "SFXVolume";
     private string _musicVolumeString = "musicVolume";
+    private string _mixerMusicString = "MusicVolume";
+    private string _musicSFXString = "SFXVolume";
     
     private CameraController cameraControllerRef;
     private GameObject previousUIElementsHolder;
@@ -79,14 +80,14 @@ public class OptionsMenu : MonoBehaviour
     
     private void InitialiseMenu()
     {
-        if (!PlayerPrefs.HasKey("cameraSensitivity"))
+        if (!PlayerPrefs.HasKey(_cameraSenseString))
         {
-            PlayerPrefs.SetFloat("cameraSensitivity", _defaultCameraSensitivity);
-            LoadCameraSensitivity();
+            PlayerPrefs.SetFloat(_cameraSenseString, _defaultCameraSensitivity);
+            LoadSettings();
         }
         else
         {
-            LoadCameraSensitivity();
+            LoadSettings();
         }
     }
 
@@ -94,6 +95,8 @@ public class OptionsMenu : MonoBehaviour
     {
         backOptionsButton?.onClick.AddListener(OnBackOptionsClicked);
         cameraSensitivitySlider?.onValueChanged.AddListener(OnChangeCameraSensitivity);
+        _SFXVolumeSlider?.onValueChanged.AddListener(OnChangeSFXVolume);
+        _musicVolumeSlider?.onValueChanged.AddListener(OnChangeMusicVolume);
     }
     
     public virtual void OnBackOptionsClicked()
@@ -110,32 +113,71 @@ public class OptionsMenu : MonoBehaviour
         previousUIController.EnablingUI();
     }
     
-    protected virtual void OnChangeCameraSensitivity(float value)
+    protected virtual void OnChangeCameraSensitivity(float sensitivity)
     {
-        //gameSettingsManger.cameraSensitivity = cameraSensitivitySlider.value;
-        
+        SaveCameraSensitivity(sensitivity);
+        SetCameraSensitivity(sensitivity, false);
+    }
+
+    protected virtual void OnChangeSFXVolume(float volume)
+    {
+        SaveSFXVolume(volume);
+        SetSFXVolume(volume, false);
+    }
+
+    protected virtual void OnChangeMusicVolume(float volume)
+    {
+        SaveMusicVolume(volume);
+        SetMusicVolume(volume, false);
+    }
+
+    private void SetCameraSensitivity(float sensitivity, bool setSlider = true)
+    {
         if (!cameraSensitivitySlider || !cameraSensitivityText) return;
-        SaveCameraSensitivity(value);
-        
-        cameraSensitivityText.text = cameraSensitivitySlider.value.ToString("F1");
+        if (setSlider) cameraSensitivitySlider.value = sensitivity;
+        cameraSensitivityText.text = sensitivity.ToString("F1");
 
         if (!cameraControllerRef)
         {
             GetCameraControllerRef();
         }
         
-        cameraControllerRef?.SetCameraSensitivity(value);
+        cameraControllerRef?.SetCameraSensitivity(sensitivity);
+    }
+
+    private void SetSFXVolume(float volume, bool setSlider = true)
+    {
+        if (!_SFXVolumeSlider || !_SFXVolumeText || !_audioMixer) return;
+        if (setSlider) _SFXVolumeSlider.value = volume;
+        _SFXVolumeText.text = volume.ToString("F1");
+        _audioMixer.SetFloat(_musicSFXString, volume);
+    }
+
+    private void SetMusicVolume(float volume, bool setSlider = true)
+    {
+        if (!_musicVolumeSlider || !_musicVolumeText || !_audioMixer) return;
+        if (setSlider) _musicVolumeSlider.value = volume;
+        _musicVolumeText.text = volume.ToString("F1");
+        _audioMixer.SetFloat(_mixerMusicString, volume);
+    }
+
+    private void SaveAndApplySettings(float sensitivity)
+    {
+        PlayerPrefs.SetFloat(_cameraSenseString, sensitivity);
     }
     
-    private void LoadCameraSensitivity()
+    private void SaveCameraSensitivity(float sensitivity)
     {
-        if (!cameraSensitivitySlider || !cameraSensitivityText) return;
-        cameraSensitivitySlider.value = PlayerPrefs.GetFloat("cameraSensitivity");
-        cameraSensitivityText.text = cameraSensitivitySlider.value.ToString("F1");
+        PlayerPrefs.SetFloat(_cameraSenseString, sensitivity);
     }
-    
-    private void SaveCameraSensitivity(float value)
+
+    private void SaveSFXVolume(float volume)
     {
-        PlayerPrefs.SetFloat("cameraSensitivity", value);
+        PlayerPrefs.SetFloat(_SFXVolumeString, volume);
+    }
+
+    private void SaveMusicVolume(float volume)
+    {
+        PlayerPrefs.SetFloat(_musicVolumeString, volume);
     }
 }

@@ -16,7 +16,7 @@ public class PauseMenu : MonoBehaviour, IUIController
     [SerializeField] private Button resumeButton;
     [SerializeField] private Button quitButton;
     [SerializeField] private Button optionsButton;
-    [SerializeField] private Button _optionsBackgroundButton;
+    [SerializeField] private Button _backgroundButton;
     [SerializeField] private OptionsMenu optionsMenu;
     
     public bool IsPaused { get; private set; } = false;
@@ -48,7 +48,7 @@ public class PauseMenu : MonoBehaviour, IUIController
     {
         resumeButton?.onClick.AddListener(OnResumeClicked);
         quitButton?.onClick.AddListener(OnQuitClicked);
-        _optionsBackgroundButton?.onClick.AddListener(OnBackgroundClicked);
+        _backgroundButton?.onClick.AddListener(OnBackgroundClicked);
 
         if (eventSystem && eventSystem.TryGetComponent(out InputSystemUIInputModule ISUIInputModule))
         {

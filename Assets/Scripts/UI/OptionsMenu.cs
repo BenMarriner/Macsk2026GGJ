@@ -8,7 +8,7 @@ public class OptionsMenu : MonoBehaviour
     [Header("Options")]
     [SerializeField] private GameObject optionsPanel;
     [SerializeField] private Button backOptionsButton;
-    [SerializeField] private Button _optionsBackgroundButton;
+    [SerializeField] private Button _backgroundButton;
     
     [SerializeField] private TextMeshProUGUI cameraSensitivityText;
     [SerializeField] private Slider cameraSensitivitySlider;
@@ -99,7 +99,7 @@ public class OptionsMenu : MonoBehaviour
         cameraSensitivitySlider?.onValueChanged.AddListener(OnChangeCameraSensitivity);
         _SFXVolumeSlider?.onValueChanged.AddListener(OnChangeSFXVolume);
         _musicVolumeSlider?.onValueChanged.AddListener(OnChangeMusicVolume);
-        _optionsBackgroundButton?.onClick.AddListener(OnBackgroundClicked);
+        _backgroundButton?.onClick.AddListener(OnBackgroundClicked);
     }
     
     public virtual void OnBackOptionsClicked()

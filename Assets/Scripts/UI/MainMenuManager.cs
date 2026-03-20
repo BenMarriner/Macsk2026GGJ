@@ -1,4 +1,3 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +13,8 @@ public class MainMenuManager : MonoBehaviour, IUIController
     [SerializeField] private GameObject _mainMenuContainer;
     [SerializeField] private Button _playButton;
     [SerializeField] private Button _quitButton;
+    [SerializeField] private Button _backgroundButton;
+
     [SerializeField] protected int travelSceneIndex = 3;
     
     [Header("Options")]
@@ -38,6 +39,7 @@ public class MainMenuManager : MonoBehaviour, IUIController
         // Main menu buttons
         _playButton?.onClick.AddListener(OnPlayClicked);
         _quitButton?.onClick.AddListener(OnQuitClicked);
+        _backgroundButton?.onClick.AddListener(OnBackgroundClicked);
         
         _optionsButton?.onClick.AddListener(OnOptionsClicked);
     }
@@ -58,6 +60,13 @@ public class MainMenuManager : MonoBehaviour, IUIController
         EventManager.TriggerEvent(EventKey.QUIT_GAME, null);
     }
 
+    public virtual void OnBackgroundClicked()
+    {   
+        if (!_playButton) return;
+
+        _playButton.Select();
+    }
+
     protected virtual void OnOptionsClicked()
     {
         EventManager.TriggerEvent(EventKey.SFX, SoundType.ButtonClick);
@@ -67,8 +76,5 @@ public class MainMenuManager : MonoBehaviour, IUIController
         optionsMenu?.AccessOptionsMenu(_mainMenuContainer, this);
     }
     
-    
     #endregion
-    
-
 }

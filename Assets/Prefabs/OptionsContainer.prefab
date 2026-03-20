@@ -536,7 +536,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::OptionsMenu
   optionsPanel: {fileID: 1639461300659034477}
   backOptionsButton: {fileID: 8186964838212083682}
-  _optionsBackgroundButton: {fileID: 4894732354948618536}
+  _backgroundButton: {fileID: 4894732354948618536}
   cameraSensitivityText: {fileID: 1905240469728985566}
   cameraSensitivitySlider: {fileID: 6361535417129474870}
   _SFXVolumeText: {fileID: 7356554819947473839}
@@ -2809,7 +2809,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 5968658899657084752}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []

@@ -197,7 +197,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 1600415801059818749}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
@@ -1084,7 +1084,7 @@ MonoBehaviour:
   resumeButton: {fileID: 7748878766795579155}
   quitButton: {fileID: 7165676220259550909}
   optionsButton: {fileID: 2587041329000337142}
-  _optionsBackgroundButton: {fileID: 6937949193272601417}
+  _backgroundButton: {fileID: 6937949193272601417}
   optionsMenu: {fileID: 4246962533832762228}
 --- !u!1 &6338488233780954051
 GameObject:

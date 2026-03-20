@@ -1,6 +1,4 @@
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.InputSystem.UI;
@@ -18,6 +16,7 @@ public class PauseMenu : MonoBehaviour, IUIController
     [SerializeField] private Button resumeButton;
     [SerializeField] private Button quitButton;
     [SerializeField] private Button optionsButton;
+    [SerializeField] private Button _optionsBackgroundButton;
     [SerializeField] private OptionsMenu optionsMenu;
     
     public bool IsPaused { get; private set; } = false;
@@ -49,6 +48,7 @@ public class PauseMenu : MonoBehaviour, IUIController
     {
         resumeButton?.onClick.AddListener(OnResumeClicked);
         quitButton?.onClick.AddListener(OnQuitClicked);
+        _optionsBackgroundButton?.onClick.AddListener(OnBackgroundClicked);
 
         if (eventSystem && eventSystem.TryGetComponent(out InputSystemUIInputModule ISUIInputModule))
         {
@@ -73,6 +73,13 @@ public class PauseMenu : MonoBehaviour, IUIController
         DisablePause();
         
         EventManager.TriggerEvent(EventKey.OPEN_SCENE, 1);
+    }
+
+    public virtual void OnBackgroundClicked()
+    {   
+        if (!resumeButton) return;
+
+        resumeButton.Select();
     }
 
     private void OnOptionsClicked()
@@ -165,5 +172,4 @@ public class PauseMenu : MonoBehaviour, IUIController
             Debug.LogWarning("No Camera Holder found");
         }
     }
-    
 }

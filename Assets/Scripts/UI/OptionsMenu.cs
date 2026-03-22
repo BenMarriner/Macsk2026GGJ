@@ -26,7 +26,7 @@ public class OptionsMenu : MonoBehaviour
     private string _cameraSenseString = "cameraSensitivity"; //variable name for accessing sensitivity setting in PlayerPrefs
     private string _SFXVolumeString = "SFXVolume"; //variable name for accessing sfx setting in PlayerPrefs
     private string _musicVolumeString = "musicVolume"; //variable name for accessing music setting in PlayerPrefs
-    private string _musicSFXString = "SFXVolume"; //variable name for accessing SFX setting in audio mixer
+    private string _mixerSFXString = "SFXVolume"; //variable name for accessing SFX setting in audio mixer
     private string _mixerMusicString = "MusicVolume"; //variable name for accessing music setting in audio mixer
     
     private CameraController cameraControllerRef;
@@ -83,14 +83,15 @@ public class OptionsMenu : MonoBehaviour
     private void InitialiseMenu()
     {
         if (!PlayerPrefs.HasKey(_cameraSenseString))
-        {
             PlayerPrefs.SetFloat(_cameraSenseString, _defaultCameraSensitivity);
-            LoadSettings();
-        }
-        else
-        {
-            LoadSettings();
-        }
+
+        if (!PlayerPrefs.HasKey(_SFXVolumeString))
+            PlayerPrefs.SetFloat(_SFXVolumeString, _defaultSoundVolume);
+
+        if (!PlayerPrefs.HasKey(_musicVolumeString))
+            PlayerPrefs.SetFloat(_musicVolumeString, _defaultSoundVolume);
+
+        LoadSettings();
     }
 
     private void SetupButtonListeners()
@@ -166,7 +167,7 @@ public class OptionsMenu : MonoBehaviour
         if (!_SFXVolumeSlider || !_SFXVolumeText || !_audioMixer) return;
         if (setSlider) _SFXVolumeSlider.value = volume;
         _SFXVolumeText.text = (volume + _volumeDisplayOffset).ToString("F1");
-        _audioMixer.SetFloat(_musicSFXString, volume);
+        _audioMixer.SetFloat(_mixerSFXString, volume);
     }
 
     private void SetMusicVolume(float volume, bool setSlider = true)

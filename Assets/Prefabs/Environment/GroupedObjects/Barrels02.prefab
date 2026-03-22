@@ -88,6 +88,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BookStack_B
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 929e1d555edfe074e9b694cc109598c2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -149,6 +153,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 445d18a98aa809a4687f8f420fab3611, type: 3}
       propertyPath: m_Name
       value: BookStack_D
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 445d18a98aa809a4687f8f420fab3611, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -252,6 +260,18 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 8b4d7caa03e98c747919e91f3d24f573, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6544179161725481256, guid: 8b4d7caa03e98c747919e91f3d24f573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: -4232833816398490495, guid: 8b4d7caa03e98c747919e91f3d24f573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: -3396363259376524721, guid: 8b4d7caa03e98c747919e91f3d24f573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8b4d7caa03e98c747919e91f3d24f573, type: 3}
       propertyPath: m_Name
@@ -360,6 +380,18 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -6544179161725481256, guid: 8b4d7caa03e98c747919e91f3d24f573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: -4232833816398490495, guid: 8b4d7caa03e98c747919e91f3d24f573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: -3396363259376524721, guid: 8b4d7caa03e98c747919e91f3d24f573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8b4d7caa03e98c747919e91f3d24f573, type: 3}
       propertyPath: m_Name
       value: Barrel (2)
@@ -466,6 +498,18 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 8b4d7caa03e98c747919e91f3d24f573, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6544179161725481256, guid: 8b4d7caa03e98c747919e91f3d24f573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: -4232833816398490495, guid: 8b4d7caa03e98c747919e91f3d24f573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: -3396363259376524721, guid: 8b4d7caa03e98c747919e91f3d24f573, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8b4d7caa03e98c747919e91f3d24f573, type: 3}
       propertyPath: m_Name

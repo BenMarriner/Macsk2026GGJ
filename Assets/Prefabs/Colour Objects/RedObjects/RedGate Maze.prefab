@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 998172628037755526, guid: 4298dafe83adf5e4ab06785c042a895e, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 16
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2897909969849281067, guid: 4298dafe83adf5e4ab06785c042a895e, type: 3}
       propertyPath: _colouredMaterial

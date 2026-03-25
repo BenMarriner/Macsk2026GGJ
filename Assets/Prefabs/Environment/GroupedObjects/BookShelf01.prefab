@@ -29,7 +29,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1739196455352085218}
+  - {fileID: 6105350197826845449}
   - {fileID: 6573179167271241682}
   - {fileID: 8922807213591416307}
   - {fileID: 690811115352877448}
@@ -84,6 +84,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -4.854
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 929e1d555edfe074e9b694cc109598c2, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1a17ac5d7fe2a5d48a5a755f98d6dd1d, type: 2}
     - target: {fileID: 919132149155446097, guid: 929e1d555edfe074e9b694cc109598c2, type: 3}
       propertyPath: m_Name
       value: BookStack_B
@@ -102,7 +106,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 929e1d555edfe074e9b694cc109598c2, type: 3}
   m_PrefabInstance: {fileID: 1016960783847951971}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &2281183760992718089
+--- !u!1001 &5994351393365368034
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -110,79 +114,59 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6136264474422206814}
     m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 731bb0ee488c4c94494129eec086637a, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 12b93a7b0f3df18408584360f33ea435, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.79
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 731bb0ee488c4c94494129eec086637a, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 12b93a7b0f3df18408584360f33ea435, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.001
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 731bb0ee488c4c94494129eec086637a, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 12b93a7b0f3df18408584360f33ea435, type: 3}
       propertyPath: m_LocalPosition.z
+      value: -0.38
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 12b93a7b0f3df18408584360f33ea435, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 12b93a7b0f3df18408584360f33ea435, type: 3}
+      propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 731bb0ee488c4c94494129eec086637a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 731bb0ee488c4c94494129eec086637a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 731bb0ee488c4c94494129eec086637a, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 12b93a7b0f3df18408584360f33ea435, type: 3}
       propertyPath: m_LocalRotation.y
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 731bb0ee488c4c94494129eec086637a, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 12b93a7b0f3df18408584360f33ea435, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 731bb0ee488c4c94494129eec086637a, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 12b93a7b0f3df18408584360f33ea435, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 731bb0ee488c4c94494129eec086637a, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 12b93a7b0f3df18408584360f33ea435, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 731bb0ee488c4c94494129eec086637a, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 12b93a7b0f3df18408584360f33ea435, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -7271449666460269675, guid: 731bb0ee488c4c94494129eec086637a, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 731bb0ee488c4c94494129eec086637a, type: 3}
+    - target: {fileID: 919132149155446097, guid: 12b93a7b0f3df18408584360f33ea435, type: 3}
       propertyPath: m_Name
-      value: Shelf_A
-      objectReference: {fileID: 0}
-    - target: {fileID: 1502877291743220047, guid: 731bb0ee488c4c94494129eec086637a, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 5233112405309087440, guid: 731bb0ee488c4c94494129eec086637a, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 5252682845850649624, guid: 731bb0ee488c4c94494129eec086637a, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 8485173162082002552, guid: 731bb0ee488c4c94494129eec086637a, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 16
+      value: BookShelf
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 731bb0ee488c4c94494129eec086637a, type: 3}
---- !u!4 &1739196455352085218 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: 12b93a7b0f3df18408584360f33ea435, type: 3}
+--- !u!4 &6105350197826845449 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 731bb0ee488c4c94494129eec086637a, type: 3}
-  m_PrefabInstance: {fileID: 2281183760992718089}
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 12b93a7b0f3df18408584360f33ea435, type: 3}
+  m_PrefabInstance: {fileID: 5994351393365368034}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6318554023374612204
 PrefabInstance:
@@ -232,6 +216,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -4.854
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 929e1d555edfe074e9b694cc109598c2, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1a17ac5d7fe2a5d48a5a755f98d6dd1d, type: 2}
     - target: {fileID: 919132149155446097, guid: 929e1d555edfe074e9b694cc109598c2, type: 3}
       propertyPath: m_Name
       value: BookStack_B (1)
@@ -298,6 +286,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5c8a991382b93ac4793ff571eb50427d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1a17ac5d7fe2a5d48a5a755f98d6dd1d, type: 2}
     - target: {fileID: 919132149155446097, guid: 5c8a991382b93ac4793ff571eb50427d, type: 3}
       propertyPath: m_Name
       value: Book
@@ -368,6 +360,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5c8a991382b93ac4793ff571eb50427d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1a17ac5d7fe2a5d48a5a755f98d6dd1d, type: 2}
     - target: {fileID: 919132149155446097, guid: 5c8a991382b93ac4793ff571eb50427d, type: 3}
       propertyPath: m_Name
       value: Book (1)

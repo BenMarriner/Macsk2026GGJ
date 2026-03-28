@@ -36,7 +36,7 @@ public class MaskManager : MonoBehaviour
     
     void SwitchMaskScroll(object eventData)
     {
-        if (eventData is not int) this.LogError("Event listener recieved incorrect data type!");
+        if (eventData is not int) this.LogError("Event listener received incorrect data type!");
         int maskChange = (int)eventData;
 
         if (!_maskEnabled || maskChange == 0)

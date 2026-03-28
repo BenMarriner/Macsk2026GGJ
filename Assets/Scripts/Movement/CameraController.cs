@@ -42,7 +42,9 @@ public class CameraController : MonoBehaviour
     [SerializeField] [Range(1f, 179f)] private float slideFOV = 75f;
     [SerializeField] [Range(0.01f, 100f)] private float fovTransitionSpeed = 8f;
 
-    private bool _isControllerDisabled = false;
+    private bool _isInputPaused = false;
+
+    public bool isInputDisabled = true;
     
     #endregion
 
@@ -130,7 +132,7 @@ public class CameraController : MonoBehaviour
     {
         Debug.Log("ResetCameraRotation");
         
-        _isControllerDisabled = true;
+        _isInputPaused = true;
         
         // This makes that player look in the default direction
         _lookInput = Vector2.zero;
@@ -140,14 +142,14 @@ public class CameraController : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, 0);
         //transform.rotation.Set(0.0f, 0.0f, 0.0f, 0.0f);
         
-        _isControllerDisabled = false;
+        _isInputPaused = false;
     }
 
     private void LateUpdate()
     {
         // Respect Time.timeScale for pause support
         // When timeScale is 0 or negative, skip all camera updates
-        if (Time.timeScale <= 0f || _isControllerDisabled)
+        if (Time.timeScale <= 0f || isInputDisabled || _isInputPaused)
         {
             return;
         }

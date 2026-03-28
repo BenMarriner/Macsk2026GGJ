@@ -15,6 +15,8 @@ public class CharacterMovementController : MonoBehaviour
     private Vector3 _movementDirection;
     private Rigidbody _rigidbody;
     private InputReader _inputReader;
+    
+    public bool isInputDisabled = true;
 
     public bool EnableSprint { get; private set; } = false;
     public bool EnableCrouch { get; private set; } = false;
@@ -348,10 +350,13 @@ public class CharacterMovementController : MonoBehaviour
         // Landing detection for camera effects
         DetectLanding();
 
-        HandleMovement();
-        HandleJump();
-        HandleCrouch();
-
+        if (!isInputDisabled)
+        {
+            HandleMovement();
+            HandleJump();
+            HandleCrouch();
+        }
+        
         SpeedControl();
 
         StateHandler();

@@ -26,6 +26,7 @@ public class InputHandler : MonoBehaviour
     private GameObject _playerComponentHolder; // object with all the movement components
 
     private CharacterMovementController _characterMovementController;
+    private CameraController _cameraController;
     private Interactor _playerInteract;
 
     [Header("Modify Movement Inputs")]
@@ -36,11 +37,29 @@ public class InputHandler : MonoBehaviour
     [SerializeField] private bool enableCrouch = false;
     [SerializeField] private bool enableSprint = false;
 
+    [Header("Input Enable Options")] 
+    [SerializeField] private float inputEnableTimer = .2f;
+    
+    private bool isInputDisabled = true;
+    
+    public bool InputDisabled
+    {
+        get => isInputDisabled;
+        set
+        {
+            isInputDisabled = value;
+            _characterMovementController.isInputDisabled = value;
+            _cameraController.isInputDisabled = value;
+        }
+    }
+    
     #region InputHandleFunctions
     // 1 or -1
     private float _toggleMaskInput = 0;
     private void HandleToggleMask(float val)
     {
+        if (isInputDisabled) return;
+        
         _toggleMaskInput = val;
 
         EventManager.TriggerEvent(EventKey.MASK_INPUT, (int)val);
@@ -49,12 +68,16 @@ public class InputHandler : MonoBehaviour
 
     private void HandleInteract(bool val)
     {
+        if (isInputDisabled) return;
+        
         _interactInput = val;
         if (val) _playerInteract?.InteractWithObject();
     }
 
     private void HandleEscape(bool val)
     {
+        if (isInputDisabled) return;
+        
         return;
     }
     
@@ -70,10 +93,6 @@ public class InputHandler : MonoBehaviour
         {
             if (!_playerComponentHolder.TryGetComponent(out CharacterMovementController cmc)) return;
             _characterMovementController = cmc;
-            
-            //TODO: Get reference to MASK TOGGLE script here
-            
-            //TODO: Get reference to INTERACTION script here
 
             if (!_playerComponentHolder.TryGetComponent(out Interactor pi)) return;
             _playerInteract = pi;
@@ -85,6 +104,14 @@ public class InputHandler : MonoBehaviour
 
     public void AssignAndSetupPlayerCharacter(GameObject player = null)
     {
+        if (!TryGetComponent(out CameraController cameraController))
+        {
+            Debug.LogError("ERROR: Missing primary movement component (Camera Controller).");
+            return;
+        }
+        
+        _cameraController = cameraController;
+        
         if (player) { _playerComponentHolder = player; }
 
         if (!_playerComponentHolder) 
@@ -100,7 +127,19 @@ public class InputHandler : MonoBehaviour
             Debug.LogError("ERROR: Missing primary movement component (Character Movement Controller).");
             return;
         }
+        
+        if (!_cameraController)
+        {
+            Debug.LogError("ERROR: Missing primary movement component (Camera Controller).");
+            return;
+        }
 
+        if (!_playerInteract)
+        {
+            Debug.LogError("ERROR: Missing primary movement component (Interactor).");
+            return;
+        }
+        
         SetUpCapabilities();
     }
 
@@ -113,19 +152,12 @@ public class InputHandler : MonoBehaviour
             toggleSprint,
             toggleCrouch);
         
-        if (TryGetComponent(out CameraController cameraController))
-        {
-            cameraController.Initialize(
-                inputReader, 
-                _characterMovementController, 
-                _characterMovementController.GetCameraPoint());
+        _cameraController.Initialize(
+            inputReader, 
+            _characterMovementController, 
+            _characterMovementController.GetCameraPoint());
             
-            _playerInteract.SetCapabilities(cameraController.GetCameraObject());
-        }
-        else
-        {
-            Debug.LogError("ERROR: Cannot get CameraController component.");
-        }
+        _playerInteract.SetCapabilities(_cameraController.GetCameraObject());
         
         // For disabling unused scripts
         //SetupExtraInputFeatureCapabilities();
@@ -133,8 +165,15 @@ public class InputHandler : MonoBehaviour
 
     private void Start()
     {
+        Invoke(nameof(EnableInputs), inputEnableTimer);
+        
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+    }
+
+    private void EnableInputs()
+    {
+        InputDisabled = false;
     }
     
     private void ResetInputValues()

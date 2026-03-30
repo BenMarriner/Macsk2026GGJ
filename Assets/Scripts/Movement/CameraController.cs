@@ -231,7 +231,9 @@ public class CameraController : MonoBehaviour
         // Calculate target rotation from input
         float mouseX = _lookInput.x * mouseSensitivityX * Time.deltaTime;
         float mouseY = _lookInput.y * mouseSensitivityY * Time.deltaTime;
-
+        
+        _lookInput = Vector2.zero; // consume the input — add this line
+        
         // Update target rotations
         _targetYRotation += mouseX;
         _targetXRotation -= mouseY; // Inverted for natural mouse look

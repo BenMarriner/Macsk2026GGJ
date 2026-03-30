@@ -199,6 +199,7 @@ MonoBehaviour:
   toggleSprint: 0
   enableCrouch: 0
   enableSprint: 0
+  inputEnableTimer: 0.2
   enableSlide: 0
   enableClimbing: 0
   enableWallRunning: 0
@@ -220,6 +221,7 @@ MonoBehaviour:
   mouseSensitivityY: 170
   enableRotationSmoothing: 1
   rotationSmoothSpeed: 30
+  attachCameraToPlayerPoint: 1
   enablePositionSmoothing: 1
   positionSmoothSpeed: 60
   enableHeadBob: 1
@@ -235,6 +237,7 @@ MonoBehaviour:
   sprintFOV: 70
   slideFOV: 75
   fovTransitionSpeed: 8
+  isInputDisabled: 1
 --- !u!1 &7451705109636236096
 GameObject:
   m_ObjectHideFlags: 0

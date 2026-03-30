@@ -41,7 +41,9 @@ public class CameraController : MonoBehaviour
     [SerializeField] [Range(1f, 179f)] private float sprintFOV = 70f;
     [SerializeField] [Range(1f, 179f)] private float slideFOV = 75f;
     [SerializeField] [Range(0.01f, 100f)] private float fovTransitionSpeed = 8f;
-
+    
+    private bool _hasAssignedInput = false;
+    
     private bool _isInputPaused = false;
 
     public bool isInputDisabled = true;
@@ -110,10 +112,7 @@ public class CameraController : MonoBehaviour
     private void OnEnable()
     {
         // Subscribe to input events if InputReader is already assigned
-        if (_inputReader)
-        {
-            _inputReader.LookEvent += OnLookInput;
-        }
+        AssignInputs();
         
         EventManager.RegisterEvent(EventKey.PLAYER_DIED, ResetCameraRotation);
     }
@@ -124,6 +123,7 @@ public class CameraController : MonoBehaviour
         if (_inputReader)
         {
             _inputReader.LookEvent -= OnLookInput;
+            _hasAssignedInput = false;
         }
         EventManager.DeregisterEvent(EventKey.PLAYER_DIED, ResetCameraRotation);
     }
@@ -165,14 +165,16 @@ public class CameraController : MonoBehaviour
 
     private void AssignInputs()
     {
-        if (_inputReader)
-        {
-            _inputReader.LookEvent += OnLookInput;
-        }
-        else
+        if (!_inputReader)
         {
             Debug.LogWarning("CameraController: InputReader reference is null! Camera will not respond to input.");
+            return;
         }
+
+        if (_hasAssignedInput) return;
+
+        _inputReader.LookEvent += OnLookInput;
+        _hasAssignedInput = true;
     }
     
     /// <summary>
@@ -219,7 +221,7 @@ public class CameraController : MonoBehaviour
     private void OnLookInput(Vector2 lookDelta)
     {
         // Store input for processing in LateUpdate
-        _lookInput = lookDelta;
+        _lookInput += lookDelta;
     }
 
     #endregion
@@ -228,9 +230,18 @@ public class CameraController : MonoBehaviour
 
     private void UpdateRotation()
     {
+        //float safeDeltaTime = Mathf.Min(Time.deltaTime, 0.05f);
         // Calculate target rotation from input
-        float mouseX = _lookInput.x * mouseSensitivityX * Time.deltaTime;
-        float mouseY = _lookInput.y * mouseSensitivityY * Time.deltaTime;
+        //float mouseX = _lookInput.x * mouseSensitivityX * safeDeltaTime;
+        //float mouseY = _lookInput.y * mouseSensitivityY * safeDeltaTime;
+        
+        // Mouse delta from <Mouse>/delta is a physical displacement (pixels moved),
+        // NOT a velocity — do not multiply by Time.deltaTime.
+        // Multiplying by deltaTime makes mouse look frame-rate dependent, causing
+        // jumps on slow frames (startup, hitches) and inconsistency vs. gamepad.
+        // Sensitivity is scaled down by a fixed factor to keep values reasonable.
+        float mouseX = _lookInput.x * mouseSensitivityX * 0.01f;
+        float mouseY = _lookInput.y * mouseSensitivityY * 0.01f;
         
         _lookInput = Vector2.zero; // consume the input — add this line
         
@@ -247,8 +258,9 @@ public class CameraController : MonoBehaviour
             // Smooth interpolation towards target using Quaternion.Slerp
             Quaternion currentRotation = Quaternion.Euler(_xRotation, _yRotation, 0f);
             Quaternion targetRotation = Quaternion.Euler(_targetXRotation, _targetYRotation, 0f);
-            Quaternion smoothedRotation = Quaternion.Slerp(currentRotation, targetRotation, rotationSmoothSpeed * Time.deltaTime);
-            
+            //Quaternion smoothedRotation = Quaternion.Slerp(currentRotation, targetRotation, rotationSmoothSpeed * safeDeltaTime);
+            Quaternion smoothedRotation = Quaternion.Slerp(currentRotation, targetRotation, rotationSmoothSpeed * Mathf.Min(Time.deltaTime, 0.05f));
+
             // Extract euler angles from smoothed rotation
             Vector3 smoothedEuler = smoothedRotation.eulerAngles;
             _xRotation = NormalizeAngle(smoothedEuler.x);
@@ -310,10 +322,12 @@ public class CameraController : MonoBehaviour
         if (enablePositionSmoothing)
         {
             // Smooth interpolation towards target position
+            // Cap deltaTime to prevent snapping from frame spikes
+            float safeDeltaTime = Mathf.Min(Time.deltaTime, 0.05f);
             transform.localPosition = Vector3.Lerp(
                 transform.localPosition, 
                 Vector3.zero + headBobOffset, 
-                positionSmoothSpeed * Time.deltaTime);
+                positionSmoothSpeed * safeDeltaTime);
         }
         else
         {
@@ -339,10 +353,12 @@ public class CameraController : MonoBehaviour
         if (enablePositionSmoothing)
         {
             // Smooth interpolation towards target position
+            // Cap deltaTime to prevent snapping from frame spikes
+            float safeDeltaTime = Mathf.Min(Time.deltaTime, 0.05f);
             transform.position = Vector3.Lerp(
                 transform.position, 
                 _targetPosition + headBobOffset, 
-                positionSmoothSpeed * Time.deltaTime);
+                positionSmoothSpeed * safeDeltaTime);
         }
         else
         {
@@ -397,8 +413,9 @@ public class CameraController : MonoBehaviour
             // Smoothly fade in head bob when starting to move
             _currentHeadBobIntensity = Mathf.Lerp(_currentHeadBobIntensity, targetIntensity, headBobSmoothSpeed * Time.deltaTime);
             
-            // Increment timer based on speed and frequency
-            _headBobTimer += Time.deltaTime * headBobFrequency * _currentSpeed;
+            // Cap deltaTime to prevent large phase jumps from frame spikes (hitches, GC, shader warmup)
+            float safeDeltaTime = Mathf.Min(Time.deltaTime, 0.05f);
+            _headBobTimer += safeDeltaTime * headBobFrequency * _currentSpeed;
         }
         else
         {
@@ -523,6 +540,7 @@ public class CameraController : MonoBehaviour
         if (_inputReader)
         {
             _inputReader.LookEvent -= OnLookInput;
+            _hasAssignedInput = false;
         }
         
         // Assign new references
@@ -553,6 +571,12 @@ public class CameraController : MonoBehaviour
         {
             Debug.LogWarning("CameraController: Follow point reference is null. Position tracking will not work.");
         }
+        
+        // Flush any input that accumulated before the camera was ready.
+        // InputReader (a ScriptableObject) enables its input actions during scene load,
+        // before Initialize is called. Mouse deltas fired during that gap would otherwise
+        // cause a large rotation jump on the first frame.
+        _lookInput = Vector2.zero;
     }
 
     /// <summary>

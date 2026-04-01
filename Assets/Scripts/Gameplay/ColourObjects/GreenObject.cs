@@ -61,10 +61,18 @@ public class GreenObject : ColouredObject
 
     protected virtual void EnableGreenEffect()
     {
+        // Loop over over mesh-default materials pairs, then
+        // loop over the mesh's current materials and replace them with _colouredMaterial
         if (!_isEnabled) return;
-        foreach (GenericCouple<Renderer, Material> item in _defaultMaterialList)
+        for (int i = 0; i < _defaultMaterialList.Count; i++)
         {
-            item.First.material = _colouredMaterial;
+            Material[] meshCurrentMaterials = _defaultMaterialList[i].First.materials;
+            for (int l = 0; l < meshCurrentMaterials.Length; l++)
+            {
+                meshCurrentMaterials[l] = _colouredMaterial;
+            }
+
+            _defaultMaterialList[i].First.materials = meshCurrentMaterials;
         }
 
         if (_silhouetteEnabled)
@@ -75,9 +83,21 @@ public class GreenObject : ColouredObject
 
     protected virtual void DisableGreenEffect()
     {
-        foreach (GenericCouple<Renderer, Material> item in _defaultMaterialList)
+        // Loop over over mesh-default materials pairs, loop over the mesh's current materials
+        // then loop over the mesh's default materials and replace the current with the default material
+        for (int i = 0; i < _defaultMaterialList.Count; i++)
         {
-            item.First.material = item.Second;
+            Material[] meshDefaultMaterials = _defaultMaterialList[i].Second;
+            Material[] meshCurrentMaterials = _defaultMaterialList[i].First.materials;
+            for (int l = 0; l < meshCurrentMaterials.Length; l++)
+            {
+                for (int j = 0; j < meshDefaultMaterials.Length; j++)
+                {
+                    meshCurrentMaterials[l] = meshDefaultMaterials[j];
+                }
+            }
+
+            _defaultMaterialList[i].First.materials = meshDefaultMaterials;
         }
 
         SetSelfAndChildrenLayers(_defaultObjectLayer);

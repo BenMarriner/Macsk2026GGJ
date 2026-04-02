@@ -39,7 +39,7 @@ public class BlueObject : ColouredObject
 
         if (!_colouredMaterial) return;
 
-        foreach (GenericCouple<Renderer, Material> item in _defaultMaterialList)
+        foreach (GenericCouple<Renderer, Material[]> item in _defaultMaterialList)
         {
             Material newMaterial;
             
@@ -49,7 +49,7 @@ public class BlueObject : ColouredObject
             }
             else
             {
-                newMaterial = item.Second;
+                newMaterial = item.Second[0]; //Currently no blue objects have more than one material
             }
 
             item.First.material = newMaterial;

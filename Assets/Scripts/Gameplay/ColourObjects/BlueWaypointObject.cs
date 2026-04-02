@@ -142,9 +142,9 @@ public class BlueWaypointObject : BlueObject
 
         if (!_colouredMaterial || _isEnabled) return;
 
-        foreach (GenericCouple<Renderer, Material> item in _defaultMaterialList)
+        foreach (GenericCouple<Renderer, Material[]> item in _defaultMaterialList)
         {
-            item.First.material = item.Second;
+            item.First.material = item.Second[0]; //Currently no blue objects have more than one material
         }
     }
 }

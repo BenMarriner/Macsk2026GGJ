@@ -52,7 +52,7 @@ public class RedObject : ColouredObject
 
         UpdateAmbientSFX(redEnabled);
 
-        foreach (GenericCouple<Renderer, Material> item in _defaultMaterialList)
+        foreach (GenericCouple<Renderer, Material[]> item in _defaultMaterialList)
         {
             Material newMaterial;
 
@@ -69,7 +69,7 @@ public class RedObject : ColouredObject
             }
             else
             {
-                newMaterial = item.Second;
+                newMaterial = item.Second[0]; //Currently no red objects have more than one material
             }
 
             item.First.material = newMaterial;

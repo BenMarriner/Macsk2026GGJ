@@ -9,7 +9,7 @@ public class ColouredObject : MaskChangeDetector
     [SerializeField] protected AudioSource _ambientSFXSource;
     [SerializeField] protected float _ambientFadeTime = 0.5f;
     protected float _maxVolumeMultiplier = 1f;
-    protected List<GenericCouple<Renderer, Material>> _defaultMaterialList = new();
+    protected List<GenericCouple<Renderer, Material[]>> _defaultMaterialList = new();
     protected IEnumerator _ambientSfxFade;
 
     protected virtual void Awake()
@@ -70,16 +70,16 @@ public class ColouredObject : MaskChangeDetector
     // their default material, then adding them to a list
     //
     // not the most performant, but easier for designers to add it to an object
-    protected List<GenericCouple<Renderer, Material>> GetDefaultMaterialList(Transform[] transformArray)
+    protected List<GenericCouple<Renderer, Material[]>> GetDefaultMaterialList(Transform[] transformArray)
     {
-        List<GenericCouple<Renderer, Material>> defaultMaterialList = new();
+        List<GenericCouple<Renderer, Material[]>> defaultMaterialList = new();
         
         foreach (Transform item in transformArray)
         {
             if (item.TryGetComponent(out Renderer renderer) && renderer.enabled)
             {
-                Material objectMaterial = renderer.material;
-                defaultMaterialList.Add(new GenericCouple<Renderer, Material>(renderer, objectMaterial));
+                Material[] objectMaterials = renderer.materials;
+                defaultMaterialList.Add(new GenericCouple<Renderer, Material[]>(renderer, objectMaterials));
             }
         }
 
